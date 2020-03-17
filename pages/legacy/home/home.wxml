@@ -1,0 +1,9 @@
+<!--pages/legacy/home/home.wxml-->
+<view class="page_view">
+    <van-panel>
+        <view>
+            <van-button type="info">信息按钮</van-button>
+        </view>
+    </van-panel>
+
+</view>
