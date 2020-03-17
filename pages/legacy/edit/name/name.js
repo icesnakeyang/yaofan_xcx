@@ -1,40 +1,68 @@
-// pages/team/teamList/teamList.js
+// pages/legacy/edit/name/name.js
+
+import api from '../../../../api/api.js'
+import Notify from '../../../../vant-weapp/notify/notify.js';
+import MsgBox from '../../../../utils/msgBox/msgBox.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    name: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.loadAllData()
+    let name = options.name
+    this.setData({
+      name
+    })
+
   },
 
   loadAllData() {
-    let token = wx.getStorageSync('yaofan_token')
 
-    console.log(token)
+  },
 
-    if (token) {
-      console.log('登录')
-    } else {
-      console.log('未登录')
-      wx.navigateTo({
-        url: '/pages/legacy/login/login',
+  onName(e) {
+    this.setData({
+      name: e.detail
+    })
+  },
+
+  onSave() {
+    if (!this.data.name) {
+      wx.showToast({
+        title: '请输入真实姓名',
+        icon: 'none'
       })
+      return
     }
+    let params = {
+      username: this.data.name
+    }
+
+    api.apiUpdateUsername(params).then((res)=>{
+      wx.showToast({
+        title: '修改成功'
+      })
+      wx.switchTab({
+        url: '/pages/legacy/home/home',
+      })
+    }).catch((error)=>{
+      Notify(MsgBox.showMsg(error));
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+    
   },
 
   /**

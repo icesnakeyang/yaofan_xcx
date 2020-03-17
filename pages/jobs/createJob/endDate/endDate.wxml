@@ -1,0 +1,21 @@
+<!--pages/jobs/createJob/endDate/endDate.wxml-->
+<view class="page_view">
+  <view class="box_view">
+    <view>
+      <view>
+        <van-cell-group>
+          <picker mode="date" value="{{date}}" bindchange="bindDate">
+            <van-field label="任务截止日期" value="{{ date }}" placeholder="请输入日期" border="{{ true }}" />
+          </picker>
+          <picker mode="time" value="{{time}}" bindchange="bindTime">
+            <van-field label="任务截止时间" value="{{ time }}" placeholder="请输入时间" border="{{ false }}" />
+          </picker>
+        </van-cell-group>
+      </view>
+
+    </view>
+    <view class="row_content_view">
+      <van-button size="small" type="info" bind:click="onConfirm">确定</van-button>
+    </view>
+  </view>
+</view>

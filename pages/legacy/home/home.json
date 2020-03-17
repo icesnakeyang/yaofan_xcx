@@ -1,7 +1,9 @@
 {
   "usingComponents": {
       "van-panel": "/vant-weapp/panel/index",
-      "van-button": "/vant-weapp/button/index"
+      "van-button": "/vant-weapp/button/index",
+      "van-cell": "/vant-weapp/cell/index",
+      "van-cell-group": "/vant-weapp/cell-group/index"
   },
   "navigationBarTitleText": "我的衣钵"
 }

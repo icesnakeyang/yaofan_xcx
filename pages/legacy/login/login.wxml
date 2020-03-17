@@ -1,2 +1,16 @@
 <!--pages/legacy/login/login.wxml-->
-<text>pages/legacy/login/login.wxml</text>
+<view class="box_view">
+  <van-panel title="欢迎登录次第乞食">
+    <view>
+      <van-cell-group>
+        <van-field label="用户名" placeholder="请输入用户名" border="{{ true }}" bind:change="onLoginName" />
+        <van-field label="密码" placeholder="请输入登录密码" bind:change="onPassword" />
+      </van-cell-group>
+    </view>
+  </van-panel>
+</view>
+
+<view class="bt_group_view">
+  <van-button type="info">登录</van-button>
+  <van-button type="warning" bind:click="onRegister">注册</van-button>
+</view>

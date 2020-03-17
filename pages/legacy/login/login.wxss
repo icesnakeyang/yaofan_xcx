@@ -1,1 +1,10 @@
 /* pages/legacy/login/login.wxss */
+
+@import '/css/global.wxss';
+
+.bt_group_view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}

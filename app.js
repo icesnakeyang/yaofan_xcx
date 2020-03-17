@@ -16,22 +16,7 @@ App({
         let params={
 
         }
-          api.apiLoginByToken(params).then((res)=>{
-              console.log(res)
-              if(res.data.userInfo){
-                  console.log('有')
-              }else{
-                  console.log('没有')
-                  wx.navigateTo({
-                      url: '/pages/legacy/login/login',
-                  })
-              }
-          }).catch((error)=>{
-              wx.showToast({
-                  title: '登录失败！',
-                  icon:'none'
-              })
-          })
+          
       }
     })
     // 获取用户信息

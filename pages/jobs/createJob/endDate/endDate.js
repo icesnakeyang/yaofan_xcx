@@ -1,23 +1,46 @@
-// pages/jobs/myJob/myJobList/myJobList.js
+// pages/jobs/createJob/endDate/endDate.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    date:'',
+    time:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let endDateTime = wx.getStorageSync('endDateTime')
+    console.log(endDateTime)
+    this.setData({
+      date:endDateTime.date,
+      time:endDateTime.time
+    })
   },
 
-  onNewJob(){
-    wx.navigateTo({
-      url: '../../createJob/createJob',
+  bindDate(e){
+    console.log(e.detail.value)
+    this.setData({
+      date:e.detail.value
+    })
+  },
+
+  bindTime(e){
+    console.log(e.detail.value)
+    this.setData({
+      time:e.detail.value
+    })
+  },
+
+  onConfirm(){
+    console.log('confirm')
+    console.log(this.data)
+    wx.setStorageSync('endDateTime', this.data)
+    wx.navigateBack({
+      
     })
   },
 

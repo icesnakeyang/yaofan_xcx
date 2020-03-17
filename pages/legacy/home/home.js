@@ -1,32 +1,57 @@
 // pages/legacy/home/home.js
+import api from '../../../api/api.js'
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+      userInfo:{}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+      this.loadAllData()
     },
+
+  loadAllData() {
+    let token = wx.getStorageSync('yaofan_token')
+    api.apiLoginByToken({}).then((res)=>{
+      this.setData({
+        userInfo:res.data.userInfo
+      })
+    }).catch((error)=>{
+      console.log(error)
+    })
+
+    if (token) {
+    } else {
+      wx.navigateTo({
+        url: '/pages/legacy/login/login',
+      })
+    }
+  },
+
+  onName(){
+    wx.navigateTo({
+      url: '../edit/name/name?name='+this.data.userInfo.name,
+    })
+  },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+      this.loadAllData()
     },
 
     /**

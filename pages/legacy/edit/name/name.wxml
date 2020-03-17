@@ -1,0 +1,18 @@
+<!--pages/legacy/edit/name/name.wxml-->
+<view class="page_view">
+  <van-notice-bar backgroundColor="rgb(214, 220, 229)" color="rgb(127,127,127)" wrapable text="使用真实姓名让大家记住您的名字" />
+  <view class="box_view">
+    <van-panel>
+      <view>
+        <van-cell-group>
+          <van-field label="姓名" value="{{ name }}" placeholder="请输入您的真实姓名" border="{{ false }}" bind:change="onName" />
+        </van-cell-group>
+        <view class="row_content_view">
+          <van-button size="small" type="info" bind:click="onSave">保存</van-button>
+        </view>
+      </view>
+    </van-panel>
+  </view>
+</view>
+
+<van-notify id="van-notify" />

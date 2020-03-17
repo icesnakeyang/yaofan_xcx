@@ -1,1 +1,2 @@
 /* pages/legacy/home/home.wxss */
+@import '/css/global.wxss'

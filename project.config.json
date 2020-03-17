@@ -60,6 +60,83 @@
 					"id": -1,
 					"name": "pages/legacy/home/home",
 					"pathName": "pages/legacy/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/legacy/login/login",
+					"pathName": "pages/legacy/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/legacy/register/register",
+					"pathName": "pages/legacy/register/register",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/legacy/register/register",
+					"pathName": "pages/legacy/register/register",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/legacy/register/register",
+					"pathName": "pages/legacy/register/register",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/legacy/home/home",
+					"pathName": "pages/legacy/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/legacy/edit/name/name",
+					"pathName": "pages/legacy/edit/name/name",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/public/plaza/publicJobList",
+					"pathName": "pages/jobs/public/plaza/publicJobList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/myJobList/myJobList",
+					"pathName": "pages/jobs/myJob/myJobList/myJobList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/createJob/createJob",
+					"pathName": "pages/jobs/createJob/createJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/createJob/endDate/endDate",
+					"pathName": "pages/jobs/createJob/endDate/endDate",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/createJob/createJob",
+					"pathName": "pages/jobs/createJob/createJob",
 					"scene": null
 				}
 			]

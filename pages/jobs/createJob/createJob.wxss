@@ -1,1 +1,2 @@
 /* pages/jobs/createJob/createJob.wxss */
+@import '/css/global.wxss'

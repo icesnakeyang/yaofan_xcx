@@ -1,2 +1,9 @@
 <!--pages/jobs/myJob/myJobList/myJobList.wxml-->
-<text>pages/jobs/myJob/myJobList/myJobList.wxml</text>
+<view class="page_view">
+  <van-grid square>
+    <van-grid-item icon="photo-o" text="创建任务" bind:click="onNewJob" />
+    <van-grid-item icon="photo-o" text="团队任务" />
+    <van-grid-item icon="photo-o" text="甲方" />
+    <van-grid-item icon="photo-o" text="乙方" />
+  </van-grid>
+</view>
