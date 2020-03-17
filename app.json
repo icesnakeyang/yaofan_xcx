@@ -1,16 +1,47 @@
 {
     "pages": [
+        "pages/jobs/public/plaza/publicJobList",
         "pages/index/index",
         "pages/logs/logs",
-        "pages/myCenter",
-        "pages/myCenter/myCenter",
-        "pages/jobs/public/plaza/publicJobList"
+        "pages/legacy/register/register",
+        "pages/legacy/login/login",
+        "pages/legacy/profile/profile",
+        "pages/legacy/home/home",
+        "pages/jobs/teamJob/teamJobList",
+        "pages/jobs/createJob/createJob",
+        "pages/jobs/myJob/myJobList/myJobList",
+        "pages/team/teamList/teamList",
+        "pages/account/dashboard/dashboard"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "WeChat",
         "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/jobs/public/plaza/publicJobList",
+                "text": "任务广场"
+            },
+            {
+                "pagePath": "pages/team/teamList/teamList",
+                "text": "我的团队"
+            },
+            {
+                "pagePath": "pages/jobs/myJob/myJobList/myJobList",
+                "text": "我的任务"
+            },
+            {
+                "pagePath": "pages/account/dashboard/dashboard",
+                "text": "我的账户"
+            },
+            {
+                "pagePath": "pages/legacy/home/home",
+                "text": "我的衣钵"
+            }
+        ]
     },
     "style": "v2",
     "sitemapLocation": "sitemap.json"
