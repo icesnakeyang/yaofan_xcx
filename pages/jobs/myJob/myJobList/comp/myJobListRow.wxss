@@ -1,0 +1,6 @@
+/* pages/jobs/myJob/myJobList/comp/myJobListRow.wxss */
+@import '/css/global.wxss';
+
+.card_view {
+  margin-bottom: 30rpx;
+}

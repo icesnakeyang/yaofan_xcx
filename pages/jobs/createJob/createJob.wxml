@@ -3,8 +3,8 @@
   <view class="box_view">
     <view>
       <van-field label="任务标题" placeholder="请输入任务标题" border="{{ true }}" bind:change="onTitle" />
-      <van-field label="任务积分" type="number" placeholder="请设置任务积分" border="{{ true }}" bind:change="onPoint" />
-      <van-cell title="任务截止时间" is-link value="{{endDate}}" bind:click="onEndDate" />
+      <van-field label="任务积分" value="{{point}}" placeholder="请设置任务积分" border="{{ true }}" bind:change="onPoint" />
+      <van-cell title="任务截止时间" is-link value="{{endDate+' '+endTime}}" bind:click="onEndDate" />
       <van-field value="{{ detail }}" label="任务详情" type="textarea" placeholder="请描述任务详情要求" autosize border="{{ false }}" bind:change="onDetail" />
     </view>
   </view>
@@ -13,3 +13,5 @@
     <van-button type="info" bind:click="onSave">创建任务</van-button>
   </view>
 </view>
+
+<van-notify id="van-notify" />

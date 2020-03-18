@@ -137,6 +137,34 @@
 					"id": -1,
 					"name": "pages/jobs/createJob/createJob",
 					"pathName": "pages/jobs/createJob/createJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/legacy/login/login",
+					"pathName": "pages/legacy/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/myJobList/myJobList",
+					"pathName": "pages/jobs/myJob/myJobList/myJobList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/createJob/createJob",
+					"pathName": "pages/jobs/createJob/createJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/myJobList/myJobList",
+					"pathName": "pages/jobs/myJob/myJobList/myJobList",
 					"scene": null
 				}
 			]

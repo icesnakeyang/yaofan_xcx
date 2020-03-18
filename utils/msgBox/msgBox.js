@@ -1,12 +1,18 @@
 function showMsg(msg) {
-  if(msg===10001){
+  if (msg === 10001) {
     return '抱歉！由于未知原因，您的操作失败了，请稍后再试。'
   }
   if (msg === 10002) {
     return '电话号码已经被其它用户使用了'
   }
+  if (msg === 10003) {
+    return '用户名或者密码错误'
+  }
+  if (msg === 20002){
+    return '任务积分必须是整数'
+  }
 }
 
-module.exports={
+module.exports = {
   showMsg
 }

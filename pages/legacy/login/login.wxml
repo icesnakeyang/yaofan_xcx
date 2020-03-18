@@ -3,7 +3,7 @@
   <van-panel title="欢迎登录次第乞食">
     <view>
       <van-cell-group>
-        <van-field label="用户名" placeholder="请输入用户名" border="{{ true }}" bind:change="onLoginName" />
+        <van-field label="手机号码" placeholder="请输入手机号码" border="{{ true }}" bind:change="onPhone" />
         <van-field label="密码" placeholder="请输入登录密码" bind:change="onPassword" />
       </van-cell-group>
     </view>
@@ -11,6 +11,8 @@
 </view>
 
 <view class="bt_group_view">
-  <van-button type="info">登录</van-button>
+  <van-button type="info" bind:click="onLogin">登录</van-button>
   <van-button type="warning" bind:click="onRegister">注册</van-button>
 </view>
+
+<van-notify id="van-notify" />

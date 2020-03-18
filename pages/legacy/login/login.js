@@ -1,11 +1,16 @@
 // pages/legacy/login/login.js
+import api from '../../../api/api.js'
+import Notify from '../../../vant-weapp/notify/notify.js';
+import MsgBox from '../../../utils/msgBox/msgBox.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    phone: '',
+    password: ''
   },
 
   /**
@@ -15,9 +20,39 @@ Page({
 
   },
 
+  onPhone(e) {
+    this.setData({
+      phone: e.detail
+    })
+  },
+
+  onPassword(e) {
+    this.setData({
+      password: e.detail
+    })
+  },
+
   onRegister() {
     wx.navigateTo({
       url: '../register/register',
+    })
+  },
+
+  onLogin() {
+    console.log(this.data)
+    let params = {
+      phone: this.data.phone,
+      password: this.data.password
+    }
+    api.apiLogin(params).then((res) => {
+      console.log(res)
+      wx.setStorageSync('yaofan_token', res.data.userInfo.token)
+      wx.switchTab({
+        url: '/pages/legacy/home/home',
+      })
+    }).catch((error) => {
+      console.log(error)
+      Notify(MsgBox.showMsg(error));
     })
   },
 

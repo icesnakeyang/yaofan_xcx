@@ -1,0 +1,4 @@
+<!--pages/jobs/myJob/myJobList/comp/myJobListRow.wxml-->
+<view class="card_view" bindtap="onRow">
+  <van-card price="{{point}}" desc="{{createTime}}" title="{{title}}" />
+</view>

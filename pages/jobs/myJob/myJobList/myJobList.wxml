@@ -1,9 +1,16 @@
 <!--pages/jobs/myJob/myJobList/myJobList.wxml-->
 <view class="page_view">
   <van-grid square>
-    <van-grid-item icon="photo-o" text="创建任务" bind:click="onNewJob" />
-    <van-grid-item icon="photo-o" text="团队任务" />
-    <van-grid-item icon="photo-o" text="甲方" />
-    <van-grid-item icon="photo-o" text="乙方" />
+    <van-grid-item icon="add-o" text="创建任务" bind:click="onNewJob" />
+    <van-grid-item icon="friends-o" text="团队任务" />
+    <van-grid-item icon="like-o" text="甲方" />
+    <van-grid-item icon="star-o" text="乙方" />
   </van-grid>
+
+  <view class="box_view">
+    <block wx:for="{{jobs}}" wx:key="index">
+    <myJobListRow theData="{{item}}"></myJobListRow>
+      
+    </block>
+  </view>
 </view>

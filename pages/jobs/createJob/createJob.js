@@ -1,5 +1,8 @@
 // pages/jobs/createJob/createJob.js
+import api from '../../../api/api.js'
 import tools from '../../../utils/dateTools.js'
+import Notify from '../../../vant-weapp/notify/notify.js';
+import MsgBox from '../../../utils/msgBox/msgBox.js'
 
 Page({
 
@@ -10,7 +13,7 @@ Page({
     title: '',
     endDate: '',
     endTime: '',
-    point: 0,
+    point: 50,
     detail: ''
   },
 
@@ -18,13 +21,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    console.log('load')
     wx.removeStorageSync('endDateTime')
-    let now=new Date()
-    let endDate=tools.momentTime(now, 'L')
+    let now = new Date()
+    let endDate = tools.momentTime(now, 'S')
     let endTime = tools.momentTime(now, 'TIME')
     this.setData({
-      endDate,
-      endTime
+      endDate: endDate,
+      endTime: endTime
     })
     console.log(this.data)
   },
@@ -52,7 +56,6 @@ Page({
       date: this.data.endDate,
       time: this.data.endTime
     }
-    console.log(this.data)
     wx.setStorageSync('endDateTime', data)
     wx.navigateTo({
       url: './endDate/endDate',
@@ -64,10 +67,22 @@ Page({
       title: this.data.title,
       point: this.data.point,
       detail: this.data.detail,
-      endDate: this.data.endDate,
-      endTime: this.data.endTime
+      endDateWx: this.data.endDate,
+      endTimeWx: this.data.endTime
     }
     console.log(params)
+    api.apiCreateTask(params).then((res) => {
+      console.log(res)
+      wx.showToast({
+        title: '创建成功'
+      })
+      wx.switchTab({
+        url: '/pages/jobs/myJob/myJobList/myJobList',
+      })
+    }).catch((error) => {
+      console.log(error)
+      Notify(MsgBox.showMsg(error));
+    })
   },
 
   /**
@@ -81,11 +96,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    console.log('show')
     let endDateTime = wx.getStorageSync('endDateTime')
-    this.setData({
-      endDate: endDateTime.date,
-      endTime: endDateTime.time
-    })
+    console.log(endDateTime)
+    if (endDateTime) {
+      this.setData({
+        endDate: endDateTime.date,
+        endTime: endDateTime.time
+      })
+    } else {
+      console.log(2)
+    }
   },
 
   /**

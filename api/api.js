@@ -57,11 +57,33 @@ function apiUpdateUsername(params) {
   })
 }
 
+function apiCreateTask(params) {
+  let url = `${host}/api/task/createTask`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
 
+function apiListMyTasks(params) {
+  let url = `${host}/api/task/listMyTasks`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
 
 module.exports = {
   apiLogin,
   apiLoginByToken,
   apiRegister,
-  apiUpdateUsername
+  apiUpdateUsername,
+  apiCreateTask,
+  apiListMyTasks
 }
