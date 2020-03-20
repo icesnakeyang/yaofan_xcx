@@ -1,4 +1,9 @@
 <!--pages/jobs/myJob/myJobList/comp/myJobListRow.wxml-->
 <view class="card_view" bindtap="onRow">
-  <van-card price="{{point}}" desc="{{createTime}}" title="{{title}}" />
+    <van-card price="{{point}}" title="{{title}}">
+        <view slot="desc">
+            <!-- 最多显示两行 -->
+            <view class="van-multi-ellipsis--l3">{{detail}}</view>
+        </view>
+    </van-card>
 </view>

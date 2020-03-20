@@ -1,0 +1,11 @@
+/* pages/jobs/myJob/myJobDetail/myJobDetail.wxss */
+
+@import '/css/global.wxss';
+
+.detail_view{
+    padding: 20rpx;
+}
+
+.detail_text{
+    font-size: 30rpx;
+}

@@ -21,7 +21,6 @@ Page({
     this.setData({
       name
     })
-
   },
 
   loadAllData() {

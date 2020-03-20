@@ -1,5 +1,7 @@
-// pages/jobs/myJob/myJobList/myJobList.js
+// pages/jobs/myJob/myJobDetail/myJobDetail.js
+
 import api from '../../../../api/api.js'
+import tools from '../../../../utils/dateTools.js'
 
 Page({
 
@@ -7,41 +9,54 @@ Page({
      * 页面的初始数据
      */
     data: {
-        jobs: [],
-        pageIndex: 1,
-        pageSize: 10
+        taskId: '',
+        task: {},
+        createTime: '',
+        isBidding: false
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        let taskId = wx.getStorageSync('taskId')
+        if (taskId) {
+            this.setData({
+                taskId
+            })
+        }
         this.loadAllData()
     },
 
     loadAllData() {
         let params = {
-            pageIndex: this.data.pageIndex,
-            pageSize: this.data.pageSize
+            taskId: this.data.taskId
         }
-        api.apiListMyTasks(params).then((res) => {
+        api.apiGetTaskByTaskId(params).then((res) => {
             console.log(res)
+            let createTime = tools.momentTime(res.data.task.createTime, 'S')
+            let status = res.data.task.status
+            let isBidding=false
+            if (status == 'BIDDING') {
+                isBidding = true
+                status='等待抢单'
+            }
             this.setData({
-                jobs: res.data.tasks
+                task: res.data.task,
+                createTime,
+                isBidding,
+                status
             })
+            console.log(this.data)
         }).catch((error) => {
             wx.showToast({
-                title: '读取我的任务失败',
+                title: '读取任务信息失败',
                 icon: 'none'
             })
         })
     },
 
-    onNewJob() {
-        wx.navigateTo({
-            url: '../../createJob/createJob',
-        })
-    },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成
