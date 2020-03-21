@@ -179,6 +179,20 @@
 					"id": -1,
 					"name": "pages/jobs/myJob/myJobDetail/myJobDetail",
 					"pathName": "pages/jobs/myJob/myJobDetail/myJobDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/myJobDetail/myJobDetail",
+					"pathName": "pages/jobs/myJob/myJobDetail/myJobDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamList/teamList",
+					"pathName": "pages/team/teamList/teamList",
 					"scene": null
 				}
 			]

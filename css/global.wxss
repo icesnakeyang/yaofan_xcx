@@ -1,6 +1,5 @@
 .page_view{
-  background: rgb(240, 240, 240);
-  height: 100vh
+  background: rgb(240, 240, 240)
 }
 
 .box_view{

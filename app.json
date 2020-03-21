@@ -7,7 +7,8 @@
         "van-icon": "/vant-weapp/icon/index",
         "van-notify": "/vant-weapp/notify/index",
         "van-cell": "/vant-weapp/cell/index",
-        "van-cell-group": "/vant-weapp/cell-group/index"
+        "van-cell-group": "/vant-weapp/cell-group/index",
+        "van-loading": "/vant-weapp/loading/index"
     },
     "pages": [
         "pages/jobs/public/plaza/publicJobList",
@@ -24,7 +25,9 @@
         "pages/account/dashboard/dashboard",
         "pages/legacy/edit/name/name",
         "pages/jobs/createJob/endDate/endDate",
-        "pages/jobs/myJob/myJobDetail/myJobDetail"
+        "pages/jobs/myJob/myJobDetail/myJobDetail",
+        "pages/jobs/teamJob/teamJobDetail/teamJobDetail",
+        "pages/team/teamHome/teamHome"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -39,7 +42,7 @@
                 "text": "任务广场"
             },
             {
-                "pagePath": "pages/team/teamList/teamList",
+                "pagePath": "pages/team/teamHome/teamHome",
                 "text": "我的团队"
             },
             {
@@ -56,6 +59,5 @@
             }
         ]
     },
-    "style": "v2",
     "sitemapLocation": "sitemap.json"
 }

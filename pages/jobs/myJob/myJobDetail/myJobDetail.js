@@ -2,6 +2,7 @@
 
 import api from '../../../../api/api.js'
 import tools from '../../../../utils/dateTools.js'
+import Dialog from '.././../../../vant-weapp/dialog/dialog.js';
 
 Page({
 
@@ -12,7 +13,8 @@ Page({
         taskId: '',
         task: {},
         createTime: '',
-        isBidding: false
+        isBidding: false,
+        isLoaing:true
     },
 
     /**
@@ -48,6 +50,9 @@ Page({
                 status
             })
             console.log(this.data)
+            this.setData({
+                isLoaing:false
+            })
         }).catch((error) => {
             wx.showToast({
                 title: '读取任务信息失败',
@@ -56,6 +61,22 @@ Page({
         })
     },
 
+    editTask(){
+
+    },
+
+    deleteTask(){
+        Dialog.confirm({
+            title: '确认删除',
+            message: '确定要删除该任务吗？'
+        }).then(() => {
+            // on confirm
+            console.log('确定')
+        }).catch(() => {
+            // on cancel
+            console.log('取消')
+        });
+    },
 
 
     /**

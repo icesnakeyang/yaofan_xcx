@@ -90,6 +90,17 @@ function apiGetTaskByTaskId(params) {
     })
 }
 
+function apiGrab(params){
+    let url = `${host}/api/task/grab`
+    return Promise((resolve, reject)=>{
+        baseApi.postToken(url, params).then((res)=>{
+            resolve(res)
+        }).catch((error)=>{
+            reject(error)
+        })
+    })
+}
+
 module.exports = {
     apiLogin,
     apiLoginByToken,
@@ -97,5 +108,6 @@ module.exports = {
     apiUpdateUsername,
     apiCreateTask,
     apiListMyTasks,
-    apiGetTaskByTaskId
+    apiGetTaskByTaskId,
+    apiGrab
 }

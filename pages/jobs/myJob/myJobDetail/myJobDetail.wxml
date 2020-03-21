@@ -1,29 +1,34 @@
 <!--pages/jobs/myJob/myJobDetail/myJobDetail.wxml-->
 <view class="page_view">
-    <view class="box_view">
-        <van-panel title="{{task.title}}">
-            <van-cell title="发布人" value="{{task.createUserName}}" />
-            <van-cell title="发布时间" value="{{createTime}}" />
-            <van-cell title="任务积分" value="{{task.point}}" />
-            <van-cell title="任务状态">
-                <view slot="right-icon">
-                    <view wx:if="{{isBidding}}">
-                        <van-tag type="success">{{status}}</van-tag>
-                    </view>
-                </view>
-            </van-cell>
-            <van-panel title="任务详情">
-                <view class="detail_view">
-                    <text class="detail_text">{{task.detail}}</text>
-                </view>
-            </van-panel>
-        </van-panel>
+    <view class="loading_view" wx:if="{{isLoaing}}">
+        <van-loading color="#1989fa" />
     </view>
+    <view wx:else="{{isLoaing}}">
+        <view class="box_view">
+            <van-panel title="{{task.title}}">
+                <van-cell title="发布人" value="{{task.createUserName}}" />
+                <van-cell title="发布时间" value="{{createTime}}" />
+                <van-cell title="任务积分" value="{{task.point}}" />
+                <van-cell title="任务状态">
+                    <view slot="right-icon">
+                        <view wx:if="{{isBidding}}">
+                            <van-tag type="success">{{status}}</van-tag>
+                        </view>
+                    </view>
+                </van-cell>
+                <van-panel title="任务详情">
+                    <view class="detail_view">
+                        <text class="detail_text">{{task.detail}}</text>
+                    </view>
+                </van-panel>
+            </van-panel>
+        </view>
 
-    <view class="box_view">
-        <!-- <view class="bt_row"> -->
-            <!-- <van-button type="info" size="large">抢单</van-button> -->
-            kk
-  <!-- </view> -->
+        <view class="box_view bt_row">
+            <van-button type="warning" bind:click="editTask">修改任务</van-button>
+            <van-button type="danger" bind:click="deleteTask">删除任务</van-button>
+        </view>
     </view>
 </view>
+
+<van-dialog id="van-dialog" />
