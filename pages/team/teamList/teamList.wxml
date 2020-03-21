@@ -1,2 +1,9 @@
 <!--pages/team/teamList/teamList.wxml-->
-<text>pages/team/teamList/teamList.wxml</text>
+<van-grid>
+  <van-grid-item icon="photo-o" text="创建我的团队" />
+  <van-grid-item icon="photo-o" text="文字" />
+  <van-grid-item icon="photo-o" text="文字" />
+  <van-grid-item icon="photo-o" text="文字" />
+</van-grid>
+
+<van-search placeholder="搜索团队名称" bind:search="onSearch" bind:change="onSearchChange" />

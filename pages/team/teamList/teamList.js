@@ -30,6 +30,14 @@ Page({
     }
   },
 
+    onSearchChange(e){
+        console.log(e.detail)
+    },
+
+    onSearch(){
+        console.log('search')
+    },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
