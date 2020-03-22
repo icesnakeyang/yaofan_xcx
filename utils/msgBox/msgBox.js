@@ -11,6 +11,9 @@ function showMsg(msg) {
   if (msg === 20002){
     return '任务积分必须是整数'
   }
+  if(msg===10006){
+    return '团队名称已被使用'
+  }
 }
 
 module.exports = {

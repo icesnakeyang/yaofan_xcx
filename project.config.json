@@ -193,6 +193,27 @@
 					"id": -1,
 					"name": "pages/team/teamList/teamList",
 					"pathName": "pages/team/teamList/teamList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamHome/teamHome",
+					"pathName": "pages/team/teamHome/teamHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/createTeam/createTeam",
+					"pathName": "pages/team/createTeam/createTeam",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamHome/teamHome",
+					"pathName": "pages/team/teamHome/teamHome",
 					"scene": null
 				}
 			]

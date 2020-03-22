@@ -1,0 +1,19 @@
+<!--pages/team/createTeam/createTeam.wxml-->
+<view class="page_view">
+  <view class="box_view">
+    <van-cell-group>
+      <van-field placeholder="请输入团队名" bind:change="onTeamName" />
+    </van-cell-group>
+    <view class="editor_view">
+      <editor placeholder="请输入团队介绍" bindinput="onDetail" />
+    </view>
+  </view>
+
+  <view class="row_view">
+    <view class="bt_group_view">
+      <van-button type="info" bind:click="onCreateTeam">创建团队</van-button>
+    </view>
+  </view>
+</view>
+
+<van-notify id="van-notify" />

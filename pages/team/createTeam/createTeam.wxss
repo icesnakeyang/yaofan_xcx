@@ -1,0 +1,17 @@
+/* pages/team/createTeam/createTeam.wxss */
+@import '/css/global.wxss';
+
+.editor_view{
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: #fff;
+  height: 60vh;
+}
+
+.bt_group_view{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx;
+}
