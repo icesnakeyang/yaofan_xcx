@@ -1,0 +1,2 @@
+/* pages/jobs/createJob/selectTeam/selectTeam.wxss */
+@import '/css/global.wxss';

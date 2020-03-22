@@ -1,7 +1,7 @@
 /* pages/team/teamDetail/teamDetail.wxss */
 @import '/css/global.wxss';
 .rich_view{
-  margin:20rpx 30rpx
+  padding:20rpx 30rpx
 }
 
 .bt_view{

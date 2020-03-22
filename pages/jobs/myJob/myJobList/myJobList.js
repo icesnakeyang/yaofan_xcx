@@ -1,5 +1,6 @@
 // pages/jobs/myJob/myJobList/myJobList.js
 import api from '../../../../api/api.js'
+import common from '../../../../utils/common.js'
 
 Page({
 
@@ -16,6 +17,21 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+      if (common.isLogin()) {
+        this.setData({
+          isLogin: true
+        })
+      } else {
+        this.setData({
+          isLogin: false
+        })
+      }
+      if (!this.data.isLogin) {
+        wx.navigateTo({
+          url: '/pages/legacy/login/login',
+        })
+        return
+      }
         this.loadAllData()
     },
 
@@ -25,7 +41,6 @@ Page({
             pageSize: this.data.pageSize
         }
         api.apiListMyTasks(params).then((res) => {
-            console.log(res)
             this.setData({
                 jobs: res.data.tasks
             })
@@ -54,7 +69,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+      this.loadAllData()
     },
 
     /**

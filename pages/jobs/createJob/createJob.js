@@ -14,14 +14,15 @@ Page({
     endDate: '',
     endTime: '',
     point: 50,
-    detail: ''
+    detail: '',
+    teamId:'',
+    teamName:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log('load')
     wx.removeStorageSync('endDateTime')
     let now = new Date()
     let endDate = tools.momentTime(now, 'S')
@@ -30,7 +31,6 @@ Page({
       endDate: endDate,
       endTime: endTime
     })
-    console.log(this.data)
   },
 
   onTitle(e) {
@@ -63,6 +63,14 @@ Page({
   },
 
   onSave() {
+    console.log(this.data)
+    if(!this.data.teamId){
+      wx.showToast({
+        title: '请选择团队',
+        icon:'none'
+      })
+      return
+    }
     let params = {
       title: this.data.title,
       point: this.data.point,
@@ -70,9 +78,7 @@ Page({
       endDateWx: this.data.endDate,
       endTimeWx: this.data.endTime
     }
-    console.log(params)
     api.apiCreateTask(params).then((res) => {
-      console.log(res)
       wx.showToast({
         title: '创建成功'
       })
@@ -82,6 +88,17 @@ Page({
     }).catch((error) => {
       console.log(error)
       Notify(MsgBox.showMsg(error));
+    })
+  },
+
+  onSelectTeam() {
+    let data = {
+      date: this.data.endDate,
+      time: this.data.endTime
+    }
+    // wx.setStorageSync('endDateTime', data)
+    wx.navigateTo({
+      url: './selectTeam/selectTeam',
     })
   },
 
@@ -96,16 +113,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    console.log('show')
+    let teamId = wx.getStorageSync('selectedTeamId')
+    let teamName = wx.getStorageSync('selectedTeamName')
     let endDateTime = wx.getStorageSync('endDateTime')
-    console.log(endDateTime)
     if (endDateTime) {
       this.setData({
         endDate: endDateTime.date,
         endTime: endDateTime.time
       })
-    } else {
-      console.log(2)
+    } else {}
+    if(teamId){
+      this.setData({
+        teamId,
+        teamName
+      })
     }
   },
 

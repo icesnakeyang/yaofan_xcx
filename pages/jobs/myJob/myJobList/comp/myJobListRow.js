@@ -32,7 +32,6 @@ Component({
     },
 
     attached() {
-        console.log(this.data)
         let createTime = ''
         if (this.data.theData.task.createTime) {
             createTime = tools.momentTime(this.data.theData.task.createTime, 'L')

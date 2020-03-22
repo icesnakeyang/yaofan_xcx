@@ -1,11 +1,18 @@
-// pages/account/dashboard/dashboard.js
+// pages/jobs/createJob/selectTeam/selectTeam.js
+import api from '../../../../api/api.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    teamList: [],
+    pageIndex: 1,
+    pageSize: 5,
+    isLoading: true,
+    teamId: '',
+    teamName: ''
   },
 
   /**
@@ -16,13 +23,32 @@ Page({
   },
 
   loadAllData() {
-    let token = wx.getStorageSync('yaofan_token')
-    if (token) {
-    } else {
-      wx.navigateTo({
-        url: '/pages/legacy/login/login',
-      })
+    let params = {
+      pageIndex: this.data.pageIndex,
+      pageSize: this.data.pageSize
     }
+    api.apiListMyTeam(params).then((res) => {
+      this.setData({
+        teamList: res.data.teams,
+        isLoading: false
+      })
+      console.log(this.data)
+    }).catch((error) => {
+      wx.showToast({
+        title: '读取团队列表失败',
+        icon: 'none'
+      })
+    })
+  },
+
+  onTeamRow(e) {
+    let teamId = e.currentTarget.dataset.teamid
+    let teamName = e.currentTarget.dataset.teamname
+    wx.setStorageSync('selectedTeamId', teamId)
+    wx.setStorageSync('selectedTeamName', teamName)
+    wx.navigateBack({
+      
+    })
   },
 
   /**

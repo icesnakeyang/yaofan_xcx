@@ -1,0 +1,23 @@
+<!--pages/team/editTeam/editTeam.wxml-->
+<view class="page_view">
+  <view class="loading_view" wx:if="{{isLoading}}">
+    <van-loading type="spinner" />
+  </view>
+  <view class="layout_page_view" wx:else="{{isLoading}}">
+    <view class="box_view">
+      <van-cell-group>
+        <van-field label="团队名称" value="{{ teamName }}" placeholder="请输入团队名称" border="{{ false }}" bind:change="onChangeTeamName" />
+      </van-cell-group>
+      <van-panel title="团队介绍">
+        <view class="editor_view">
+          <editor id="editor" placeholder="请输入团队介绍信息" bindinput="onEditorInput" bindready="onEditorReady" />
+        </view>
+      </van-panel>
+    </view>
+    <view class="bt_view">
+      <van-button type="info" bind:click="onSave">保存</van-button>
+    </view>
+  </view>
+</view>
+
+<van-notify id="van-notify" />

@@ -17,33 +17,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
-    
+
+
   },
 
   onTeamName(e){
-    console.log(e.detail)
     this.setData({
       name:e.detail
     })
   },
 
   onDetail(e){
-    console.log(e.detail.html)
     this.setData({
       description: e.detail.html
     })
   },
 
   onCreateTeam(){
-    console.log('create team')
     let params = {
       name: this.data.name,
       description: this.data.description
     }
-    console.log(2)
     api.apiCreateTeam(params).then((res) => {
-      console.log(res)
       wx.showToast({
         title: '创建团队成功'
       })
@@ -51,7 +46,6 @@ Page({
         url: '/pages/team/teamHome/teamHome'
       })
     }).catch((error) => {
-      console.log(error)
       Notify(MsgBox.showMsg(error));
     })
   },

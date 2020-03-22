@@ -39,20 +39,17 @@ Page({
   },
 
   onLogin() {
-    console.log(this.data)
     let params = {
       phone: this.data.phone,
       password: this.data.password
     }
     api.apiLogin(params).then((res) => {
-      console.log(res)
       wx.setStorageSync('yaofan_token', res.data.userInfo.token)
       wx.setStorageSync('current_user_id', res.data.userInfo.userId)
       wx.switchTab({
         url: '/pages/legacy/home/home',
       })
     }).catch((error) => {
-      console.log(error)
       Notify(MsgBox.showMsg(error));
     })
   },

@@ -35,7 +35,6 @@ Page({
             taskId: this.data.taskId
         }
         api.apiGetTaskByTaskId(params).then((res) => {
-            console.log(res)
             let createTime = tools.momentTime(res.data.task.createTime, 'S')
             let status = res.data.task.status
             let isBidding=false
@@ -49,7 +48,6 @@ Page({
                 isBidding,
                 status
             })
-            console.log(this.data)
             this.setData({
                 isLoaing:false
             })
@@ -71,10 +69,8 @@ Page({
             message: '确定要删除该任务吗？'
         }).then(() => {
             // on confirm
-            console.log('确定')
         }).catch(() => {
             // on cancel
-            console.log('取消')
         });
     },
 

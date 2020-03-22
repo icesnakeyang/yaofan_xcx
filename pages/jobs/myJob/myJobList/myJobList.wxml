@@ -7,7 +7,7 @@
     <van-grid-item icon="star-o" text="乙方" />
   </van-grid>
 
-  <view class="box_view">
+  <view class="list_view">
     <block wx:for="{{jobs}}" wx:key="index">
     <myJobListRow theData="{{item}}"></myJobListRow>
       

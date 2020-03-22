@@ -2,6 +2,7 @@
 <view class="page_view">
   <view class="box_view">
     <view>
+    <van-cell title="选择任务团队" is-link value="{{teamName}}" bind:click="onSelectTeam" />
       <van-field label="任务标题" placeholder="请输入任务标题" border="{{ true }}" bind:change="onTitle" />
       <van-field label="任务积分" value="{{point}}" placeholder="请设置任务积分" border="{{ true }}" bind:change="onPoint" />
       <van-cell title="任务截止时间" is-link value="{{endDate+' '+endTime}}" bind:click="onEndDate" />

@@ -1,8 +1,7 @@
-// pages/team/teamDetail/teamDetail.js
+// pages/team/editTeam/editTeam.js
 import api from '../../../api/api.js'
 import Notify from '../../../vant-weapp/notify/notify.js'
 import MsgShow from '../../../utils/msgBox/msgBox.js'
-import Dialog from '../../../vant-weapp/dialog/dialog.js'
 
 Page({
 
@@ -10,8 +9,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    team: {},
-    isManager: false,
+    teamId: '',
+    teamName: '',
+    description: '',
     isLoading: true
   },
 
@@ -19,69 +19,69 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    let teamId = wx.getStorageSync('teamId')
+    this.setData({
+      teamId
+    })
     this.loadAllData()
   },
 
   loadAllData() {
-    let teamId = wx.getStorageSync('teamId')
-    let currentUserId = wx.getStorageSync('current_user_id')
-
     let params = {
-      teamId: teamId
+      teamId: this.data.teamId
     }
     api.apiGetTeamByTeamId(params).then((res) => {
-      let isManager = false
-      if (currentUserId === res.data.team.managerId) {
-        isManager = true
-      }
       this.setData({
-        team: res.data.team,
-        isManager,
+        teamName: res.data.team.teamName,
+        description: res.data.team.description,
         isLoading: false
       })
     }).catch((error) => {
       wx.showToast({
-        title: '读取团队数据失败',
+        title: '读取团队信息失败',
         icon: 'none'
       })
     })
   },
 
-  onEditTeam() {
-    wx.navigateTo({
-      url: '../editTeam/editTeam',
+  onEditorReady() {
+    const that = this
+    wx.createSelectorQuery().select('#editor').context(res => {
+      that.editorCtx = res.context
+      that.editorCtx.setContents({
+        html: this.data.description
+      })
+    }).exec()
+  },
+
+  onChangeTeamName(e) {
+    this.setData({
+      teamName:e.detail
     })
   },
 
-  onDeleteTeam() {
-    let teamId = this.data.team.teamId
-    if (teamId) {
-      Dialog.confirm({
-        title: '确认删除',
-        message: '删除团队后不可恢复，确认删除该团队吗？'
-      }).then(() => {
-        let params = {
-          teamId
-        }
-        api.apiDeleteMyTeam(params).then((res) => {
-          wx.showToast({
-            title: '删除成功'
-          })
-          wx.switchTab({
-            url: '/pages/team/teamHome/teamHome'
-          })
-        }).catch((error) => {
-          Notify(MsgShow(error))
-        })
-      }).catch(() => {
-        // on cancel
-      });
-    } else {
-      wx.showToast({
-        title: '团队编号错误',
-        icon: 'none'
-      })
+  onEditorInput(e) {
+    this.setData({
+      description:e.detail.html
+    })
+  },
+
+  onSave() {
+    let params={
+      name: this.data.teamName,
+      description:this.data.description,
+      teamId:this.data.teamId
     }
+    api.apiUpdateMyTeam(params).then((res)=>{
+      wx.showToast({
+        title: '保存成功'
+      })
+      wx.navigateTo({
+        url: '/pages/team/teamDetail/teamDetail',
+      })
+    }).catch((error)=>{
+      Notify(MsgShow(error))
+    })
   },
 
   /**

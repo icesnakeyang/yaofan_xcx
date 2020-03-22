@@ -29,7 +29,9 @@
     "pages/jobs/teamJob/teamJobDetail/teamJobDetail",
     "pages/team/teamHome/teamHome",
     "pages/team/createTeam/createTeam",
-    "pages/team/teamDetail/teamDetail"
+    "pages/team/teamDetail/teamDetail",
+    "pages/team/editTeam/editTeam",
+    "pages/jobs/createJob/selectTeam/selectTeam"
   ],
   "window": {
     "backgroundTextStyle": "light",

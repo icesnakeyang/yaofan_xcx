@@ -14,6 +14,9 @@ function showMsg(msg) {
   if(msg===10006){
     return '团队名称已被使用'
   }
+  if (msg === 10013){
+    return '任务重复'
+  }
 }
 
 module.exports = {

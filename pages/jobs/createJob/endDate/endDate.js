@@ -14,7 +14,6 @@ Page({
    */
   onLoad: function (options) {
     let endDateTime = wx.getStorageSync('endDateTime')
-    console.log(endDateTime)
     this.setData({
       date:endDateTime.date,
       time:endDateTime.time
@@ -22,25 +21,21 @@ Page({
   },
 
   bindDate(e){
-    console.log(e.detail.value)
     this.setData({
       date:e.detail.value
     })
   },
 
   bindTime(e){
-    console.log(e.detail.value)
     this.setData({
       time:e.detail.value
     })
   },
 
   onConfirm(){
-    console.log('confirm')
-    console.log(this.data)
     wx.setStorageSync('endDateTime', this.data)
     wx.navigateBack({
-      
+
     })
   },
 

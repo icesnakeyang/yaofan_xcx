@@ -11,8 +11,8 @@ Page({
         createTime:''
     },
 
- 
-    
+
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -25,12 +25,10 @@ Page({
 
         }
         api.apiGetTaskByTaskId(params).then((res) => {
-            console.log(res)
             this.setData({
                 task:res.data.task
             })
         }).catch((error) => {
-            console.log(error)
             wx.showToast({
                 title: '读取任务失败',
                 icon: 'none'
@@ -43,7 +41,6 @@ Page({
             taskId: this.data.taskId
         }
         api.apiGrab(params).then((res) => {
-            console.log(res)
             wx.showToast({
                 title: '抢单成功'
             })

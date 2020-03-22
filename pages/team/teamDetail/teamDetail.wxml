@@ -18,12 +18,15 @@
 
     <view class="row_view">
       <view class="bt_view" wx:if="{{isManager}}">
-        <van-button type="info">加入团队</van-button>
+        <van-button type="warning" bind:click="onEditTeam">修改</van-button>
+        <van-button type="danger" bind:click="onDeleteTeam">删除团队</van-button>
       </view>
       <view class="bt_view" wx:else="{{isManager}}">
-        <van-button type="warning">修改</van-button>
-        <van-button type="danger">删除团队</van-button>
+        <van-button type="info">加入团队</van-button>
       </view>
     </view>
   </view>
 </view>
+
+<van-notify id="van-notify" />
+<van-dialog id="van-dialog" />

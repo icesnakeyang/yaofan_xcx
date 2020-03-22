@@ -43,7 +43,6 @@ Page({
       pageSize:this.data.pageSize
     }
     api.apiListMyTeam(params).then((res)=>{
-      console.log(res)
       this.setData({
         teamList:res.data.teams
       })
@@ -57,11 +56,9 @@ Page({
 
 
   onSearchChange(e) {
-    console.log(e.detail)
   },
 
   onSearch() {
-    console.log('search')
   },
 
 
@@ -89,7 +86,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    this.loadAllData()
   },
 
   /**

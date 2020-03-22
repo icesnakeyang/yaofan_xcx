@@ -46,7 +46,6 @@ function apiLoginByToken(params) {
  * 修改用户姓名
  */
 function apiUpdateUsername(params) {
-  console.log('update')
   let url = `${host}/api/user/updateUsername`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
@@ -134,6 +133,28 @@ function apiGetTeamByTeamId(params) {
   })
 }
 
+function apiUpdateMyTeam(params) {
+  let url = `${host}/api/team/updateMyTeam`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
+
+function apiDeleteMyTeam(params) {
+  let url = `${host}/api/team/deleteMyTeam`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
+
 module.exports = {
   apiLogin,
   apiLoginByToken,
@@ -145,5 +166,7 @@ module.exports = {
   apiGrab,
   apiCreateTeam,
   apiListMyTeam,
-  apiGetTeamByTeamId
+  apiGetTeamByTeamId,
+  apiUpdateMyTeam,
+  apiDeleteMyTeam
 }

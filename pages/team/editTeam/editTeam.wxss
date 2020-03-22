@@ -1,0 +1,15 @@
+/* pages/team/editTeam/editTeam.wxss */
+@import '/css/global.wxss';
+
+.editor_view{
+  margin: 20rpx 30rpx
+}
+
+.bt_view{
+  display: flex;
+  justify-content: center;
+}
+
+.layout_page_view{
+  height: 80vh;
+}

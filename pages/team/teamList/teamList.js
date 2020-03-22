@@ -18,12 +18,9 @@ Page({
   loadAllData() {
     let token = wx.getStorageSync('yaofan_token')
 
-    console.log(token)
 
     if (token) {
-      console.log('登录')
     } else {
-      console.log('未登录')
       wx.navigateTo({
         url: '/pages/legacy/login/login',
       })

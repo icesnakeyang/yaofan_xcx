@@ -63,13 +63,11 @@ Page({
       username:this.data.username
     }
     api.apiRegister(params).then((res)=>{
-      console.log(res)
       wx.setStorageSync('yaofan_token', res.data.userInfo.token)
       wx.switchTab({
         url: '/pages/legacy/home/home',
       })
     }).catch((error)=>{
-      console.log(error)
       Notify(MsgBox.showMsg(error));
       wx.showToast({
         title: '注册失败',

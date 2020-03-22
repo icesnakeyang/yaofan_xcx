@@ -24,7 +24,6 @@ Page({
         userInfo:res.data.userInfo
       })
     }).catch((error)=>{
-      console.log(error)
       wx.showToast({
           title: '读取数据失败',
           icon:'none'
