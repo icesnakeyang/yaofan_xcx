@@ -123,6 +123,17 @@ function apiListMyTeam(params) {
   })
 }
 
+function apiGetTeamByTeamId(params) {
+  let url = `${host}/api/team/getTeamByTeamId`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
+
 module.exports = {
   apiLogin,
   apiLoginByToken,
@@ -133,5 +144,6 @@ module.exports = {
   apiGetTaskByTaskId,
   apiGrab,
   apiCreateTeam,
-  apiListMyTeam
+  apiListMyTeam,
+  apiGetTeamByTeamId
 }

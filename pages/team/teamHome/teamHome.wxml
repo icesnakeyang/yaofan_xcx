@@ -1,9 +1,19 @@
 <!--pages/team/teamHome/teamHome.wxml-->
 <van-grid>
-  <van-grid-item icon="friends-o" text="创建我的团队" bind:click="onCreateTeam"/>
+  <van-grid-item icon="friends-o" text="创建我的团队" bind:click="onCreateTeam" />
   <van-grid-item icon="photo-o" text="文字" />
   <van-grid-item icon="photo-o" text="文字" />
   <van-grid-item icon="photo-o" text="文字" />
 </van-grid>
 
 <van-search placeholder="搜索团队名称" bind:search="onSearch" bind:change="onSearchChange" />
+
+<block wx:for="{{teamList}}" wx:key="index">
+  <view class="card_view" data-teamId="{{item.teamId}}" bindtap="onTeamRow">
+    <van-card desc="描述信息" title="{{item.teamName}}">
+      <view slot="price">
+        <text>团队负责人：{{item.managerName}}</text>
+      </view>
+    </van-card>
+  </view>
+</block>

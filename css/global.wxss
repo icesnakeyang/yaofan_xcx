@@ -19,3 +19,10 @@
   margin: 20rpx;
   padding: 20rpx;
 }
+
+.loading_view{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

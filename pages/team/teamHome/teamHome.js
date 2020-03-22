@@ -11,7 +11,8 @@ Page({
     isLogin: false,
     isLoading: true,
     pageIndex:1,
-    pageSize:5
+    pageSize:5,
+    teamList:[]
   },
 
   /**
@@ -27,6 +28,12 @@ Page({
         isLogin: false
       })
     }
+    if(!this.data.isLogin){
+      wx.navigateTo({
+        url: '/pages/legacy/login/login',
+      })
+      return
+    }
     this.loadAllData()
   },
 
@@ -37,6 +44,9 @@ Page({
     }
     api.apiListMyTeam(params).then((res)=>{
       console.log(res)
+      this.setData({
+        teamList:res.data.teams
+      })
     }).catch((error)=>{
       wx.showToast({
         title: '读取数据失败',
@@ -60,6 +70,14 @@ Page({
       url: '../createTeam/createTeam',
     })
   },
+
+  onTeamRow(e){
+    wx.setStorageSync('teamId', e.currentTarget.dataset.teamid)
+    wx.navigateTo({
+      url: '../teamDetail/teamDetail',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

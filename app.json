@@ -28,7 +28,8 @@
     "pages/jobs/myJob/myJobDetail/myJobDetail",
     "pages/jobs/teamJob/teamJobDetail/teamJobDetail",
     "pages/team/teamHome/teamHome",
-    "pages/team/createTeam/createTeam"
+    "pages/team/createTeam/createTeam",
+    "pages/team/teamDetail/teamDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -60,5 +61,6 @@
       }
     ]
   },
+  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }

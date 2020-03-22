@@ -1,1 +1,6 @@
 /* pages/team/teamHome/teamHome.wxss */
+@import '/css/global.wxss';
+
+.card_view{
+  margin-top: 30rpx;
+}
