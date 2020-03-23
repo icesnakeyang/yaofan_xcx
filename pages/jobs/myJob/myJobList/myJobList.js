@@ -45,6 +45,7 @@ Page({
                 jobs: res.data.tasks
             })
         }).catch((error) => {
+            console.log(error)
             wx.showToast({
                 title: '读取我的任务失败',
                 icon: 'none'
@@ -91,7 +92,7 @@ Page({
      */
     onPullDownRefresh: function() {
       let page=this.data.pageIndex
-      if(page>0){
+      if(page>1){
           page--
           this.setData({
               pageIndex: page

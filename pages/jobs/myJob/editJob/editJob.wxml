@@ -1,20 +1,24 @@
 <!--pages/jobs/myJob/editJob/editJob.wxml-->
 <view class="page_view">
-    <view class="box_view">
-        <van-cell-group>
-            <van-cell title="选择任务团队" is-link value="{{teamName}}" bind:click="onSelectTeam" />
-            <van-field label="任务标题" value="{{title}}" placeholder="请输入任务标题" border="{{ true }}" bind:change="onTitle" />
-            <van-field label="任务积分" value="{{point}}" placeholder="请设置任务积分" border="{{ true }}" bind:change="onPoint" />
-            <van-cell title="任务截止时间" is-link value="{{endDate+' '+endTime}}" bind:click="onEndDate" />
-
-        </van-cell-group>
-        <van-panel title="任务详情">
-            <view class="editor_view">
-                <editor id="editor" placeholder="请输入任务详情" bindinput="onEditorInput" bindready="onEditorReady" />
+    <view class="loading_view" wx:if="{{isLoading}}">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box_view">
+            <van-cell-group>
+                <van-cell title="选择任务团队" is-link value="{{teamName}}" bind:click="onSelectTeam" />
+                <van-field label="任务标题" value="{{title}}" placeholder="请输入任务标题" border="{{ true }}" bind:change="onTitle" />
+                <van-field label="任务积分" value="{{point}}" placeholder="请设置任务积分" border="{{ true }}" bind:change="onPoint" />
+                <van-cell title="任务截止时间" is-link value="{{endDate+' '+endTime}}" bind:click="onEndDate" />
+            </van-cell-group>
+            <van-panel title="任务详情">
+                <view class="editor_view">
+                    <editor id="editor" placeholder="请输入任务详情" bindinput="onEditorInput" bindready="onEditorReady" />
+                </view>
+            </van-panel>
+            <view class="bt_view">
+                <van-button type="info" bind:click="onSave">保存</van-button>
             </view>
-        </van-panel>
-        <view class="bt_view">
-            <van-button type="info" bind:click="onSave">保存</van-button>
         </view>
     </view>
 </view>

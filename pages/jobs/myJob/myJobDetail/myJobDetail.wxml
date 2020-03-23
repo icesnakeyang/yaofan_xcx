@@ -8,6 +8,7 @@
             <van-panel title="{{task.title}}">
                 <van-cell title="发布人" value="{{task.createUserName}}" />
                 <van-cell title="发布时间" value="{{createTime}}" />
+                <van-cell title="所属团队" value="{{task.teamName}}" />
                 <van-cell title="完成时间" value="{{endTime}}" />
                 <van-cell title="任务积分" value="{{task.point}}" />
                 <van-cell title="任务状态">

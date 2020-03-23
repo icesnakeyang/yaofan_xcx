@@ -17,7 +17,8 @@ Page({
     endDate: '',
     endTime: '',
     teamName: '',
-    taskDetail: ''
+    taskDetail: '',
+    isLoading:true
   },
 
   /**
@@ -49,8 +50,8 @@ Page({
         endTime,
         taskDetail: res.data.task.detail,
         point: res.data.task.point,
-        title: res.data.task.title
-
+        title: res.data.task.title,
+        isLoading:false
       })
       this.onEditorReady()
     }).catch((error) => {
@@ -74,10 +75,9 @@ Page({
   },
 
   onEditorReady() {
-
     const that = this
-
     wx.createSelectorQuery().select('#editor').context(res => {
+        console.log(res)
       that.editorCtx = res.context
       that.editorCtx.setContents({
         html: that.data.taskDetail

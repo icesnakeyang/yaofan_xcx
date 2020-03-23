@@ -36,6 +36,7 @@ Page({
             taskId: this.data.taskId
         }
         api.apiGetTaskByTaskId(params).then((res) => {
+            console.log(res)
             let createTime = tools.momentTime(res.data.task.createTime, 'L')
             let endTime=''
             if(res.data.task.endTime){
