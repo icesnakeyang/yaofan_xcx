@@ -71,6 +71,20 @@ Page({
       })
       return
     }
+    if (!this.data.title){
+      wx.showToast({
+        title: '请输入任务标题',
+        icon:'none'
+      })
+      return
+    }
+    if (!this.data.detail){
+      wx.showToast({
+        title: '请输入任务详情',
+        icon:'none'
+      })
+      return
+    }
     let params = {
       title: this.data.title,
       point: this.data.point,
@@ -78,6 +92,9 @@ Page({
       endDateWx: this.data.endDate,
       endTimeWx: this.data.endTime
     }
+
+console.log(params)
+
     api.apiCreateTask(params).then((res) => {
       wx.showToast({
         title: '创建成功'

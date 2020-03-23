@@ -6,23 +6,44 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        theData: Object
+        title: {
+          type:String,
+          value:''
+        },
+        content:{
+          type:String,
+          value:''
+        },
+      point:{
+          type:Number,
+          value:0
+        },
+        createTime:{
+          type:Date
+        }
     },
 
     /**
      * 组件的初始数据
      */
     data: {
-        title: '',
-        point: 0,
-        createTime: '',
-        detail: ''
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
+      updateData(){
+        console.log(this.data)
+        let createTime = ''
+        if (this.data.createTime) {
+          createTime = tools.momentTime(this.data.createTime, 'L')
+        }
+        this.setData({
+          createTime
+        })
+        console.log(this.data)
+      },
         onRow() {
             wx.setStorageSync('taskId', this.data.theData.task.taskId)
             wx.navigateTo({
@@ -32,15 +53,16 @@ Component({
     },
 
     attached() {
-        let createTime = ''
-        if (this.data.theData.task.createTime) {
-            createTime = tools.momentTime(this.data.theData.task.createTime, 'L')
-        }
-        this.setData({
-            title: this.data.theData.task.title,
-            point: this.data.theData.task.point,
-            createTime,
-            detail: this.data.theData.task.detail
-        })
+      this.updateData()
+    },
+
+  observers: {
+    'title': function (title) {
+      console.log(title)
+      // 在 numberA 或者 numberB 被设置时，执行这个函数
+      
+      console.log(this.data)
+      this.updateData()
     }
+  }
 })
