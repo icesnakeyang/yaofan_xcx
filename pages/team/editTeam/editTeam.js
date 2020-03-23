@@ -49,7 +49,7 @@ Page({
     wx.createSelectorQuery().select('#editor').context(res => {
       that.editorCtx = res.context
       that.editorCtx.setContents({
-        html: this.data.description
+        html: that.data.description
       })
     }).exec()
   },

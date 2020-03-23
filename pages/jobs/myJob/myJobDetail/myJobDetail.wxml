@@ -19,7 +19,7 @@
                 </van-cell>
                 <van-panel title="任务详情">
                     <view class="detail_view">
-                        <text class="detail_text">{{task.detail}}</text>
+                        <rich-text nodes="{{task.detail}}"></rich-text>
                     </view>
                 </van-panel>
             </van-panel>

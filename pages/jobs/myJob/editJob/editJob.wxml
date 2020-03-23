@@ -10,7 +10,7 @@
         </van-cell-group>
         <van-panel title="任务详情">
             <view class="editor_view">
-                <editor id="editor" nodes="{{taskDetail}}" bindinput="onEditorInput" bindready="onEditorReady" />
+                <editor id="editor" placeholder="请输入任务详情" bindinput="onEditorInput" bindready="onEditorReady" />
             </view>
         </van-panel>
         <view class="bt_view">
@@ -18,3 +18,5 @@
         </view>
     </view>
 </view>
+
+<van-notify id="van-notify" />
