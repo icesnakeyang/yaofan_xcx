@@ -6,6 +6,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
+        task:Object,
         title: {
           type:String,
           value:''
@@ -18,7 +19,7 @@ Component({
           type:Number,
           value:0
         },
-        createTime:{
+        endTime:{
           type:Date
         }
     },
@@ -34,18 +35,16 @@ Component({
      */
     methods: {
       updateData(){
-        console.log(this.data)
-        let createTime = ''
-        if (this.data.createTime) {
-          createTime = tools.momentTime(this.data.createTime, 'L')
+          let endTime = ''
+          if (this.data.endTime) {
+              endTime = tools.momentTime(this.data.endTime, 'L')
         }
         this.setData({
-          createTime
+            endTime
         })
-        console.log(this.data)
       },
         onRow() {
-            wx.setStorageSync('taskId', this.data.theData.task.taskId)
+            wx.setStorageSync('taskId', this.data.task.taskId)
             wx.navigateTo({
                 url: '../myJobDetail/myJobDetail',
             })
@@ -58,10 +57,6 @@ Component({
 
   observers: {
     'title': function (title) {
-      console.log(title)
-      // 在 numberA 或者 numberB 被设置时，执行这个函数
-      
-      console.log(this.data)
       this.updateData()
     }
   }

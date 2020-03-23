@@ -3,7 +3,8 @@
     <van-card price="{{point}}" title="{{title}}">
         <view slot="desc">
             <!-- 最多显示两行 -->
-            <view class="van-multi-ellipsis--l3">{{detail}}</view>
+            <view class="van-multi-ellipsis--l3">{{content}}</view>
+            <view>到期时间：{{endTime}}</view>
         </view>
     </van-card>
 </view>

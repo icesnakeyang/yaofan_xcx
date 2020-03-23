@@ -1,13 +1,14 @@
 <!--pages/jobs/myJob/myJobDetail/myJobDetail.wxml-->
 <view class="page_view">
     <view class="loading_view" wx:if="{{isLoaing}}">
-        <van-loading color="#1989fa" />
+        <van-loading type="spinner" />
     </view>
     <view wx:else="{{isLoaing}}">
         <view class="box_view">
             <van-panel title="{{task.title}}">
                 <van-cell title="发布人" value="{{task.createUserName}}" />
                 <van-cell title="发布时间" value="{{createTime}}" />
+                <van-cell title="完成时间" value="{{endTime}}" />
                 <van-cell title="任务积分" value="{{task.point}}" />
                 <van-cell title="任务状态">
                     <view slot="right-icon">
@@ -24,7 +25,7 @@
             </van-panel>
         </view>
 
-        <view class="box_view bt_row">
+        <view class="bt_row">
             <van-button type="warning" bind:click="editTask">修改任务</van-button>
             <van-button type="danger" bind:click="deleteTask">删除任务</van-button>
         </view>

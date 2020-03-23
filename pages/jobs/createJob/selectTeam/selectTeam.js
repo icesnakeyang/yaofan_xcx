@@ -32,7 +32,6 @@ Page({
         teamList: res.data.teams,
         isLoading: false
       })
-      console.log(this.data)
     }).catch((error) => {
       wx.showToast({
         title: '读取团队列表失败',
@@ -47,7 +46,7 @@ Page({
     wx.setStorageSync('selectedTeamId', teamId)
     wx.setStorageSync('selectedTeamName', teamName)
     wx.navigateBack({
-      
+
     })
   },
 

@@ -1,8 +1,7 @@
-// pages/jobs/myJob/myJobDetail/myJobDetail.js
+// pages/jobs/myJob/editJob/editJob.js
 
 import api from '../../../../api/api.js'
 import tools from '../../../../utils/dateTools.js'
-import Dialog from '.././../../../vant-weapp/dialog/dialog.js';
 
 Page({
 
@@ -12,10 +11,11 @@ Page({
     data: {
         taskId: '',
         task: {},
-        createTime: '',
-        endTime:'',
-        isBidding: false,
-        isLoaing:true
+        title: '',
+        endDate: '',
+        endTime: '',
+        teamName: '',
+        taskDetail:''
     },
 
     /**
@@ -23,11 +23,10 @@ Page({
      */
     onLoad: function(options) {
         let taskId = wx.getStorageSync('taskId')
-        if (taskId) {
-            this.setData({
-                taskId
-            })
-        }
+        console.log(taskId)
+        this.setData({
+            taskId
+        })
         this.loadAllData()
     },
 
@@ -36,53 +35,62 @@ Page({
             taskId: this.data.taskId
         }
         api.apiGetTaskByTaskId(params).then((res) => {
-            let createTime = tools.momentTime(res.data.task.createTime, 'L')
-            let endTime=''
-            if(res.data.task.endTime){
-                endTime=tools.momentTime(res.data.task.endTime, 'L')
-            }
-            let status = res.data.task.status
-            let isBidding=false
-            if (status == 'BIDDING') {
-                isBidding = true
-                status='等待抢单'
+            console.log(res)
+            let endDate = ''
+            let endTime = ''
+            if (res.data.task.endTime) {
+                endDate = tools.momentTime(res.data.task.endTime, 'S')
+                endTime = tools.momentTime(res.data.task.endTime, 'TIME')
             }
             this.setData({
                 task: res.data.task,
-                createTime,
+                teamName: res.data.task.teamName,
+                endDate,
                 endTime,
-                isBidding,
-                status
+                taskDetail:res.data.task.detail,
+                point:res.data.task.point,
+                title:res.data.task.title
             })
-            this.setData({
-                isLoaing:false
-            })
-        }).catch((error) => {
+            console.log(this.data)
+        }).catch((error)=>{
             wx.showToast({
-                title: '读取任务信息失败',
-                icon: 'none'
+                title: '读取任务失败',
+                icon:'none'
             })
         })
     },
 
-    editTask(){
-        wx.setStorageSync('taskId', this.data.taskId)
-        wx.navigateTo({
-            url: '../editJob/editJob'
+    onChangeTitle(e) {
+        this.setData({
+            title: e.detail
         })
     },
 
-    deleteTask(){
-        Dialog.confirm({
-            title: '确认删除',
-            message: '确定要删除该任务吗？'
-        }).then(() => {
-            // on confirm
-        }).catch(() => {
-            // on cancel
-        });
+    onSelectTeam() {
+        wx.navigateTo({
+            url: '../../createJob/selectTeam/selectTeam',
+        })
     },
 
+    onEditorReady() {
+        const that = this
+        wx.createSelectorQuery().select('#editor').context(res => {
+            that.editorCtx = res.context
+            that.editorCtx.setContents({
+                html: this.data.taskDetail
+            })
+        }).exec()
+    },
+
+    onEditorInput(e){
+        this.setData({
+            taskDetail:e.detail.html
+        })
+    },
+
+    onSave(){
+        console.log(this.data)
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

@@ -9,7 +9,11 @@
 
   <view class="list_view">
     <block wx:for="{{jobs}}" wx:key="index">
-    <myJobListRow theData="{{item}}"></myJobListRow>
+    <myJobListRow title="{{item.task.title}}" 
+                point="{{item.task.point}}"
+                endTime="{{item.task.endTime}}"
+                task="{{item.task}}"
+                content="{{item.task.detail}}"></myJobListRow>
       
     </block>
   </view>

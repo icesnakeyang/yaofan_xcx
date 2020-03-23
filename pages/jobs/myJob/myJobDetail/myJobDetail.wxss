@@ -14,11 +14,3 @@
     display: flex;
     justify-content: space-around
 }
-
-.loading_view{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding-top: 200rpx;
-    /* align-items: center; */
-}

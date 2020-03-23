@@ -1,0 +1,12 @@
+/* pages/jobs/myJob/editJob/editJob.wxss */
+@import '/css/global.wxss';
+
+.editor_view{
+    padding: 20rpx 30rpx
+}
+
+.bt_view{
+    display: flex;
+    justify-content: center;
+    margin-top: 30rpx;
+}

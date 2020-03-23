@@ -4,5 +4,6 @@
     "van-grid-item": "/vant-weapp/grid-item/index",
     "van-card": "/vant-weapp/card/index",
     "myJobListRow":"comp/myJobListRow"
-  }
+  },
+  "enablePullDownRefresh": true
 }

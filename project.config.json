@@ -277,6 +277,20 @@
 					"id": -1,
 					"name": "pages/jobs/myJob/myJobList/myJobList",
 					"pathName": "pages/jobs/myJob/myJobList/myJobList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/myJobList/myJobList",
+					"pathName": "pages/jobs/myJob/myJobList/myJobList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/editJob/editJob",
+					"pathName": "pages/jobs/myJob/editJob/editJob",
 					"scene": null
 				}
 			]

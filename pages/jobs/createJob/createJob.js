@@ -63,7 +63,6 @@ Page({
   },
 
   onSave() {
-    console.log(this.data)
     if(!this.data.teamId){
       wx.showToast({
         title: '请选择团队',
@@ -90,11 +89,10 @@ Page({
       point: this.data.point,
       detail: this.data.detail,
       endDateWx: this.data.endDate,
-      endTimeWx: this.data.endTime
+      endTimeWx: this.data.endTime,
+      teamId:this.data.teamId
     }
-
-console.log(params)
-
+    
     api.apiCreateTask(params).then((res) => {
       wx.showToast({
         title: '创建成功'
@@ -103,7 +101,6 @@ console.log(params)
         url: '/pages/jobs/myJob/myJobList/myJobList',
       })
     }).catch((error) => {
-      console.log(error)
       Notify(MsgBox.showMsg(error));
     })
   },
@@ -165,7 +162,6 @@ console.log(params)
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
   },
 
   /**
