@@ -2,7 +2,7 @@
 <view class="page_view">
   <van-grid square>
     <van-grid-item icon="add-o" text="创建任务" bind:click="onNewJob" />
-    <van-grid-item icon="friends-o" text="团队任务" />
+    <van-grid-item icon="friends-o" text="团队任务" bind:click="onTeamJob"/>
     <van-grid-item icon="like-o" text="甲方" />
     <van-grid-item icon="star-o" text="乙方" />
   </van-grid>

@@ -1,4 +1,6 @@
 // pages/jobs/public/plaza/publicJobList.js
+import api from '../../../../api/api.js'
+
 Page({
 
     /**
@@ -12,7 +14,18 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      this.loadAllData()
+    },
 
+    loadAllData(){
+      let params={
+        
+      }
+      api.apiListTaskGrabbingTeam(params).then((res)=>{
+        console.log(res)
+      }).catch((error)=>{
+        console.log(error)
+      })
     },
 
     /**

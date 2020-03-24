@@ -166,6 +166,17 @@ function apiUpdateTask(params) {
   })
 }
 
+function apiListTaskGrabbingTeam(params) {
+  let url = `${host}/api/task/listTaskGrabbingTeam`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
+
 module.exports = {
   apiLogin,
   apiLoginByToken,
@@ -180,5 +191,6 @@ module.exports = {
   apiGetTeamByTeamId,
   apiUpdateMyTeam,
   apiDeleteMyTeam,
-  apiUpdateTask
+  apiUpdateTask,
+  apiListTaskGrabbingTeam
 }
