@@ -19,15 +19,13 @@ Page({
 
     loadAllData(){
       let params={
-        
+
       }
       api.apiListTaskGrabbingTeam(params).then((res)=>{
         this.setData({
             taskList:res.data.tasks
         })
-        console.log(this.data)
       }).catch((error)=>{
-        console.log(error)
       })
     },
 

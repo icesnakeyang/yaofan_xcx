@@ -1,2 +1,12 @@
 /* pages/jobs/public/jobDetail/jobDetail.wxss */
 @import '/css/global.wxss';
+
+.detail_view{
+  padding: 30rpx;
+}
+
+.bt_view{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}

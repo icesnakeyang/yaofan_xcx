@@ -30,7 +30,6 @@ Page({
             teamId: teamId
         }
         api.apiGetTeamByTeamId(params).then((res) => {
-            console.log(res)
             let isManager = false
             if (currentUserId === res.data.team.managerId) {
                 isManager = true

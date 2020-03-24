@@ -45,7 +45,6 @@ Page({
                 jobs: res.data.tasks
             })
         }).catch((error) => {
-            console.log(error)
             wx.showToast({
                 title: '读取我的任务失败',
                 icon: 'none'
@@ -64,9 +63,7 @@ Page({
 
     }
     api.apiListTaskGrabbingTeam(params).then((res)=>{
-      console.log(res)
     }).catch((error)=>{
-      console.log(error)
     })
   },
 

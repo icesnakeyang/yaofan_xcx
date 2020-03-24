@@ -77,7 +77,6 @@ Page({
   onEditorReady() {
     const that = this
     wx.createSelectorQuery().select('#editor').context(res => {
-        console.log(res)
       that.editorCtx = res.context
       that.editorCtx.setContents({
         html: that.data.taskDetail
@@ -101,7 +100,7 @@ Page({
       teamId: this.data.task.teamId,
       taskId: this.data.taskId
     }
-    
+
     api.apiUpdateTask(params).then((res) => {
       wx.showToast({
         title: '保存成功'

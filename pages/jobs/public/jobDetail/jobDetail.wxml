@@ -1,4 +1,27 @@
 <!--pages/jobs/public/jobDetail/jobDetail.wxml-->
 <view class="page_view">
-
+  <view class="loading_view" wx:if="{{isLoading}}">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
+    <view class="box_view">
+      <van-panel title="{{task.title}}">
+        <view>
+          <van-cell-group>
+            <van-cell title="积分" value="{{task.point}}" />
+            <van-cell title="完成时间" value="{{endTime}}" />
+            <van-cell title="创建人" value="{{task.createUserName}}" />
+          </van-cell-group>
+          <van-panel title="任务详情">
+            <view class="detail_view">
+              <rich-text nodes="{{task.detail}}"></rich-text>
+            </view>
+          </van-panel>
+        </view>
+      </van-panel>
+    </view>
+    <view class="bt_view" wx:if="{{isGrab}}">
+      <van-button type="primary" bind:click="onGrab">抢单</van-button>
+    </view>
+  </view>
 </view>
