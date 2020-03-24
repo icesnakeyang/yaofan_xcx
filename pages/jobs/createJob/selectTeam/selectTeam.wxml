@@ -1,13 +1,15 @@
 <!--pages/jobs/createJob/selectTeam/selectTeam.wxml-->
 <view class="page_view">
-  <view class="loading_view" wx:if="{{isLoading}}">
-    <van-loading type="spinner" />
-  </view>
-  <view class="box_view" wx:else="{{isLoading}}">
-    <block wx:for="{{teamList}}" wx:key="index">
-      <view data-teamId="{{item.teamId}}" data-teamName="{{item.teamName}}" bindtap="onTeamRow">
-        <van-card title="{{item.teamName}}" />
-      </view>
-    </block>
-  </view>
+    <view class="loading_view" wx:if="{{isLoading}}">
+        <van-loading type="spinner" />
+    </view>
+    <view class="box_view" wx:else="{{isLoading}}">
+        <block wx:for="{{teamList}}" wx:key="index">
+            <view class="card_view" data-teamId="{{item.teamId}}" data-teamName="{{item.teamName}}" bindtap="onTeamRow">
+                <van-cell-group>
+                    <van-cell value="{{item.teamName}}" />
+                </van-cell-group>
+            </view>
+        </block>
+    </view>
 </view>

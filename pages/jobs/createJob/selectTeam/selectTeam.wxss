@@ -1,2 +1,6 @@
 /* pages/jobs/createJob/selectTeam/selectTeam.wxss */
 @import '/css/global.wxss';
+
+.card_view{
+    margin-top: 30rpx;
+}

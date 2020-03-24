@@ -1,5 +1,6 @@
-// pages/jobs/public/plaza/publicJobList.js
+// pages/jobs/public/jobDetail/jobDetail.js
 import api from '../../../../api/api.js'
+
 
 Page({
 
@@ -7,34 +8,31 @@ Page({
      * 页面的初始数据
      */
     data: {
-        taskList:[]
+        task:{}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.loadAllData()
+        this.loadAllData()
     },
 
     loadAllData(){
-      let params={
-        
-      }
-      api.apiListTaskGrabbingTeam(params).then((res)=>{
-        this.setData({
-            taskList:res.data.tasks
-        })
-        console.log(this.data)
-      }).catch((error)=>{
-        console.log(error)
-      })
-    },
-
-    onTaskRow(e){
-        wx.setStorageSync('taskId', e.currentTarget.dataset.taskid)
-        wx.navigateTo({
-            url: '../jobDetail/jobDetail',
+        let taskId=wx.getStorageSync('taskId')
+        let params={
+            taskId
+        }
+        api.apiGetTaskByTaskId(params).then((res)=>{
+            console.log(res)
+            this.setData({
+                task:res.data.task
+            })
+        }).catch((error)=>{
+            wx.showToast({
+                title: '读取任务失败',
+                icon:'none'
+            })
         })
     },
 

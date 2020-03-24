@@ -319,6 +319,13 @@
 					"id": -1,
 					"name": "pages/jobs/myJob/myJobDetail/myJobDetail",
 					"pathName": "pages/jobs/myJob/myJobDetail/myJobDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/createJob/selectTeam/selectTeam",
+					"pathName": "pages/jobs/createJob/selectTeam/selectTeam",
 					"scene": null
 				}
 			]

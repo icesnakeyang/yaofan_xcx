@@ -1,0 +1,11 @@
+<!--pages/jobs/public/plaza/row/taskRow.wxml-->
+<van-card price="{{point}}" title="{{title}}">
+    <view slot="desc">
+        <view class="van-multi-ellipsis--l2">{{detail}}</view>
+    </view>
+    <view slot="price-top">
+        <view class="team_view">
+            <van-tag color="#7232dd">{{teamName}}</van-tag>
+        </view>
+    </view>
+</van-card>

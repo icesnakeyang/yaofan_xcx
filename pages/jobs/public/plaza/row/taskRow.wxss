@@ -1,0 +1,11 @@
+/* pages/jobs/public/plaza/row/taskRow.wxss */
+@import "/vant-weapp/common/index.wxss";
+
+.team_view{
+    margin: 20rpx 0rpx;
+}
+
+.team_text{
+    font-size: 24rpx;
+    color: #fff;
+}

@@ -32,7 +32,8 @@
         "pages/team/teamDetail/teamDetail",
         "pages/team/editTeam/editTeam",
         "pages/jobs/createJob/selectTeam/selectTeam",
-        "pages/jobs/myJob/editJob/editJob"
+        "pages/jobs/myJob/editJob/editJob",
+        "pages/jobs/public/jobDetail/jobDetail"
     ],
     "window": {
         "backgroundTextStyle": "light",

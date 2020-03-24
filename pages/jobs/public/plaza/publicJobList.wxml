@@ -1,5 +1,18 @@
-<!--pages/jobs/public/plaza/publicJobList.wxml-->
-<text>pages/jobs/public/plaza/publicJobList.wxml</text>
-<van-button type="info">信息按钮</van-button>
-<van-button type="warning">警告按钮</van-button>
-<van-button type="danger">危险按钮</van-button>
+<view class="page_view">
+    <van-grid>
+        <van-grid-item icon="photo-o" text="文字" />
+        <van-grid-item icon="photo-o" text="文字" />
+        <van-grid-item icon="photo-o" text="文字" />
+        <van-grid-item icon="photo-o" text="文字" />
+    </van-grid>
+    <view class="box_view">
+        <block wx:for="{{taskList}}" wx:key="index">
+            <view class="card_view" data-taskId="{{item.taskId}}" bindtap="onTaskRow">
+                <taskRow title="{{item.title}}" 
+                        point="{{item.point}}"
+                        teamName="{{item.teamName}}"
+                        detail="{{item.detail}}" />
+            </view>
+        </block>
+    </view>
+</view>
