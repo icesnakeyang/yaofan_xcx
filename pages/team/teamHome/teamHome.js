@@ -53,6 +53,16 @@ Page({
         icon:'none'
       })
     })
+
+    /**
+     * 统计未读的团队申请人数
+     */
+
+      api.apiTotalNewApplyMember({}).then((res)=>{
+          console.log(res)
+      }).catch((error)=>{
+
+      })
   },
 
 

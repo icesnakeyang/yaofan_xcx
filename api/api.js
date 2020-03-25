@@ -199,6 +199,16 @@ function apiApplyTeam(params) {
   })
 }
 
+function apiTotalNewApplyMember(params){
+    let url = `${host}/api/team/totalNewApplyMember`
+    return new Promise((resolve, reject)=>{
+        baseApi.postToken(url, params).then((res)=>{
+            resolve(res)
+        }).catch((error)=>{
+            reject(error)
+        })
+    })
+}
 
 
 module.exports = {
@@ -218,5 +228,6 @@ module.exports = {
   apiUpdateTask,
   apiListTaskGrabbingTeam,
   apiSearchTeam,
-  apiApplyTeam
+  apiApplyTeam,
+    apiTotalNewApplyMember
 }
