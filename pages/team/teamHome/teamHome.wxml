@@ -1,9 +1,10 @@
 <!--pages/team/teamHome/teamHome.wxml-->
 <van-grid>
   <van-grid-item icon="friends-o" text="创建我的团队" bind:click="onCreateTeam" />
-  <van-grid-item icon="photo-o" text="文字" />
-  <van-grid-item icon="photo-o" text="文字" />
-  <van-grid-item icon="photo-o" text="文字" />
+  <van-grid-item icon="photo-o" text="新团队申请" bind:click="onApplyMemberList" info="99+" />
+  <van-grid-item icon="photo-o" text="团队日志" bind:click="onTeamLog" />
+  <van-grid-item icon="photo-o" text="统计" />
+  <van-grid-item icon="search" text="文字" info="99+" />
 </van-grid>
 
 <van-search placeholder="搜索团队名称" bind:search="onSearch" bind:change="onSearchChange" />

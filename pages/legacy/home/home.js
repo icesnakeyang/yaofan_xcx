@@ -44,6 +44,13 @@ Page({
     })
   },
 
+  onSignout(){
+    wx.clearStorage()
+    wx.switchTab({
+      url: '/pages/jobs/public/plaza/publicJobList',
+    })
+  },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

@@ -1,9 +1,0 @@
-{
-  "usingComponents": {
-      "van-tag": "/vant-weapp/tag/index",
-      "van-row": "/vant-weapp/row/index",
-    "van-col": "/vant-weapp/col/index",
-    "van-dialog": "/vant-weapp/dialog/index"
-  },
-  "navigationBarTitleText": "我的任务详情"
-}

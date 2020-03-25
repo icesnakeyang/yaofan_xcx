@@ -46,7 +46,7 @@ Component({
         onRow() {
             wx.setStorageSync('taskId', this.data.task.taskId)
             wx.navigateTo({
-                url: '../myJobDetail/myJobDetail',
+                url: '../../jobDetail/jobDetail',
             })
         }
     },

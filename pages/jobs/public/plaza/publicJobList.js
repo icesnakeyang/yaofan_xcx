@@ -32,7 +32,7 @@ Page({
     onTaskRow(e){
         wx.setStorageSync('taskId', e.currentTarget.dataset.taskid)
         wx.navigateTo({
-            url: '../jobDetail/jobDetail',
+            url: '../../jobDetail/jobDetail',
         })
     },
 

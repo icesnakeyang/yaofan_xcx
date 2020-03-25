@@ -1,5 +1,9 @@
-/* pages/legacy/home/home.wxss */
+/* pages/team/applyTeam/applyTeam.wxss */
 @import '/css/global.wxss';
+
+.editor_view{
+  padding:30rpx;
+}
 
 .bt_view{
   display: flex;

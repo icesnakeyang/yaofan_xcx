@@ -4,5 +4,6 @@
     "van-grid-item": "/vant-weapp/grid-item/index",
     "van-search": "/vant-weapp/search/index",
     "van-card": "/vant-weapp/card/index"
-  }
+  },
+  "navigationBarTitleText": "我的团队"
 }

@@ -84,6 +84,13 @@ Page({
         }
     },
 
+  onJoinTeam(){
+    wx.setStorageSync('teamId', this.data.team.teamId)
+    wx.navigateTo({
+      url: '../applyTeam/applyTeam',
+    })
+  },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

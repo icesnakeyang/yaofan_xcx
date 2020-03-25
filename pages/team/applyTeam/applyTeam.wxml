@@ -1,0 +1,20 @@
+<!--pages/team/applyTeam/applyTeam.wxml-->
+<view class="page_view">
+  <view class="box_view">
+    <van-panel title="{{team.teamName}}" desc="申请加入团队">
+      <view>
+        <van-panel title="申请说明">
+          <view class="editor_view">
+            <editor placeholder="自我描述" bindinput="onEditorChange" />
+          </view>
+        </van-panel>
+      </view>
+    </van-panel>
+  </view>
+
+  <view class="bt_view">
+    <van-button type="primary" bind:click="onApplyTeam">申请加入</van-button>
+  </view>
+</view>
+
+<van-notify id="van-notify" />

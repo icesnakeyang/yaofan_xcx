@@ -1,6 +1,8 @@
-// pages/jobs/public/jobDetail/jobDetail.js
-import api from '../../../../api/api.js'
-import tools from '../../../../utils/dateTools.js'
+// pages/team/applyTeam/applyTeam.js
+
+import api from '../../../api/api.js'
+import Notify from '../../../vant-weapp/notify/notify.js';
+import MsgBox from '../../../utils/msgBox/msgBox.js'
 
 Page({
 
@@ -8,10 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    task: {},
-    isLoading: true,
-    endTime: '',
-    isGrab: false
+    team: {},
+    remark: ''
   },
 
   /**
@@ -22,45 +22,44 @@ Page({
   },
 
   loadAllData() {
-    let taskId = wx.getStorageSync('taskId')
+    const teamId = wx.getStorageSync('teamId')
     let params = {
-      taskId
+      teamId
     }
-    api.apiGetTaskByTaskId(params).then((res) => {
-      let endTime = ''
-      if (res.data.task.endTime) {
-        endTime = tools.momentTime(res.data.task.endTime, 'L')
-      }
-      let isGrab = false
-      let createUserId = res.data.task.createUserId
-      let currentUserId = wx.getStorageSync('current_user_id')
-      if (res.data.task.status === 'GRABBING') {
-        if (currentUserId !== createUserId) {
-          isGrab = true
-        }
-      }
+    api.apiGetTeamByTeamId(params).then((res) => {
+      console.log(res)
       this.setData({
-        task: res.data.task,
-        isLoading: false,
-        endTime,
-        isGrab
+        team: res.data.team
       })
     }).catch((error) => {
       wx.showToast({
-        title: '读取任务失败',
+        title: '读取团队信息失败',
         icon: 'none'
       })
     })
   },
 
-  onGrab() {
-    let params = {
-      taskId: this.data.task.taskId
+  onEditorChange(e) {
+    this.setData({
+      remark: e.detail.html
+    })
+  },
+
+  onApplyTeam() {
+    if (!this.data.remark) {
+      Notify('请描写申请说明');
+      return
     }
-    api.apiGrab(params).then((res) => {
+    console.log(this.data)
+    let params = {
+      remark: this.data.remark,
+      teamId: this.data.team.teamId
+    }
+    api.apiApplyTeam(params).then((res) => {
       console.log(res)
     }).catch((error) => {
       console.log(error)
+      Notify(MsgBox.showMsg(error))
     })
   },
 

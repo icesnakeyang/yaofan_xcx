@@ -333,6 +333,48 @@
 					"id": -1,
 					"name": "pages/jobs/public/jobDetail/jobDetail",
 					"pathName": "pages/jobs/public/jobDetail/jobDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/jobDetail/jobDetail",
+					"pathName": "pages/jobs/jobDetail/jobDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/legacy/home/home",
+					"pathName": "pages/legacy/home/home",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamHome/teamHome",
+					"pathName": "pages/team/teamHome/teamHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/applyTeam/applyTeam",
+					"pathName": "pages/team/applyTeam/applyTeam",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamHome/teamHome",
+					"pathName": "pages/team/teamHome/teamHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/applyMemberList/applyMemberList",
+					"pathName": "pages/team/applyMemberList/applyMemberList",
 					"scene": null
 				}
 			]

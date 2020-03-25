@@ -8,6 +8,11 @@
       <van-panel title="{{task.title}}">
         <view>
           <van-cell-group>
+            <van-cell title="任务状态">
+              <view slot="right-icon">
+                <van-tag type="primary">{{status}}</van-tag>
+              </view>
+            </van-cell>
             <van-cell title="积分" value="{{task.point}}" />
             <van-cell title="完成时间" value="{{endTime}}" />
             <van-cell title="创建人" value="{{task.createUserName}}" />
@@ -23,5 +28,12 @@
     <view class="bt_view" wx:if="{{isGrab}}">
       <van-button type="primary" bind:click="onGrab">抢单</van-button>
     </view>
+
+    <view class="bt_around" wx:if="{{isEdit}}">
+      <van-button type="warning" bind:click="editTask">修改</van-button>
+      <van-button type="danger" bind:click="deleteTask">删除</van-button>
+    </view>
   </view>
 </view>
+
+<van-dialog id="van-dialog" />

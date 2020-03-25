@@ -12,7 +12,8 @@ Page({
     isLoading: true,
     pageIndex:1,
     pageSize:5,
-    teamList:[]
+    teamList:[],
+    searchKey:''
   },
 
   /**
@@ -56,9 +57,34 @@ Page({
 
 
   onSearchChange(e) {
+    this.setData({
+      searchKey:e.detail
+    })
   },
 
   onSearch() {
+    console.log(this.data.searchKey)
+    let params={
+      name:this.data.searchKey
+    }
+    api.apiSearchTeam(params).then((res)=>{
+      console.log(res)
+      if(res.data.teams.length===0){
+        wx.showToast({
+          title: '没有搜索到团队',
+          icon:'none'
+        })
+      }else{
+        this.setData({
+          teamList:res.data.teams
+        })
+      }
+    }).catch((error)=>{
+      wx.showToast({
+        title: '搜索团队失败',
+        icon:'none'
+      })
+    })
   },
 
 
@@ -73,6 +99,16 @@ Page({
     wx.navigateTo({
       url: '../teamDetail/teamDetail',
     })
+  },
+
+  onApplyMemberList(){
+    wx.navigateTo({
+      url: '../applyMemberList/applyMemberList',
+    })
+  },
+
+  onTeamLog(){
+
   },
 
   /**
