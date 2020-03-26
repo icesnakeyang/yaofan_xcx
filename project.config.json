@@ -382,6 +382,13 @@
 					"id": -1,
 					"name": "pages/team/teamHome/teamHome",
 					"pathName": "pages/team/teamHome/teamHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamLog/teamLog/teamLog",
+					"pathName": "pages/team/teamLog/teamLog/teamLog",
 					"scene": null
 				}
 			]

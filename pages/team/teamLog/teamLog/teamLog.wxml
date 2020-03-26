@@ -1,0 +1,10 @@
+<!--pages/team/teamLog/teamLog/teamLog.wxml-->
+<view class="page_view">
+  <view class="box_view">
+    <block wx:for="{{teamApplyList}}" wx:key="index">
+      <view data-item="item" bindtap="onClickRow">
+        <teamLogRow theData="{{item}}"></teamLogRow>
+      </view>
+    </block>
+  </view>
+</view>

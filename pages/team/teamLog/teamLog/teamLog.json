@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    
+    "teamLogRow":"./row/teamLogRow"
+  }
+}

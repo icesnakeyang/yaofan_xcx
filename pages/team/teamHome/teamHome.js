@@ -13,7 +13,8 @@ Page({
     pageIndex:1,
     pageSize:5,
     teamList:[],
-    searchKey:''
+    searchKey:'',
+    totalNewApplyMember:''
   },
 
   /**
@@ -57,9 +58,15 @@ Page({
     /**
      * 统计未读的团队申请人数
      */
-
       api.apiTotalNewApplyMember({}).then((res)=>{
           console.log(res)
+        let totalNewApplyMember=''
+        if (res.data.totalNewApplyMember>0){
+          totalNewApplyMember = res.data.totalNewApplyMember
+        }
+          this.setData({
+            totalNewApplyMember
+          })
       }).catch((error)=>{
 
       })
@@ -118,7 +125,9 @@ Page({
   },
 
   onTeamLog(){
-
+    wx.navigateTo({
+      url: '/pages/team/teamLog/teamLog/teamLog',
+    })
   },
 
   /**

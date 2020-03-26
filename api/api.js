@@ -177,12 +177,12 @@ function apiListTaskGrabbingTeam(params) {
   })
 }
 
-function apiSearchTeam(params){
+function apiSearchTeam(params) {
   let url = `${host}/api/team/searchTeam`
-  return new Promise((resolve, reject)=>{
-    baseApi.postToken(url, params).then((res)=>{
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
       resolve(res)
-    }).catch((error)=>{
+    }).catch((error) => {
       reject(error)
     })
   })
@@ -199,15 +199,26 @@ function apiApplyTeam(params) {
   })
 }
 
-function apiTotalNewApplyMember(params){
-    let url = `${host}/api/team/totalNewApplyMember`
-    return new Promise((resolve, reject)=>{
-        baseApi.postToken(url, params).then((res)=>{
-            resolve(res)
-        }).catch((error)=>{
-            reject(error)
-        })
+function apiTotalNewApplyMember(params) {
+  let url = `${host}/api/team/totalNewApplyMember`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
     })
+  })
+}
+
+function apiListTeamApplyLogMyApply(params) {
+  let url = `${host}/api/team/listTeamApplyLogMyApply`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
 }
 
 
@@ -229,5 +240,6 @@ module.exports = {
   apiListTaskGrabbingTeam,
   apiSearchTeam,
   apiApplyTeam,
-    apiTotalNewApplyMember
+  apiTotalNewApplyMember,
+  apiListTeamApplyLogMyApply
 }
