@@ -38,7 +38,7 @@ Page({
   },
 
   onClickRow(e){
-    console.log(e)
+    console.log(e.currentTarget.dataset.itemid)
   },
 
   /**

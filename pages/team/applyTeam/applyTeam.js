@@ -56,7 +56,12 @@ Page({
       teamId: this.data.team.teamId
     }
     api.apiApplyTeam(params).then((res) => {
-      console.log(res)
+      wx.showToast({
+          title: '保存成功'
+      })
+      wx.switchTab({
+          url: '/pages/team/teamHome/teamHome',
+      })
     }).catch((error) => {
       console.log(error)
       Notify(MsgBox.showMsg(error))

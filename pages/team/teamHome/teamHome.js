@@ -118,15 +118,23 @@ Page({
     })
   },
 
+  /**
+   * 申请加入我的团队的申请列表
+   */
   onApplyMemberList(){
+      wx.setStorageSync('type', join)
     wx.navigateTo({
-      url: '../applyMemberList/applyMemberList',
+      url: '/pages/team/teamApplyLogList/teamApplyLogList',
     })
   },
 
+  /**
+   * 我申请加入的团队的申请列表
+   */
   onTeamLog(){
+      wx.setStorageSync('type', 'apply')
     wx.navigateTo({
-      url: '/pages/team/teamLog/teamLog/teamLog',
+      url: '/pages/team/teamApplyLogList/teamApplyLogList',
     })
   },
 
