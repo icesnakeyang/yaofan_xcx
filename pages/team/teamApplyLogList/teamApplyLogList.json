@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "Row": "./row/row"
+  },
+  "navigationBarTitleText": "团队申请"
 }

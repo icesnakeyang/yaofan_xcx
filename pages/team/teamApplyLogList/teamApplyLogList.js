@@ -1,18 +1,46 @@
 // pages/team/teamApplyLogList/teamApplyLogList.js
+
+import api from '../../../api/api.js'
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+      pageIndex:1,
+      pageSize:5,
+      teamApplyLogList:[]
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      this.loadAllData()
+    },
 
+    loadAllData(){
+      wx.setStorageSync('type', 'JOIN')
+      
+      let type=wx.getStorageSync('type')
+      let params = {
+        pageIndex:this.data.pageIndex,
+        pageSize:this.data.pageSize
+      }
+      if (type ==='JOIN'){
+        api.apiListTeamApplyLogMyApply(params).then((res)=>{
+          console.log(res)
+          this.setData({
+            teamApplyLogList:res.data.applyTeams
+          })
+        }).catch((error)=>{
+          wx.showToast({
+            title: '读取日志失败',
+            icon:'none'
+          })
+        })
+      }
     },
 
     /**

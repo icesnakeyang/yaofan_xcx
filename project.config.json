@@ -389,6 +389,13 @@
 					"id": -1,
 					"name": "pages/team/teamLog/teamLog/teamLog",
 					"pathName": "pages/team/teamLog/teamLog/teamLog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamApplyLogList/teamApplyLogList",
+					"pathName": "pages/team/teamApplyLogList/teamApplyLogList",
 					"scene": null
 				}
 			]

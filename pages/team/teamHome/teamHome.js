@@ -122,7 +122,7 @@ Page({
    * 申请加入我的团队的申请列表
    */
   onApplyMemberList(){
-      wx.setStorageSync('type', join)
+      wx.setStorageSync('type', 'JOIN')
     wx.navigateTo({
       url: '/pages/team/teamApplyLogList/teamApplyLogList',
     })
@@ -132,7 +132,7 @@ Page({
    * 我申请加入的团队的申请列表
    */
   onTeamLog(){
-      wx.setStorageSync('type', 'apply')
+      wx.setStorageSync('type', 'APPLY')
     wx.navigateTo({
       url: '/pages/team/teamApplyLogList/teamApplyLogList',
     })

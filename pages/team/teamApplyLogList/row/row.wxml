@@ -1,0 +1,2 @@
+<!--pages/team/teamApplyLogList/row/row.wxml-->
+<view>{{theData.teamName}}</view>
