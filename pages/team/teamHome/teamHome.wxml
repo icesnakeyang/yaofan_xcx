@@ -2,7 +2,7 @@
 <van-grid>
   <van-grid-item icon="friends-o" text="创建我的团队" bind:click="onCreateTeam" />
   <van-grid-item icon="photo-o" text="我的申请" bind:click="onTeamLog"  />
-  <van-grid-item icon="photo-o" text="团队申请" bind:click="onApplyMemberList" info="{{totalNewApplyMember}}" />
+  <van-grid-item icon="photo-o" text="成员申请" bind:click="onApplyMemberList" info="{{totalNewApplyMember}}" />
   <van-grid-item icon="photo-o" text="统计" />
   <van-grid-item icon="search" text="文字" info="99+" />
 </van-grid>

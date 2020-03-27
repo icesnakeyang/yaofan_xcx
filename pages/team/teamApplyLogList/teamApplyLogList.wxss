@@ -1,1 +1,2 @@
 /* pages/team/teamApplyLogList/teamApplyLogList.wxss */
+@import '/css/global.wxss';

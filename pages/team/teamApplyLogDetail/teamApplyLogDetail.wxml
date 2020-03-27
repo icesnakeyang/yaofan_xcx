@@ -1,0 +1,24 @@
+<!--pages/team/teamApplyLogDetail/teamApplyLogDetail.wxml-->
+<view class="page_view">
+    <view class="box_view">
+        <van-panel title="{{teamApplyLog.teamName}}">
+            <view>
+                <van-cell-group>
+                    <van-cell title="申请人" value="{{teamApplyLog.applyUserName}}" />
+                    <van-cell title="申请时间" value="{{createTime}}" />
+                    <van-cell title="当前状态" value="{{status}}" />
+                </van-cell-group>
+                <view class="editor_view">
+                    <rich-text nodes="{{teamApplyLog.applyRemark}}"></rich-text>
+                </view>
+            </view>
+        </van-panel>
+    </view>
+    <view class="bt_view" wx:if="{{isManager}}">
+        <van-button type="info">同意</van-button>
+        <van-button type="danger">拒绝</van-button>
+    </view>
+    <view class="bt_view" wx:if="{{isApply}}">
+        <van-button type="danger" bind:click="onCancel">取消申请</van-button>
+    </view>
+</view>

@@ -1,0 +1,11 @@
+/* pages/team/teamApplyLogDetail/teamApplyLogDetail.wxss */
+@import '/css/global.wxss';
+
+.editor_view{
+    padding: 30rpx;
+}
+
+.bt_view{    
+    display: flex;
+    justify-content: space-around
+}

@@ -1,6 +1,6 @@
-// pages/team/teamApplyLogList/teamApplyLogList.js
+// pages/team/teamApplyLogDetail/teamApplyLogDetail.js
 
-import api from '../../../api/api.js'
+import tools from '../../../utils/dateTools.js'
 
 Page({
 
@@ -8,47 +8,48 @@ Page({
      * 页面的初始数据
      */
     data: {
-      pageIndex:1,
-      pageSize:5,
-      teamApplyLogList:[]
+        teamApplyLog:{},
+        createTime:'',
+        status:'',
+        isManager:false,
+        isApply:false
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.loadAllData()
+        this.loadAllData()
     },
 
     loadAllData(){
-      wx.setStorageSync('type', 'JOIN')
-      
-      let type=wx.getStorageSync('type')
-      let params = {
-        pageIndex:this.data.pageIndex,
-        pageSize:this.data.pageSize
-      }
-      if (type ==='JOIN'){
-        api.apiListTeamApplyLogMyApply(params).then((res)=>{
-          console.log(res)
-          this.setData({
-            teamApplyLogList:res.data.applyTeams
-          })
-        }).catch((error)=>{
-          wx.showToast({
-            title: '读取日志失败',
-            icon:'none'
-          })
+        const item = wx.getStorageSync('item')
+        let currentUserId=wx.getStorageSync('current_user_id')
+        let createTime=tools.momentTime(item.createTime, 'L')
+        let status=''
+        if(item.status==='PENDING'){
+            status='等待通过'
+        }
+        let isManager=false
+        if (item.teamManagerId === currentUserId){
+            isManager=true
+        }
+        let isApply=false
+        if (item.applyUserId===currentUserId){
+            isApply=true
+        }
+        this.setData({
+            teamApplyLog:item,
+            createTime,
+            status,
+            isManager,
+            isApply
         })
-      }
+        console.log(this.data)
     },
 
-    onRow(e){
-        console.log(e)
-        wx.setStorageSync('item', e.currentTarget.dataset.item)
-        wx.navigateTo({
-            url: '../teamApplyLogDetail/teamApplyLogDetail',
-        })
+    onCancel(){
+        
     },
 
     /**

@@ -34,7 +34,8 @@
         "pages/team/applyTeam/applyTeam",
         "pages/team/applyMemberList/applyMemberList",
         "pages/team/teamLog/teamLog/teamLog",
-        "pages/team/teamApplyLogList/teamApplyLogList"
+        "pages/team/teamApplyLogList/teamApplyLogList",
+        "pages/team/teamApplyLogDetail/teamApplyLogDetail"
     ],
     "window": {
         "backgroundTextStyle": "light",

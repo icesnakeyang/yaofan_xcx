@@ -1,1 +1,5 @@
 /* pages/team/teamApplyLogList/row/row.wxss */
+
+.card_view{
+    margin-top: 30rpx;
+}

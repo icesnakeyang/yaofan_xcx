@@ -1,3 +1,10 @@
 <!--pages/team/teamApplyLogList/teamApplyLogList.wxml-->
-<text>pages/team/teamApplyLogList/teamApplyLogList.wxml</text>
-<Row theData="{{teamApplyLogList}}"></Row>
+<view class="page_view">
+    <view class="box_view">
+        <block wx:for="{{teamApplyLogList}}" wx:key="index">
+        <view data-item="{{item}}" bindtap="onRow">
+            <Row theData="{{item}}"></Row>
+            </view>
+        </block>
+    </view>
+</view>
