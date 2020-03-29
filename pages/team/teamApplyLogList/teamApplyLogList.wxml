@@ -2,8 +2,8 @@
 <view class="page_view">
     <view class="box_view">
         <block wx:for="{{teamApplyLogList}}" wx:key="index">
-        <view data-item="{{item}}" bindtap="onRow">
-            <Row theData="{{item}}"></Row>
+            <view data-item="{{item}}" bindtap="onRow">
+                <Row theData="{{item}}"></Row>
             </view>
         </block>
     </view>
