@@ -15,7 +15,10 @@ Component({
    */
   data: {
       createTime:'',
-      status:''
+      status:'',
+      isPending:false,
+      isReject:false,
+      isAgree:false
   },
 
   /**
@@ -26,12 +29,29 @@ Component({
           console.log(this.data)
           let createTime=tools.momentTime(this.data.theData.createTime, 'L')
           let status=''
+          let isPending=false
+          let isReject=false
+          let isAgree=false
           if(this.data.theData.status==='PENDING'){
-              status='等待通过'
+              status='等待通过',
+              isPending=true
+          }else{
+            if (this.data.theData.status ==='REJECT'){
+              status='已拒绝'
+              isReject=true
+            }else{
+              if(this.data.theData.status==='AGREE'){
+                status='已通过'
+                isAgree=true
+              }
+            }
           }
           this.setData({
               createTime,
-              status
+              status,
+              isPending,
+              isReject,
+              isAgree
           })
       }
   },
