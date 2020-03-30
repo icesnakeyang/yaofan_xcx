@@ -21,7 +21,8 @@ Page({
         isApply: false,
         processRemark:'',
         isLoading:true,
-        processTime:''
+        processTime:'',
+        isCancel:false
     },
 
     /**
@@ -49,6 +50,7 @@ Page({
             let isPending = false
             let isReject = false
             let isAgree = false
+            let isCancel=false
             if (teamApplyLog.status === 'PENDING') {
                 status = '等待通过'
                 isPending = true
@@ -60,6 +62,11 @@ Page({
                     if (teamApplyLog.status === 'AGREE') {
                         status = '审核通过'
                         isAgree = true
+                    }else{
+                        if(teamApplyLog.status==='CANCEL'){
+                            status='已取消'
+                            isCancel=true
+                        }
                     }
                 }
             }
@@ -81,7 +88,8 @@ Page({
                 isReject,
                 isAgree,
                 isLoading:false,
-                processTime
+                processTime,
+                isCancel
             })
         }).catch((error)=>{
 
@@ -89,7 +97,23 @@ Page({
     },
 
     onCancel() {
+        Dialog.confirm({
+            message:'确定要取消申请吗？'
+        }).then(()=>{
+            let params={
+                teamApplyLogId:this.data.teamApplyLog.teamApplyLogId
+            }
+            api.apiCancelTeamApplyLog(params).then((res)=>{
+                wx.showToast({
+                    title: '取消成功',
+                })
+                this.loadAllData()
+            }).catch((error)=>{
+                Notify(ShowMsg(error))
+            })
+        }).catch(()=>{
 
+        })
     },
 
     onAgree() {

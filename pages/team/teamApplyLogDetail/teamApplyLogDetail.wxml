@@ -16,6 +16,9 @@
                                 <view wx:if="{{isReject}}">
                                     <van-tag type="danger">{{status}}</van-tag>
                                 </view>
+                                <view wx:if="{{isCancel}}">
+                                    <van-tag type="default">{{status}}</van-tag>
+                                </view>
                             </view>
                         </van-cell>
                         <van-panel title="申请说明">
@@ -30,30 +33,34 @@
 
         <view wx:if="{{isPending}}">
             <view class="box_view">
-                <van-panel title="处理意见">
-                    <view class="editor_view">
-                        <editor bindinput="onProcessRemark" />
-                    </view>
-                </van-panel>
-            </view>
-            <view class="bt_view" wx:if="{{isManager}}">
-                <van-button type="info" bind:click="onAgree">同意</van-button>
-                <van-button type="danger" bind:click="onReject">拒绝</van-button>
-            </view>
-            <view class="bt_view" wx:if="{{isApply}}">
-                <van-button type="danger" bind:click="onCancel">取消申请</van-button>
+                <view class="bt_view" wx:if="{{isManager}}">
+                    <van-panel title="处理意见">
+                        <view class="editor_view">
+                            <editor bindinput="onProcessRemark" />
+                        </view>
+                    </van-panel>
+                    <van-button type="info" bind:click="onAgree">同意</van-button>
+                    <van-button type="danger" bind:click="onReject">拒绝</van-button>
+                </view>
+                <view class="bt_view" wx:if="{{isApply}}">
+                    <van-button type="danger" bind:click="onCancel">取消申请</van-button>
+                </view>
             </view>
         </view>
         <view wx:else="{{isPending}}" class="box_view">
-            <van-panel title="处理结果">
-                <van-cell title="处理结果" value="{{status}}" />
-                <van-cell title="处理时间" value="{{processTime}}" />
-                <van-panel title="审核说明">
-                    <view class="editor_view">
-                        <rich-text nodes="{{teamApplyLog.processRemark}}"></rich-text>
-                    </view>
+            <view wx:if="{{isCancel}}">
+            </view>
+            <view wx:else="{{isCalcel}}">
+                <van-panel title="处理结果">
+                    <van-cell title="处理结果" value="{{status}}" />
+                    <van-cell title="处理时间" value="{{processTime}}" />
+                    <van-panel title="审核说明">
+                        <view class="editor_view">
+                            <rich-text nodes="{{teamApplyLog.processRemark}}"></rich-text>
+                        </view>
+                    </van-panel>
                 </van-panel>
-            </van-panel>
+            </view>
         </view>
     </view>
 </view>

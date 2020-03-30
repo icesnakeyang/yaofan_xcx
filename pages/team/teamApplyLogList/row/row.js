@@ -18,7 +18,8 @@ Component({
       status:'',
       isPending:false,
       isReject:false,
-      isAgree:false
+      isAgree:false,
+      isCancel:false
   },
 
   /**
@@ -31,6 +32,7 @@ Component({
           let isPending=false
           let isReject=false
           let isAgree=false
+          let isCancel=false
           if(this.data.theData.status==='PENDING'){
               status='等待通过',
               isPending=true
@@ -42,6 +44,11 @@ Component({
               if(this.data.theData.status==='AGREE'){
                 status='已通过'
                 isAgree=true
+              }else{
+                  if (this.data.theData.status ==='CANCEL'){
+                      status='已取消'
+                      isCancel=true
+                  }
               }
             }
           }
@@ -50,7 +57,8 @@ Component({
               status,
               isPending,
               isReject,
-              isAgree
+              isAgree,
+              isCancel
           })
       }
   },

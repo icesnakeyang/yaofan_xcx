@@ -200,7 +200,7 @@ function apiApplyTeam(params) {
 }
 
 function apiTotalMyTeamLogUnread(params) {
-  const url = `${host}/api/team/totalMyTeamLogUnread`
+    const url = `${host}/api/team/totalMyTeamLogUnread`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -254,12 +254,23 @@ function apiAgreeApplyTeam(params) {
     })
 }
 
-function apiGetTeamApplyLog(params){
-    const url = `${host}/api/team/getTeamApplyLog`
-    return new Promise((resolve, reject)=>{
-        baseApi.postToken(url, params).then((res)=>{
+function apiCancelTeamApplyLog(params) {
+    const url = `${host}/api/team/cancelTeamApplyLog`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
             resolve(res)
-        }).catch((error)=>{
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiGetTeamApplyLog(params) {
+    const url = `${host}/api/team/getTeamApplyLog`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
             reject(error)
         })
     })
@@ -283,10 +294,11 @@ module.exports = {
     apiListTaskGrabbingTeam,
     apiSearchTeam,
     apiApplyTeam,
-  apiTotalMyTeamLogUnread,
+    apiTotalMyTeamLogUnread,
     apiListTeamApplyLogMyApply,
     apiListTeamApplyLogApplyUser,
     apiRejectApplyTeam,
     apiAgreeApplyTeam,
-    apiGetTeamApplyLog
+    apiGetTeamApplyLog,
+    apiCancelTeamApplyLog
 }
