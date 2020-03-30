@@ -92,14 +92,26 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function() {
-
+      let pageIndex=this.data.pageIndex
+      if(pageIndex>1){
+        pageIndex--
+      }
+      this.setData({
+        pageIndex
+      })
+      this.loadAllData()
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
-
+      let pageIndex=this.data.pageIndex
+      pageIndex++
+      this.setData({
+        pageIndex:pageIndex
+      })
+      this.loadAllData()
     },
 
     /**

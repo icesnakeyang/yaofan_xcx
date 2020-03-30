@@ -3,3 +3,12 @@
 .card_view{
     margin-top: 30rpx;
 }
+
+.title_view{
+  display: flex;
+  flex-direction: row;
+}
+
+.title_text{
+  font-size: 34rpx;
+}

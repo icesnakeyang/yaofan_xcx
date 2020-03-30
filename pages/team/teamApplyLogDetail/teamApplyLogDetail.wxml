@@ -1,68 +1,72 @@
 <!--pages/team/teamApplyLogDetail/teamApplyLogDetail.wxml-->
 <view class="page_view">
-    <view class="loading_view" wx:if="{{isLoading}}">
-        <van-loading type="spinner" />
-    </view>
-    <view wx:else="{{isLoading}}">
-        <view class="box_view">
-            <van-panel title="加入申请">
-                <view>
-                    <van-cell-group>
-                        <van-cell title="申请人" value="{{teamApplyLog.applyUserName}}" />
-                        <van-cell title="加入团队" value="{{teamApplyLog.teamName}}" />
-                        <van-cell title="申请时间" value="{{createTime}}"></van-cell>
-                        <van-cell title="当前状态">
-                            <view slot="right-icon">
-                                <view wx:if="{{isReject}}">
-                                    <van-tag type="danger">{{status}}</van-tag>
-                                </view>
-                                <view wx:if="{{isCancel}}">
-                                    <van-tag type="default">{{status}}</van-tag>
-                                </view>
-                            </view>
-                        </van-cell>
-                        <van-panel title="申请说明">
-                            <view class="editor_view">
-                                <rich-text nodes="{{teamApplyLog.applyRemark}}"></rich-text>
-                            </view>
-                        </van-panel>
-                    </van-cell-group>
+  <view class="loading_view" wx:if="{{isLoading}}">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
+    <view class="box_view">
+      <van-panel title="加入申请">
+        <view>
+          <van-cell-group>
+            <van-cell title="申请人" value="{{teamApplyLog.applyUserName}}" />
+            <van-cell title="加入团队" value="{{teamApplyLog.teamName}}" />
+            <van-cell title="申请时间" value="{{createTime}}"></van-cell>
+            <van-cell title="当前状态">
+              <view slot="right-icon">
+                <view wx:if="{{isReject}}">
+                  <van-tag type="danger">{{status}}</van-tag>
                 </view>
+                <view wx:if="{{isCancel}}">
+                  <van-tag type="default">{{status}}</van-tag>
+                </view>
+              </view>
+            </van-cell>
+            <van-panel title="申请说明">
+              <view class="editor_view">
+                <rich-text nodes="{{teamApplyLog.applyRemark}}"></rich-text>
+              </view>
             </van-panel>
+          </van-cell-group>
         </view>
-
-        <view wx:if="{{isPending}}">
-            <view class="box_view">
-                <view class="bt_view" wx:if="{{isManager}}">
-                    <van-panel title="处理意见">
-                        <view class="editor_view">
-                            <editor bindinput="onProcessRemark" />
-                        </view>
-                    </van-panel>
-                    <van-button type="info" bind:click="onAgree">同意</van-button>
-                    <van-button type="danger" bind:click="onReject">拒绝</van-button>
-                </view>
-                <view class="bt_view" wx:if="{{isApply}}">
-                    <van-button type="danger" bind:click="onCancel">取消申请</van-button>
-                </view>
-            </view>
-        </view>
-        <view wx:else="{{isPending}}" class="box_view">
-            <view wx:if="{{isCancel}}">
-            </view>
-            <view wx:else="{{isCalcel}}">
-                <van-panel title="处理结果">
-                    <van-cell title="处理结果" value="{{status}}" />
-                    <van-cell title="处理时间" value="{{processTime}}" />
-                    <van-panel title="审核说明">
-                        <view class="editor_view">
-                            <rich-text nodes="{{teamApplyLog.processRemark}}"></rich-text>
-                        </view>
-                    </van-panel>
-                </van-panel>
-            </view>
-        </view>
+      </van-panel>
     </view>
+
+    <view wx:if="{{isPending}}">
+      <view wx:if="{{isManager}}">
+        <view class="box_view">
+          <van-panel title="处理意见">
+            <view class="editor_view">
+              <editor bindinput="onProcessRemark" />
+            </view>
+          </van-panel>
+        </view>
+        <view class="bt_view">
+            <van-button type="info" bind:click="onAgree">同意</van-button>
+            <van-button type="danger" bind:click="onReject">拒绝</van-button>
+          </view>
+      </view>
+
+      <view class="bt_view" wx:if="{{isApply}}">
+        <van-button type="danger" bind:click="onCancel">取消申请</van-button>
+      </view>
+    </view>
+
+    <view wx:else="{{isPending}}" class="box_view">
+      <view wx:if="{{isCancel}}">
+      </view>
+      <view wx:else="{{isCalcel}}">
+        <van-panel title="处理结果">
+          <van-cell title="处理结果" value="{{status}}" />
+          <van-cell title="处理时间" value="{{processTime}}" />
+          <van-panel title="审核说明">
+            <view class="editor_view">
+              <rich-text nodes="{{teamApplyLog.processRemark}}"></rich-text>
+            </view>
+          </van-panel>
+        </van-panel>
+      </view>
+    </view>
+  </view>
 </view>
 <van-dialog id="van-dialog" />
 <van-notify id="van-notify" />

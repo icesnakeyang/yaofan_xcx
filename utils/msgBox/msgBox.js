@@ -20,6 +20,9 @@ function showMsg(msg) {
   if (msg ===10007){
     return '您已经申请过该团队了，请等待团队管理员处理'
   }
+  if(msg===10011){
+    return '当前处理的申请已经被处理了'
+  }
 }
 
 module.exports = {

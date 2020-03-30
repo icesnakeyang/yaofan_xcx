@@ -1,23 +1,33 @@
 <!--pages/team/teamApplyLogList/row/row.wxml-->
 <view class="card_view">
-    <van-card title="{{theData.teamName}}">
-        <view slot="desc">
-            <view>
-                {{theData.applyUserName}}
-            </view>
-            <view>{{createTime}}</view>
-            <view wx:if="{{isPending}}">
-                <van-tag type="primary">{{status}}</van-tag>
-            </view>
-            <view wx:if="{{isReject}}">
-                <van-tag type="danger">{{status}}</van-tag>
-            </view>
-            <view wx:if="{{isAgree}}">
-                <van-tag type="info">{{status}}</van-tag>
-            </view>
-            <view wx:if="{{isCancel}}">
-                <van-tag type="default">{{status}}</van-tag>
-            </view>
+  <van-card>
+    <view slot="desc">
+      <view>
+        {{theData.applyUserName}}
+      </view>
+      <view>{{createTime}}</view>
+      <view wx:if="{{isPending}}">
+        <van-tag type="primary">{{status}}</van-tag>
+      </view>
+      <view wx:if="{{isReject}}">
+        <van-tag type="danger">{{status}}</van-tag>
+      </view>
+      <view wx:if="{{isAgree}}">
+        <van-tag type="info">{{status}}</van-tag>
+      </view>
+      <view wx:if="{{isCancel}}">
+        <van-tag type="default">{{status}}</van-tag>
+      </view>
+    </view>
+    <view slot="title">
+      <view class="title_view">
+        <view wx:if="{{isNew}}">
+          <mp-badge style="margin-left: 5px;margin-right: 5px;" ext-class="blue" />
         </view>
-    </van-card>
+        <view>
+          <text class="title_text">{{theData.teamName}}</text>
+        </view>
+      </view>
+    </view>
+  </van-card>
 </view>

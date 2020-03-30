@@ -74,7 +74,6 @@ Page({
         totalNewApplyMember,
         totalUnreadProcess
       })
-      console.log(this.data)
     }).catch((error) => {
       wx.showToast({
         title: '统计错误',
