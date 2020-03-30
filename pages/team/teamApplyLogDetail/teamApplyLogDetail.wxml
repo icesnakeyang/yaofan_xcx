@@ -19,6 +19,9 @@
                 <view wx:if="{{isCancel}}">
                   <van-tag type="default">{{status}}</van-tag>
                 </view>
+                <view wx:if="{{isPending}}">
+                    <van-tag type="primary">{{status}}</van-tag>
+                </view>
               </view>
             </van-cell>
             <van-panel title="申请说明">
@@ -45,12 +48,10 @@
             <van-button type="danger" bind:click="onReject">拒绝</van-button>
           </view>
       </view>
-
       <view class="bt_view" wx:if="{{isApply}}">
         <van-button type="danger" bind:click="onCancel">取消申请</van-button>
       </view>
     </view>
-
     <view wx:else="{{isPending}}" class="box_view">
       <view wx:if="{{isCancel}}">
       </view>

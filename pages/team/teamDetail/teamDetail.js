@@ -12,7 +12,8 @@ Page({
     data: {
         team: {},
         isManager: false,
-        isLoading: true
+        isLoading: true,
+        isMember:false
     },
 
     /**
@@ -31,8 +32,11 @@ Page({
         }
         api.apiGetTeamByTeamId(params).then((res) => {
             let isManager = false
+            let isMember=false
             if (currentUserId === res.data.team.managerId) {
                 isManager = true
+            }else{
+                if(currentUserId===res.data.team.)
             }
             this.setData({
                 team: res.data.team,

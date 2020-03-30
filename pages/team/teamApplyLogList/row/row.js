@@ -34,6 +34,7 @@ Component({
       let isReject = false
       let isAgree = false
       let isCancel = false
+      console.log(this.data.theData)
       if (this.data.theData.status === 'PENDING') {
         status = '等待通过',
           isPending = true
@@ -81,6 +82,7 @@ Component({
         isCancel,
         isNew
       })
+      console.log(this.data)
     }
   },
 

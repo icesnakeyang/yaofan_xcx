@@ -74,6 +74,8 @@ Page({
         isManager = true
       }
       let isApply = false
+      console.log(currentUserId)
+      console.log(teamApplyLog.applyUserId)
       if (teamApplyLog.applyUserId === currentUserId) {
         isApply = true
       }
@@ -90,6 +92,7 @@ Page({
         processTime,
         isCancel
       })
+      console.log(this.data)
     }).catch((error) => {
       console.log(error)
       wx.showToast({
@@ -136,6 +139,7 @@ Page({
         wx.showToast({
           title: '处理成功'
         })
+        this.loadAllData()
       }).catch((error)=>{
         console.log(error)
         Notify(ShowMsg.showMsg(error))

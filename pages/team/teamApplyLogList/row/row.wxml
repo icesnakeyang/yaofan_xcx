@@ -13,7 +13,7 @@
         <van-tag type="danger">{{status}}</van-tag>
       </view>
       <view wx:if="{{isAgree}}">
-        <van-tag type="info">{{status}}</van-tag>
+        <van-tag type="success">{{status}}</van-tag>
       </view>
       <view wx:if="{{isCancel}}">
         <van-tag type="default">{{status}}</van-tag>
