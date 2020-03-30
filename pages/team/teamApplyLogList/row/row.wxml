@@ -6,7 +6,15 @@
                 {{theData.applyUserName}}
             </view>
             <view>{{createTime}}</view>
-            <view><van-tag type="primary">{{status}}</van-tag></view>
+            <view wx:if="{{isPending}}">
+                <van-tag type="primary">{{status}}</van-tag>
+            </view>
+            <view wx:if="{{isReject}}">
+                <van-tag type="danger">{{status}}</van-tag>
+            </view>
+            <view wx:if="{{isAgree}}">
+                <van-tag type="info">{{status}}</van-tag>
+            </view>
         </view>
     </van-card>
 </view>

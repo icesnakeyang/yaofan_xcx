@@ -22,7 +22,6 @@ Page({
 
     loadAllData() {
         let type = wx.getStorageSync('type')
-        console.log(type)
 
         let params = {
             pageIndex: this.data.pageIndex,
@@ -30,7 +29,6 @@ Page({
         }
         if (type === 'APPLY') {
             api.apiListTeamApplyLogMyApply(params).then((res) => {
-                console.log(res)
                 this.setData({
                     teamApplyLogList: res.data.applyTeams
                 })
@@ -42,7 +40,6 @@ Page({
             })
         } else {
             api.apiListTeamApplyLogApplyUser(params).then((res) => {
-                console.log(res)
                 this.setData({
                     teamApplyLogList: res.data.applyTeams
                 })
@@ -56,8 +53,8 @@ Page({
     },
 
     onRow(e) {
-        console.log(e)
-        wx.setStorageSync('item', e.currentTarget.dataset.item)
+        const teamApplyLogId=e.currentTarget.dataset.item.teamApplyLogId
+        wx.setStorageSync('teamApplyLogId', teamApplyLogId)
         wx.navigateTo({
             url: '../teamApplyLogDetail/teamApplyLogDetail',
         })

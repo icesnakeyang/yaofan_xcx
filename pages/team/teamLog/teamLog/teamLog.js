@@ -25,7 +25,6 @@ Page({
       pageSize:this.data.pageSize
     }
     api.apiListTeamApplyLogMyApply(params).then((res)=>{
-      console.log(res)
       this.setData({
         teamApplyList:res.data.applyTeams
       })
@@ -38,7 +37,6 @@ Page({
   },
 
   onClickRow(e){
-    console.log(e.currentTarget.dataset.itemid)
   },
 
   /**

@@ -19,7 +19,9 @@ Page({
         isAgree:false,
         isManager: false,
         isApply: false,
-        processRemark:''
+        processRemark:'',
+        isLoading:true,
+        processTime:''
     },
 
     /**
@@ -30,47 +32,60 @@ Page({
     },
 
     loadAllData() {
-        const item = wx.getStorageSync('item')
+        const teamApplyLogId = wx.getStorageSync('teamApplyLogId')
         let currentUserId = wx.getStorageSync('current_user_id')
-        let createTime = tools.momentTime(item.createTime, 'L')
-        let status = ''
-        let isPending=false
-        let isReject=false
-        let isAgree=false
-        console.log(item.status)
-        if (item.status === 'PENDING') {
-            status = '等待通过'
-            isPending=true
-        }else{
-            if (item.status ==='REJECT'){
-                status='审核拒绝'
-                isReject=true
-            }else{
-                if(item.status==='AGREE'){
-                    status='审核通过'
-                    isAgree=true
+        let params={
+            teamApplyLogId
+        }
+        api.apiGetTeamApplyLog(params).then((res)=>{
+            console.log(res)
+            const teamApplyLog=res.data.teamApplyView
+            let createTime = tools.momentTime(teamApplyLog.createTime, 'L')
+            let processTime=''
+            if(teamApplyLog.processTime){
+                processTime=tools.momentTime(teamApplyLog.processTime, 'L')
+            }
+            let status = ''
+            let isPending = false
+            let isReject = false
+            let isAgree = false
+            if (teamApplyLog.status === 'PENDING') {
+                status = '等待通过'
+                isPending = true
+            } else {
+                if (teamApplyLog.status === 'REJECT') {
+                    status = '审核拒绝'
+                    isReject = true
+                } else {
+                    if (teamApplyLog.status === 'AGREE') {
+                        status = '审核通过'
+                        isAgree = true
+                    }
                 }
             }
-        }
-        let isManager = false
-        if (item.teamManagerId === currentUserId) {
-            isManager = true
-        }
-        let isApply = false
-        if (item.applyUserId === currentUserId) {
-            isApply = true
-        }
-        this.setData({
-            teamApplyLog: item,
-            createTime,
-            status,
-            isManager,
-            isApply,
-            isPending,
-            isReject,
-            isAgree
+            let isManager = false
+            if (teamApplyLog.teamManagerId === currentUserId) {
+                isManager = true
+            }
+            let isApply = false
+            if (teamApplyLog.applyUserId === currentUserId) {
+                isApply = true
+            }
+            this.setData({
+                teamApplyLog: teamApplyLog,
+                createTime,
+                status,
+                isManager,
+                isApply,
+                isPending,
+                isReject,
+                isAgree,
+                isLoading:false,
+                processTime
+            })
+        }).catch((error)=>{
+
         })
-        console.log(this.data)
     },
 
     onCancel() {
@@ -85,7 +100,6 @@ Page({
         Dialog.confirm({
             message: '确认要通过该用户的入团申请吗？'
         }).then(() => {
-            console.log(this.data)
             let params={
                 remark: this.data.processRemark,
                 teamApplyLogId: this.data.teamApplyLog.teamApplyLogId
@@ -107,9 +121,7 @@ Page({
                 remark: this.data.processRemark,
                 teamApplyLogId: this.data.teamApplyLog.teamApplyLogId
             }
-            console.log(params)
             api.apiRejectApplyTeam(params).then((res)=>{
-                console.log(res)
                 wx.showToast({
                     title: '保存成功'
                 })
@@ -123,7 +135,6 @@ Page({
     },
 
     onProcessRemark(e) {
-        console.log(e.detail.html)
         this.setData({
             processRemark:e.detail.html
         })

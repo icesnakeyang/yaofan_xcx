@@ -27,7 +27,6 @@ Page({
       teamId
     }
     api.apiGetTeamByTeamId(params).then((res) => {
-      console.log(res)
       this.setData({
         team: res.data.team
       })
@@ -50,7 +49,6 @@ Page({
       Notify('请描写申请说明');
       return
     }
-    console.log(this.data)
     let params = {
       remark: this.data.remark,
       teamId: this.data.team.teamId
@@ -63,7 +61,6 @@ Page({
           url: '/pages/team/teamHome/teamHome',
       })
     }).catch((error) => {
-      console.log(error)
       Notify(MsgBox.showMsg(error))
     })
   },

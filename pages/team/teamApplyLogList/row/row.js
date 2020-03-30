@@ -26,7 +26,6 @@ Component({
    */
   methods: {
       updateData(){
-          console.log(this.data)
           let createTime=tools.momentTime(this.data.theData.createTime, 'L')
           let status=''
           let isPending=false

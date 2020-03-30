@@ -6,7 +6,7 @@ const host = 'http://localhost:8089'
  * 用户注册
  */
 function apiRegister(params) {
-    let url = `${host}/api/user/register`
+    const url = `${host}/api/user/register`
     return new Promise((resolve, reject) => {
         baseApi.post(url, params).then((res) => {
             resolve(res)
@@ -18,7 +18,7 @@ function apiRegister(params) {
 
 //用户登录
 function apiLogin(params) {
-    let url = `${host}/api/user/login`
+    const url = `${host}/api/user/login`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -32,7 +32,7 @@ function apiLogin(params) {
  * 通过token登录
  */
 function apiLoginByToken(params) {
-    let url = `${host}/api/user/loginByToken`
+    const url = `${host}/api/user/loginByToken`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -46,7 +46,7 @@ function apiLoginByToken(params) {
  * 修改用户姓名
  */
 function apiUpdateUsername(params) {
-    let url = `${host}/api/user/updateUsername`
+    const url = `${host}/api/user/updateUsername`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -57,7 +57,7 @@ function apiUpdateUsername(params) {
 }
 
 function apiCreateTask(params) {
-    let url = `${host}/api/task/createTask`
+    const url = `${host}/api/task/createTask`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -68,7 +68,7 @@ function apiCreateTask(params) {
 }
 
 function apiListMyTasks(params) {
-    let url = `${host}/api/task/listMyTasksDetail`
+    const url = `${host}/api/task/listMyTasksDetail`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -79,7 +79,7 @@ function apiListMyTasks(params) {
 }
 
 function apiGetTaskByTaskId(params) {
-    let url = `${host}/api/task/getTaskByTaskId`
+    const url = `${host}/api/task/getTaskByTaskId`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -90,7 +90,7 @@ function apiGetTaskByTaskId(params) {
 }
 
 function apiGrab(params) {
-    let url = `${host}/api/task/grab`
+    const url = `${host}/api/task/grab`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -101,7 +101,7 @@ function apiGrab(params) {
 }
 
 function apiCreateTeam(params) {
-    let url = `${host}/api/team/createTeam`
+    const url = `${host}/api/team/createTeam`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -112,7 +112,7 @@ function apiCreateTeam(params) {
 }
 
 function apiListMyTeam(params) {
-    let url = `${host}/api/team/listMyTeam`
+    const url = `${host}/api/team/listMyTeam`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -123,7 +123,7 @@ function apiListMyTeam(params) {
 }
 
 function apiGetTeamByTeamId(params) {
-    let url = `${host}/api/team/getTeamByTeamId`
+    const url = `${host}/api/team/getTeamByTeamId`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -134,7 +134,7 @@ function apiGetTeamByTeamId(params) {
 }
 
 function apiUpdateMyTeam(params) {
-    let url = `${host}/api/team/updateMyTeam`
+    const url = `${host}/api/team/updateMyTeam`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -145,7 +145,7 @@ function apiUpdateMyTeam(params) {
 }
 
 function apiDeleteMyTeam(params) {
-    let url = `${host}/api/team/deleteMyTeam`
+    const url = `${host}/api/team/deleteMyTeam`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -156,7 +156,7 @@ function apiDeleteMyTeam(params) {
 }
 
 function apiUpdateTask(params) {
-    let url = `${host}/api/task/updateTask`
+    const url = `${host}/api/task/updateTask`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -167,7 +167,7 @@ function apiUpdateTask(params) {
 }
 
 function apiListTaskGrabbingTeam(params) {
-    let url = `${host}/api/task/listTaskGrabbingTeam`
+    const url = `${host}/api/task/listTaskGrabbingTeam`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -178,7 +178,7 @@ function apiListTaskGrabbingTeam(params) {
 }
 
 function apiSearchTeam(params) {
-    let url = `${host}/api/team/searchTeam`
+    const url = `${host}/api/team/searchTeam`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -189,7 +189,7 @@ function apiSearchTeam(params) {
 }
 
 function apiApplyTeam(params) {
-    let url = `${host}/api/team/applyTeam`
+    const url = `${host}/api/team/applyTeam`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -200,7 +200,7 @@ function apiApplyTeam(params) {
 }
 
 function apiTotalMyTeamLogUnread(params) {
-  let url = `${host}/api/team/totalMyTeamLogUnread`
+  const url = `${host}/api/team/totalMyTeamLogUnread`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -211,7 +211,7 @@ function apiTotalMyTeamLogUnread(params) {
 }
 
 function apiListTeamApplyLogMyApply(params) {
-    let url = `${host}/api/team/listTeamApplyLogMyApply`
+    const url = `${host}/api/team/listTeamApplyLogMyApply`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -222,7 +222,7 @@ function apiListTeamApplyLogMyApply(params) {
 }
 
 function apiListTeamApplyLogApplyUser(params) {
-    let url = `${host}/api/team/listTeamApplyLogApplyUser`
+    const url = `${host}/api/team/listTeamApplyLogApplyUser`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -233,7 +233,7 @@ function apiListTeamApplyLogApplyUser(params) {
 }
 
 function apiRejectApplyTeam(params) {
-    let url = `${host}/api/team/rejectApplyTeam`
+    const url = `${host}/api/team/rejectApplyTeam`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -244,11 +244,22 @@ function apiRejectApplyTeam(params) {
 }
 
 function apiAgreeApplyTeam(params) {
-    let url = `${host}/api/team/agreeApplyTeam`
+    const url = `${host}/api/team/agreeApplyTeam`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
         }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiGetTeamApplyLog(params){
+    const url = `${host}/api/team/getTeamApplyLog`
+    return new Promise((resolve, reject)=>{
+        baseApi.postToken(url, params).then((res)=>{
+            resolve(res)
+        }).catch((error)=>{
             reject(error)
         })
     })
@@ -276,5 +287,6 @@ module.exports = {
     apiListTeamApplyLogMyApply,
     apiListTeamApplyLogApplyUser,
     apiRejectApplyTeam,
-    apiAgreeApplyTeam
+    apiAgreeApplyTeam,
+    apiGetTeamApplyLog
 }

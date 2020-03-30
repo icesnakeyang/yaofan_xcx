@@ -62,7 +62,6 @@ Page({
      * 2、统计未读的已处理的我加入的团队申请
      */
     api.apiTotalMyTeamLogUnread({}).then((res) => {
-      console.log(res)
       let totalNewApplyMember = ''
       let totalUnreadProcess = ''
       if (res.data.totalNewApplyMember > 0) {
@@ -75,6 +74,7 @@ Page({
         totalNewApplyMember,
         totalUnreadProcess
       })
+      console.log(this.data)
     }).catch((error) => {
       wx.showToast({
         title: '统计错误',
@@ -91,12 +91,10 @@ Page({
   },
 
   onSearch() {
-    console.log(this.data.searchKey)
     let params = {
       name: this.data.searchKey
     }
     api.apiSearchTeam(params).then((res) => {
-      console.log(res)
       if (res.data.teams.length === 0) {
         wx.showToast({
           title: '没有搜索到团队',
@@ -133,7 +131,6 @@ Page({
    * 申请加入我的团队的申请列表
    */
   onApplyMemberList() {
-    console.log('set join')
     wx.setStorageSync('type', 'JOIN')
     wx.navigateTo({
       url: '/pages/team/teamApplyLogList/teamApplyLogList',
@@ -144,7 +141,6 @@ Page({
    * 我申请加入的团队的申请列表
    */
   onTeamLog() {
-    console.log('set apply')
     wx.setStorageSync('type', 'APPLY')
     wx.navigateTo({
       url: '/pages/team/teamApplyLogList/teamApplyLogList',
