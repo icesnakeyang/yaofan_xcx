@@ -23,6 +23,9 @@ function showMsg(msg) {
   if(msg===10011){
     return '当前处理的申请已经被处理了'
   }
+  if(msg===10012){
+    return '您已经是该团队成员了'
+  }
 }
 
 module.exports = {

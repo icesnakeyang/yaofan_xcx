@@ -61,6 +61,7 @@ Page({
           url: '/pages/team/teamHome/teamHome',
       })
     }).catch((error) => {
+      console.log(error)
       Notify(MsgBox.showMsg(error))
     })
   },

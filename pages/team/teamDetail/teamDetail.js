@@ -31,12 +31,13 @@ Page({
             teamId: teamId
         }
         api.apiGetTeamByTeamId(params).then((res) => {
+          console.log(res)
             let isManager = false
             let isMember=false
             if (currentUserId === res.data.team.managerId) {
                 isManager = true
             }else{
-                if(currentUserId===res.data.team.)
+                console.log(222)
             }
             this.setData({
                 team: res.data.team,
