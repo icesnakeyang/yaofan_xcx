@@ -1,0 +1,23 @@
+<!--pages/team/quitTeam/quitTeam.wxml-->
+<view class="page_view">
+  <view class="loading_view" wx:if="{{isLoading}}">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
+    <view class="box2_view">
+      <van-panel title="退团申请">
+        <van-cell title="要退出的团队名称" value="{{team.teamName}}" />
+        <van-cell title="退团说明" />
+        <view class="editor_view">
+          <editor class="editor_text" placeholder="请说明退团理由" bindinput="onEditorInput" />
+        </view>
+      </van-panel>
+    </view>
+  </view>
+
+  <view class="bt_view">
+    <van-button type="danger" bind:click="onQuit">提交申请退团</van-button>
+  </view>
+</view>
+
+<van-dialog id="van-dialog" />

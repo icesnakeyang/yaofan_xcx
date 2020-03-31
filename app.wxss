@@ -9,4 +9,5 @@
   box-sizing: border-box;
 } 
 
-@import './weui/badge/badge.wxss'
+@import './weui/badge/badge.wxss';
+@import "./vant-weapp/common/index.wxss";

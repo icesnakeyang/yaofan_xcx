@@ -1,8 +1,9 @@
-// pages/team/teamDetail/teamDetail.js
+// pages/team/quitTeam/quitTeam.js
+
 import api from '../../../api/api.js'
-import Notify from '../../../vant-weapp/notify/notify.js'
-import MsgShow from '../../../utils/msgBox/msgBox.js'
 import Dialog from '../../../vant-weapp/dialog/dialog.js'
+import MsgShow from '../../../utils/msgBox/msgBox.js'
+
 
 Page({
 
@@ -10,10 +11,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    team: {},
-    isManager: false,
     isLoading: true,
-    isMember: false
+    team: {},
+    isMember: false,
+    remark: ''
   },
 
   /**
@@ -25,56 +26,46 @@ Page({
 
   loadAllData() {
     let teamId = wx.getStorageSync('teamId')
-    let currentUserId = wx.getStorageSync('current_user_id')
-
-    let params = {
-      teamId: teamId
+    console.log(teamId)
+    const params = {
+      teamId
     }
     api.apiGetTeamByTeamId(params).then((res) => {
-      let isManager = false
-      let isMember = false
-      if (currentUserId === res.data.team.managerId) {
-        isManager = true
-      } else {
-        // if(currentUserId===res.data.team.)
-      }
-      if (res.data.isMember) {
-        isMember = true
-      }
+      console.log(res)
       this.setData({
         team: res.data.team,
-        isManager,
-        isLoading: false,
-        isMember
+        isMember: res.data.isMember,
+        isLoading: false
       })
-      console.log(this.data)
     }).catch((error) => {
       wx.showToast({
-        title: '读取团队数据失败',
+        title: '读取团队信息错误',
         icon: 'none'
       })
     })
   },
 
-  onEditTeam() {
-    wx.navigateTo({
-      url: '../editTeam/editTeam',
+  onEditorInput(e) {
+    console.log(e.detail)
+    this.setData({
+      remark: e.detail.html
     })
   },
 
-  onDeleteTeam() {
+  onQuit() {
     let teamId = this.data.team.teamId
     if (teamId) {
       Dialog.confirm({
-        title: '确认删除',
-        message: '删除团队后不可恢复，确认删除该团队吗？'
+        message: '您确定要退出该团队吗？'
       }).then(() => {
         let params = {
-          teamId
+          teamId: this.data.team.teamId,
+          remark: this.data.remark
         }
-        api.apiDeleteMyTeam(params).then((res) => {
+        console.log(params)
+        api.apiQuitTeam(params).then((res) => {
           wx.showToast({
-            title: '删除成功'
+            title: '提交成功'
           })
           wx.switchTab({
             url: '/pages/team/teamHome/teamHome'
@@ -93,26 +84,6 @@ Page({
     }
   },
 
-  onJoinTeam() {
-    wx.setStorageSync('teamId', this.data.team.teamId)
-    wx.navigateTo({
-      url: '../applyTeam/applyTeam',
-    })
-  },
-
-  onQuit(){
-    let teamId = this.data.team.teamId
-    if (teamId) {
-      wx.setStorageSync('teamId', teamId)
-      wx.navigateTo({
-        url: '../quitTeam/quitTeam',
-      })
-    }else{
-      wx.showToast({
-        title: '抱歉，不能退出该团队',
-      })
-    }
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

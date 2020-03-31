@@ -1,6 +1,6 @@
 // pages/team/teamApplyLogList/teamApplyLogList.js
 
-import api from '../../../api/api.js'
+import api from '../../../../../api/api.js'
 
 Page({
 
@@ -56,7 +56,7 @@ Page({
         const teamApplyLogId=e.currentTarget.dataset.item.teamApplyLogId
         wx.setStorageSync('teamApplyLogId', teamApplyLogId)
         wx.navigateTo({
-            url: '../teamApplyLogDetail/teamApplyLogDetail',
+            url: '../detail/teamApplyLogDetail',
         })
     },
 

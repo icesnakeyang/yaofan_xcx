@@ -1,6 +1,6 @@
 // pages/team/teamApplyLogList/row/row.js
 
-import tools from '../../../../utils/dateTools.js'
+import tools from '../../../../../../utils/dateTools.js'
 
 Component({
   /**
@@ -34,7 +34,6 @@ Component({
       let isReject = false
       let isAgree = false
       let isCancel = false
-      console.log(this.data.theData)
       if (this.data.theData.status === 'PENDING') {
         status = '等待通过',
           isPending = true
@@ -82,7 +81,6 @@ Component({
         isCancel,
         isNew
       })
-      console.log(this.data)
     }
   },
 

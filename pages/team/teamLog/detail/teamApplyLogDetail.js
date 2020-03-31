@@ -1,42 +1,18 @@
-// pages/team/teamLog/teamLog/teamLog.js
-import api from '../../../../api/api.js'
-
+// pages/team/teamLog/detail/teamApplyLogDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pageIndex:1,
-    pageSize:10,
-    teamApplyList:[]
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.loadAllData()
-  },
 
-  loadAllData(){
-    let params={
-      pageIndex:this.data.pageIndex,
-      pageSize:this.data.pageSize
-    }
-    api.apiListTeamApplyLogMyApply(params).then((res)=>{
-      this.setData({
-        teamApplyList:res.data.applyTeams
-      })
-    }).catch((error)=>{
-      wx.showToast({
-        title: '读取团队日志失败',
-        icon:'none'
-      })
-    })
-  },
-
-  onClickRow(e){
   },
 
   /**

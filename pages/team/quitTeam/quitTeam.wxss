@@ -1,0 +1,16 @@
+/* pages/team/quitTeam/quitTeam.wxss */
+
+@import '/css/global.wxss';
+
+.editor_view{
+  margin: 30rpx;
+}
+
+.editor_text{
+  font-size: 28rpx
+}
+
+.bt_view{
+  display: flex;
+  justify-content: space-around
+}

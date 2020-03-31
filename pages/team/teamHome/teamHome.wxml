@@ -1,30 +1,33 @@
 <!--pages/team/teamHome/teamHome.wxml-->
 <view class="page_view">
-    <view class="loading_view" wx:if="{{isLoading}}">
-        <van-loading type="spinner" />
-    </view>
-    <view wx:else="{{isLoading}}">
-        <van-grid>
-            <van-grid-item icon="friends-o" text="创建我的团队" bind:click="onCreateTeam" />
-            <van-grid-item icon="photo-o" text="我的申请" bind:click="onTeamLog" info="{{totalUnreadProcess}}" />
-            <van-grid-item icon="photo-o" text="成员申请" bind:click="onApplyMemberList" info="{{totalNewApplyMember}}" />
-            <van-grid-item icon="photo-o" text="统计" />
-        </van-grid>
+  <view class="loading_view" wx:if="{{isLoading}}">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
+    <van-grid>
+      <van-grid-item icon="friends-o" text="创建我的团队" bind:click="onCreateTeam" />
+      <van-grid-item icon="photo-o" text="团队日志" bind:click="onTeamLog" info="{{totalUnreadProcess}}" />
+      <van-grid-item icon="photo-o" text="成员申请" bind:click="onApplyMemberList" info="{{totalNewApplyMember}}" />
+      <van-grid-item icon="photo-o" text="统计" />
+    </van-grid>
 
-        <view class="box_view">
-            <van-search placeholder="搜索团队名称" bind:search="onSearch" bind:change="onSearchChange" />
-        </view>
-
-        <view class="box_view">
-            <block wx:for="{{teamList}}" wx:key="index">
-                <view class="card_view" data-teamId="{{item.teamId}}" bindtap="onTeamRow">
-                    <van-card desc="描述信息" title="{{item.teamName}}">
-                        <view slot="price">
-                            <text>团队负责人：{{item.managerName}}</text>
-                        </view>
-                    </van-card>
-                </view>
-            </block>
-        </view>
+    <view class="box_view">
+      <van-search placeholder="搜索团队名称" bind:search="onSearch" bind:change="onSearchChange" />
     </view>
+
+    <view class="box_view">
+      <block wx:for="{{teamList}}" wx:key="index">
+        <view class="card_view" data-teamId="{{item.teamId}}" bindtap="onTeamRow">
+          <van-card title="{{item.teamName}}">
+            <view slot="desc">
+              <rich-text class="van-multi-ellipsis--l3" nodes="{{item.description}}"></rich-text>
+            </view>
+            <view slot="price">
+              <text>团队负责人：{{item.managerName}}</text>
+            </view>
+          </van-card>
+        </view>
+      </block>
+    </view>
+  </view>
 </view>

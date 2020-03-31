@@ -1,9 +1,8 @@
-// pages/team/teamApplyLogDetail/teamApplyLogDetail.js
-import api from '../../../api/api.js'
-import tools from '../../../utils/dateTools.js'
-import Dialog from '../../../vant-weapp/dialog/dialog.js';
-import Notify from '../../../vant-weapp/notify/notify.js'
-import ShowMsg from '../../../utils/msgBox/msgBox.js'
+import api from '../../../../../api/api.js'
+import tools from '../../../../../utils/dateTools.js'
+import Dialog from '../../../../../vant-weapp/dialog/dialog.js';
+import Notify from '../../../../../vant-weapp/notify/notify.js'
+import ShowMsg from '../../../../../utils/msgBox/msgBox.js'
 
 Page({
 
@@ -39,7 +38,8 @@ Page({
       teamApplyLogId
     }
     api.apiGetTeamApplyLog(params).then((res) => {
-      const teamApplyLog = res.data.teamApplyView
+      console.log(res)
+      const teamApplyLog = res.data.teamApplyLog
       let createTime = tools.momentTime(teamApplyLog.createTime, 'L')
       let processTime = ''
       if (teamApplyLog.processTime) {
@@ -74,8 +74,6 @@ Page({
         isManager = true
       }
       let isApply = false
-      console.log(currentUserId)
-      console.log(teamApplyLog.applyUserId)
       if (teamApplyLog.applyUserId === currentUserId) {
         isApply = true
       }
@@ -92,7 +90,6 @@ Page({
         processTime,
         isCancel
       })
-      console.log(this.data)
     }).catch((error) => {
       console.log(error)
       wx.showToast({
@@ -134,18 +131,16 @@ Page({
         remark: this.data.processRemark,
         teamApplyLogId: this.data.teamApplyLog.teamApplyLogId
       }
-      console.log(params)
       api.apiAgreeApplyTeam(params).then((res) => {
         wx.showToast({
           title: '处理成功'
         })
         this.loadAllData()
       }).catch((error)=>{
-        console.log(error)
         Notify(ShowMsg.showMsg(error))
       })
     }).catch(() => {
-      
+
     })
   },
 
