@@ -36,7 +36,8 @@ Page({
             if (currentUserId === res.data.team.managerId) {
                 isManager = true
             }else{
-                if(currentUserId===res.data.team.)
+                console.log(res.data)
+                // if(currentUserId===res.data.team.)
             }
             this.setData({
                 team: res.data.team,

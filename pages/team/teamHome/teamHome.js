@@ -47,7 +47,8 @@ Page({
     }
     api.apiListMyTeam(params).then((res) => {
       this.setData({
-        teamList: res.data.teams
+        teamList: res.data.teams,
+        isLoading:false
       })
     }).catch((error) => {
       wx.showToast({

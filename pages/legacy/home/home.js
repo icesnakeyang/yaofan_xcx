@@ -14,12 +14,15 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log('load')
       this.loadAllData()
     },
 
   loadAllData() {
     let token = wx.getStorageSync('yaofan_token')
+    console.log(token)
     api.apiLoginByToken({}).then((res)=>{
+        console.log(res)
       this.setData({
         userInfo:res.data.userInfo
       })
@@ -29,6 +32,9 @@ Page({
           icon:'none'
       })
     })
+
+    console.log('tt')
+    console.log(this.data)
 
     if (token) {
     } else {

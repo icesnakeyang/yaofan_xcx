@@ -4,8 +4,7 @@
 }
 
 .box_view{
-  margin-top: 30rpx;
-  padding: 20rpx;
+  margin: 30rpx 0
 }
 
 .row_view{
