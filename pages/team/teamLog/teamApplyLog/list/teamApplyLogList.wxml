@@ -6,7 +6,8 @@
     <view wx:else="{{isLoading}}">
         <view wx:if="{{isEmpty}}">
             <view class="empty_view">
-                <text class="empty_text">目前还没有人申请加入您的团队</text>
+                <text wx:if="{{isProcess}}" class="empty_text">目前还没有人申请加入您的团队</text>
+                <text wx:if="{{isApply}}" class="empty_text">您目前还没有申请加入团队</text>
             </view>
         </view>
         <view wx:else="{{isEmpty}}">

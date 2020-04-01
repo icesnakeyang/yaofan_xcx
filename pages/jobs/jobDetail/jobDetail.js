@@ -13,8 +13,11 @@ Page({
     isLoading: true,
     endTime: '',
     isGrab: false,
-    isEdit:false,
-    status:''
+    isEdit: false,
+    status: '',
+    isProgress:false,
+    totalLog:0,
+    isNewLog:false
   },
 
   /**
@@ -35,17 +38,22 @@ Page({
         endTime = tools.momentTime(res.data.task.endTime, 'L')
       }
       let isGrab = false
-      let isEdit=false
+      let isEdit = false
       let createUserId = res.data.task.createUserId
       let currentUserId = wx.getStorageSync('current_user_id')
-      let status=''
+      let status = ''
+      let isProgress=false
       if (res.data.task.status === 'GRABBING') {
-        status='等待匹配'
+        status = '等待匹配'
         if (currentUserId === createUserId) {
-          isEdit=true
-        }else{
+          isEdit = true
+        } else {
           isGrab = true
         }
+      }
+      if (res.data.task.status ==='PROGRESS'){
+        status='进行中'
+        isProgress=true
       }
       this.setData({
         task: res.data.task,
@@ -53,8 +61,10 @@ Page({
         endTime,
         isGrab,
         isEdit,
-        status
+        status,
+        isProgress
       })
+      console.log(this.data)
     }).catch((error) => {
       wx.showToast({
         title: '读取任务失败',
@@ -64,11 +74,27 @@ Page({
   },
 
   onGrab() {
-    let params = {
-      taskId: this.data.task.taskId
-    }
-    api.apiGrab(params).then((res) => {
-    }).catch((error) => {
+    Dialog.confirm({
+      message: '确定要做改任务吗？'
+    }).then(() => {
+      let params = {
+        taskId: this.data.task.taskId
+      }
+      api.apiGrab(params).then((res) => {
+        console.log(res)
+        wx.showToast({
+          title: '抢单成功'
+        })
+        this.loadAllData()
+      }).catch((error) => {
+        console.log(error)
+        wx.showToast({
+          title: '抢单失败',
+          icon: 'none'
+        })
+      })
+    }).catch(()=>{
+
     })
   },
 
@@ -88,6 +114,19 @@ Page({
     }).catch(() => {
       // on cancel
     });
+  },
+
+  onGoLog(){
+    const taskId = this.data.task.taskId
+    console.log(taskId)
+    wx.setStorageSync('taskId', this.data.task.taskId)
+    wx.navigateTo({
+      url: '/pages/jobs/myJob/log/jobLogList/jobLogList',
+    })
+  },
+
+  onComplete(){
+
   },
 
   /**

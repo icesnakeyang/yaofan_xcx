@@ -1,0 +1,16 @@
+/* pages/team/teamLog/teamQuitLog/detail/teamQuitLogDetail.wxss */
+
+@import '/css/global.wxss';
+
+.editor_view{
+  padding: 30rpx;
+}
+
+.editor_text{
+  font-size: 28rpx;
+}
+
+.bt_view{
+  display: flex;
+  justify-content: space-around
+}

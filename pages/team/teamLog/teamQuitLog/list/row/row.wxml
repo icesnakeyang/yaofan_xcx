@@ -1,3 +1,15 @@
 <!--pages/team/teamLog/teamQuitLog/list/row/row.wxml-->
-<text>pages/team/teamLog/teamQuitLog/list/row/row.wxml</text>
-<view><rich-text nodes="{{theData.remark}}"></rich-text></view>
+<van-card title="商品标题">
+  <view slot="desc">
+    <view>
+      <rich-text nodes="{{theData.remark}}"></rich-text>
+    </view>
+    <view>申请人：{{theData.userName}}</view>
+    <view>申请时间：{{createTime}}</view>
+    <view wx:if="{{isPending}}">
+    </view>
+    <view wx:if="{{isCancel}}">
+    <view>当前状态：<van-tag type="default">{{status}}</van-tag></view>
+    </view>
+  </view>
+</van-card>

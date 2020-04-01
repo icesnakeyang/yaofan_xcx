@@ -1,0 +1,41 @@
+<!--pages/team/teamLog/teamQuitLog/detail/teamQuitLogDetail.wxml-->
+<view class="page_view">
+  <view wx:if="{{isLoading}}" class="loading_view">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
+    <view class="box2_view">
+      <van-panel title="退团申请">
+        <view>
+          <van-cell-group>
+            <van-cell title="退出团队" value="{{teamQuitLog.teamName}}" />
+            <van-cell title="申请人" value="{{teamQuitLog.userName}}" />
+            <van-cell title="申请时间" value="{{createTime}}" />
+            <van-cell title="当前状态">
+              <view slot="right-icon">
+                <view wx:if="{{isCancel}}">
+                  <van-tag type="default">{{status}}</van-tag>
+                </view>
+              </view>
+            </van-cell>
+            <van-panel title="申请理由">
+              <view class="editor_view">
+                <rich-text class="editor_text" nodes="{{teamQuitLog.remark}}"></rich-text>
+              </view>
+            </van-panel>
+          </van-cell-group>
+        </view>
+      </van-panel>
+    </view>
+
+    <view class="bt_view">
+      <view wx:if="{{isPending}}">
+        <view wx:if="{{isApply}}">
+          <van-button type="primary" bind:click="onCancel">取消退团申请</van-button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<van-dialog id="van-dialog" />

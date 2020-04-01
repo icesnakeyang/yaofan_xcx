@@ -39,6 +39,13 @@ Page({
         })
     },
 
+  onTeamQuitLogMember(){
+    wx.setStorageSync('type', 'PROCESS')
+    wx.navigateTo({
+      url: '/pages/team/teamLog/teamQuitLog/list/teamQuitLogList',
+    })
+  },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

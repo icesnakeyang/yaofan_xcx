@@ -38,7 +38,10 @@
     "pages/team/quitTeam/quitTeam",
     "pages/team/teamLog/teamQuitLog/list/teamQuitLogList",
     "pages/team/teamLog/home/teamLogHome",
-    "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail"
+    "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail",
+    "pages/team/teamLog/teamQuitLog/detail/teamQuitLogDetail",
+    "pages/jobs/myJob/log/jobLogList/jobLogList",
+    "pages/jobs/myJob/log/createTaskLog/creaetTaskLog"
   ],
   "window": {
     "backgroundTextStyle": "light",

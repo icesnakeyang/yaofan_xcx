@@ -5,6 +5,22 @@
   </view>
   <view wx:else="{{isLoading}}">
     <view class="box_view">
+      <van-grid>
+        <van-grid-item icon="notes-o" dot="{{isNewLog}}" bind:click="onGoLog">
+          <view slot="text">
+            <view>
+              <text>日志</text>
+              <text>({{totalLog}})</text>
+            </view>
+          </view>
+        </van-grid-item>
+        <van-grid-item icon="photo-o" text="文字" info="99" />
+        <van-grid-item icon="photo-o" text="文字" />
+        <van-grid-item icon="photo-o" text="文字" />
+      </van-grid>
+    </view>
+    <view class="box_view">
+
       <van-panel title="{{task.title}}">
         <view>
           <van-cell-group>
@@ -15,7 +31,8 @@
             </van-cell>
             <van-cell title="积分" value="{{task.point}}" />
             <van-cell title="完成时间" value="{{endTime}}" />
-            <van-cell title="创建人" value="{{task.createUserName}}" />
+            <van-cell title="甲方" value="{{task.createUserName}}" />
+            <van-cell title="乙方" value="{{task.partyBName}}" />
           </van-cell-group>
           <van-panel title="任务详情">
             <view class="detail_view">
@@ -32,6 +49,11 @@
     <view class="bt_around" wx:if="{{isEdit}}">
       <van-button type="warning" bind:click="editTask">修改</van-button>
       <van-button type="danger" bind:click="deleteTask">删除</van-button>
+    </view>
+
+    <view class="bt_around" wx:if="{{isProgress}}">
+      <van-button type="info" plain bind:click="onLog">任务日志</van-button>
+      <van-button type="primary" bind:click="onComplete">完成</van-button>
     </view>
   </view>
 </view>

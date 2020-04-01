@@ -8,7 +8,7 @@
 }
 
 .box2_view{
-  padding: 30rpx;
+  padding: 30rpx 0
 }
 
 .row_view{
