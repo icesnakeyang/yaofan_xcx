@@ -38,7 +38,6 @@ Page({
       teamApplyLogId
     }
     api.apiGetTeamApplyLog(params).then((res) => {
-      console.log(res)
       const teamApplyLog = res.data.teamApplyLog
       let createTime = tools.momentTime(teamApplyLog.createTime, 'L')
       let processTime = ''
@@ -91,7 +90,6 @@ Page({
         isCancel
       })
     }).catch((error) => {
-      console.log(error)
       wx.showToast({
         title: '读取团队申请错误',
         icon: 'none'

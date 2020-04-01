@@ -55,7 +55,15 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/team/teamLog/teamQuitLog/list/teamQuitLogList",
+					"pathName": "pages/team/teamLog/teamQuitLog/list/teamQuitLogList",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

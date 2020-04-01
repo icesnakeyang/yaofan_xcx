@@ -36,7 +36,9 @@
     "pages/team/teamLog/teamApplyLog/list/teamApplyLogList",
     "pages/team/teamLog/detail/teamApplyLogDetail",
     "pages/team/quitTeam/quitTeam",
-    "pages/team/teamLog/teamQuitLog/teamQuitLog"
+    "pages/team/teamLog/teamQuitLog/list/teamQuitLogList",
+    "pages/team/teamLog/home/teamLogHome",
+    "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

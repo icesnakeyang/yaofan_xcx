@@ -26,12 +26,10 @@ Page({
 
   loadAllData() {
     let teamId = wx.getStorageSync('teamId')
-    console.log(teamId)
     const params = {
       teamId
     }
     api.apiGetTeamByTeamId(params).then((res) => {
-      console.log(res)
       this.setData({
         team: res.data.team,
         isMember: res.data.isMember,
@@ -46,7 +44,6 @@ Page({
   },
 
   onEditorInput(e) {
-    console.log(e.detail)
     this.setData({
       remark: e.detail.html
     })
@@ -62,7 +59,6 @@ Page({
           teamId: this.data.team.teamId,
           remark: this.data.remark
         }
-        console.log(params)
         api.apiQuitTeam(params).then((res) => {
           wx.showToast({
             title: '提交成功'

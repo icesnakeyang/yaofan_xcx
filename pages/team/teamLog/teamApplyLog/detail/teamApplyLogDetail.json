@@ -1,7 +1,7 @@
 {
-  "usingComponents": {
-      "van-dialog": "/vant-weapp/dialog/index",
-    "van-tag": "/vant-weapp/tag/index"
-  },
-  "navigationBarTitleText": "加入团队申请"
+    "usingComponents": {
+        "van-dialog": "/vant-weapp/dialog/index",
+        "van-tag": "/vant-weapp/tag/index"
+    },
+    "navigationBarTitleText": "加入团队申请"
 }

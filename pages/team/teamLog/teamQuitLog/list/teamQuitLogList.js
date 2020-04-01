@@ -1,4 +1,4 @@
-// pages/team/teamApplyLogList/teamApplyLogList.js
+// pages/team/teamLog/teamQuitLog/teamQuitLogList.js
 
 import api from '../../../../../api/api.js'
 
@@ -8,11 +8,11 @@ Page({
      * 页面的初始数据
      */
     data: {
+        isLoading: true,
+        isEmpty: false,
         pageIndex: 1,
-        pageSize: 5,
-        teamApplyLogList: [],
-        isLoading:true,
-        isEmpty:false
+        pageSize: 10,
+        teamQuitLogs: []
     },
 
     /**
@@ -23,54 +23,50 @@ Page({
     },
 
     loadAllData() {
-        let type = wx.getStorageSync('type')
+        const type = wx.getStorageSync('type')
+        console.log(type)
         let params = {
             pageIndex: this.data.pageIndex,
             pageSize: this.data.pageSize
         }
         if (type === 'APPLY') {
-            api.apiListTeamApplyLogMyApply(params).then((res) => {
-                let isEmpty=false
-                if(res.data.applyTeams.length===0){
-                    isEmpty=true
+            api.apiListTeamQuitLogApply(params).then((res) => {
+                console.log(res)
+                let isEmpty = false
+                if (res.data.teamQuitLogs.length === 0) {
+                    isEmpty = true
                 }
                 this.setData({
-                    teamApplyLogList: res.data.applyTeams,
-                    isLoading:false,
+                    teamQuitLogs: res.data.teamQuitLogs,
+                    isLoading: false,
                     isEmpty
                 })
             }).catch((error) => {
                 wx.showToast({
-                    title: '读取日志失败',
-                    icon: 'none'
-                })
-            })
-        } else {
-            api.apiListTeamApplyLogApplyUser(params).then((res) => {
-                let isEmpty=false
-                if(res.data.applyTeams.length===0){
-                    isEmpty=true
-                }
-                this.setData({
-                    teamApplyLogList: res.data.applyTeams,
-                    isLoading:false,
-                    isEmpty
-                })
-            }).catch((error) => {
-                wx.showToast({
-                    title: '读取日志失败',
+                    title: '读取退团申请失败',
                     icon: 'none'
                 })
             })
         }
-    },
-
-    onRow(e) {
-        const teamApplyLogId=e.currentTarget.dataset.item.teamApplyLogId
-        wx.setStorageSync('teamApplyLogId', teamApplyLogId)
-        wx.navigateTo({
-            url: '../detail/teamApplyLogDetail',
-        })
+        if (type === 'PROCESS') {
+            api.apiListTeamQuitLogProcess(params).then((res) => {
+                console.log(res)
+                let isEmpty = false
+                if (res.data.teamQuitLogs.length === 0) {
+                    isEmpty = true
+                }
+                this.setData({
+                    teamQuitLogs: res.data.teamQuitLogs,
+                    isLoading: false,
+                    isEmpty
+                })
+            }).catch((error) => {
+                wx.showToast({
+                    title: '读取退团申请失败',
+                    icon: 'none'
+                })
+            })
+        }
     },
 
     /**
@@ -105,26 +101,14 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function() {
-      let pageIndex=this.data.pageIndex
-      if(pageIndex>1){
-        pageIndex--
-      }
-      this.setData({
-        pageIndex
-      })
-      this.loadAllData()
+
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
-      let pageIndex=this.data.pageIndex
-      pageIndex++
-      this.setData({
-        pageIndex:pageIndex
-      })
-      this.loadAllData()
+
     },
 
     /**

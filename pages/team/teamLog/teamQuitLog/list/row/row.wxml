@@ -1,0 +1,3 @@
+<!--pages/team/teamLog/teamQuitLog/list/row/row.wxml-->
+<text>pages/team/teamLog/teamQuitLog/list/row/row.wxml</text>
+<view><rich-text nodes="{{theData.remark}}"></rich-text></view>
