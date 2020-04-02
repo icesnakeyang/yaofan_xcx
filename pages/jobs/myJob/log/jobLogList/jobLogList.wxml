@@ -1,4 +1,28 @@
 <!--pages/jobs/myJob/log/jobLogList/jobLogList.wxml-->
-<block wx:for="{{taskLogs}}" wx:key="index">
-<Row theData="{{item}}" />
-</block>
+<view class="page_view">
+
+  <view wx:if="{{isLoading}}" class="loading_view">
+    <van-loading type="spinner" />
+  </view>
+
+  <view wx:else="{{isLoading}}">
+
+    <!-- 创建日志 -->
+    <view class="box_view">
+      <van-panel title="创建日志" desc="描述任务进展情况">
+        <view class="editor_view">
+        <editor bindinput="onEditorInput"/>
+        </view>
+      </van-panel>
+      <view class="bt_view">
+      <van-button type="info" bind:click="onCreateLog">创建日志</van-button>
+      </view>
+    </view>
+
+    <!-- 日志列表 -->
+    <block wx:for="{{taskLogs}}" wx:key="index">
+      <Row theData="{{item}}" />
+    </block>
+  </view>
+
+</view>

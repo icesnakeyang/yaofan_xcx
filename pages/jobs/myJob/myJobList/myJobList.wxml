@@ -2,19 +2,26 @@
 <view class="page_view">
   <van-grid square>
     <van-grid-item icon="add-o" text="创建任务" bind:click="onNewJob" />
-    <van-grid-item icon="friends-o" text="团队任务" bind:click="onTeamJob"/>
-    <van-grid-item icon="like-o" text="甲方" />
-    <van-grid-item icon="star-o" text="乙方" />
+    <van-grid-item icon="friends-o" text="团队任务" bind:click="onTeamJob" />
+    <van-grid-item icon="like-o" text="甲方" bind:click="onPartyA" />
+    <van-grid-item icon="star-o" text="乙方" bind:click="onPartyB" />
   </van-grid>
 
-  <view class="list_view">
-    <block wx:for="{{jobs}}" wx:key="index">
-    <myJobListRow title="{{item.task.title}}" 
-                point="{{item.task.point}}"
-                endTime="{{item.task.endTime}}"
-                task="{{item.task}}"
-                content="{{item.task.detail}}"></myJobListRow>
-      
-    </block>
+  <view wx:if="{{isLoading}}" class="loading_view">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
+    <view wx:if="{{isEmpty}}">
+      <view class="empty_view">
+        <text class="empty_text">您还没有任务</text>
+      </view>
+    </view>
+    <view wx:else="{{isEmpty}}">
+      <view class="list_view">
+        <block wx:for="{{jobs}}" wx:key="index">
+          <myJobListRow task="{{item.task}}"></myJobListRow>
+        </block>
+      </view>
+    </view>
   </view>
 </view>

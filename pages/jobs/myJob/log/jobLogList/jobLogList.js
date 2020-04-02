@@ -10,7 +10,9 @@ Page({
   data: {
       isLoading:true,
       taskLogs:[],
-      isEmpty:false
+      isEmpty:false,
+      logContent:'',
+      taskId:''
   },
 
   /**
@@ -29,7 +31,9 @@ Page({
       api.apiListTaskLog(params).then((res)=>{
           console.log(res)
           this.setData({
-              taskLogs:res.data.taskLogs
+              taskLogs:res.data.taskLogs,
+              isLoading:false,
+              taskId
           })
       }).catch((error)=>{
           wx.showToast({
@@ -37,6 +41,31 @@ Page({
               icon:'none'
           })
       })
+  },
+
+  onEditorInput(e){
+    this.setData({
+      logContent:e.detail.html
+    })
+  },
+
+  onCreateLog(){
+    let params={
+      taskId:this.data.taskId,
+      content:this.data.logContent
+    }
+    console.log(params)
+    api.apiCreateTaskLog(params).then((res)=>{
+      wx.showToast({
+        title: '创建任务日志成功'
+      })
+      this.loadAllData()
+    }).catch((error)=>{
+      wx.showToast({
+        title: '创建任务日志失败',
+        icon:'none'
+      })
+    })
   },
 
   /**

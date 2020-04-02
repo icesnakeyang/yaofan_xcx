@@ -1,11 +1,12 @@
 <!--pages/jobs/myJob/log/jobLogList/row/row.wxml-->
-<view class="page_view">
-    <view wx:if="{{isLoading}}">
-        <van-loading type="spinner" />
-    </view>
-    <van-panel></van-panel>
-    <van-panel>
-        <view slot="header">内容</view>
-    </van-panel>
-    <rich-text nodes="{{theData.content}}"></rich-text>
+
+<view class="card_view">
+  <van-panel title="{{theData.createUserName}}">
+    <van-cell-group>
+      <van-cell title="日志时间" value="{{createTime}}" />
+      <view class="editor_view">
+        <rich-text nodes="{{theData.content}}"></rich-text>
+      </view>
+    </van-cell-group>
+  </van-panel>
 </view>

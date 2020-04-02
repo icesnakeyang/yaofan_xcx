@@ -16,8 +16,9 @@ Page({
     isEdit: false,
     status: '',
     isProgress:false,
-    totalLog:0,
-    isNewLog:false
+    totalTaskLog:0,
+    isNewLog:false,
+    totalUnreadTaskLog:0
   },
 
   /**
@@ -32,7 +33,10 @@ Page({
     let params = {
       taskId
     }
+    
+    //读取任务信息
     api.apiGetTaskByTaskId(params).then((res) => {
+      console.log(res)
       let endTime = ''
       if (res.data.task.endTime) {
         endTime = tools.momentTime(res.data.task.endTime, 'L')
@@ -55,6 +59,13 @@ Page({
         status='进行中'
         isProgress=true
       }
+      let isNewLog=false
+      let totalUnreadTaskLog=0
+      if (res.data.totalUnreadTaskLog>0){
+        isNewLog=true
+        totalUnreadTaskLog=res.data.totalUnreadTaskLog
+      }
+      
       this.setData({
         task: res.data.task,
         isLoading: false,
@@ -62,8 +73,14 @@ Page({
         isGrab,
         isEdit,
         status,
-        isProgress
+        isProgress,
+        totalTaskLog: res.data.totalTaskLog,
+        totalUnreadTaskLog,
+        isNewLog
       })
+
+      //统计任务log，已读和未读
+
       console.log(this.data)
     }).catch((error) => {
       wx.showToast({

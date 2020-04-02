@@ -6,14 +6,26 @@
   <view wx:else="{{isLoading}}">
     <view class="box_view">
       <van-grid>
-        <van-grid-item icon="notes-o" dot="{{isNewLog}}" bind:click="onGoLog">
-          <view slot="text">
-            <view>
-              <text>日志</text>
-              <text>({{totalLog}})</text>
+        <view wx:if="{{isNewLog}}">
+          <van-grid-item icon="notes-o" info="{{totalUnreadTaskLog}}" bind:click="onGoLog">
+            <view slot="text">
+              <view>
+                <text>日志</text>
+                <text>({{totalTaskLog}})</text>
+              </view>
             </view>
-          </view>
-        </van-grid-item>
+          </van-grid-item>
+        </view>
+        <view wx:else="{{isNewLog}}">
+          <van-grid-item icon="notes-o" bind:click="onGoLog">
+            <view slot="text">
+              <view>
+                <text>日志</text>
+                <text>({{totalTaskLog}})</text>
+              </view>
+            </view>
+          </van-grid-item>
+        </view>
         <van-grid-item icon="photo-o" text="文字" info="99" />
         <van-grid-item icon="photo-o" text="文字" />
         <van-grid-item icon="photo-o" text="文字" />

@@ -1,4 +1,7 @@
 // pages/jobs/myJob/log/jobLogList/row/row.js
+
+import tools from '../../../../../../utils/dateTools.js'
+
 Component({
     /**
      * 组件的属性列表
@@ -11,7 +14,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-
+      createTime:''
     },
 
     /**
@@ -20,6 +23,11 @@ Component({
     methods: {
         updateData() {
             console.log(this.data.theData)
+          let createTime=tools.momentTime(this.data.theData.createTime, 'L')
+          this.setData({
+            createTime
+          })
+      
         }
     },
 

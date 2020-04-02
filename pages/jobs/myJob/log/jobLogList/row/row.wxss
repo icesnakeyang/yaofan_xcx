@@ -1,1 +1,9 @@
 /* pages/jobs/myJob/log/jobLogList/row/row.wxss */
+
+.editor_view{
+  padding: 30rpx;
+}
+
+.card_view{
+  padding: 30rpx 0rpx;
+}
