@@ -1,12 +1,16 @@
 // pages/jobs/myJob/log/jobLogList/jobLogList.js
+
 import api from '../../../../../api/api'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      isLoading:true,
+      taskLogs:[],
+      isEmpty:false
   },
 
   /**
@@ -19,6 +23,20 @@ Page({
   loadAllData(){
     const taskId=wx.getStorageSync('taskId')
     console.log(taskId)
+    let params={
+        taskId
+    }
+      api.apiListTaskLog(params).then((res)=>{
+          console.log(res)
+          this.setData({
+              taskLogs:res.data.taskLogs
+          })
+      }).catch((error)=>{
+          wx.showToast({
+              title: '读取日志失败',
+              icon:'none'
+          })
+      })
   },
 
   /**

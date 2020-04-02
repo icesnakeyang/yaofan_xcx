@@ -1,2 +1,4 @@
 <!--pages/jobs/myJob/log/jobLogList/jobLogList.wxml-->
-<text>pages/jobs/myJob/log/jobLogList/jobLogList.wxml</text>
+<block wx:for="{{taskLogs}}" wx:key="index">
+<Row theData="{{item}}" />
+</block>

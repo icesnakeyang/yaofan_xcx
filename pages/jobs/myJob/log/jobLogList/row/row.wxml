@@ -1,2 +1,11 @@
 <!--pages/jobs/myJob/log/jobLogList/row/row.wxml-->
-<text>pages/jobs/myJob/log/jobLogList/row/row.wxml</text>
+<view class="page_view">
+    <view wx:if="{{isLoading}}">
+        <van-loading type="spinner" />
+    </view>
+    <van-panel></van-panel>
+    <van-panel>
+        <view slot="header">内容</view>
+    </van-panel>
+    <rich-text nodes="{{theData.content}}"></rich-text>
+</view>
