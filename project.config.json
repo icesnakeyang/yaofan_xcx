@@ -76,6 +76,12 @@
 					"pathName": "pages/jobs/myJob/myJobList/myJobList",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/myJobList/myJobList",
+					"pathName": "pages/jobs/myJob/myJobList/myJobList",
+					"scene": null
 				}
 			]
 		}
