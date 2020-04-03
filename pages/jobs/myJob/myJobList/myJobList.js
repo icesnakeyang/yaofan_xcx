@@ -12,7 +12,7 @@ Page({
     jobs: [],
     pageIndex: 1,
     pageSize: 10,
-    isEmpty:false
+    isEmpty:true
   },
 
   /**
@@ -43,9 +43,9 @@ Page({
       pageSize: this.data.pageSize
     }
     api.apiListMyTasks(params).then((res) => {
-      let isEmpty=false
-      if(res.data.tasks.length===0){
-        isEmpty=true
+      let isEmpty=true
+      if(res.data.tasks.length>0){
+        isEmpty=false
       }
       this.setData({
         jobs: res.data.tasks,
@@ -85,7 +85,6 @@ Page({
       pageSize: this.data.pageSize
     }
     api.apiListMyPartyATasksDetail(params).then((res) => {
-      console.log(res)
       let isEmpty=false
       if(res.data.tasks.length===0){
         isEmpty=true
@@ -95,9 +94,7 @@ Page({
         isLoading:false,
         isEmpty
       })
-      console.log(this.data.jobs)
     }).catch((error) => {
-      console.log(error)
       wx.showToast({
         title: '读取任务失败',
         icon: 'none'
@@ -117,7 +114,6 @@ Page({
       pageSize: this.data.pageSize
     }
     api.apiListMyPartyBTasksDetail(params).then((res) => {
-      console.log(res)
       let isEmpty=false
       if(res.data.tasks.length===0){
         isEmpty=true

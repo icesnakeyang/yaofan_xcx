@@ -69,7 +69,6 @@ Page({
         })
       })
     }
-    console.log(this.data)
   },
 
   onRow(e) {

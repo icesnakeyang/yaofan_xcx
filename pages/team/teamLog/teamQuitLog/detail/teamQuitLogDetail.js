@@ -32,7 +32,6 @@ Page({
       teamQuitLogId
     }
     api.apiGetTeamQuitLog(params).then((res) => {
-      console.log(res)
       let createTime = tools.momentTime(res.data.teamQuitLog.createTime, 'L')
       let isApply = false
       if (res.data.isApply) {
@@ -73,9 +72,7 @@ Page({
       let params={
         teamQuitLogId:this.data.teamQuitLog.teamQuitLogId
       }
-      console.log(params)
       api.apiCancelTeamQuitLog(params).then((res)=>{
-        console.log(res)
         wx.showToast({
           title: '已取消退团申请'
         })

@@ -21,12 +21,10 @@ Page({
 
   loadAllData() {
     const taskId = wx.getStorageSync('taskId')
-    console.log(taskId)
     let params = {
       taskId
     }
     api.apiGetTaskByTaskId(params).then((res) => {
-      console.log(res)
       this.setData({
         task: res.data.task
       })
@@ -56,7 +54,6 @@ Page({
       taskId: this.data.task.taskId,
       content: this.data.taskLog
     }
-    console.log(params)
     api.apiCreateTaskLog(params).then((res) => {
       wx.showToast({
         title: '创建日志成功'
@@ -65,7 +62,6 @@ Page({
         url: '../../../jobDetail/jobDetail'
       })
     }).catch((error) => {
-      console.log(error)
       wx.showToast({
         title: '创建日志失败',
         icon: 'none'

@@ -24,12 +24,10 @@ Page({
 
   loadAllData(){
     const taskId=wx.getStorageSync('taskId')
-    console.log(taskId)
     let params={
         taskId
     }
       api.apiListTaskLog(params).then((res)=>{
-          console.log(res)
           this.setData({
               taskLogs:res.data.taskLogs,
               isLoading:false,
@@ -54,7 +52,6 @@ Page({
       taskId:this.data.taskId,
       content:this.data.logContent
     }
-    console.log(params)
     api.apiCreateTaskLog(params).then((res)=>{
       wx.showToast({
         title: '创建任务日志成功'

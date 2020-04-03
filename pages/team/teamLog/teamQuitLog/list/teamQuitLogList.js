@@ -24,14 +24,12 @@ Page({
 
   loadAllData() {
     const type = wx.getStorageSync('type')
-    console.log(type)
     let params = {
       pageIndex: this.data.pageIndex,
       pageSize: this.data.pageSize
     }
     if (type === 'APPLY') {
       api.apiListTeamQuitLogApply(params).then((res) => {
-        console.log(res)
         let isEmpty = false
         if (res.data.teamQuitLogs.length === 0) {
           isEmpty = true
@@ -50,7 +48,6 @@ Page({
     }
     if (type === 'PROCESS') {
       api.apiListTeamQuitLogProcess(params).then((res) => {
-        console.log(res)
         let isEmpty = false
         if (res.data.teamQuitLogs.length === 0) {
           isEmpty = true

@@ -21,7 +21,6 @@ Component({
    */
   methods: {
     updateData() {
-      console.log(this.data.task)
       let endTime = ''
       if (this.data.task.endTime) {
         endTime = tools.momentTime(this.data.task.endTime, 'L')
@@ -44,7 +43,6 @@ Component({
         isGrabbing,
         isProgress
       })
-      console.log(this.data)
     },
     onRow() {
       wx.setStorageSync('taskId', this.data.task.taskId)

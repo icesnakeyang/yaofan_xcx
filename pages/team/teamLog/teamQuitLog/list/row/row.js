@@ -25,7 +25,6 @@ Component({
    */
   methods: {
     updateData() {
-      console.log(this.data.theData)
       let createTime = ''
       if (this.data.theData.createTime) {
         createTime = tools.momentTime(this.data.theData.createTime, 'L')

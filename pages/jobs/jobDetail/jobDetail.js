@@ -33,10 +33,9 @@ Page({
     let params = {
       taskId
     }
-    
+
     //读取任务信息
     api.apiGetTaskByTaskId(params).then((res) => {
-      console.log(res)
       let endTime = ''
       if (res.data.task.endTime) {
         endTime = tools.momentTime(res.data.task.endTime, 'L')
@@ -65,7 +64,7 @@ Page({
         isNewLog=true
         totalUnreadTaskLog=res.data.totalUnreadTaskLog
       }
-      
+
       this.setData({
         task: res.data.task,
         isLoading: false,
@@ -80,8 +79,6 @@ Page({
       })
 
       //统计任务log，已读和未读
-
-      console.log(this.data)
     }).catch((error) => {
       wx.showToast({
         title: '读取任务失败',
@@ -98,13 +95,11 @@ Page({
         taskId: this.data.task.taskId
       }
       api.apiGrab(params).then((res) => {
-        console.log(res)
         wx.showToast({
           title: '抢单成功'
         })
         this.loadAllData()
       }).catch((error) => {
-        console.log(error)
         wx.showToast({
           title: '抢单失败',
           icon: 'none'
@@ -135,7 +130,6 @@ Page({
 
   onGoLog(){
     const taskId = this.data.task.taskId
-    console.log(taskId)
     wx.setStorageSync('taskId', this.data.task.taskId)
     wx.navigateTo({
       url: '/pages/jobs/myJob/log/jobLogList/jobLogList',
