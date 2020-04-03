@@ -79,6 +79,17 @@ function apiListMyTasks(params) {
   })
 }
 
+function apiListMyTasksTiny(params) {
+  const url = `${host}/api/task/listMyTasks`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
+
 function apiGetTaskByTaskId(params) {
   const url = `${host}/api/task/getTaskByTaskId`
   return new Promise((resolve, reject) => {
@@ -411,5 +422,6 @@ module.exports = {
   apiCreateTaskLog,
   apiListTaskLog,
   apiListMyPartyATasksDetail,
-  apiListMyPartyBTasksDetail
+  apiListMyPartyBTasksDetail,
+  apiListMyTasksTiny
 }
