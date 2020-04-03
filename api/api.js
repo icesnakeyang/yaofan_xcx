@@ -1,6 +1,7 @@
 import baseApi from './httpBase.js'
 
-const host = 'http://localhost:8089'
+// const host = 'http://localhost:8089'
+const host = 'http://192.168.1.247:8089'
 
 /**
  * 用户注册
