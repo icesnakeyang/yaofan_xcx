@@ -10,6 +10,9 @@
       <view wx:if="{{isProgress}}">
         <van-tag type="primary">{{status}}</van-tag>
       </view>
+      <view wx:if="{{isComplete}}">
+        <van-tag type="success">{{status}}</van-tag>
+      </view>
       <view>到期时间：{{endTime}}</view>
     </view>
   </van-card>

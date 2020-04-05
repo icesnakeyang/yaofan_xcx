@@ -1,0 +1,10 @@
+{
+    "usingComponents": {
+        "Row": "./row/row",
+        "van-notice-bar": "/vant-weapp/notice-bar/index",
+        "van-dialog": "/vant-weapp/dialog/index",
+        "van-notify": "/vant-weapp/notify/index",
+        "van-tag": "/vant-weapp/tag/index"
+    },
+    "navigationBarTitleText": "任务完成日志"
+}

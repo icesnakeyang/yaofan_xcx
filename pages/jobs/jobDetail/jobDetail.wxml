@@ -1,73 +1,82 @@
 <!--pages/jobs/public/jobDetail/jobDetail.wxml-->
 <view class="page_view">
-  <view class="loading_view" wx:if="{{isLoading}}">
-    <van-loading type="spinner" />
-  </view>
-  <view wx:else="{{isLoading}}">
-    <view class="box_view">
-      <van-grid>
-        <view wx:if="{{isNewLog}}">
-          <van-grid-item icon="notes-o" info="{{totalUnreadTaskLog}}" bind:click="onGoLog">
-            <view slot="text">
-              <view>
-                <text>日志</text>
-                <text>({{totalTaskLog}})</text>
-              </view>
-            </view>
-          </van-grid-item>
+    <view class="loading_view" wx:if="{{isLoading}}">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box_view">
+            <van-grid>
+                <view wx:if="{{isNewLog}}">
+                    <van-grid-item icon="notes-o" info="{{totalUnreadTaskLog}}" bind:click="onGoLog">
+                        <view slot="text">
+                            <view>
+                                <text>日志</text>
+                                <text>({{totalTaskLog}})</text>
+                            </view>
+                        </view>
+                    </van-grid-item>
+                </view>
+                <view wx:else="{{isNewLog}}">
+                    <van-grid-item icon="notes-o" bind:click="onGoLog">
+                        <view slot="text">
+                            <view>
+                                <text>日志</text>
+                                <text>({{totalTaskLog}})</text>
+                            </view>
+                        </view>
+                    </van-grid-item>
+                </view>
+                <van-grid-item icon="passed" info="99" bind:click="onComplete">
+                    <view slot="text">
+                        <view>
+                            <text>完成</text>
+                            <text>({{totalTaskComplete}})</text>
+                        </view>
+                    </view>
+                </van-grid-item>
+            </van-grid>
         </view>
-        <view wx:else="{{isNewLog}}">
-          <van-grid-item icon="notes-o" bind:click="onGoLog">
-            <view slot="text">
-              <view>
-                <text>日志</text>
-                <text>({{totalTaskLog}})</text>
-              </view>
-            </view>
-          </van-grid-item>
+        <view class="box_view">
+
+            <van-panel title="{{task.title}}">
+                <view>
+                    <van-cell-group>
+                        <van-cell title="任务状态">
+                            <view slot="right-icon">
+                                <view wx:if="{{isProgress}}">
+                                    <van-tag type="primary">{{status}}</van-tag>
+                                </view>
+                                <view wx:if="{{isComplete}}">
+                                    <van-tag type="success">{{status}}</van-tag>
+                                </view>
+                            </view>
+                        </van-cell>
+                        <van-cell title="积分" value="{{task.point}}" />
+                        <van-cell title="完成时间" value="{{endTime}}" />
+                        <van-cell title="甲方" value="{{task.createUserName}}" />
+                        <van-cell title="乙方" value="{{task.partyBName}}" />
+                    </van-cell-group>
+                    <van-panel title="任务详情">
+                        <view class="detail_view">
+                            <rich-text nodes="{{task.detail}}"></rich-text>
+                        </view>
+                    </van-panel>
+                </view>
+            </van-panel>
         </view>
-        <van-grid-item icon="photo-o" text="文字" info="99" />
-        <van-grid-item icon="photo-o" text="文字" />
-        <van-grid-item icon="photo-o" text="文字" />
-      </van-grid>
-    </view>
-    <view class="box_view">
-
-      <van-panel title="{{task.title}}">
-        <view>
-          <van-cell-group>
-            <van-cell title="任务状态">
-              <view slot="right-icon">
-                <van-tag type="primary">{{status}}</van-tag>
-              </view>
-            </van-cell>
-            <van-cell title="积分" value="{{task.point}}" />
-            <van-cell title="完成时间" value="{{endTime}}" />
-            <van-cell title="甲方" value="{{task.createUserName}}" />
-            <van-cell title="乙方" value="{{task.partyBName}}" />
-          </van-cell-group>
-          <van-panel title="任务详情">
-            <view class="detail_view">
-              <rich-text nodes="{{task.detail}}"></rich-text>
-            </view>
-          </van-panel>
+        <view class="bt_view" wx:if="{{isGrab}}">
+            <van-button type="primary" bind:click="onGrab">抢单</van-button>
         </view>
-      </van-panel>
-    </view>
-    <view class="bt_view" wx:if="{{isGrab}}">
-      <van-button type="primary" bind:click="onGrab">抢单</van-button>
-    </view>
 
-    <view class="bt_around" wx:if="{{isEdit}}">
-      <van-button type="warning" bind:click="editTask">修改</van-button>
-      <van-button type="danger" bind:click="deleteTask">删除</van-button>
-    </view>
+        <view class="bt_around" wx:if="{{isEdit}}">
+            <van-button type="warning" bind:click="editTask">修改</van-button>
+            <van-button type="danger" bind:click="deleteTask">删除</van-button>
+        </view>
 
-    <view class="bt_around" wx:if="{{isProgress}}">
-      <van-button type="info" plain bind:click="onLog">任务日志</van-button>
-      <van-button type="primary" bind:click="onComplete">完成</van-button>
+        <view class="bt_around" wx:if="{{isProgress}}">
+            <van-button type="primary" bind:click="onComplete">完成</van-button>
+        </view>
     </view>
-  </view>
 </view>
 
 <van-dialog id="van-dialog" />

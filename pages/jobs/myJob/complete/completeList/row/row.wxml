@@ -1,0 +1,18 @@
+<!--pages/jobs/myJob/complete/completeList/row/row.wxml-->
+<view class="card_view">
+    <van-panel>
+        <van-cell-group>
+            <van-cell title="提交人" value="{{theData.createUserName}} " />
+            <van-cell title="提交时间 " value="{{createTime}} " />
+            <van-cell title="提交说明 " />
+            <view class="editor_view">
+                <rich-text class="editor_text" nodes="{{theData.content}} "></rich-text>
+            </view>
+        </van-cell-group>
+    </van-panel>
+</view>
+<!-- 1、用户可以创建complete日志来把任务设置为完成状态
+2、如果任务是完成状态，甲方可以验收任务来确认完成状态
+3、如果任务是完成状态，甲方也可以取消完成状态，让任务重新成为进行中状态
+4、如果任务是完成状态，乙方也可以取消完成状态，让任务重新成为进行中状态
+5、一旦任务成为accept，验收状态，乙方和甲方即不能再创建完成日志了，如果要对任务进行更新，可以继续创建任务日志taskLog -->
