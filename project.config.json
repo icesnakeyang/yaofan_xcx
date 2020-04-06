@@ -58,8 +58,8 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/jobs/myJob/myJobList/myJobList",
-					"pathName": "pages/jobs/myJob/myJobList/myJobList",
+					"name": "pages/jobs/myJob/complete/completeList/completeList",
+					"pathName": "pages/jobs/myJob/complete/completeList/completeList",
 					"query": "",
 					"scene": null
 				}

@@ -37,6 +37,7 @@ Page({
             taskId
         }
         api.apiGetTaskByTaskId(params).then((res)=>{
+          console.log(res.data)
             let taskStatus=''
             let isComplete=false
             let isProgress=false
@@ -142,6 +143,24 @@ Page({
             console.log(error)
         })
     },
+
+  onRejectComplete(){
+    let params={
+      taskId:this.data.taskId,
+      content:this.data.remark
+    }
+    api.apiRejectComplete(params).then((res)=>{
+      wx.showToast({
+        title: '拒绝任务完成成功'
+      })
+      this.loadAllData()
+    }).catch((error)=>{
+      wx.showToast({
+        title: '拒绝完成失败',
+        icon:'none'
+      })
+    })
+  },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

@@ -12,10 +12,10 @@
                     <van-cell title="任务状态">
                         <view slot="right-icon">
                             <view wx:if="{{isProgress}}">
-                                <van-tag type='info'>{{taskStatus}}</van-tag>
+                                <van-tag type='primary'>{{taskStatus}}</van-tag>
                             </view>
                             <view wx:if="{{isComplete}}">
-                                <van-tag type='primary'>{{taskStatus}}</van-tag>
+                                <van-tag type='success'>{{taskStatus}}</van-tag>
                             </view>
                         </view>
                     </van-cell>
@@ -32,7 +32,7 @@
                         <view class="bt_view">
                             <!-- 任务进行中时，甲方可选择完成任务，停止任务 -->
                             <van-button type="info" bind:click="onCreateComplete">完成任务</van-button>
-                            <van-button type="danger" bind:click="onCreateComplete">停止任务</van-button>
+                            <van-button type="danger" bind:click="onStopComplete">停止任务</van-button>
                         </view>
                     </view>
                     <view wx:else="{{isPartyB}}">
@@ -47,7 +47,8 @@
                         <view wx:if="{{isPartyA}}">
                             <!-- 任务是完成状态时，甲方可以验收任务，或者拒绝验收 -->
                             <view class="bt_view">
-                                <van-button type="info" bind:click="onCreateComplete">验收任务</van-button>
+                                <van-button type="info" bind:click="onAcceptComplete">验收任务</van-button>
+                                <van-button type="danger" bind:click="onRejectComplete">拒绝完成</van-button>
                             </view>
                         </view>
                         <view wx:if="{{isPartyB}}">
