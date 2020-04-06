@@ -14,7 +14,9 @@ Component({
      * 组件的初始数据
      */
     data: {
-        createTime: ''
+        createTime: '',
+        processTime:'',
+        processResult:''
     },
 
     /**
@@ -22,13 +24,23 @@ Component({
      */
     methods: {
         updateData() {
-            console.log(this.data.theData.createTime)
+            let createTime=''
+            let processTime=''
+            let processResult=''
             if (this.data.theData.createTime) {
-                let createTime = tools.momentTime(this.data.theData.createTime, 'L')
-                this.setData({
-                    createTime
-                })
+                createTime = tools.momentTime(this.data.theData.createTime, 'L')
             }
+            if(this.data.theData.processTime){
+                processTime=tools.momentTime(this.data.theData.processTime, 'L')
+                if(this.data.theData.processResult==='CANCEL'){
+                    processResult='乙方取消完成'
+                }
+            }
+            this.setData({
+                createTime,
+                processTime,
+                processResult
+            })
         }
     },
 

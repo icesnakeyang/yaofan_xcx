@@ -410,7 +410,16 @@ function apiCreateComplete(params) {
     })
 }
 
-
+function apiCancelComplete(params) {
+    const url = `${host}/api/complete/cancelComplete`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
 
 module.exports = {
     apiLogin,
@@ -448,5 +457,6 @@ module.exports = {
     apiListMyPartyBTasksDetail,
     apiListMyTasksTiny,
     apiListTaskComplete,
-    apiCreateComplete
+    apiCreateComplete,
+    apiCancelComplete
 }

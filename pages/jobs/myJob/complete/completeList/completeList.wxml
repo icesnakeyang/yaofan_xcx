@@ -53,7 +53,7 @@
                         <view wx:if="{{isPartyB}}">
                             <!-- 任务是完成状态时，甲方可取消完成任务 -->
                             <view class="bt_view">
-                                <van-button type="info" bind:click="onCreateComplete">取消完成</van-button>
+                                <van-button type="info" bind:click="onCancelComplete">取消完成</van-button>
                             </view>
                         </view>
                     </view>
@@ -61,8 +61,6 @@
                 </view>
             </view>
         </view>
-
-
 
         <view wx:if="{{isEmpty}}">
             <view class="empty_view">

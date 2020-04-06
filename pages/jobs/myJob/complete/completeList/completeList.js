@@ -42,9 +42,7 @@ Page({
             let isProgress=false
             let isPartyA=false
             let isPartyB=false
-            console.log(res.data.task.status)
             let meId = wx.getStorageSync('current_user_id')
-            console.log(meId)
             if (res.data.task.createUserId===meId){
                 isPartyA=true
             }else{
@@ -71,7 +69,6 @@ Page({
                 isPartyB
             })
             api.apiListTaskComplete(params).then((res) => {
-                console.log(res)
                 let isEmpty = false
                 if (res.data.taskCompletes.length === 0) {
                     isEmpty = true
@@ -127,6 +124,22 @@ Page({
             })
         }).catch(() => {
 
+        })
+    },
+
+    onCancelComplete(){
+        let params={
+            taskId:this.data.task.taskId,
+            content:this.data.remark
+        }
+        api.apiCancelComplete(params).then((res)=>{
+            console.log(res)
+            wx.showToast({
+                title: '取消完成成功'
+            })
+            this.loadAllData()
+        }).catch((error)=>{
+            console.log(error)
         })
     },
 

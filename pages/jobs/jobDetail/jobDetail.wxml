@@ -26,14 +26,26 @@
                         </view>
                     </van-grid-item>
                 </view>
-                <van-grid-item icon="passed" info="99" bind:click="onComplete">
-                    <view slot="text">
-                        <view>
-                            <text>完成</text>
-                            <text>({{totalTaskComplete}})</text>
+                <view wx:if="{{isNewComplete}}">
+                    <van-grid-item icon="passed" info="{{totalUnreadTaskComplete}}" bind:click="onComplete">
+                        <view slot="text">
+                            <view>
+                                <text>完成</text>
+                                <text>({{totalTaskComplete}})</text>
+                            </view>
                         </view>
-                    </view>
-                </van-grid-item>
+                    </van-grid-item>
+                </view>
+                <view wx:else="{{isNewComplete}}">
+                    <van-grid-item icon="passed" bind:click="onComplete">
+                        <view slot="text">
+                            <view>
+                                <text>完成</text>
+                                <text>({{totalTaskComplete}})</text>
+                            </view>
+                        </view>
+                    </van-grid-item>
+                </view>
             </van-grid>
         </view>
         <view class="box_view">

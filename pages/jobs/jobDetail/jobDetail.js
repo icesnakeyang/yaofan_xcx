@@ -20,7 +20,9 @@ Page({
         totalTaskLog: 0,
         isNewLog: false,
         totalUnreadTaskLog: 0,
-        totalTaskComplete: 0
+        totalTaskComplete: 0,
+        totalUnreadTaskComplete:0,
+        isNewComplete:false
     },
 
     /**
@@ -76,6 +78,12 @@ Page({
             }
             let totalTaskComplete = res.data.totalTaskComplete
 
+            let isNewComplete=false
+            let totalUnreadTaskComplete=0
+            if (res.data.totalUnreadTaskComplete>0){
+                isNewComplete=true
+                totalUnreadTaskComplete = res.data.totalUnreadTaskComplete
+            }
 
             this.setData({
                 task: res.data.task,
@@ -89,7 +97,9 @@ Page({
                 totalUnreadTaskLog,
                 isNewLog,
                 totalTaskComplete,
-                isComplete
+                isComplete,
+                isNewComplete,
+                totalUnreadTaskComplete
             })
 
             //统计任务log，已读和未读

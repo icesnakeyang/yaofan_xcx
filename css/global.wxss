@@ -1,5 +1,5 @@
 .page_view{
-  height: 100vh;
+  /* height: 100vh; */
   background: rgb(240, 240, 240)
 }
 

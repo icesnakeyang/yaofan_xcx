@@ -8,6 +8,13 @@
             <view class="editor_view">
                 <rich-text class="editor_text" nodes="{{theData.content}} "></rich-text>
             </view>
+            <van-cell title="处理时间" value="{{processTime}}"></van-cell>
+            <van-cell title="处理结果" value="{{processResult}}"></van-cell>
+            <van-cell title="处理人" value="{{theData.processUserName}}"></van-cell>
+            <van-cell title="处理说明" />
+            <view class="editor_view">
+                <rich-text class="editor_text" nodes="{{theData.processRemark}}"></rich-text>
+            </view>
         </van-cell-group>
     </van-panel>
 </view>

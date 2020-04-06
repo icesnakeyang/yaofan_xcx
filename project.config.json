@@ -58,50 +58,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/jobs/myJob/log/jobLogList/jobLogList",
-					"pathName": "pages/jobs/myJob/log/jobLogList/jobLogList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/jobDetail/jobDetail",
-					"pathName": "pages/jobs/jobDetail/jobDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "pages/jobs/myJob/myJobList/myJobList",
 					"pathName": "pages/jobs/myJob/myJobList/myJobList",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/myJob/myJobList/myJobList",
-					"pathName": "pages/jobs/myJob/myJobList/myJobList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/jobDetail/jobDetail",
-					"pathName": "pages/jobs/jobDetail/jobDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/myJob/complete/completeList/completeList",
-					"pathName": "pages/jobs/myJob/complete/completeList/completeList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/jobDetail/jobDetail",
-					"pathName": "pages/jobs/jobDetail/jobDetail",
 					"scene": null
 				}
 			]
