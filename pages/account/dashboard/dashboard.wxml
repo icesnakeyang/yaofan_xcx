@@ -1,2 +1,8 @@
 <!--pages/account/dashboard/dashboard.wxml-->
-<text>pages/account/dashboard/dashboard.wxml</text>
+<view>
+<text>{{totalPointIn}}</text>
+</view>
+<block wx:for="{{pointLedgerList}}" wx:key="index">
+<PointLedgerRow theData="{{item}}" />
+
+</block>

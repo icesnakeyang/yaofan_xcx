@@ -107,10 +107,6 @@
             <van-button type="warning" bind:click="editTask">修改</van-button>
             <van-button type="danger" bind:click="deleteTask">删除</van-button>
         </view>
-
-        <view class="bt_around" wx:if="{{isProgress}}">
-            <van-button type="primary" bind:click="onComplete">完成</van-button>
-        </view>
     </view>
 </view>
 

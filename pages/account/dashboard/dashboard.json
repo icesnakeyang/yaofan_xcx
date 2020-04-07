@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "PointLedgerRow":"./pointLedgerRow/pointLedgerRow"
+  },
   "navigationBarTitleText": "我的账户"
 }

@@ -1,0 +1,28 @@
+/* pages/account/dashboard/pointLedgerRow/pointLedgerRow.wxss */
+@import '/css/global.wxss';
+
+.row_view {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30rpx
+}
+
+.date_view{
+  width: 30%
+}
+
+.point_view {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+.type_view {
+  width: 30%;
+}
+
+.type_text {
+  font-size: 24rpx;
+}

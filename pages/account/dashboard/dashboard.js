@@ -1,28 +1,63 @@
 // pages/account/dashboard/dashboard.js
+
+import api from '../../../api/api.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isLoading: true,
+    pageIndex: 1,
+    pageSize: 10,
+    pointLedgerList: [],
+    totalPointIn:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.loadAllData()
-  },
-
-  loadAllData() {
     let token = wx.getStorageSync('yaofan_token')
-    if (token) {
-    } else {
+    if (token) {} else {
       wx.navigateTo({
         url: '/pages/legacy/login/login',
       })
     }
+
+    this.loadAllData()
+  },
+
+  loadAllData() {
+    let params = {
+      pageIndex: this.data.pageIndex,
+      pageSize: this.data.pageSize
+    }
+    api.apiListMyPointLedger(params).then((res) => {
+      console.log(res)
+      this.setData({
+        pointLedgerList: res.data.pointLedgers
+      })
+      api.apiTotalUserPoint(params).then((res) => {
+        console.log(res)
+        this.setData({
+          totalPointIn: res.data.total_point_in
+        })
+      }).catch((error) => {
+        console.log(error)
+        wx.showToast({
+          title: '读取积分失败',
+          icon: 'none'
+        })
+      })
+    }).catch((error) => {
+      console.log(error)
+      wx.showToast({
+        title: '读取积分失败',
+        icon: 'none'
+      })
+    })
   },
 
   /**
