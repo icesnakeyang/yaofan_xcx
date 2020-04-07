@@ -22,7 +22,10 @@ Page({
         totalUnreadTaskLog: 0,
         totalTaskComplete: 0,
         totalUnreadTaskComplete:0,
-        isNewComplete:false
+        isNewComplete:false,
+        isStop:false,
+        totalTaskStopUnread:0,
+        isNewStop:false
     },
 
     /**
@@ -40,7 +43,7 @@ Page({
 
         //读取任务信息
         api.apiGetTaskByTaskId(params).then((res) => {
-            console.log(res.data)
+            console.log(res)
             let endTime = ''
             if (res.data.task.endTime) {
                 endTime = tools.momentTime(res.data.task.endTime, 'L')
@@ -52,6 +55,7 @@ Page({
             let status = ''
             let isProgress = false
             let isComplete=false
+            let isStop=false
             if (res.data.task.status === 'GRABBING') {
                 status = '等待匹配'
                 if (currentUserId === createUserId) {
@@ -67,6 +71,11 @@ Page({
                     if(res.data.task.status==='COMPLETE'){
                         status='已完成'
                         isComplete=true
+                    }else{
+                        if(res.data.task.status==='STOP'){
+                            status='已终止'
+                            isStop=true
+                        }
                     }
                 }
             }
@@ -84,6 +93,12 @@ Page({
                 isNewComplete=true
                 totalUnreadTaskComplete = res.data.totalUnreadTaskComplete
             }
+            let isNewStop=false
+            let totalTaskStopUnread=0
+            if (res.data.totalTaskStopUnread>0){
+                isNewStop=true
+                totalTaskStopUnread = res.data.totalTaskStopUnread
+            }
 
             this.setData({
                 task: res.data.task,
@@ -99,7 +114,11 @@ Page({
                 totalTaskComplete,
                 isComplete,
                 isNewComplete,
-                totalUnreadTaskComplete
+                totalUnreadTaskComplete,
+                isStop,
+                totalTaskStop: res.data.totalTaskStop,
+                totalTaskStopUnread,
+                isNewStop
             })
 
             //统计任务log，已读和未读
@@ -164,6 +183,13 @@ Page({
         wx.setStorageSync('taskId', this.data.task.taskId)
         wx.navigateTo({
             url: '/pages/jobs/myJob/complete/completeList/completeList',
+        })
+    },
+
+    onStop(){
+        wx.setStorageSync('taskId', this.data.task.taskId)
+        wx.navigateTo({
+            url: '/pages/jobs/myJob/stop/taskStop',
         })
     },
 

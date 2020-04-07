@@ -12,16 +12,17 @@ Page({
      */
     data: {
         isLoading: true,
-        task:{},
+        task: {},
         taskCompletes: [],
         isEmpty: true,
         remark: '',
         taskId: '',
-        taskStatus:'',
-        isComplete:false,
-        isProgress:false,
-        isPartyA:false,
-        isPartyB:false
+        taskStatus: '',
+        isComplete: false,
+        isProgress: false,
+        isPartyA: false,
+        isPartyB: false,
+        isEdit: false
     },
 
     /**
@@ -36,38 +37,49 @@ Page({
         let params = {
             taskId
         }
-        api.apiGetTaskByTaskId(params).then((res)=>{
-          console.log(res.data)
-            let taskStatus=''
-            let isComplete=false
-            let isProgress=false
-            let isPartyA=false
-            let isPartyB=false
+        api.apiGetTaskByTaskId(params).then((res) => {
+            console.log(res)
+            let taskStatus = ''
+            let isComplete = false
+            let isProgress = false
+            let isPartyA = false
+            let isPartyB = false
+            let isEdit = true
             let meId = wx.getStorageSync('current_user_id')
-            if (res.data.task.createUserId===meId){
-                isPartyA=true
-            }else{
-                if (res.data.task.partyBId===meId){
-                    isPartyB=true
+            if (res.data.task.createUserId === meId) {
+                isPartyA = true
+            } else {
+                if (res.data.task.partyBId === meId) {
+                    isPartyB = true
                 }
             }
-            if(res.data.task.status==='PROGRESS'){
-                taskStatus='进行中'
-                isProgress=true
-            }else{
-                if (res.data.task.status ==='COMPLETE'){
+            if (res.data.task.status === 'PROGRESS') {
+                taskStatus = '进行中'
+                isProgress = true
+            } else {
+                if (res.data.task.status === 'COMPLETE') {
 
-                    taskStatus='已完成',
-                    isComplete=true
+                    taskStatus = '已完成',
+                        isComplete = true
+                } else {
+                    if (res.data.task.status === 'STOP') {
+                        taskStatus = '已终止'
+                        if (res.data.task.createUserId === meId) {
+                            //甲方
+                        } else {
+                            isEdit = false
+                        }
+                    }
                 }
             }
             this.setData({
-                task:res.data.task,
+                task: res.data.task,
                 taskStatus,
                 isProgress,
                 isComplete,
                 isPartyA,
-                isPartyB
+                isPartyB,
+                isEdit
             })
             api.apiListTaskComplete(params).then((res) => {
                 let isEmpty = false
@@ -80,17 +92,16 @@ Page({
                     taskCompletes: res.data.taskCompletes,
                     isLoading: false
                 })
-                console.log(this.data)
             }).catch((error) => {
                 wx.showToast({
                     title: '读取日志失败',
                     icon: 'none'
                 })
             })
-        }).catch((error)=>{
+        }).catch((error) => {
             wx.showToast({
                 title: '读取任务信息失败',
-                icon:'none'
+                icon: 'none'
             })
         })
     },
@@ -113,14 +124,12 @@ Page({
         Dialog.confirm({
             message: '确认完成'
         }).then(() => {
-            console.log(params)
             api.apiCreateComplete(params).then((res) => {
                 wx.showToast({
                     title: '任务已经完成'
                 })
                 this.loadAllData()
             }).catch((error) => {
-                console.log(error)
                 Notify(MsgShow.showMsg(error))
             })
         }).catch(() => {
@@ -128,39 +137,55 @@ Page({
         })
     },
 
-    onCancelComplete(){
-        let params={
-            taskId:this.data.task.taskId,
-            content:this.data.remark
+    onCancelComplete() {
+        let params = {
+            taskId: this.data.task.taskId,
+            content: this.data.remark
         }
-        api.apiCancelComplete(params).then((res)=>{
-            console.log(res)
+        api.apiCancelComplete(params).then((res) => {
             wx.showToast({
                 title: '取消完成成功'
             })
             this.loadAllData()
-        }).catch((error)=>{
-            console.log(error)
+        }).catch((error) => {})
+    },
+
+    onRejectComplete() {
+        let params = {
+            taskId: this.data.taskId,
+            content: this.data.remark
+        }
+        api.apiRejectComplete(params).then((res) => {
+            wx.showToast({
+                title: '拒绝任务完成成功'
+            })
+            this.loadAllData()
+        }).catch((error) => {
+            wx.showToast({
+                title: '拒绝完成失败',
+                icon: 'none'
+            })
         })
     },
 
-  onRejectComplete(){
-    let params={
-      taskId:this.data.taskId,
-      content:this.data.remark
-    }
-    api.apiRejectComplete(params).then((res)=>{
-      wx.showToast({
-        title: '拒绝任务完成成功'
-      })
-      this.loadAllData()
-    }).catch((error)=>{
-      wx.showToast({
-        title: '拒绝完成失败',
-        icon:'none'
-      })
-    })
-  },
+    onStopComplete() {
+        if (!this.data.remark) {
+            Notify('请输入处理说明')
+            return
+        }
+        let params = {
+            taskId: this.data.taskId,
+            remark: this.data.remark
+        }
+        api.apiStopTask(params).then((res) => {
+            wx.showToast({
+                title: '终止任务成功'
+            })
+            this.loadAllData()
+        }).catch((error) => {
+            Notify(MsgShow.showMsg(error))
+        })
+    },
 
     /**
      * 生命周期函数--监听页面初次渲染完成

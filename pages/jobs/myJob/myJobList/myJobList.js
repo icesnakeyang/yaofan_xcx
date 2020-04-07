@@ -44,7 +44,7 @@ Page({
             })
             return
         }
-        
+
         this.loadDataFromApi().then((res) => {
             this.loadAllData()
         })
@@ -61,7 +61,6 @@ Page({
         }
         return new Promise((resolve, reject) => {
             api.apiListMyTasksTiny(params).then((res) => {
-                console.log(res)
                 const catchTasks = res.data.tasks
                 let isEmpty = true
                 if (res.data.tasks.length > 0) {
@@ -127,14 +126,12 @@ Page({
     },
 
     onCurrentJob() {
-        console.log(222)
         let params = {
             pageIndex: 1,
             pageSize: 100,
             status: 'PROGRESS'
         }
         api.apiListMyTasksTiny(params).then((res) => {
-            console.log(res)
             this.setData({
                 jobs: res.data.tasks
             })
@@ -163,7 +160,6 @@ Page({
             pageSize: this.data.pageSize
         }
         api.apiListMyPartyATasksDetail(params).then((res) => {
-            console.log(res)
             let isEmpty = false
             if (res.data.tasks.length === 0) {
                 isEmpty = true

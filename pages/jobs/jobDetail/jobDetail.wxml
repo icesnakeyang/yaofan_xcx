@@ -46,6 +46,26 @@
                         </view>
                     </van-grid-item>
                 </view>
+                <view wx:if="{{isNewStop}}">
+                    <van-grid-item icon="passed" info="{{totalTaskStopUnread}}" bind:click="onStop">
+                        <view slot="text">
+                            <view>
+                                <text>终止</text>
+                                <text>({{totalTaskStopUnread}})</text>
+                            </view>
+                        </view>
+                    </van-grid-item>
+                </view>
+                <view wx:else="{{isNewStop}}">
+                    <van-grid-item icon="passed" bind:click="onStop">
+                        <view slot="text">
+                            <view>
+                                <text>终止</text>
+                                <text>({{totalTaskStop}})</text>
+                            </view>
+                        </view>
+                    </van-grid-item>
+                </view>
             </van-grid>
         </view>
         <view class="box_view">
@@ -60,6 +80,9 @@
                                 </view>
                                 <view wx:if="{{isComplete}}">
                                     <van-tag type="success">{{status}}</van-tag>
+                                </view>
+                                <view wx:if="{{isStop}}">
+                                    <van-tag type="warning">{{status}}</van-tag>
                                 </view>
                             </view>
                         </van-cell>

@@ -17,7 +17,8 @@ Component({
         status:'',
         isGrabbing:false,
         isProgress:false,
-        isComplete:false
+        isComplete:false,
+        isStop:false
     },
 
     /**
@@ -33,6 +34,7 @@ Component({
             let isGrabbing = false
             let isProgress = false
             let isComplete=false
+            let isStop=false
             if (this.data.task.status === 'GRABBING') {
                 status = '等待抢单'
                 isGrabbing = true
@@ -44,6 +46,11 @@ Component({
                     if(this.data.task.status==='COMPLETE'){
                         status='已完成'
                         isComplete=true
+                    }else{
+                        if(this.data.task.status==='STOP'){
+                            status='已终止'
+                            isStop=true
+                        }
                     }
                 }
             }
@@ -52,7 +59,8 @@ Component({
                 status,
                 isGrabbing,
                 isProgress,
-                isComplete
+                isComplete,
+                isStop
             })
         },
         onRow() {

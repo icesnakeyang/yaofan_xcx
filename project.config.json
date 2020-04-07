@@ -62,6 +62,20 @@
 					"pathName": "pages/jobs/myJob/complete/completeList/completeList",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/jobDetail/jobDetail",
+					"pathName": "pages/jobs/jobDetail/jobDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/stop/taskStop",
+					"pathName": "pages/jobs/myJob/stop/taskStop",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

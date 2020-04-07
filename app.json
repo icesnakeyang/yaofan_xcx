@@ -43,7 +43,8 @@
         "pages/jobs/myJob/log/jobLogList/jobLogList",
         "pages/jobs/myJob/log/createTaskLog/creaetTaskLog",
         "pages/jobs/myJob/complete/createComplete/createComplete",
-        "pages/jobs/myJob/complete/completeList/completeList"
+        "pages/jobs/myJob/complete/completeList/completeList",
+        "pages/jobs/myJob/stop/taskStop"
     ],
     "window": {
         "backgroundTextStyle": "light",
