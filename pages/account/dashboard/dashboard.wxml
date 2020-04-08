@@ -25,7 +25,7 @@
                         <text class="point_in_text">积分支出</text>
                     </view>
                     <view class="point_in_view">
-                        <text class="point_in_text">{{totalPointIn}}</text>
+                        <text class="point_in_text">{{totalPointOut}}</text>
                     </view>
                 </view>
                 <view class="board_cell_balance_view">
@@ -33,7 +33,7 @@
                         <text class="point_in_text">积分余额</text>
                     </view>
                     <view class="point_in_view">
-                        <text class="point_in_text">{{totalPointIn}}</text>
+                        <text class="point_in_text">{{totalPointBalance}}</text>
                     </view>
                 </view>
             </view>

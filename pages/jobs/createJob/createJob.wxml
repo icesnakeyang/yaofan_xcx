@@ -9,7 +9,6 @@
             <van-panel title="任务详情">
                 <view class="editor_view" >
                     <editor placeholder="请描述任务详情要求" bindinput="onDetail" />
-                    <editor placeholder="请输入任务处理说明" bindinput="onRemark" />
                 </view>
             </van-panel>
         </view>

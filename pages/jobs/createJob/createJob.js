@@ -40,8 +40,9 @@ Page({
   },
 
   onDetail(e) {
+      console.log(e)
     this.setData({
-      detail: e.detail
+      detail: e.detail.html
     })
   },
 
@@ -98,8 +99,6 @@ Page({
     }
 
     console.log(params)
-
-    return
     
     api.apiCreateTask(params).then((res) => {
       wx.showToast({
@@ -109,6 +108,7 @@ Page({
         url: '/pages/jobs/myJob/myJobList/myJobList',
       })
     }).catch((error) => {
+        console.log(error)
       Notify(MsgBox.showMsg(error));
     })
   },
