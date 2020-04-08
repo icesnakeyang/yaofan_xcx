@@ -1,2 +1,6 @@
 /* pages/jobs/createJob/createJob.wxss */
-@import '/css/global.wxss'
+@import '/css/global.wxss';
+
+.editor_view{
+    padding: 30rpx;
+}

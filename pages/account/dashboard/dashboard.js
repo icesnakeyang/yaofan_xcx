@@ -42,7 +42,8 @@ Page({
       api.apiTotalUserPoint(params).then((res) => {
         console.log(res)
         this.setData({
-          totalPointIn: res.data.total_point_in
+          totalPointIn: res.data.total_point_in,
+          isLoading:false
         })
       }).catch((error) => {
         console.log(error)

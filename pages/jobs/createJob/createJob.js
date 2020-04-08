@@ -45,6 +45,10 @@ Page({
     })
   },
 
+    onRemark(e){
+        console.log(e)
+    },
+
   onPoint(e) {
     this.setData({
       point: e.detail
@@ -92,6 +96,10 @@ Page({
       endTimeWx: this.data.endTime,
       teamId:this.data.teamId
     }
+
+    console.log(params)
+
+    return
     
     api.apiCreateTask(params).then((res) => {
       wx.showToast({

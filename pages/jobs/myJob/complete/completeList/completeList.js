@@ -107,6 +107,7 @@ Page({
     },
 
     onRemark(e) {
+        console.log(e)
         this.setData({
             remark: e.detail.html
         })
