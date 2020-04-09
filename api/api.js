@@ -1,13 +1,14 @@
 import baseApi from './httpBase.js'
 
-const host = 'http://localhost:8089'
+const host = 'http://localhost:8090'
+// const host='https://gogorpg.com'
 // const host = 'http://192.168.1.247:8089'
 
 /**
  * 用户注册
  */
 function apiRegister(params) {
-  const url = `${host}/api/user/register`
+  const url = `${host}/yaofanapi/user/register`
   return new Promise((resolve, reject) => {
     baseApi.post(url, params).then((res) => {
       resolve(res)
@@ -19,7 +20,7 @@ function apiRegister(params) {
 
 //用户登录
 function apiLogin(params) {
-  const url = `${host}/api/user/login`
+  const url = `${host}/yaofanapi/user/login`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -33,7 +34,7 @@ function apiLogin(params) {
  * 通过token登录
  */
 function apiLoginByToken(params) {
-  const url = `${host}/api/user/loginByToken`
+  const url = `${host}/yaofanapi/user/loginByToken`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -47,7 +48,7 @@ function apiLoginByToken(params) {
  * 修改用户姓名
  */
 function apiUpdateUsername(params) {
-  const url = `${host}/api/user/updateUsername`
+  const url = `${host}/yaofanapi/user/updateUsername`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -58,7 +59,7 @@ function apiUpdateUsername(params) {
 }
 
 function apiCreateTask(params) {
-  const url = `${host}/api/task/createTask`
+  const url = `${host}/yaofanapi/task/createTask`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -69,7 +70,7 @@ function apiCreateTask(params) {
 }
 
 function apiListMyTasks(params) {
-  const url = `${host}/api/task/listMyTasksDetail`
+  const url = `${host}/yaofanapi/task/listMyTasksDetail`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -80,7 +81,7 @@ function apiListMyTasks(params) {
 }
 
 function apiListMyTasksTiny(params) {
-  const url = `${host}/api/task/listMyTasks`
+  const url = `${host}/yaofanapi/task/listMyTasks`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -91,7 +92,7 @@ function apiListMyTasksTiny(params) {
 }
 
 function apiGetTaskByTaskId(params) {
-  const url = `${host}/api/task/getTaskByTaskId`
+  const url = `${host}/yaofanapi/task/getTaskByTaskId`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -102,7 +103,7 @@ function apiGetTaskByTaskId(params) {
 }
 
 function apiGrab(params) {
-  const url = `${host}/api/task/grab`
+  const url = `${host}/yaofanapi/task/grab`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -113,7 +114,7 @@ function apiGrab(params) {
 }
 
 function apiCreateTeam(params) {
-  const url = `${host}/api/team/createTeam`
+  const url = `${host}/yaofanapi/team/createTeam`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -124,7 +125,7 @@ function apiCreateTeam(params) {
 }
 
 function apiListMyTeam(params) {
-  const url = `${host}/api/team/listMyTeam`
+  const url = `${host}/yaofanapi/team/listMyTeam`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -135,7 +136,7 @@ function apiListMyTeam(params) {
 }
 
 function apiGetTeamByTeamId(params) {
-  const url = `${host}/api/team/getTeamByTeamId`
+  const url = `${host}/yaofanapi/team/getTeamByTeamId`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -146,7 +147,7 @@ function apiGetTeamByTeamId(params) {
 }
 
 function apiUpdateMyTeam(params) {
-  const url = `${host}/api/team/updateMyTeam`
+  const url = `${host}/yaofanapi/team/updateMyTeam`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -157,7 +158,7 @@ function apiUpdateMyTeam(params) {
 }
 
 function apiDeleteMyTeam(params) {
-  const url = `${host}/api/team/deleteMyTeam`
+  const url = `${host}/yaofanapi/team/deleteMyTeam`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -168,7 +169,7 @@ function apiDeleteMyTeam(params) {
 }
 
 function apiUpdateTask(params) {
-  const url = `${host}/api/task/updateTask`
+  const url = `${host}/yaofanapi/task/updateTask`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -179,7 +180,7 @@ function apiUpdateTask(params) {
 }
 
 function apiListTaskGrabbingTeam(params) {
-  const url = `${host}/api/task/listTaskGrabbingTeam`
+  const url = `${host}/yaofanapi/task/listTaskGrabbingTeam`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -190,7 +191,7 @@ function apiListTaskGrabbingTeam(params) {
 }
 
 function apiSearchTeam(params) {
-  const url = `${host}/api/team/searchTeam`
+  const url = `${host}/yaofanapi/team/searchTeam`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -201,7 +202,7 @@ function apiSearchTeam(params) {
 }
 
 function apiApplyTeam(params) {
-  const url = `${host}/api/team/applyTeam`
+  const url = `${host}/yaofanapi/team/applyTeam`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -212,7 +213,7 @@ function apiApplyTeam(params) {
 }
 
 function apiTotalMyTeamLogUnread(params) {
-  const url = `${host}/api/team/totalMyTeamLogUnread`
+  const url = `${host}/yaofanapi/team/totalMyTeamLogUnread`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -223,7 +224,7 @@ function apiTotalMyTeamLogUnread(params) {
 }
 
 function apiListTeamApplyLogMyApply(params) {
-  const url = `${host}/api/team/listTeamApplyLogMyApply`
+  const url = `${host}/yaofanapi/team/listTeamApplyLogMyApply`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -234,7 +235,7 @@ function apiListTeamApplyLogMyApply(params) {
 }
 
 function apiListTeamApplyLogApplyUser(params) {
-  const url = `${host}/api/team/listTeamApplyLogApplyUser`
+  const url = `${host}/yaofanapi/team/listTeamApplyLogApplyUser`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -245,7 +246,7 @@ function apiListTeamApplyLogApplyUser(params) {
 }
 
 function apiRejectApplyTeam(params) {
-  const url = `${host}/api/team/rejectApplyTeam`
+  const url = `${host}/yaofanapi/team/rejectApplyTeam`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -256,7 +257,7 @@ function apiRejectApplyTeam(params) {
 }
 
 function apiAgreeApplyTeam(params) {
-  const url = `${host}/api/team/agreeApplyTeam`
+  const url = `${host}/yaofanapi/team/agreeApplyTeam`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -267,7 +268,7 @@ function apiAgreeApplyTeam(params) {
 }
 
 function apiCancelTeamApplyLog(params) {
-  const url = `${host}/api/team/cancelTeamApplyLog`
+  const url = `${host}/yaofanapi/team/cancelTeamApplyLog`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -278,7 +279,7 @@ function apiCancelTeamApplyLog(params) {
 }
 
 function apiGetTeamApplyLog(params) {
-  const url = `${host}/api/team/getTeamApplyLog`
+  const url = `${host}/yaofanapi/team/getTeamApplyLog`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -289,7 +290,7 @@ function apiGetTeamApplyLog(params) {
 }
 
 function apiQuitTeam(params) {
-  const url = `${host}/api/team/quitTeam`
+  const url = `${host}/yaofanapi/team/quitTeam`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -300,7 +301,7 @@ function apiQuitTeam(params) {
 }
 
 function apiListTeamQuitLogApply(params) {
-  const url = `${host}/api/team/listTeamQuitLogApply`
+  const url = `${host}/yaofanapi/team/listTeamQuitLogApply`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -312,7 +313,7 @@ function apiListTeamQuitLogApply(params) {
 
 
 function apiListTeamQuitLogProcess(params) {
-  const url = `${host}/api/team/listTeamQuitLogProcess`
+  const url = `${host}/yaofanapi/team/listTeamQuitLogProcess`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -323,7 +324,7 @@ function apiListTeamQuitLogProcess(params) {
 }
 
 function apiGetTeamQuitLog(params) {
-  const url = `${host}/api/team/getTeamQuitLog`
+  const url = `${host}/yaofanapi/team/getTeamQuitLog`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -334,7 +335,7 @@ function apiGetTeamQuitLog(params) {
 }
 
 function apiCancelTeamQuitLog(params) {
-  const url = `${host}/api/team/cancelTeamQuitLog`
+  const url = `${host}/yaofanapi/team/cancelTeamQuitLog`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -345,7 +346,7 @@ function apiCancelTeamQuitLog(params) {
 }
 
 function apiCreateTaskLog(params) {
-  const url = `${host}/api/tasklog/createTaskLog`
+  const url = `${host}/yaofanapi/tasklog/createTaskLog`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -356,7 +357,7 @@ function apiCreateTaskLog(params) {
 }
 
 function apiListTaskLog(params) {
-  const url = `${host}/api/tasklog/listTaskLog`
+  const url = `${host}/yaofanapi/tasklog/listTaskLog`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -367,7 +368,7 @@ function apiListTaskLog(params) {
 }
 
 function apiListMyPartyATasksDetail(params) {
-  const url = `${host}/api/task/listMyPartyATasksDetail`
+  const url = `${host}/yaofanapi/task/listMyPartyATasksDetail`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -378,7 +379,7 @@ function apiListMyPartyATasksDetail(params) {
 }
 
 function apiListMyPartyBTasksDetail(params) {
-  const url = `${host}/api/task/listMyPartyBTasksDetail`
+  const url = `${host}/yaofanapi/task/listMyPartyBTasksDetail`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -389,7 +390,7 @@ function apiListMyPartyBTasksDetail(params) {
 }
 
 function apiListTaskComplete(params) {
-  const url = `${host}/api/complete/listTaskComplete`
+  const url = `${host}/yaofanapi/complete/listTaskComplete`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -400,7 +401,7 @@ function apiListTaskComplete(params) {
 }
 
 function apiCreateComplete(params) {
-  const url = `${host}/api/complete/createComplete`
+  const url = `${host}/yaofanapi/complete/createComplete`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -411,7 +412,7 @@ function apiCreateComplete(params) {
 }
 
 function apiCancelComplete(params) {
-  const url = `${host}/api/complete/cancelComplete`
+  const url = `${host}/yaofanapi/complete/cancelComplete`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -422,7 +423,7 @@ function apiCancelComplete(params) {
 }
 
 function apiRejectComplete(params) {
-  const url = `${host}/api/complete/rejectComplete`
+  const url = `${host}/yaofanapi/complete/rejectComplete`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -433,7 +434,7 @@ function apiRejectComplete(params) {
 }
 
 function apiStopTask(params) {
-  const url = `${host}/api/taskStop/stopTask`
+  const url = `${host}/yaofanapi/taskStop/stopTask`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -444,7 +445,7 @@ function apiStopTask(params) {
 }
 
 function apiGetTaskStop(params) {
-  const url = `${host}/api/taskStop/getTaskStop`
+  const url = `${host}/yaofanapi/taskStop/getTaskStop`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -455,7 +456,7 @@ function apiGetTaskStop(params) {
 }
 
 function apiListMyPointLedger(params) {
-  const url = `${host}/api/point/listMyPointLedger`
+  const url = `${host}/yaofanapi/point/listMyPointLedger`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
@@ -466,7 +467,7 @@ function apiListMyPointLedger(params) {
 }
 
 function apiTotalUserPoint(params) {
-  const url = `${host}/api/point/totalUserPoint`
+  const url = `${host}/yaofanapi/point/totalUserPoint`
   return new Promise((resolve, reject) => {
     baseApi.postToken(url, params).then((res) => {
       resolve(res)
