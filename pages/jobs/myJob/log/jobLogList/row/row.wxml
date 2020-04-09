@@ -1,0 +1,12 @@
+<!--pages/jobs/myJob/log/jobLogList/row/row.wxml-->
+
+<view class="card_view">
+  <van-panel title="{{theData.createUserName}}">
+    <van-cell-group>
+      <van-cell title="日志时间" value="{{createTime}}" />
+      <view class="editor_view">
+        <rich-text nodes="{{theData.content}}"></rich-text>
+      </view>
+    </van-cell-group>
+  </van-panel>
+</view>

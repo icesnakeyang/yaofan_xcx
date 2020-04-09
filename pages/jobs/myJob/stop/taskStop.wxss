@@ -1,0 +1,7 @@
+/* pages/jobs/myJob/stop/taskStop.wxss */
+
+@import '/css/global.wxss';
+
+.editor_view{
+    padding:30rpx;
+}

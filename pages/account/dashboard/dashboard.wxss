@@ -1,1 +1,63 @@
 /* pages/account/dashboard/dashboard.wxss */
+@import '/css/global.wxss';
+
+.board_view{
+    margin: 30rpx 0rpx;
+}
+
+.board_row_view{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 200rpx;
+}
+
+.board_cell_point_in_view{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(20, 151, 75);
+}
+
+.board_cell_point_out_view{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(230, 45, 45);
+}
+
+.board_cell_balance_view{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgb(11, 85, 170);
+}
+
+.point_in_view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20rpx;
+}
+
+.point_out_view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20rpx;
+}
+
+.ledger_view{
+    margin: 30rpx 0rpx;
+}
+
+.point_in_text{
+    font-size: 34rpx;
+    color: rgb(226, 226, 226);
+}

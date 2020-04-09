@@ -1,0 +1,22 @@
+<!--pages/team/teamLog/teamQuitLog/teamQuitLogList.wxml-->
+<view class="page_view">
+  <view wx:if="{{isLoading}}" class="loading_view">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
+    <view wx:if="{{isEmpty}}">
+      <view class="empty_view">
+        <text class="empty_text">目前没有团队成员申请退团</text>
+      </view>
+    </view>
+    <view wx:else="{{isEmpty}}">
+      <view class="box_view">
+        <block wx:for="{{teamQuitLogs}}" wx:key="index">
+          <view class="box_view" data-id="{{item.teamQuitLogId}}" bindtap="onRow">
+            <Row theData="{{item}}"></Row>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

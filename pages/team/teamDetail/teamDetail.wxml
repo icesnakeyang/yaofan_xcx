@@ -1,7 +1,7 @@
 <!--pages/team/teamDetail/teamDetail.wxml-->
 <view class="page_view">
   <view class="loading_view" wx:if="{{isLoading}}">
-  <van-loading />
+    <van-loading />
   </view>
   <view wx:else="{{isLoading}}">
     <view class="box_view">
@@ -10,19 +10,24 @@
         <van-cell title="责任人" value="{{team.managerName}}" />
         <van-panel title="团队介绍">
           <view class="rich_view">
-            <rich-text nodes="{{team.description}}"></rich-text>
+            <rich-text class="rich_text" nodes="{{team.description}}"></rich-text>
           </view>
         </van-panel>
       </van-cell-group>
     </view>
 
-    <view class="row_view">
+    <view class="box_view">
       <view class="bt_view" wx:if="{{isManager}}">
         <van-button type="warning" bind:click="onEditTeam">修改</van-button>
         <van-button type="danger" bind:click="onDeleteTeam">删除团队</van-button>
       </view>
       <view class="bt_view" wx:else="{{isManager}}">
-        <van-button type="info" bind:click="onJoinTeam">加入团队</van-button>
+        <view class="bt_view" wx:if="{{isMember}}">
+          <van-button type="danger" bind:click="onQuit">退出团队</van-button>
+        </view>
+        <view class="bt_view" wx:else="{{isMember}}">
+          <van-button type="info" bind:click="onJoinTeam">加入团队</van-button>
+        </view>
       </view>
     </view>
   </view>

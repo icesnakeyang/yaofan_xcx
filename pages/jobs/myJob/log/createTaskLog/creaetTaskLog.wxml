@@ -1,0 +1,17 @@
+<!--pages/jobs/myJob/log/createTaskLog/creaetTaskLog.wxml-->
+<view class="page_view">
+  <view class="box_view">
+    <van-panel title="创建任务日志">
+      <van-cell-group>
+        <van-cell title="任务" value="{{task.title}}" />
+        <view class="editor_view">
+          <editor class="editor_text" placeholder="输入任务进行情况" bindinput="onEditor" />
+        </view>
+      </van-cell-group>
+    </van-panel>
+  </view>
+
+  <view class="bt_view">
+    <van-button type="info" bind:click="onCreateLog">创建日志</van-button>
+  </view>
+</view>

@@ -1,0 +1,87 @@
+<!--pages/jobs/myJob/complete/completeList/completeList.wxml-->
+<view class="page_view">
+    <view wx:if="{{isLoading}}" class="loading_view">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box_view">
+            <van-notice-bar wrapable scrollable="false" text="提交完成日志后，任务将自动设置为完成状态。但如果任务实际上未完成，那么任务发布人有权限扣除您的任务积分。" />
+            <view wx:if="{{isEdit}}">
+                <van-panel title="完成说明">
+                    <van-cell-group>
+                        <van-cell title="任务名称" value="{{task.title}}" />
+                        <van-cell title="任务状态">
+                            <view slot="right-icon">
+                                <view wx:if="{{isProgress}}">
+                                    <van-tag type='primary'>{{taskStatus}}</van-tag>
+                                </view>
+                                <view wx:if="{{isComplete}}">
+                                    <van-tag type='success'>{{taskStatus}}</van-tag>
+                                </view>
+                            </view>
+                        </van-cell>
+                    </van-cell-group>
+                    <view class="editor_view">
+                        <editor placeholder="请输入任务处理说明" bindinput="onRemark" />
+                    </view>
+                </van-panel>
+            </view>
+            <view wx:if="{{isAccept}}">
+            </view>
+            <view wx:else="{{isAccept}}">
+                <view wx:if="{{isProgress}}">
+                    <view wx:if="{{isPartyA}}">
+                        <view class="bt_view">
+                            <!-- 任务进行中时，甲方可选择完成任务，停止任务 -->
+                            <van-button type="info" bind:click="onCreateComplete">完成任务</van-button>
+                            <van-button type="danger" bind:click="onStopComplete">停止任务</van-button>
+                        </view>
+                    </view>
+                    <view wx:else="{{isPartyB}}">
+                        <view class="bt_view">
+                            <!-- 任务进行中时，乙方可选择完成任务 -->
+                            <van-button type="info" bind:click="onCreateComplete">完成任务</van-button>
+                        </view>
+                    </view>
+                </view>
+                <view wx:else="{{isProgress}}">
+                    <view wx:if="{{isComplete}}">
+                        <view wx:if="{{isPartyA}}">
+                            <!-- 任务是完成状态时，甲方可以验收任务，或者拒绝验收 -->
+                            <view class="bt_view">
+                                <van-button type="info" bind:click="onAcceptComplete">验收任务</van-button>
+                                <van-button type="danger" bind:click="onRejectComplete">拒绝完成</van-button>
+                            </view>
+                        </view>
+                        <view wx:if="{{isPartyB}}">
+                            <!-- 任务是完成状态时，甲方可取消完成任务 -->
+                            <view class="bt_view">
+                                <van-button type="info" bind:click="onCancelComplete">取消完成</van-button>
+                            </view>
+                        </view>
+                    </view>
+
+                </view>
+            </view>
+        </view>
+
+        <view wx:if="{{isEmpty}}">
+            <view class="empty_view">
+                <text class="empty_text">目前还有没任务的完成日志</text>
+            </view>
+        </view>
+        <view wx:else="{{isEmpty}}">
+            <block wx:for="{{taskCompletes}}" wx:key="index">
+                <view>
+                    <view>
+
+                    </view>
+                    <Row theData="{{item}}"></Row>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>
+
+<van-dialog id="van-dialog" />
+<van-notify id="van-notify" />

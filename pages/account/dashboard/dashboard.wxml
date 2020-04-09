@@ -1,2 +1,50 @@
 <!--pages/account/dashboard/dashboard.wxml-->
-<text>pages/account/dashboard/dashboard.wxml</text>
+<view class="page_view">
+    <view wx:if="{{isLoading}}" class="loading_view">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <van-grid>
+            <van-grid-item icon="balance-list-o" text="账户详情" />
+            <van-grid-item icon="cash-back-record" text="取现" />
+            <van-grid-item icon="refund-o" text="充值" />
+            <van-grid-item icon="phone-circle-o" text="客服" />
+        </van-grid>
+        <view class="board_view">
+            <view class="board_row_view">
+                <view class="board_cell_point_in_view">
+                    <view class="point_in_view">
+                        <text class="point_in_text">积分收入</text>
+                    </view>
+                    <view class="point_in_view">
+                        <text class="point_in_text">{{totalPointIn}}</text>
+                    </view>
+                </view>
+                <view class="board_cell_point_out_view">
+                    <view class="point_out_view">
+                        <text class="point_in_text">积分支出</text>
+                    </view>
+                    <view class="point_in_view">
+                        <text class="point_in_text">{{totalPointOut}}</text>
+                    </view>
+                </view>
+                <view class="board_cell_balance_view">
+                    <view class="point_in_view">
+                        <text class="point_in_text">积分余额</text>
+                    </view>
+                    <view class="point_in_view">
+                        <text class="point_in_text">{{totalPointBalance}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="ledger_view">
+            <van-panel title="最近积分">
+                <block wx:for="{{pointLedgerList}}" wx:key="index">
+                    <PointLedgerRow theData="{{item}}" />
+                </block>
+            </van-panel>
+        </view>
+    </view>
+</view>

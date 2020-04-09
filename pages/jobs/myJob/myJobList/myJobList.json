@@ -3,7 +3,9 @@
     "van-grid": "/vant-weapp/grid/index",
     "van-grid-item": "/vant-weapp/grid-item/index",
     "van-card": "/vant-weapp/card/index",
-    "myJobListRow":"comp/myJobListRow"
+    "myJobListRow":"comp/myJobListRow",
+    "van-sticky": "/vant-weapp/sticky/index"
   },
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "我的任务"
 }

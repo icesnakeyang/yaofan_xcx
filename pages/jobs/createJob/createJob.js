@@ -40,10 +40,15 @@ Page({
   },
 
   onDetail(e) {
+      console.log(e)
     this.setData({
-      detail: e.detail
+      detail: e.detail.html
     })
   },
+
+    onRemark(e){
+        console.log(e)
+    },
 
   onPoint(e) {
     this.setData({
@@ -92,6 +97,8 @@ Page({
       endTimeWx: this.data.endTime,
       teamId:this.data.teamId
     }
+
+    console.log(params)
     
     api.apiCreateTask(params).then((res) => {
       wx.showToast({
@@ -101,6 +108,7 @@ Page({
         url: '/pages/jobs/myJob/myJobList/myJobList',
       })
     }).catch((error) => {
+        console.log(error)
       Notify(MsgBox.showMsg(error));
     })
   },

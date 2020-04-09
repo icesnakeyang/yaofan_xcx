@@ -1,6 +1,0 @@
-/* pages/team/teamLog/teamLog/teamLog.wxss */
-@import '/css/global.wxss';
-
-.card_view{
-    padding-top: 30rpx;
-}

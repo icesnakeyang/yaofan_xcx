@@ -3,9 +3,8 @@
   <view class="box_view">
     <van-panel title="基本信息">
       <view>
-        <van-button type="info">信息按钮</van-button>
         <van-cell-group>
-          <van-cell title="姓名" value="{{userInfo.name}}" is-link bind:click="onName" />
+          <van-cell title="实名信息" value="{{userInfo.name}}" is-link bind:click="onName" />
           <van-cell title="简介" value="内容" label="描述信息" border="{{ true }}" />
         </van-cell-group>
       </view>

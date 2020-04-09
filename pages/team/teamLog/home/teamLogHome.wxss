@@ -1,0 +1,3 @@
+/* pages/team/teamLogPage/teamLogPage.wxss */
+
+@import '/css/global.wxss';

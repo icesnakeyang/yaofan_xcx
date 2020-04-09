@@ -1,0 +1,13 @@
+/* pages/jobs/myJob/complete/completeList/row/row.wxss */
+
+.card_view{
+    margin: 30rpx 0rpx
+}
+
+.editor_view{
+    padding: 30rpx;
+}
+
+.editor_text{
+    font-size: 28rpx;
+}

@@ -24,7 +24,7 @@ function showMsg(msg) {
     return '当前处理的申请已经被处理了'
   }
   if(msg===10012){
-    return '您已经是该团队成员了'
+      return '您已经是该团队成员了，不用再申请了'
   }
 }
 

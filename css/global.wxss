@@ -1,11 +1,14 @@
 .page_view{
-  height: 100vh;
+  /* height: 100vh; */
   background: rgb(240, 240, 240)
 }
 
 .box_view{
-  margin-top: 30rpx;
-  padding: 20rpx;
+  margin: 30rpx 0
+}
+
+.box2_view{
+  padding: 30rpx 0
 }
 
 .row_view{
@@ -25,4 +28,15 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+.empty_view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.empty_text{
+    font-size: 34rpx;
 }
