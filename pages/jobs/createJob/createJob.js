@@ -40,14 +40,12 @@ Page({
   },
 
   onDetail(e) {
-      console.log(e)
     this.setData({
       detail: e.detail.html
     })
   },
 
     onRemark(e){
-        console.log(e)
     },
 
   onPoint(e) {
@@ -98,8 +96,7 @@ Page({
       teamId:this.data.teamId
     }
 
-    console.log(params)
-    
+
     api.apiCreateTask(params).then((res) => {
       wx.showToast({
         title: '创建成功'
@@ -108,7 +105,6 @@ Page({
         url: '/pages/jobs/myJob/myJobList/myJobList',
       })
     }).catch((error) => {
-        console.log(error)
       Notify(MsgBox.showMsg(error));
     })
   },

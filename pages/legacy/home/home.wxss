@@ -5,3 +5,8 @@
   display: flex;
   justify-content: center;
 }
+
+.avatar_view{
+    width: 100rpx;
+    height: 100rpx;
+}

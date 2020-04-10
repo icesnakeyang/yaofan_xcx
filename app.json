@@ -44,7 +44,8 @@
         "pages/jobs/myJob/log/createTaskLog/creaetTaskLog",
         "pages/jobs/myJob/complete/createComplete/createComplete",
         "pages/jobs/myJob/complete/completeList/completeList",
-        "pages/jobs/myJob/stop/taskStop"
+        "pages/jobs/myJob/stop/taskStop",
+        "pages/legacy/wxLogin/wxLogin"
     ],
     "window": {
         "backgroundTextStyle": "light",

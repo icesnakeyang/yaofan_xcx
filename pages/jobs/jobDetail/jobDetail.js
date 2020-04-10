@@ -43,7 +43,6 @@ Page({
 
         //读取任务信息
         api.apiGetTaskByTaskId(params).then((res) => {
-            console.log(res)
             let endTime = ''
             if (res.data.task.endTime) {
                 endTime = tools.momentTime(res.data.task.endTime, 'L')

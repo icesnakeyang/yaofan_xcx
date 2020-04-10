@@ -26,7 +26,6 @@ Component({
    */
   methods: {
     updateData() {
-      console.log(this.data)
       let createTime=tools.momentTime(this.data.theData.createTime, 'S')
       let point=0
       let isIn=false
