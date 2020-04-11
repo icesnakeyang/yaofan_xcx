@@ -11,6 +11,7 @@
         "van-loading": "/vant-weapp/loading/index"
     },
     "pages": [
+        "pages/welcome/welcome",
         "pages/jobs/public/plaza/publicJobList",
         "pages/index/index",
         "pages/logs/logs",

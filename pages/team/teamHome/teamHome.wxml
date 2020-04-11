@@ -6,9 +6,7 @@
   <view wx:else="{{isLoading}}">
     <van-grid>
       <van-grid-item icon="friends-o" text="创建我的团队" bind:click="onCreateTeam" />
-      <van-grid-item icon="photo-o" text="团队日志" bind:click="onTeamLog" info="{{totalUnreadProcess}}" />
-      <van-grid-item icon="photo-o" text="成员申请" bind:click="onApplyMemberList" info="{{totalNewApplyMember}}" />
-      <van-grid-item icon="photo-o" text="统计" />
+      <van-grid-item icon="notes-o" text="团队日志" bind:click="onTeamLog" info="{{totalNewApplyMember+totalUnreadProcess}}" />
     </van-grid>
 
     <view class="box_view">

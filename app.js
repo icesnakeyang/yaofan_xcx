@@ -9,10 +9,6 @@ App({
         logs.unshift(Date.now())
         wx.setStorageSync('logs', logs)
 
-        //从api后台登录微信用户
-        let params = {}
-        commonTools.apiLogin(params)
-
         // 获取用户信息
         wx.getSetting({
             success: res => {

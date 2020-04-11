@@ -49,7 +49,8 @@ Page({
             return
         }
         let params = {
-            username: this.data.name
+            username: this.data.name,
+            idCard:this.data.idcard
         }
 
         api.apiUpdateUsername(params).then((res) => {

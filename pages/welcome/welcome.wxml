@@ -1,0 +1,15 @@
+<!--pages/welcome/welcome.wxml-->
+<view class="welcome_page_view" wx:if="{{isLoading}}">
+    <view class="slogan_view">
+        <text class="slogan_text">人间有三苦，要饭，坐牢，卖豆腐</text>
+    </view>
+    <view class="slogan2_view">
+        <text class="slogan2_text">尔时，世尊食时，著衣持钵，入舍卫大城乞食。于其城中，次第乞已，还至本处。饭食讫，收衣钵，洗足已，敷座而坐。</text>
+    </view>
+    <view class="loading_view">
+        <van-loading type="spinner" size="24px" >要饭中... </van-loading>
+    </view>
+</view>
+<view wx:else="{{isLoading}}">
+    登录成功
+</view>
