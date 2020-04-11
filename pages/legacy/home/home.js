@@ -20,6 +20,7 @@ Page({
 
     loadAllData() {
         let token = wx.getStorageSync('yaofan_token')
+        console.log(token)
         api.apiLoginByToken({}).then((res) => {
             let avatarUrl = wx.getStorageSync('wxavatarurl')
             this.setData({

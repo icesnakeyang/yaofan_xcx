@@ -5,14 +5,24 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+        totalNewApplyMember:0,
+        totalUnreadProcess:0,
+        totalTeamApplyLogMyApply:0,
+        totalTeamApplyLogMyTeam:0
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        let params = wx.getStorageSync('params')
+        this.setData({
+            totalNewApplyMember: params.totalNewApplyMember,
+            totalUnreadProcess: params.totalUnreadProcess,
+            totalTeamApplyLogMyApply: params.totalTeamApplyLogMyApply,
+            totalTeamApplyLogMyTeam: params.totalTeamApplyLogMyTeam
+        })
+        console.log(this.data)
     },
 
     onTeamApplyLog() {

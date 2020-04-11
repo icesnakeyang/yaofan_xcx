@@ -14,8 +14,12 @@ Page({
         pageSize: 5,
         teamList: [],
         searchKey: '',
-        totalNewApplyMember: '',
-        totalUnreadProcess: ''
+        totalNewApplyMember: 0,
+        totalUnreadProcess: 0,
+        totalTeamApplyLogMyApply: 0,
+        totalTeamApplyLogMyTeam: 0,
+        isLogNew: false,
+        totalLogNew:''
     },
 
     /**
@@ -63,20 +67,40 @@ Page({
          * 1、统计未读的加入我的团队申请
          * 2、统计未读的已处理的我加入的团队申请
          */
-        api.apiTotalMyTeamLogUnread({}).then((res) => {
-            let totalNewApplyMember = ''
-            let totalUnreadProcess = ''
+        api.apiTotalMyTeamLog({}).then((res) => {
+            console.log(res)
+            let isLogNew = false
+            let totalNewApplyMember = 0
+            let totalUnreadProcess = 0
+            let totalTeamApplyLogMyApply = 0
+            let totalTeamApplyLogMyTeam = 0
+            let totalLogNew = ''
             if (res.data.totalNewApplyMember > 0) {
                 totalNewApplyMember = res.data.totalNewApplyMember
+                isLogNew = true
+                totalLogNew += totalNewApplyMember
             }
             if (res.data.totalUnreadProcess > 0) {
                 totalUnreadProcess = res.data.totalUnreadProcess
+                isLogNew = true
+                totalLogNew += totalUnreadProcess
+            }
+            if (res.data.totalTeamApplyLogMyTeam > 0) {
+                totalTeamApplyLogMyTeam = res.data.totalTeamApplyLogMyTeam
+            }
+            if (res.data.totalTeamApplyLogMyApply > 0) {
+                totalTeamApplyLogMyApply = res.data.totalTeamApplyLogMyApply
             }
             this.setData({
                 totalNewApplyMember,
-                totalUnreadProcess
+                totalUnreadProcess,
+                totalTeamApplyLogMyApply,
+                totalTeamApplyLogMyTeam,
+                totalLogNew,
+                isLogNew
             })
         }).catch((error) => {
+            console.log(error)
             wx.showToast({
                 title: '统计错误',
                 icon: 'none'
@@ -132,19 +156,16 @@ Page({
     },
 
     /**
-     * 申请加入我的团队的申请列表
-     */
-    onApplyMemberList() {
-        wx.setStorageSync('type', 'JOIN')
-        wx.navigateTo({
-            url: '/pages/team/teamApplyLogList/teamApplyLogList',
-        })
-    },
-
-    /**
      * 我申请加入的团队的申请列表
      */
     onTeamLog() {
+        let params = {
+            totalNewApplyMember: this.data.totalNewApplyMember,
+            totalUnreadProcess: this.data.totalUnreadProcess,
+            totalTeamApplyLogMyApply: this.data.totalTeamApplyLogMyApply,
+            totalTeamApplyLogMyTeam: this.data.totalTeamApplyLogMyTeam
+        }
+        wx.setStorageSync('params', params)
         wx.navigateTo({
             url: '../teamLog/home/teamLogHome',
         })

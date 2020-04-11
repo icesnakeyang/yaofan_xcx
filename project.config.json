@@ -83,6 +83,19 @@
 					"pathName": "pages/account/dashboard/dashboard",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamLog/home/teamLogHome",
+					"pathName": "pages/team/teamLog/home/teamLogHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamLog/home/teamLogHome",
+					"pathName": "pages/team/teamLog/home/teamLogHome",
+					"scene": null
 				}
 			]
 		}

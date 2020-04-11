@@ -1,6 +1,5 @@
 // pages/legacy/wxLogin/wxLogin.js
 
-import api from '../../../api/api.js'
 import commonTools from '../../../utils/common.js'
 
 Page({
@@ -33,10 +32,17 @@ Page({
     bindGetUserInfo(e) {
         let params={
         }
-        commonTools.apiLogin(params)
-        wx.switchTab({
-            url: '/pages/jobs/public/plaza/publicJobList'
+        commonTools.apiLogin(params).then((res)=>{
+            wx.switchTab({
+                url: '/pages/jobs/public/plaza/publicJobList'
+            })
+        }).catch((error)=>{
+            wx.showToast({
+                title: '登录失败',
+                icon:'none'
+            })
         })
+
     },
 
     /**

@@ -223,8 +223,8 @@ function apiApplyTeam(params) {
     })
 }
 
-function apiTotalMyTeamLogUnread(params) {
-    const url = `${host}/yaofanapi/team/totalMyTeamLogUnread`
+function apiTotalMyTeamLog(params) {
+    const url = `${host}/yaofanapi/team/totalMyTeamLog`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
@@ -507,7 +507,7 @@ module.exports = {
     apiListTaskGrabbingTeam,
     apiSearchTeam,
     apiApplyTeam,
-    apiTotalMyTeamLogUnread,
+    apiTotalMyTeamLog,
     apiListTeamApplyLogMyApply,
     apiListTeamApplyLogApplyUser,
     apiRejectApplyTeam,
