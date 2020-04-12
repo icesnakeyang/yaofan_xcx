@@ -159,13 +159,6 @@ Page({
      * 我申请加入的团队的申请列表
      */
     onTeamLog() {
-        let params = {
-            totalNewApplyMember: this.data.totalNewApplyMember,
-            totalUnreadProcess: this.data.totalUnreadProcess,
-            totalTeamApplyLogMyApply: this.data.totalTeamApplyLogMyApply,
-            totalTeamApplyLogMyTeam: this.data.totalTeamApplyLogMyTeam
-        }
-        wx.setStorageSync('params', params)
         wx.navigateTo({
             url: '../teamLog/home/teamLogHome',
         })

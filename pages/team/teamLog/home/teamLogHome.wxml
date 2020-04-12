@@ -1,19 +1,28 @@
 <!--pages/team/teamLogPage/teamLogPage.wxml-->
 <view class="page_view">
-    <view class="box2_view">
-        <van-cell-group>
-            <van-cell title="我申请加入的团队日志" is-link bind:click="onTeamApplyLog" value="{{totalTeamApplyLogMyApply}}" />
-            <van-cell title="加入我的团队的申请日志" is-link bind:click="onTeamApplyMemberLog" use-label-slot value="{{totalTeamApplyLogMyTeam}}">
-                <view slot="icon" wx:if="{{totalNewApplyMember}}">
-                    <van-tag type="danger">{{totalNewApplyMember}}</van-tag>
-                </view>
-            </van-cell>
-            <van-cell title="我的退团申请日志" is-link bind:click="onTeamQuitLog" />
-            <van-cell title="我的团队成员的退团申请日志" use-label-slot is-link bind:click="onTeamQuitLogMember">
-                <view slot="label">
-                    <!-- <view>总数：10 未读：<van-tag type="danger" round>1</van-tag></view> -->
-                </view>
-            </van-cell>
-        </van-cell-group>
+    <view wx:if="{{isLoading}}" class="loading_view">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box2_view">
+            <van-cell-group>
+                <van-cell title="我申请加入的团队日志" is-link bind:click="onTeamApplyLog" value="{{totalTeamApplyLogMyApply}}" >
+                    <view slot="icon" wx:if="{{totalUnreadProcess}}">
+                        <van-tag type="danger">{{totalUnreadProcess}}</van-tag>
+                    </view>
+                </van-cell>
+                <van-cell title="加入我的团队的申请日志" is-link bind:click="onTeamApplyMemberLog" use-label-slot value="{{totalTeamApplyLogMyTeam}}">
+                    <view slot="icon" wx:if="{{totalNewApplyMember}}">
+                        <van-tag type="danger">{{totalNewApplyMember}}</van-tag>
+                    </view>
+                </van-cell>
+                <van-cell title="我的退团申请日志" is-link bind:click="onTeamQuitLog" />
+                <van-cell title="我的团队成员的退团申请日志" use-label-slot is-link bind:click="onTeamQuitLogMember">
+                    <view slot="label">
+                        <!-- <view>总数：10 未读：<van-tag type="danger" round>1</van-tag></view> -->
+                    </view>
+                </van-cell>
+            </van-cell-group>
+        </view>
     </view>
 </view>

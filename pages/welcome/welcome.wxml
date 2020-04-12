@@ -10,6 +10,6 @@
         <van-loading type="spinner" size="24px" >要饭中... </van-loading>
     </view>
 </view>
-<view wx:else="{{isLoading}}">
+<view wx:else="{{isLoading}}" class="loading_view">
     登录成功
 </view>

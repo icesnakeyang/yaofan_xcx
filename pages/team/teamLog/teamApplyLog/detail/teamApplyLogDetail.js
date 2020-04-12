@@ -38,6 +38,7 @@ Page({
       teamApplyLogId
     }
     api.apiGetTeamApplyLog(params).then((res) => {
+        console.log(res)
       const teamApplyLog = res.data.teamApplyLog
       let createTime = tools.momentTime(teamApplyLog.createTime, 'L')
       let processTime = ''
@@ -69,9 +70,13 @@ Page({
         }
       }
       let isManager = false
+      console.log(1)
+      console.log(currentUserId)
       if (teamApplyLog.teamManagerId === currentUserId) {
+          console.log(2)
         isManager = true
       }
+      console.log(3)
       let isApply = false
       if (teamApplyLog.applyUserId === currentUserId) {
         isApply = true

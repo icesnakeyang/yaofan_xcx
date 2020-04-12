@@ -488,6 +488,16 @@ function apiTotalUserPoint(params) {
     })
 }
 
+function apiTotalTasks(params) {
+    const url = `${host}/yaofanapi/point/totalTasks`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
 
 module.exports = {
     apiLogin,
@@ -532,5 +542,6 @@ module.exports = {
     apiGetTaskStop,
     apiListMyPointLedger,
     apiTotalUserPoint,
-    apiWxLogin
+    apiWxLogin,
+    apiTotalTasks
 }

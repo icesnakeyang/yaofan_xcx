@@ -95,6 +95,13 @@
 					"id": -1,
 					"name": "pages/team/teamLog/home/teamLogHome",
 					"pathName": "pages/team/teamLog/home/teamLogHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail",
+					"pathName": "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail",
 					"scene": null
 				}
 			]

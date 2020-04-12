@@ -48,6 +48,8 @@ Page({
         this.loadDataFromApi().then((res) => {
             this.loadAllData()
         })
+
+        this.totalTasks()
     },
 
     /**
@@ -61,6 +63,7 @@ Page({
         }
         return new Promise((resolve, reject) => {
             api.apiListMyTasksTiny(params).then((res) => {
+                console.log(res)
                 const catchTasks = res.data.tasks
                 let isEmpty = true
                 if (res.data.tasks.length > 0) {
@@ -82,6 +85,14 @@ Page({
                 title: '读取我的任务失败',
                 icon: 'none'
             })
+        })
+    },
+
+    totalTasks(){
+        api.apiTotalTasks().then((res)=>{
+            console.log(res)
+        }).catch((error)=>{
+
         })
     },
 
