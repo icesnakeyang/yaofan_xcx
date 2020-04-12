@@ -1,5 +1,6 @@
 /* pages/jobs/public/plaza/publicJobList.wxss */
 @import '/css/global.wxss';
+
 .card_view{
     margin: 20rpx 0rpx
 }

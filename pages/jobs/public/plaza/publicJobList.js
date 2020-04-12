@@ -7,6 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+      isLoading:true,
         taskList:[],
         pageIndex:1,
         pageSize:5
@@ -26,7 +27,8 @@ Page({
       }
       api.apiListTaskGrabbingTeam(params).then((res)=>{
         this.setData({
-            taskList:res.data.tasks
+            taskList:res.data.tasks,
+            isLoading:false
         })
       }).catch((error)=>{
       })

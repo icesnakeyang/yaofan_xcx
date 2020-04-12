@@ -24,7 +24,8 @@ Page({
         partyATotalPage:0,
         partyBTotalPage:0,
         totalTaskPartyA:0,
-        totalTaskPartyB:0
+        totalTaskPartyB:0,
+      totalTaskProgress:0
     },
 
     /**
@@ -95,7 +96,8 @@ Page({
             console.log(res)
             this.setData({
                 totalTaskPartyA: res.data.totalTaskPartyA,
-                totalTaskPartyB: res.data.totalTaskPartyB
+                totalTaskPartyB: res.data.totalTaskPartyB,
+              totalTaskProgress: res.data.totalTaskProgress
             })
         }).catch((error)=>{
             
@@ -143,6 +145,9 @@ Page({
     },
 
     onCurrentJob() {
+      this.setData({
+        isLoading:true
+      })
         let params = {
             pageIndex: 1,
             pageSize: 100,
@@ -150,7 +155,8 @@ Page({
         }
         api.apiListMyTasksTiny(params).then((res) => {
             this.setData({
-                jobs: res.data.tasks
+                jobs: res.data.tasks,
+                isLoading:false
             })
         }).catch((error) => {
             wx.showToast({
