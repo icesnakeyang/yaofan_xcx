@@ -22,7 +22,9 @@ Page({
         isPartyA: false,
         isPartyB: false,
         partyATotalPage:0,
-        partyBTotalPage:0
+        partyBTotalPage:0,
+        totalTaskPartyA:0,
+        totalTaskPartyB:0
     },
 
     /**
@@ -89,10 +91,14 @@ Page({
     },
 
     totalTasks(){
-        api.apiTotalTasks().then((res)=>{
+        api.apiTotalTasks({}).then((res)=>{
             console.log(res)
+            this.setData({
+                totalTaskPartyA: res.data.totalTaskPartyA,
+                totalTaskPartyB: res.data.totalTaskPartyB
+            })
         }).catch((error)=>{
-
+            
         })
     },
 

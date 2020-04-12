@@ -489,7 +489,7 @@ function apiTotalUserPoint(params) {
 }
 
 function apiTotalTasks(params) {
-    const url = `${host}/yaofanapi/point/totalTasks`
+    const url = `${host}/yaofanapi/task/totalTasks`
     return new Promise((resolve, reject) => {
         baseApi.postToken(url, params).then((res) => {
             resolve(res)
