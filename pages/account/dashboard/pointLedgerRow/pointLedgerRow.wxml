@@ -4,7 +4,7 @@
     <text>{{createTime}}</text>
   </view>
   <view wx:if="{{isIn}}" class="point_view">
-    <van-tag type="success" size="large">{{theData.pointIn}}</van-tag>
+    <van-tag type="success">{{theData.pointIn}}</van-tag>
   </view>
   <view wx:if="{{isOut}}" class="point_view">
     <van-tag type="warning" size="large">{{theData.pointOut}}</van-tag>

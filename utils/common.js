@@ -29,7 +29,10 @@ function apiLogin(params) {
                             console.log(res)
                             console.log(infoRes.userInfo.avatarUrl)
                             if (res.data.userInfo.token) {
-                                wx.setStorageSync('yaofan_token', res.data.userInfo.token)
+
+                                // wx.setStorageSync('yaofan_token', res.data.userInfo.token)
+                              wx.setStorageSync('yaofan_token', 'd325143f-9b50-4b25-b52d-05392dcc704e')
+
                                 wx.setStorageSync('current_user_id', res.data.userInfo.userId)
                                 console.log('保存token完成')
                                 wx.setStorageSync('wxavatarurl', infoRes.userInfo.avatarUrl)
