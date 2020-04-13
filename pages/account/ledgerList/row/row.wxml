@@ -1,0 +1,23 @@
+<!--pages/account/ledgerList/row/row.wxml-->
+<view class="page_view">
+    <view wx:if="{{isLoading}}" class="loading_view">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box_view">
+            <van-card title="{{theData.title}}">
+                <view slot="desc">
+                    <view class="time_view">
+                        日期：{{createTime}}
+                    </view>
+                    <view class="type_view">
+                        <text class="type_text">{{type}}</text>
+                    </view>
+                </view>
+                <view slot="price">
+                    <text class="price_text">-100</text>
+                </view>
+            </van-card>
+        </view>
+    </view>
+</view>

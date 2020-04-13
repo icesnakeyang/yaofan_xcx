@@ -26,6 +26,7 @@ Page({
    */
   onLoad: function(options) {
     let taskId = wx.getStorageSync('taskId')
+    console.log(taskId)
     this.setData({
       taskId
     })
@@ -77,6 +78,7 @@ Page({
   onEditorReady() {
     const that = this
     wx.createSelectorQuery().select('#editor').context(res => {
+        console.log(res)
       that.editorCtx = res.context
       that.editorCtx.setContents({
         html: that.data.taskDetail
@@ -106,7 +108,7 @@ Page({
         title: '保存成功'
       })
       wx.navigateTo({
-        url: '../myJobDetail/myJobDetail',
+        url: '/pages/jobs/jobDetail/jobDetail',
       })
     }).catch((error) => {
       Notify(MsgBox.showMsg(error));

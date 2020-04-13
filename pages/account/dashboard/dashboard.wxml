@@ -5,7 +5,7 @@
     </view>
     <view wx:else="{{isLoading}}">
         <van-grid>
-            <van-grid-item icon="balance-list-o" text="账户详情" />
+            <van-grid-item icon="balance-list-o" text="账户详情" bind:click="onLedgerDetail" />
             <van-grid-item icon="cash-back-record" text="取现" />
             <van-grid-item icon="refund-o" text="充值" />
             <van-grid-item icon="phone-circle-o" text="客服" />

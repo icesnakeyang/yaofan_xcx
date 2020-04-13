@@ -67,6 +67,12 @@ Page({
         })
     },
 
+    onLedgerDetail(){
+        wx.navigateTo({
+            url: '/pages/account/ledgerList/ledgerList',
+        })
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

@@ -131,7 +131,7 @@ Page({
 
     onGrab() {
         Dialog.confirm({
-            message: '确定要做改任务吗？'
+            message: '确定要做该任务吗？'
         }).then(() => {
             let params = {
                 taskId: this.data.task.taskId
@@ -153,7 +153,8 @@ Page({
     },
 
     editTask() {
-        wx.setStorageSync('taskId', this.data.taskId)
+        wx.setStorageSync('taskId', this.data.task.taskId)
+        console.log(this.data.task.taskId)
         wx.navigateTo({
             url: '../myJob/editJob/editJob'
         })

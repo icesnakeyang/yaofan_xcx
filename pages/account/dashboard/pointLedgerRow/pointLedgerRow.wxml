@@ -7,7 +7,7 @@
     <van-tag type="success">{{theData.pointIn}}</van-tag>
   </view>
   <view wx:if="{{isOut}}" class="point_view">
-    <van-tag type="warning" size="large">{{theData.pointOut}}</van-tag>
+    <van-tag type="warning">{{theData.pointOut}}</van-tag>
   </view>
   <view class="type_view">
     <text class="type_text">{{type}}</text>

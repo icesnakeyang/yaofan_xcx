@@ -1,0 +1,3 @@
+/* pages/account/ledgerList/ledgerList.wxss */
+
+@import '/css/global.wxss';
