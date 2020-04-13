@@ -18,7 +18,6 @@ Page({
         //从api后台登录微信用户
         let params = {}
         commonTools.apiLogin(params).then((res)=>{
-            console.log('用户登录成功')
             wx.showToast({
                 title: '用户登录成功',
                 icon:'none'
@@ -26,7 +25,6 @@ Page({
             this.setData({
                 isLoading:false
             })
-            console.log('跳转到页面')
             wx.switchTab({
                 url: '/pages/jobs/public/plaza/publicJobList'
             })

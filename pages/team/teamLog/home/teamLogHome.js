@@ -24,7 +24,6 @@ Page({
 
     loadAllData(){
         api.apiTotalMyTeamLog({}).then((res) => {
-            console.log(res)
             let totalNewApplyMember = 0
             let totalUnreadProcess = 0
             let totalTeamApplyLogMyApply = 0
@@ -49,7 +48,6 @@ Page({
                 isLoading:false
             })
         }).catch((error) => {
-            console.log(error)
             wx.showToast({
                 title: '统计错误',
                 icon: 'none'

@@ -26,15 +26,12 @@ function apiLogin(params) {
                         }
                         //从后台登录当前微信用户，如果没有注册，就直接注册一个用户
                         api.apiWxLogin(params).then((res) => {
-                            console.log(res)
-                            console.log(infoRes.userInfo.avatarUrl)
                             if (res.data.userInfo.token) {
 
                                 wx.setStorageSync('yaofan_token', res.data.userInfo.token)
                             //   wx.setStorageSync('yaofan_token', 'd325143f-9b50-4b25-b52d-05392dcc704e')
 
                                 wx.setStorageSync('current_user_id', res.data.userInfo.userId)
-                                console.log('保存token完成')
                                 wx.setStorageSync('wxavatarurl', infoRes.userInfo.avatarUrl)
                                 resolve(true)
                             } else {

@@ -43,7 +43,7 @@ Component({
             if (this.data.theData.actType === 'GRAB') {
                 type = '抢单成功'
             }
-            if (this.data.theData.actType === 'DEAl') {
+            if (this.data.theData.actType === 'DEAL') {
                 type = '任务支出'
             }
             this.setData({

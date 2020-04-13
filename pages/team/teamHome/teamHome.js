@@ -54,7 +54,6 @@ Page({
                 teamList: res.data.teams,
                 isLoading: false
             })
-            console.log(this.data)
         }).catch((error) => {
             wx.showToast({
                 title: '读取数据失败',
@@ -68,7 +67,6 @@ Page({
          * 2、统计未读的已处理的我加入的团队申请
          */
         api.apiTotalMyTeamLog({}).then((res) => {
-            console.log(res)
             let isLogNew = false
             let totalNewApplyMember = 0
             let totalUnreadProcess = 0
@@ -100,7 +98,6 @@ Page({
                 isLogNew
             })
         }).catch((error) => {
-            console.log(error)
             wx.showToast({
                 title: '统计错误',
                 icon: 'none'

@@ -26,7 +26,6 @@ Page({
    */
   onLoad: function(options) {
     let taskId = wx.getStorageSync('taskId')
-    console.log(taskId)
     this.setData({
       taskId
     })
@@ -78,7 +77,6 @@ Page({
   onEditorReady() {
     const that = this
     wx.createSelectorQuery().select('#editor').context(res => {
-        console.log(res)
       that.editorCtx = res.context
       that.editorCtx.setContents({
         html: that.data.taskDetail

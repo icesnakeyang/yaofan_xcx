@@ -66,7 +66,6 @@ Page({
         }
         return new Promise((resolve, reject) => {
             api.apiListMyTasksTiny(params).then((res) => {
-                console.log(res)
                 const catchTasks = res.data.tasks
                 let isEmpty = true
                 if (res.data.tasks.length > 0) {
@@ -93,14 +92,13 @@ Page({
 
     totalTasks(){
         api.apiTotalTasks({}).then((res)=>{
-            console.log(res)
             this.setData({
                 totalTaskPartyA: res.data.totalTaskPartyA,
                 totalTaskPartyB: res.data.totalTaskPartyB,
               totalTaskProgress: res.data.totalTaskProgress
             })
         }).catch((error)=>{
-            
+
         })
     },
 

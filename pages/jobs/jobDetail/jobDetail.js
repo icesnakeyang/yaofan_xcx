@@ -154,7 +154,6 @@ Page({
 
     editTask() {
         wx.setStorageSync('taskId', this.data.task.taskId)
-        console.log(this.data.task.taskId)
         wx.navigateTo({
             url: '../myJob/editJob/editJob'
         })
@@ -204,7 +203,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+      this.loadAllData()
     },
 
     /**

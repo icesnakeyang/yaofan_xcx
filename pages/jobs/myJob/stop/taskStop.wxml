@@ -1,22 +1,25 @@
 <!--pages/jobs/myJob/stop/taskStop.wxml-->
 <view class="page_view">
-    <view wx:if="{{isLoading}}" class="loading_view">
-        <van-loading type="spinner" />
-    </view>
-    <view wx:else="{{isLoading}}">
-        <view class="box_view">
-            <van-panel title="终止任务">
-                <view>
-                    <van-cell-group>
-                        <van-cell title="终止用户" value="{{stop.createUserName}}" />
-                        <van-cell title="终止时间" value="{{stopTime}}" />
-                        <van-cell title="终止说明" />
-                    </van-cell-group>
-                    <view class="editor_view">
-                    <rich-text nodes="{{stop.remark}}"></rich-text>
-                    </view>
-                </view>
-            </van-panel>
+  <view wx:if="{{isLoading}}" class="loading_view">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
+    <view class="box_view" wx:if="{{isEmpty}}">
+      <van-panel title="终止任务">
+        <view>
+          <van-cell-group>
+            <van-cell title="终止用户" value="{{stop.createUserName}}" />
+            <van-cell title="终止时间" value="{{stopTime}}" />
+            <van-cell title="终止说明" />
+          </van-cell-group>
+          <view class="editor_view">
+            <rich-text nodes="{{stop.remark}}"></rich-text>
+          </view>
         </view>
+      </van-panel>
     </view>
+    <view class="loading_view" wx:else="{{isEmpty}}">
+      没有记录
+    </view>
+  </view>
 </view>

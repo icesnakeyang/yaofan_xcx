@@ -5,7 +5,7 @@
     </view>
     <view wx:else="{{isLoading}}">
         <block wx:for="{{ledgerList}}" wx:key="index">
-            <view>
+            <view data-taskId="{{item.taskId}}" bindtap="onLedgerRow">
                 <Row theData="{{item}}" />
             </view>
         </block>

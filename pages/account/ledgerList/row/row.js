@@ -23,7 +23,6 @@ Component({
      */
     methods: {
         updateData() {
-            console.log(this.data)
             let createTime=tools.momentTime(this.data.theData.createTime, 'L')
             let type=''
             if(this.data.theData.actType==='DEAL'){
