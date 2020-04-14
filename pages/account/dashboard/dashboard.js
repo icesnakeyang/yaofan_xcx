@@ -73,6 +73,12 @@ Page({
         })
     },
 
+    onWithdraw(){
+        wx.navigateTo({
+            url: '/pages/account/withdraw/withdraw'
+        })
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

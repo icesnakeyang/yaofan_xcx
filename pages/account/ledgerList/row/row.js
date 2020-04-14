@@ -15,7 +15,8 @@ Component({
      */
     data: {
         createTime:'',
-        type:''
+        type:'',
+        point:0
     },
 
     /**
@@ -23,17 +24,22 @@ Component({
      */
     methods: {
         updateData() {
+            console.log(this.data.theData)
             let createTime=tools.momentTime(this.data.theData.createTime, 'L')
             let type=''
+            let point=0
             if(this.data.theData.actType==='DEAL'){
                 type='任务支出'
+                point = -this.data.theData.pointOut
             }
             if(this.data.theData.actType==='GRAB'){
                 type='抢单成功'
+                point = this.data.theData.pointIn
             }
             this.setData({
                 createTime,
-                type
+                type,
+                point
             })
         }
     },

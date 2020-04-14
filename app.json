@@ -47,7 +47,8 @@
         "pages/jobs/myJob/complete/completeList/completeList",
         "pages/jobs/myJob/stop/taskStop",
         "pages/legacy/wxLogin/wxLogin",
-        "pages/account/ledgerList/ledgerList"
+        "pages/account/ledgerList/ledgerList",
+        "pages/account/withdraw/withdraw"
     ],
     "window": {
         "backgroundTextStyle": "light",

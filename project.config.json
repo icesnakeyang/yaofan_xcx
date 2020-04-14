@@ -130,6 +130,20 @@
 					"id": -1,
 					"name": "pages/account/ledgerList/ledgerList",
 					"pathName": "pages/account/ledgerList/ledgerList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/account/ledgerList/ledgerList",
+					"pathName": "pages/account/ledgerList/ledgerList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/account/withdraw/withdraw",
+					"pathName": "pages/account/withdraw/withdraw",
 					"scene": null
 				}
 			]

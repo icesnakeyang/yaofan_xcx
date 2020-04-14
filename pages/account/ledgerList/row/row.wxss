@@ -1,8 +1,13 @@
 /* pages/account/ledgerList/row/row.wxss */
 @import '/css/global.wxss';
 
-.price_text{
-    font-size: 34rpx;
+.price_in_text{
+    
+    color: rgb(48, 153, 22)
+}
+
+.price_out_text{
+    
     color: rgb(255, 0, 0)
 }
 
@@ -12,7 +17,5 @@
 }
 
 .type_text{
-    font-size: 30rpx;
-    color: rgb(5, 21, 63);
-    background:rgb(124, 211, 233);
+    
 }

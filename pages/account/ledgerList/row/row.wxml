@@ -11,11 +11,16 @@
                         日期：{{createTime}}
                     </view>
                     <view class="type_view">
-                        <text class="type_text">{{type}}</text>
+                        <text class="type_text">行为：{{type}}</text>
                     </view>
                 </view>
                 <view slot="price">
-                    <text class="price_text">-100</text>
+                    <view wx:if="{{point>0}}">
+                        <text class="price_in_text">积分入：{{point}}</text>
+                    </view>
+                    <view wx:if="{{point<0}}">
+                        <text class="price_out_text">积分出：{{point}}</text>
+                    </view>
                 </view>
             </van-card>
         </view>
