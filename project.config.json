@@ -83,6 +83,68 @@
 					"pathName": "pages/account/dashboard/dashboard",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamLog/home/teamLogHome",
+					"pathName": "pages/team/teamLog/home/teamLogHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamLog/home/teamLogHome",
+					"pathName": "pages/team/teamLog/home/teamLogHome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail",
+					"pathName": "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/editJob/editJob",
+					"pathName": "pages/jobs/myJob/editJob/editJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/account/dashboard/dashboard",
+					"pathName": "pages/account/dashboard/dashboard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/account/ledgerList/ledgerList",
+					"pathName": "pages/account/ledgerList/ledgerList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/account/ledgerList/ledgerList",
+					"pathName": "pages/account/ledgerList/ledgerList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/account/ledgerList/ledgerList",
+					"pathName": "pages/account/ledgerList/ledgerList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/account/withdraw/withdraw",
+					"pathName": "pages/account/withdraw/withdraw",
+					"scene": null
 				}
 			]
 		}

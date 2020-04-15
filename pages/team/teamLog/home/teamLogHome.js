@@ -1,18 +1,58 @@
 // pages/team/teamLogPage/teamLogPage.js
+
+import api from '../../../../api/api.js'
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        isLoading:true,
+        totalNewApplyMember:0,
+        totalUnreadProcess:0,
+        totalTeamApplyLogMyApply:0,
+        totalTeamApplyLogMyTeam:0
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        this.loadAllData()
+    },
 
+    loadAllData(){
+        api.apiTotalMyTeamLog({}).then((res) => {
+            let totalNewApplyMember = 0
+            let totalUnreadProcess = 0
+            let totalTeamApplyLogMyApply = 0
+            let totalTeamApplyLogMyTeam = 0
+            if (res.data.totalNewApplyMember > 0) {
+                totalNewApplyMember = res.data.totalNewApplyMember
+            }
+            if (res.data.totalUnreadProcess > 0) {
+                totalUnreadProcess = res.data.totalUnreadProcess
+            }
+            if (res.data.totalTeamApplyLogMyTeam > 0) {
+                totalTeamApplyLogMyTeam = res.data.totalTeamApplyLogMyTeam
+            }
+            if (res.data.totalTeamApplyLogMyApply > 0) {
+                totalTeamApplyLogMyApply = res.data.totalTeamApplyLogMyApply
+            }
+            this.setData({
+                totalNewApplyMember,
+                totalUnreadProcess,
+                totalTeamApplyLogMyApply,
+                totalTeamApplyLogMyTeam,
+                isLoading:false
+            })
+        }).catch((error) => {
+            wx.showToast({
+                title: '统计错误',
+                icon: 'none'
+            })
+        })
     },
 
     onTeamApplyLog() {
@@ -57,6 +97,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
+        this.loadAllData()
 
     },
 

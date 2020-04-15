@@ -1,28 +1,29 @@
 <!--pages/legacy/home/home.wxml-->
 <view class="page_view">
-  <view class="box_view">
-    <van-panel title="基本信息">
-      <view>
-        <van-cell-group>
-          <van-cell title="实名信息" value="{{userInfo.name}}" is-link bind:click="onName" />
-          <van-cell title="简介" value="内容" label="描述信息" border="{{ true }}" />
-        </van-cell-group>
-      </view>
-    </van-panel>
-  </view>
+    <view class="box_view">
+        <van-panel title="基本信息">
+            <view>
+                <van-cell-group>
+                    <van-cell>
+                        <view slot="right-icon">
+                            <image class="avatar_view" src="{{avatarUrl}}"></image>
+                        </view>
+                    </van-cell>
+                    <van-cell title="实名信息" value="{{userInfo.name}}" is-link bind:click="onName">
 
-  <view class="box_view">
-    <van-panel title="安全设置">
-      <van-cell-group>
-        <van-cell title="单元格" value="内容" />
-        <van-cell title="单元格" value="内容" label="描述信息" border="{{ true }}" />
-      </van-cell-group>
-    </van-panel>
-  </view>
-
-  <view class="box_view">
-    <view class="bt_view">
-      <van-button type="default" bind:click="onSignout">退出登录</van-button>
+                    </van-cell>
+                    <van-cell title="简介" value="内容" label="描述信息" border="{{ true }}" />
+                </van-cell-group>
+            </view>
+        </van-panel>
     </view>
-  </view>
+
+    <view class="box_view">
+        <van-panel title="安全设置">
+            <van-cell-group>
+                <van-cell title="单元格" value="内容" />
+                <van-cell title="单元格" value="内容" label="描述信息" border="{{ true }}" />
+            </van-cell-group>
+        </van-panel>
+    </view>
 </view>

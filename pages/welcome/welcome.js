@@ -1,5 +1,6 @@
-// pages/jobs/public/plaza/publicJobList.js
-import api from '../../../../api/api.js'
+// pages/welcome/welcome.js
+
+import commonTools from '../../utils/common.js'
 
 Page({
 
@@ -7,37 +8,31 @@ Page({
      * 页面的初始数据
      */
     data: {
-      isLoading:true,
-        taskList:[],
-        pageIndex:1,
-        pageSize:5
+        isLoading:true
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.loadAllData()
-    },
-
-    loadAllData(){
-      let params={
-          pageIndex:this.data.pageIndex,
-          pageSize:this.data.pageSize
-      }
-      api.apiListTaskGrabbingTeam(params).then((res)=>{
-        this.setData({
-            taskList:res.data.tasks,
-            isLoading:false
-        })
-      }).catch((error)=>{
-      })
-    },
-
-    onTaskRow(e){
-        wx.setStorageSync('taskId', e.currentTarget.dataset.taskid)
-        wx.navigateTo({
-            url: '../../jobDetail/jobDetail',
+        //从api后台登录微信用户
+        let params = {}
+        commonTools.apiLogin(params).then((res)=>{
+            wx.showToast({
+                title: '用户登录成功',
+                icon:'none'
+            })
+            this.setData({
+                isLoading:false
+            })
+            wx.switchTab({
+                url: '/pages/jobs/public/plaza/publicJobList'
+            })
+        }).catch((error)=>{
+            wx.showToast({
+                title: '用户登录失败',
+                icon:'none'
+            })
         })
     },
 
@@ -52,7 +47,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.loadAllData()
+
     },
 
     /**

@@ -1,0 +1,13 @@
+<!--pages/account/ledgerList/ledgerList.wxml-->
+<view class="page_view">
+    <view wx:if="{{isLoading}}" class="loading_view">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <block wx:for="{{ledgerList}}" wx:key="index">
+            <view data-taskId="{{item.taskId}}" bindtap="onLedgerRow">
+                <Row theData="{{item}}" />
+            </view>
+        </block>
+    </view>
+</view>

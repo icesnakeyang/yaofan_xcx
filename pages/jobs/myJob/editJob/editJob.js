@@ -106,7 +106,7 @@ Page({
         title: '保存成功'
       })
       wx.navigateTo({
-        url: '../myJobDetail/myJobDetail',
+        url: '/pages/jobs/jobDetail/jobDetail',
       })
     }).catch((error) => {
       Notify(MsgBox.showMsg(error));

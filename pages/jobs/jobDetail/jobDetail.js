@@ -43,7 +43,6 @@ Page({
 
         //读取任务信息
         api.apiGetTaskByTaskId(params).then((res) => {
-            console.log(res)
             let endTime = ''
             if (res.data.task.endTime) {
                 endTime = tools.momentTime(res.data.task.endTime, 'L')
@@ -132,7 +131,7 @@ Page({
 
     onGrab() {
         Dialog.confirm({
-            message: '确定要做改任务吗？'
+            message: '确定要做该任务吗？'
         }).then(() => {
             let params = {
                 taskId: this.data.task.taskId
@@ -154,7 +153,7 @@ Page({
     },
 
     editTask() {
-        wx.setStorageSync('taskId', this.data.taskId)
+        wx.setStorageSync('taskId', this.data.task.taskId)
         wx.navigateTo({
             url: '../myJob/editJob/editJob'
         })
@@ -204,7 +203,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-
+      this.loadAllData()
     },
 
     /**

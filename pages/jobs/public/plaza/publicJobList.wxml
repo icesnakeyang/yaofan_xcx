@@ -1,12 +1,19 @@
 <view class="page_view">
+  <view wx:if="{{isLoading}}" class="loading_view">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
     <view class="box_view">
-        <block wx:for="{{taskList}}" wx:key="index">
-            <view class="card_view" data-taskId="{{item.taskId}}" bindtap="onTaskRow">
-                <taskRow title="{{item.title}}" 
-                        point="{{item.point}}"
-                        teamName="{{item.teamName}}"
-                        detail="{{item.detail}}" />
-            </view>
-        </block>
+      <van-grid>
+        <van-grid-item icon="photo-o" text="团队任务" />
+      </van-grid>
     </view>
+    <view class="box_view">
+      <block wx:for="{{taskList}}" wx:key="index">
+        <view class="card_view" data-taskId="{{item.taskId}}" bindtap="onTaskRow">
+          <taskRow title="{{item.title}}" point="{{item.point}}" teamName="{{item.teamName}}" detail="{{item.detail}}" />
+        </view>
+      </block>
+    </view>
+  </view>
 </view>

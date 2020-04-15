@@ -1,7 +1,6 @@
-// pages/jobs/myJob/stop/taskStop.js
+// pages/account/ledgerList/ledgerList.js
 
-import api from '../../../../api/api.js'
-import tools from '../../../../utils/dateTools.js'
+import api from '../../../api/api.js'
 
 Page({
 
@@ -10,9 +9,9 @@ Page({
    */
   data: {
     isLoading: true,
-    stop: {},
-    stopTime: '',
-    isEmpty: false
+    pageIndex: 1,
+    pageSize: 10,
+    ledgerList: []
   },
 
   /**
@@ -23,31 +22,27 @@ Page({
   },
 
   loadAllData() {
-    let taskId = wx.getStorageSync('taskId')
     let params = {
-      taskId
+      pageIndex: this.data.pageIndex,
+      pageSize: this.data.pageSize
     }
-    api.apiGetTaskStop(params).then((res) => {
-      console.log(res)
-      let isEmpty = false
-      let stopTime = ''
-      if (res.data.taskStop) {
-        isEmpty = true
-        stopTime = tools.momentTime(res.data.taskStop.createTime, 'L')
-      } else {
-        isEmpty = false
-      }
+    api.apiListMyPointLedger(params).then((res) => {
       this.setData({
-        stop: res.data.taskStop,
-        isLoading: false,
-        stopTime,
-        isEmpty
+        ledgerList: res.data.pointLedgers,
+        isLoading: false
       })
     }).catch((error) => {
       wx.showToast({
-        title: '读取终止任务日志失败',
+        title: '读取账户信息失败',
         icon: 'none'
       })
+    })
+  },
+
+  onLedgerRow(e) {
+    wx.setStorageSync('taskId', e.currentTarget.dataset.taskid)
+    wx.navigateTo({
+      url: '/pages/jobs/jobDetail/jobDetail',
     })
   },
 

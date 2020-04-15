@@ -1,0 +1,14 @@
+/* pages/legacy/wxLogin/wxLogin.wxss */
+@import '/css/global';
+
+.box3_view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.avarta_view{
+    width: 100rpx;
+    height: 100rpx;
+}

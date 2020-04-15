@@ -38,7 +38,6 @@ Page({
             pageSize: this.data.pageSize
         }
         api.apiListMyPointLedger(params).then((res) => {
-            console.log(res)
             let isEmpty = false
             if (res.data.pointLedgers.length === 0) {
                 isEmpty = true
@@ -48,7 +47,6 @@ Page({
                 isEmpty
             })
             api.apiTotalUserPoint(params).then((res) => {
-                console.log(res)
                 this.setData({
                     totalPointIn: res.data.pointIn,
                     totalPointOut: res.data.pointOut,
@@ -56,18 +54,28 @@ Page({
                     isLoading: false
                 })
             }).catch((error) => {
-                console.log(error)
                 wx.showToast({
                     title: '读取积分失败',
                     icon: 'none'
                 })
             })
         }).catch((error) => {
-            console.log(error)
             wx.showToast({
                 title: '读取积分失败',
                 icon: 'none'
             })
+        })
+    },
+
+    onLedgerDetail(){
+        wx.navigateTo({
+            url: '/pages/account/ledgerList/ledgerList',
+        })
+    },
+
+    onWithdraw(){
+        wx.navigateTo({
+            url: '/pages/account/withdraw/withdraw'
         })
     },
 

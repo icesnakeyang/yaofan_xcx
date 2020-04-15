@@ -38,7 +38,6 @@ Page({
             taskId
         }
         api.apiGetTaskByTaskId(params).then((res) => {
-            console.log(res)
             let taskStatus = ''
             let isComplete = false
             let isProgress = false
@@ -107,7 +106,6 @@ Page({
     },
 
     onRemark(e) {
-        console.log(e)
         this.setData({
             remark: e.detail.html
         })

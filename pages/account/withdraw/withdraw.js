@@ -1,44 +1,18 @@
-// pages/jobs/public/plaza/publicJobList.js
-import api from '../../../../api/api.js'
-
+// pages/account/withdraw/withdraw.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-      isLoading:true,
-        taskList:[],
-        pageIndex:1,
-        pageSize:5
+
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-      this.loadAllData()
-    },
 
-    loadAllData(){
-      let params={
-          pageIndex:this.data.pageIndex,
-          pageSize:this.data.pageSize
-      }
-      api.apiListTaskGrabbingTeam(params).then((res)=>{
-        this.setData({
-            taskList:res.data.tasks,
-            isLoading:false
-        })
-      }).catch((error)=>{
-      })
-    },
-
-    onTaskRow(e){
-        wx.setStorageSync('taskId', e.currentTarget.dataset.taskid)
-        wx.navigateTo({
-            url: '../../jobDetail/jobDetail',
-        })
     },
 
     /**
@@ -52,7 +26,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.loadAllData()
+
     },
 
     /**

@@ -1,0 +1,20 @@
+<!--pages/legacy/wxLogin/wxLogin.wxml-->
+<view>
+    <van-notice-bar
+  scrollable="false"
+  wrapable
+  text="次第乞食需要您提供微信用户授权，以方便为您提供更好的使用体验。不用担心，微信授权机制非常安全，我们只能获取到您的微信公共ID，用于帮助您进行本产品的用户注册，且我们承诺不会将您的个人信息泄露给任何第三方知晓，请放心使用。"
+/>
+    <view class="box3_view">
+
+        <view class="avarta_view">
+            <open-data type="userAvatarUrl"></open-data>
+            <open-data type="userNickName"></open-data>
+        </view>
+    </view>
+    <view>
+        <!-- 需要使用 button 来授权登录 -->
+        <button type="primary" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+        <view wx:else>请升级微信版本</view>
+    </view>
+</view>
