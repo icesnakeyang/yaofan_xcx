@@ -16,7 +16,8 @@ Page({
     point: 50,
     detail: '',
     teamId:'',
-    teamName:''
+    teamName:'',
+    isSaving:false
   },
 
   /**
@@ -96,6 +97,9 @@ Page({
       teamId:this.data.teamId
     }
 
+    this.setData({
+      isSaving:true
+    })
 
     api.apiCreateTask(params).then((res) => {
       wx.showToast({

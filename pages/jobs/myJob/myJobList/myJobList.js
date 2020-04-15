@@ -32,22 +32,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        if (common.isLogin()) {
-            this.setData({
-                isLogin: true
-            })
-        } else {
-            this.setData({
-                isLogin: false
-            })
-        }
-        if (!this.data.isLogin) {
-            wx.navigateTo({
-                url: '/pages/legacy/login/login',
-            })
-            return
-        }
-
         this.loadDataFromApi().then((res) => {
             this.loadAllData()
         })
@@ -244,7 +228,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        this.loadAllData()
+      this.onLoad()
     },
 
     /**
