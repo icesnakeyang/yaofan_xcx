@@ -144,6 +144,13 @@
 					"id": -1,
 					"name": "pages/account/withdraw/withdraw",
 					"pathName": "pages/account/withdraw/withdraw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/legacy/home/home",
+					"pathName": "pages/legacy/home/home",
 					"scene": null
 				}
 			]

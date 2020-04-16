@@ -4,8 +4,8 @@
         <van-panel title="基本信息">
             <view>
                 <van-cell-group>
-                    <van-cell>
-                        <view slot="right-icon">
+                    <van-cell value="{{loginStatus}}" center>
+                        <view slot="icon">
                             <image class="avatar_view" src="{{avatarUrl}}"></image>
                         </view>
                     </van-cell>

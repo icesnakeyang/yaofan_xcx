@@ -26,6 +26,9 @@ function showMsg(msg) {
   if(msg===10012){
       return '您已经是该团队成员了，不用再申请了'
   }
+  if(msg===20005){
+      return '您目前还没有团队，不能承接团队任务，你可以加入任何团队，或者自己创建一个团队。'
+  }
 }
 
 module.exports = {
