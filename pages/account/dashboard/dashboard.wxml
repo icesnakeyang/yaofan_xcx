@@ -36,6 +36,14 @@
                         <text class="point_in_text">{{totalPointBalance}}</text>
                     </view>
                 </view>
+                <view class="board_cell_withdraw_view">
+                    <view class="point_in_view">
+                        <text class="point_in_text">可取现积分</text>
+                    </view>
+                    <view class="point_in_view">
+                        <text class="point_in_text">{{totalWithdrawAble}}</text>
+                    </view>
+                </view>
             </view>
         </view>
 

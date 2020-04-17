@@ -1,7 +1,7 @@
 import baseApi from './httpBase.js'
 
-const host = 'http://localhost:8090'
-// const host='https://gogorpg.com'
+// const host = 'http://localhost:8090'
+const host='https://gogorpg.com'
 // const host = 'http://192.168.1.247:8089'
 
 function apiWxLogin(params) {
@@ -522,6 +522,17 @@ function apiDeleteTaskLog(params) {
 }
 
 
+function apiAcceptComplete(params) {
+  const url = `${host}/yaofanapi/complete/acceptComplete`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
+
 
 
 module.exports = {
@@ -570,5 +581,6 @@ module.exports = {
   apiWxLogin,
   apiTotalTasks,
   apiDeleteTask,
-  apiDeleteTaskLog
+  apiDeleteTaskLog,
+  apiAcceptComplete
 }

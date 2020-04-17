@@ -13,30 +13,43 @@
 }
 
 .board_cell_point_in_view{
-    width: 30%;
+    width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background: rgb(20, 151, 75);
+    margin: 10rpx;
 }
 
 .board_cell_point_out_view{
-    width: 30%;
+    width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background: rgb(230, 45, 45);
+    margin: 10rpx;
 }
 
 .board_cell_balance_view{
-    width: 30%;
+    width: 25%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     background: rgb(11, 85, 170);
+    margin: 10rpx;
+}
+
+.board_cell_withdraw_view{
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(186, 14, 209);
+  margin: 10rpx;
 }
 
 .point_in_view{
@@ -58,6 +71,6 @@
 }
 
 .point_in_text{
-    font-size: 34rpx;
+    font-size: 24rpx;
     color: rgb(226, 226, 226);
 }

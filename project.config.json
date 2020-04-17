@@ -186,6 +186,13 @@
 					"id": -1,
 					"name": "pages/account/dashboard/dashboard",
 					"pathName": "pages/account/dashboard/dashboard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/log/jobLogList/jobLogList",
+					"pathName": "pages/jobs/myJob/log/jobLogList/jobLogList",
 					"scene": null
 				}
 			]
