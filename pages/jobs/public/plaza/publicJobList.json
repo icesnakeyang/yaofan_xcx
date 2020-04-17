@@ -2,7 +2,8 @@
     "usingComponents": {
         "taskRow": "./row/taskRow",
         "van-grid": "/vant-weapp/grid/index",
-        "van-grid-item": "/vant-weapp/grid-item/index"
+        "van-grid-item": "/vant-weapp/grid-item/index",
+        "van-notify": "/vant-weapp/notify/index"
     },
     "navigationBarTitleText": "任务广场"
 }

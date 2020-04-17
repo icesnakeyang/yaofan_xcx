@@ -8,7 +8,8 @@ Page({
      */
     data: {
         userInfo: {},
-        avatarUrl: ''
+        avatarUrl: '',
+        loginStatus:''
     },
 
     /**
@@ -22,9 +23,16 @@ Page({
         let token = wx.getStorageSync('yaofan_token')
         api.apiLoginByToken({}).then((res) => {
             let avatarUrl = wx.getStorageSync('wxavatarurl')
+            let yaofan_token=wx.getStorageSync('yaofan_token')
+            let current_user_id=wx.getStorageSync('current_user_id')
+            let loginStatus='未登录'
+            if(yaofan_token && current_user_id){
+                loginStatus='已登录'
+            }
             this.setData({
                 userInfo: res.data.userInfo,
-                avatarUrl
+                avatarUrl,
+                loginStatus
             })
         }).catch((error) => {
             wx.showToast({
