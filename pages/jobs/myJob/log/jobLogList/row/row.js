@@ -1,6 +1,7 @@
 // pages/jobs/myJob/log/jobLogList/row/row.js
 
 import tools from '../../../../../../utils/dateTools.js'
+import api from '../../../../../../api/api.js'
 
 Component({
     /**
@@ -26,7 +27,6 @@ Component({
           this.setData({
             createTime
           })
-
         }
     },
 

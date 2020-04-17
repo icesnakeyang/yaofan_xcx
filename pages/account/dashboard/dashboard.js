@@ -22,13 +22,6 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        let token = wx.getStorageSync('yaofan_token')
-        if (token) {} else {
-            wx.navigateTo({
-                url: '/pages/legacy/login/login',
-            })
-        }
-
         this.loadAllData()
     },
 

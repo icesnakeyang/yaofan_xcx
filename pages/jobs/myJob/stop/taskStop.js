@@ -28,7 +28,6 @@ Page({
       taskId
     }
     api.apiGetTaskStop(params).then((res) => {
-      console.log(res)
       let isEmpty = false
       let stopTime = ''
       if (res.data.taskStop) {

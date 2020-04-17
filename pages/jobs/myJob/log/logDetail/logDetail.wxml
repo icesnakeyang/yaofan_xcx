@@ -1,0 +1,23 @@
+<!--pages/jobs/myJob/log/logDetail/logDetail.wxml-->
+<view class="pag_view">
+  <view wx:if="{{isLoading}}">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
+    <view class="box_view">
+      <van-cell-group>
+        <van-cell title="创建人" value="{{log.createUserName}}" />
+        <van-cell title="创建时间" value="{{createTime}}" />
+        <van-cell title="阅读时间" value="{{readTime}}" />
+        <view class="editor_view">
+        <rich-text nodes="{{log.content}}"></rich-text>
+        </view>
+      </van-cell-group>
+    </view>
+  </view>
+  <view class="bt_view">
+  <van-button type="danger" bind:click="onDelete">删除</van-button>
+  </view>
+</view>
+
+<van-dialog id="van-dialog" />

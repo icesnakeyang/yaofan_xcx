@@ -11,18 +11,21 @@
     <view class="box_view">
       <van-panel title="创建日志" desc="描述任务进展情况">
         <view class="editor_view">
-        <editor bindinput="onEditorInput"/>
+          <editor bindinput="onEditorInput" />
         </view>
       </van-panel>
       <view class="bt_view">
-      <van-button type="info" bind:click="onCreateLog">创建日志</van-button>
+        <van-button type="info" bind:click="onCreateLog">创建日志</van-button>
       </view>
     </view>
 
     <!-- 日志列表 -->
     <block wx:for="{{taskLogs}}" wx:key="index">
-      <Row theData="{{item}}" />
+      <view data-item="{{item}}" bindtap="onRow">
+        <Row theData="{{item}}" />
+        </view>
     </block>
   </view>
 
 </view>
+

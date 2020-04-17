@@ -65,6 +65,13 @@ Page({
     })
   },
 
+  onRow(e){
+    wx.setStorageSync('item', e.currentTarget.dataset.item)
+    wx.navigateTo({
+      url: '../logDetail/logDetail',
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

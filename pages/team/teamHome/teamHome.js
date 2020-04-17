@@ -35,12 +35,6 @@ Page({
                 isLogin: false
             })
         }
-        if (!this.data.isLogin) {
-            wx.navigateTo({
-                url: '/pages/legacy/login/login',
-            })
-            return
-        }
         this.loadAllData()
     },
 

@@ -1,5 +1,4 @@
 <!--pages/jobs/myJob/log/jobLogList/row/row.wxml-->
-
 <view class="card_view">
   <van-panel title="{{theData.createUserName}}">
     <van-cell-group>

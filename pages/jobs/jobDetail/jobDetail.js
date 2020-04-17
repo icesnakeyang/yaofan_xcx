@@ -168,7 +168,6 @@ Page({
       let params = {
         taskId: this.data.task.taskId
       }
-      console.log(params)
       api.apiDeleteTask(params).then((res) => {
         wx.showToast({
           title: '删除成功'

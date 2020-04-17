@@ -1,0 +1,13 @@
+/* pages/jobs/myJob/log/logDetail/logDetail.wxss */
+
+@import '/css/global.wxss';
+
+.bt_view{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30rpx;
+}
+
+.editor_view{
+  padding: 30rpx;
+}
