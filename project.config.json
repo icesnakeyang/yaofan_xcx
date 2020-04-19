@@ -58,90 +58,6 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/jobs/myJob/complete/completeList/completeList",
-					"pathName": "pages/jobs/myJob/complete/completeList/completeList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/jobDetail/jobDetail",
-					"pathName": "pages/jobs/jobDetail/jobDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/myJob/stop/taskStop",
-					"pathName": "pages/jobs/myJob/stop/taskStop",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/account/dashboard/dashboard",
-					"pathName": "pages/account/dashboard/dashboard",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/team/teamLog/home/teamLogHome",
-					"pathName": "pages/team/teamLog/home/teamLogHome",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/team/teamLog/home/teamLogHome",
-					"pathName": "pages/team/teamLog/home/teamLogHome",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail",
-					"pathName": "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/myJob/editJob/editJob",
-					"pathName": "pages/jobs/myJob/editJob/editJob",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/account/dashboard/dashboard",
-					"pathName": "pages/account/dashboard/dashboard",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/account/ledgerList/ledgerList",
-					"pathName": "pages/account/ledgerList/ledgerList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/account/ledgerList/ledgerList",
-					"pathName": "pages/account/ledgerList/ledgerList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/account/ledgerList/ledgerList",
-					"pathName": "pages/account/ledgerList/ledgerList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "pages/account/withdraw/withdraw",
 					"pathName": "pages/account/withdraw/withdraw",
 					"query": "",
@@ -149,50 +65,9 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/legacy/home/home",
-					"pathName": "pages/legacy/home/home",
+					"name": "pages/account/withdrawList/withdrawList",
+					"pathName": "pages/account/withdrawList/withdrawList",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/myJob/log/jobLogList/jobLogList",
-					"pathName": "pages/jobs/myJob/log/jobLogList/jobLogList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/createJob/endDate/endDate",
-					"pathName": "pages/jobs/createJob/endDate/endDate",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/myJob/log/jobLogList/jobLogList",
-					"pathName": "pages/jobs/myJob/log/jobLogList/jobLogList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/myJob/log/logDetail/logDetail",
-					"pathName": "pages/jobs/myJob/log/logDetail/logDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/account/dashboard/dashboard",
-					"pathName": "pages/account/dashboard/dashboard",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/myJob/log/jobLogList/jobLogList",
-					"pathName": "pages/jobs/myJob/log/jobLogList/jobLogList",
 					"scene": null
 				}
 			]

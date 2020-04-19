@@ -1,0 +1,15 @@
+<!--pages/account/withdrawList/withdrawList.wxml-->
+<view class="page_view">
+<view class="loading_view" wx:if="{{isLoading}}">
+<van-loading type="spinner" />
+</view>
+<view wx:else="{{isLoading}}">
+<view class="box_view">
+<block wx:for="{{withdrawList}}" wx:key="index">
+<view>
+<Row theData="{{item}}" />
+</view>
+</block>
+</view>
+</view>
+</view>

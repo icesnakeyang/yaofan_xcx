@@ -1,86 +1,87 @@
 {
-  "usingComponents": {
-    "van-panel": "/vant-weapp/panel/index",
-    "van-field": "/vant-weapp/field/index",
-    "van-button": "/vant-weapp/button/index",
-    "van-notice-bar": "/vant-weapp/notice-bar/index",
-    "van-icon": "/vant-weapp/icon/index",
-    "van-notify": "/vant-weapp/notify/index",
-    "van-cell": "/vant-weapp/cell/index",
-    "van-cell-group": "/vant-weapp/cell-group/index",
-    "van-loading": "/vant-weapp/loading/index"
-  },
-  "pages": [
-    "pages/welcome/welcome",
-    "pages/jobs/public/plaza/publicJobList",
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/legacy/register/register",
-    "pages/legacy/login/login",
-    "pages/legacy/profile/profile",
-    "pages/legacy/home/home",
-    "pages/jobs/createJob/createJob",
-    "pages/jobs/myJob/myJobList/myJobList",
-    "pages/team/teamList/teamList",
-    "pages/account/dashboard/dashboard",
-    "pages/legacy/edit/name/name",
-    "pages/jobs/createJob/endDate/endDate",
-    "pages/team/teamHome/teamHome",
-    "pages/team/createTeam/createTeam",
-    "pages/team/teamDetail/teamDetail",
-    "pages/team/editTeam/editTeam",
-    "pages/jobs/createJob/selectTeam/selectTeam",
-    "pages/jobs/myJob/editJob/editJob",
-    "pages/jobs/jobDetail/jobDetail",
-    "pages/team/applyTeam/applyTeam",
-    "pages/team/applyMemberList/applyMemberList",
-    "pages/team/teamLog/teamApplyLog/list/teamApplyLogList",
-    "pages/team/teamLog/detail/teamApplyLogDetail",
-    "pages/team/quitTeam/quitTeam",
-    "pages/team/teamLog/teamQuitLog/list/teamQuitLogList",
-    "pages/team/teamLog/home/teamLogHome",
-    "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail",
-    "pages/team/teamLog/teamQuitLog/detail/teamQuitLogDetail",
-    "pages/jobs/myJob/log/jobLogList/jobLogList",
-    "pages/jobs/myJob/log/createTaskLog/creaetTaskLog",
-    "pages/jobs/myJob/complete/createComplete/createComplete",
-    "pages/jobs/myJob/complete/completeList/completeList",
-    "pages/jobs/myJob/stop/taskStop",
-    "pages/legacy/wxLogin/wxLogin",
-    "pages/account/ledgerList/ledgerList",
-    "pages/account/withdraw/withdraw",
-    "pages/jobs/myJob/log/logDetail/logDetail"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/jobs/public/plaza/publicJobList",
-        "text": "任务广场"
-      },
-      {
-        "pagePath": "pages/team/teamHome/teamHome",
-        "text": "我的团队"
-      },
-      {
-        "pagePath": "pages/jobs/myJob/myJobList/myJobList",
-        "text": "我的任务"
-      },
-      {
-        "pagePath": "pages/account/dashboard/dashboard",
-        "text": "我的账户"
-      },
-      {
-        "pagePath": "pages/legacy/home/home",
-        "text": "我的衣钵"
-      }
-    ]
-  },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+    "usingComponents": {
+        "van-panel": "/vant-weapp/panel/index",
+        "van-field": "/vant-weapp/field/index",
+        "van-button": "/vant-weapp/button/index",
+        "van-notice-bar": "/vant-weapp/notice-bar/index",
+        "van-icon": "/vant-weapp/icon/index",
+        "van-notify": "/vant-weapp/notify/index",
+        "van-cell": "/vant-weapp/cell/index",
+        "van-cell-group": "/vant-weapp/cell-group/index",
+        "van-loading": "/vant-weapp/loading/index"
+    },
+    "pages": [
+        "pages/welcome/welcome",
+        "pages/jobs/public/plaza/publicJobList",
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/legacy/register/register",
+        "pages/legacy/login/login",
+        "pages/legacy/profile/profile",
+        "pages/legacy/home/home",
+        "pages/jobs/createJob/createJob",
+        "pages/jobs/myJob/myJobList/myJobList",
+        "pages/team/teamList/teamList",
+        "pages/account/dashboard/dashboard",
+        "pages/legacy/edit/name/name",
+        "pages/jobs/createJob/endDate/endDate",
+        "pages/team/teamHome/teamHome",
+        "pages/team/createTeam/createTeam",
+        "pages/team/teamDetail/teamDetail",
+        "pages/team/editTeam/editTeam",
+        "pages/jobs/createJob/selectTeam/selectTeam",
+        "pages/jobs/myJob/editJob/editJob",
+        "pages/jobs/jobDetail/jobDetail",
+        "pages/team/applyTeam/applyTeam",
+        "pages/team/applyMemberList/applyMemberList",
+        "pages/team/teamLog/teamApplyLog/list/teamApplyLogList",
+        "pages/team/teamLog/detail/teamApplyLogDetail",
+        "pages/team/quitTeam/quitTeam",
+        "pages/team/teamLog/teamQuitLog/list/teamQuitLogList",
+        "pages/team/teamLog/home/teamLogHome",
+        "pages/team/teamLog/teamApplyLog/detail/teamApplyLogDetail",
+        "pages/team/teamLog/teamQuitLog/detail/teamQuitLogDetail",
+        "pages/jobs/myJob/log/jobLogList/jobLogList",
+        "pages/jobs/myJob/log/createTaskLog/creaetTaskLog",
+        "pages/jobs/myJob/complete/createComplete/createComplete",
+        "pages/jobs/myJob/complete/completeList/completeList",
+        "pages/jobs/myJob/stop/taskStop",
+        "pages/legacy/wxLogin/wxLogin",
+        "pages/account/ledgerList/ledgerList",
+        "pages/account/withdraw/withdraw",
+        "pages/jobs/myJob/log/logDetail/logDetail",
+        "pages/account/withdrawList/withdrawList"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/jobs/public/plaza/publicJobList",
+                "text": "任务广场"
+            },
+            {
+                "pagePath": "pages/team/teamHome/teamHome",
+                "text": "我的团队"
+            },
+            {
+                "pagePath": "pages/jobs/myJob/myJobList/myJobList",
+                "text": "我的任务"
+            },
+            {
+                "pagePath": "pages/account/dashboard/dashboard",
+                "text": "我的账户"
+            },
+            {
+                "pagePath": "pages/legacy/home/home",
+                "text": "我的衣钵"
+            }
+        ]
+    },
+    "style": "v2",
+    "sitemapLocation": "sitemap.json"
 }

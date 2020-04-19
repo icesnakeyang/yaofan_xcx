@@ -1,0 +1,15 @@
+<!--pages/account/withdrawList/row/row.wxml-->
+
+<van-card price="{{theData.point}}" title="{{createTime}}">
+    <view slot="desc">
+        <rich-text class="van-multi-ellipsis--l3" nodes="{{theData.remark}}"></rich-text>
+        <view class="status_view">
+            <view wx:if="{{isUnprocess}}">
+                <van-tag type="primary">{{status}}</van-tag>
+            </view>
+            <view wx:if="{{isAgree}}">
+                <van-tag type="danger">{{status}}</van-tag>
+            </view>
+        </view>
+    </view>
+</van-card>

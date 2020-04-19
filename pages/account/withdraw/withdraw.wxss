@@ -1,1 +1,15 @@
 /* pages/account/withdraw/withdraw.wxss */
+@import '/css/global.wxss';
+
+.bt_around_view{
+    display: flex;
+    justify-content: center;
+}
+
+.editor_view{
+    padding: 30rpx;
+}
+
+.editor_text{
+    font-size: 28rpx;
+}

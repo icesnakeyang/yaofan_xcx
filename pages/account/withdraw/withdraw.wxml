@@ -1,2 +1,33 @@
 <!--pages/account/withdraw/withdraw.wxml-->
-<text>pages/account/withdraw/withdraw.wxml</text>
+<view class="page_view">
+    <view class="loading_view" wx:if="{{isLoading}}">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+
+        <van-grid>
+            <van-grid-item icon="balance-list-o" text="取现记录({{totalWithdraw}})" bind:click="onWithdrawList" />
+        </van-grid>
+
+        <view class="box_view">
+            <van-panel title="积分取现" desc="申请要兑换的积分">
+                <view>
+                    <van-cell-group>
+                        <van-cell title="当前可以取现积分" value="{{withdrawAble}}" />
+                        <van-field placeholder="需要取现的积分" border="{{ false }}" bind:change="onPointChange" />
+                        <van-cell title="取现说明" />
+                        <view class="editor_view">
+                            <editor class="editor_text" placeholder="请说明本次取现的原因" bindinput="onEditorInput" />
+                        </view>
+                    </van-cell-group>
+                </view>
+            </van-panel>
+        </view>
+
+        <view class="bt_around_view">
+            <van-button type="primary" bind:click="onWithdraw">取现</van-button>
+        </view>
+    </view>
+</view>
+
+<van-notify id="van-notify" />

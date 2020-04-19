@@ -1,0 +1,3 @@
+/* pages/account/withdrawList/withdrawList.wxss */
+
+@import '/css/global.wxss';

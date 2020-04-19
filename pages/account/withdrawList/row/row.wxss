@@ -1,0 +1,7 @@
+/* pages/account/withdrawList/row/row.wxss */
+
+@import "/vant-weapp/common/index.wxss";
+
+.status_view{
+    margin-top: 10rpx;
+}

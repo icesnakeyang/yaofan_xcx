@@ -5,7 +5,7 @@
   <view wx:else="{{isLoading}}">
     <view class="box_view">
       <van-grid>
-        <van-grid-item icon="photo-o" text="团队任务" />
+        <van-grid-item icon="cashier-o" text="团队任务" />
       </van-grid>
     </view>
     <view class="box_view">
