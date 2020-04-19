@@ -1,0 +1,30 @@
+<!--pages/volunteer/create/createVolunteerTask.wxml-->
+<view class="page_view">
+  <view class="box_view">
+    <van-panel title="创建义工任务">
+      <view>
+        <van-cell-group>
+          <van-field label="标题" value="{{title}}" placeholder="请输入义工任务标题" border="{{ false }}" bind:change="onTitle" />
+          <picker mode="date" value="{{date}}" bindchange="bindDate">
+            <van-field label="任务日期" value="{{ date }}" placeholder="请输入日期" disabled border="{{ true }}" />
+          </picker>
+          <picker mode="time" value="{{time}}" bindchange="bindTime">
+            <van-field label="任务时间" value="{{ time }}" placeholder="请输入时间" border="{{ false }}" disabled />
+          </picker>
+          <view class="editor_view">
+            <editor class="editor_text" placeholder="请描述义工任务详情" bindinput="onEditorInput" />
+          </view>
+        </van-cell-group>
+      </view>
+    </van-panel>
+  </view>
+  <view class="bt_view">
+    <view wx:if="{{isSaving}}">
+    </view>
+    <view wx:else="{{isSaving}}">
+      <van-button type="primary" bind:click="onCreate">主要按钮</van-button>
+    </view>
+  </view>
+</view>
+
+<van-notify id="van-notify" />
