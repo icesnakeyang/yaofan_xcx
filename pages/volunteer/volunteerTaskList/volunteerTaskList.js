@@ -1,18 +1,43 @@
 // pages/volunteer/volunteerTaskList/volunteerTaskList.js
+
+import api from '../../../api/api.js'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      isLoading:true,
+      pageIndex:1,
+      pageSize:10,
+      volunteerTaskList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      this.loadAllData()
+  },
 
+  loadAllData(){
+      let params={
+          pageIndex:this.data.pageIndex,
+          pageSize:this.data.pageSize
+      }
+      api.apiListVolunteerTask(params).then((res)=>{
+          console.log(res)
+          this.setData({
+              volunteerTaskList:res.data.volunteerTasks,
+              isLoading:false
+          })
+      }).catch((error)=>{
+          wx.showToast({
+              title: '读取义工任务失败',
+              icon:'none'
+          })
+      })
   },
 
   onCreate(){
@@ -20,6 +45,13 @@ Page({
       url: '/pages/volunteer/create/createVolunteerTask'
     })
   },
+
+    onRow(e){
+        wx.setStorageSync('volunteerTaskId', e.currentTarget.dataset.volunteertaskid)
+        wx.navigateTo({
+            url: '../detail/volunteerTaskDetail',
+        })
+    },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

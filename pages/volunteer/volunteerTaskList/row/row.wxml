@@ -1,0 +1,14 @@
+<!--pages/volunteer/volunteerTaskList/row/row.wxml-->
+<van-card title="{{theData.title}}">
+    <view slot="desc">
+        <view class="content_view">
+            <rich-text class="van-multi-ellipsis--l3" nodes="{{theData.content}}"></rich-text>
+        </view>
+        <view class="time_view">
+            <text>创建时间：{{createTime}}</text>
+        </view>
+        <view class="status_view">
+            <text>状态：{{status}}</text>
+        </view>
+    </view>
+</van-card>

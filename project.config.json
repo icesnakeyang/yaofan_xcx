@@ -81,6 +81,20 @@
 					"id": -1,
 					"name": "pages/volunteer/create/createVolunteerTask",
 					"pathName": "pages/volunteer/create/createVolunteerTask",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/volunteerTaskList/volunteerTaskList",
+					"pathName": "pages/volunteer/volunteerTaskList/volunteerTaskList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/detail/volunteerTaskDetail",
+					"pathName": "pages/volunteer/detail/volunteerTaskDetail",
 					"scene": null
 				}
 			]

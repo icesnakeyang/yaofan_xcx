@@ -1,0 +1,22 @@
+<!--pages/volunteer/detail/volunteerTaskDetail.wxml-->
+<view class="page_view">
+    <view wx:if="{{isLoading}}" class="loading_view">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box_view">
+            <van-panel title="{{volunteerTask.title}}">
+                <view>
+                    <van-cell-group>
+                        <van-cell title="创建人" value="{{volunteerTask.createUserName}}" />
+                        <van-cell title="创建时间" value="{{createTime}}" />
+                        <van-cell title="当前状态" value="{{status}}" />
+                    </van-cell-group>
+                    <view class="editor_view">
+                    <rich-text nodes="{{volunteerTask.content}}"></rich-text>
+                    </view>
+                </view>
+            </van-panel>
+        </view>
+    </view>
+</view>

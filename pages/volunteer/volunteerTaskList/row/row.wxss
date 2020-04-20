@@ -1,0 +1,11 @@
+/* pages/volunteer/volunteerTaskList/row/row.wxss */
+
+@import "/vant-weapp/common/index.wxss";
+
+.content_view{
+    padding: 10rpx 0rpx;
+}
+
+.time_view{
+    padding: 10rpx 0rpx;
+}

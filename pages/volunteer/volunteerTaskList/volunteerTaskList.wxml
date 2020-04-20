@@ -1,7 +1,24 @@
 <!--pages/volunteer/volunteerTaskList/volunteerTaskList.wxml-->
-<van-grid>
-  <van-grid-item icon="photo-o" text="创建任务" bind:click="onCreate" />
-  <van-grid-item icon="photo-o" text="我的申请" />
-  <van-grid-item icon="photo-o" text="我的义工" />
-  <van-grid-item icon="photo-o" text="历史任务" />
-</van-grid>
+<view class="page_view">
+    <view wx:if="{{isLoading}}" class="loading_view">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box_view">
+            <van-grid>
+                <van-grid-item icon="photo-o" text="创建任务" bind:click="onCreate" />
+                <van-grid-item icon="photo-o" text="我的申请" />
+                <van-grid-item icon="photo-o" text="我的义工" />
+                <van-grid-item icon="photo-o" text="历史任务" />
+            </van-grid>
+        </view>
+
+        <view class="box_view">
+            <block wx:for="{{volunteerTaskList}}" wx:key="index">
+                <view class="card_view" data-volunteerTaskId="{{item.volunteerTaskId}}" bindtap="onRow">
+                    <Row theData="{{item}}" />
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

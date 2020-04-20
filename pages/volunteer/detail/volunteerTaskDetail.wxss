@@ -1,0 +1,6 @@
+/* pages/volunteer/detail/volunteerTaskDetail.wxss */
+@import '/css/global.wxss';
+
+.editor_view{
+    padding: 30rpx;
+}
