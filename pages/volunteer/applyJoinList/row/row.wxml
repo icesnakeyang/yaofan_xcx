@@ -11,6 +11,9 @@
             <view wx:if="{{isReject}}">
                 <van-tag type="danger">{{processStatus}}</van-tag>
             </view>
+            <view wx:if="{{isAgree}}">
+              <van-tag type="primary">{{processStatus}}</van-tag>
+            </view>
         </view>
     </view>
 </van-card>

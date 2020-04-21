@@ -66,7 +66,9 @@ Page({
     },
 
     onComment(){
-
+      wx.navigateTo({
+        url: '/pages/volunteer/comment/volunteerList/volunteerList'
+      })
     },
 
   /**

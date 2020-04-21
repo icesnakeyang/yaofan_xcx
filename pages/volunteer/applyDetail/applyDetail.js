@@ -52,6 +52,10 @@ Page({
             if(res.data.volunteerApply.processResult){
                 if (res.data.volunteerApply.processResult ==='REJECT'){
                     processResult='已拒绝'
+                }else{
+                  if (res.data.volunteerApply.processResult ==='AGREE'){
+                    processResult='已通过'
+                  }
                 }
             }
             this.setData({

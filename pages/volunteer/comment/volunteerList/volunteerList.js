@@ -1,18 +1,38 @@
 // pages/volunteer/comment/volunteerList/volunteerList.js
+
+import api from '../../../../api/api.js'
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+      isLoading:true,
+      pageIndex:1,
+      pageSize:10
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+      this.loadAllData()
+    },
 
+    loadAllData(){
+      let params={
+        pageIndex:this.data.pageIndex,
+        pageSize:this.data.pageSize
+      }
+      api.apiListMyVolunteerAgree(params).then((res)=>{
+        console.log(res)
+      }).catch((error)=>{
+        wx.showToast({
+          title: '读取义工失败',
+          icon:'none'
+        })
+      })
     },
 
     /**

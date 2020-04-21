@@ -17,7 +17,8 @@ Component({
         createTime:'',
         processStatus:'',
         isPending:false,
-        isReject:''
+        isReject:'',
+        isAgree:''
     },
 
     /**
@@ -30,6 +31,7 @@ Component({
             let processStatus=''
             let isPending=false
             let isReject=false
+            let isAgree=false
             if(!this.data.theData.processResult){
                 processStatus='等待审核'
                 isPending=true
@@ -37,13 +39,19 @@ Component({
                 if (this.data.theData.processResult ==='REJECT'){
                     processStatus='已拒绝'
                     isReject=true
+                }else{
+                  if(this.data.theData.processResult='AGREE'){
+                    processStatus='已通过'
+                    isAgree=true
+                  }
                 }
             }
             this.setData({
                 createTime,
                 processStatus,
                 isPending,
-                isReject
+                isReject,
+                isAgree
             })
 
         }
