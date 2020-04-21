@@ -58,92 +58,9 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/account/withdraw/withdraw",
-					"pathName": "pages/account/withdraw/withdraw",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/account/withdrawList/withdrawList",
-					"pathName": "pages/account/withdrawList/withdrawList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "pages/volunteer/volunteerTaskList/volunteerTaskList",
 					"pathName": "pages/volunteer/volunteerTaskList/volunteerTaskList",
 					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/create/createVolunteerTask",
-					"pathName": "pages/volunteer/create/createVolunteerTask",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/volunteerTaskList/volunteerTaskList",
-					"pathName": "pages/volunteer/volunteerTaskList/volunteerTaskList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/detail/volunteerTaskDetail",
-					"pathName": "pages/volunteer/detail/volunteerTaskDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/apply/applyVolunteerTask",
-					"pathName": "pages/volunteer/apply/applyVolunteerTask",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/applyList/volunteerTaskApplyList",
-					"pathName": "pages/volunteer/applyList/volunteerTaskApplyList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/applyDetail/applyDetail",
-					"pathName": "pages/volunteer/applyDetail/applyDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/applyList/volunteerTaskApplyList",
-					"pathName": "pages/volunteer/applyList/volunteerTaskApplyList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/public/volunteer/volunteerTaskList",
-					"pathName": "pages/jobs/public/volunteer/volunteerTaskList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/applyList/volunteerTaskApplyList",
-					"pathName": "pages/volunteer/applyList/volunteerTaskApplyList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/applyJoinList/applyJoinList",
-					"pathName": "pages/volunteer/applyJoinList/applyJoinList",
 					"scene": null
 				}
 			]

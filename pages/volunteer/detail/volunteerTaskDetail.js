@@ -13,7 +13,8 @@ Page({
         volunteerTask:{},
         createTime:'',
         status:'',
-        canApply:false
+        canApply:false,
+        canComment:false
     },
 
     /**
@@ -33,11 +34,14 @@ Page({
             let createTime=tools.momentTime(res.data.volunteerTask.createTime, 'L')
             let status=''
             let canApply = false
+            let canComment=false
             if(res.data.volunteerTask.status==='ACTIVE'){
                 status='招募中'
                 let currentUserId = wx.getStorageSync('current_user_id')
                 if (res.data.volunteerTask.createUserId !==currentUserId){
                     canApply=true
+                }else{
+                    canComment=true
                 }
             }
             this.setData({
@@ -45,7 +49,8 @@ Page({
                 createTime,
                 isLoading:false,
                 status,
-                canApply
+                canApply,
+                canComment
             })
             console.log(this.data)
 
@@ -61,6 +66,13 @@ Page({
         wx.setStorageSync('volunteerTaskId', this.data.volunteerTask.volunteerTaskId)
         wx.navigateTo({
             url: '../apply/applyVolunteerTask'
+        })
+    },
+
+    onComment(){
+        wx.setStorageSync('volunteerTaskId', this.data.volunteerTask.volunteerTaskId)
+        wx.navigateTo({
+            url: '../comment/volunteerList/volunteerList'
         })
     },
 

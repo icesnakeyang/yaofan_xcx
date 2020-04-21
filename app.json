@@ -56,7 +56,9 @@
         "pages/volunteer/applyList/volunteerTaskApplyList",
         "pages/volunteer/applyDetail/applyDetail",
         "pages/jobs/public/volunteer/volunteerTaskList",
-        "pages/volunteer/applyJoinList/applyJoinList"
+        "pages/volunteer/applyJoinList/applyJoinList",
+        "pages/volunteer/comment/volunteerList/volunteerList",
+        "pages/volunteer/comment/volunteerComment/volunteerComment"
     ],
     "window": {
         "backgroundTextStyle": "light",

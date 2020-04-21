@@ -19,8 +19,11 @@
             </van-panel>
         </view>
 
-        <view class="bt_view" wx:if="canApply">
+        <view class="bt_view" wx:if="{{canApply}}">
             <van-button type="primary" bind:click="onApply">报名参加</van-button>
+        </view>
+        <view class="bt_view" wx:if="{{canComment}}">
+            <van-button type="info" bind:click="onComment">评价义工</van-button>
         </view>
     </view>
 </view>
