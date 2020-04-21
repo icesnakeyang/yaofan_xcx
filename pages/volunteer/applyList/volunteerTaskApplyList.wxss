@@ -1,0 +1,8 @@
+/* pages/volunteer/applyList/volunteerTaskApplyList.wxss */
+
+@import '/css/global.wxss';
+
+.card_view{
+    margin-top: 30rpx;
+    width: 100%;
+}

@@ -1,17 +1,17 @@
-// pages/jobs/public/plaza/publicJobList.js
+// pages/jobs/public/volunteer/volunteerTaskList.js
+
 import api from '../../../../api/api.js'
-import ShowMsg from '../../../../utils/msgBox/msgBox.js'
-import Notify from '../../../../vant-weapp/notify/notify.js';
+
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        isLoading: true,
-        taskList: [],
-        pageIndex: 1,
-        pageSize: 5
+        isLoading:true,
+        pageIndex:1,
+        pageSize:10,
+        volunteerTaskList:[]
     },
 
     /**
@@ -23,31 +23,27 @@ Page({
 
     loadAllData() {
         let params = {
-            pageIndex: this.data.pageIndex,
-            pageSize: this.data.pageSize
+            pageIndex:this.data.pageIndex,
+            pageSize:this.data.pageSize
         }
-        api.apiListTaskGrabbingTeam(params).then((res) => {
+        api.apiListVolunteerTask(params).then((res) => {
+            console.log(res)
             this.setData({
-                taskList: res.data.tasks,
-                isLoading: false
+                volunteerTaskList:res.data.volunteerTasks,
+                isLoading:false
             })
-        }).catch((error) => {
-            this.setData({
-                isLoading: false
+        }).catch((error)=>{
+            wx.showToast({
+                title: '读取义工任务失败',
+                icon:'none'
             })
         })
     },
 
-    onTaskRow(e) {
-        wx.setStorageSync('taskId', e.currentTarget.dataset.taskid)
+    onTask(e){
+        wx.setStorageSync('volunteerTaskId', e.currentTarget.dataset.volunteertaskid)
         wx.navigateTo({
-            url: '../../jobDetail/jobDetail',
-        })
-    },
-
-    onVolunteerTask(){
-        wx.navigateTo({
-            url: '/pages/jobs/public/volunteer/volunteerTaskList'
+            url: '/pages/volunteer/detail/volunteerTaskDetail'
         })
     },
 
@@ -62,7 +58,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function() {
-        this.loadAllData()
+
     },
 
     /**

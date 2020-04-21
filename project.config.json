@@ -95,6 +95,55 @@
 					"id": -1,
 					"name": "pages/volunteer/detail/volunteerTaskDetail",
 					"pathName": "pages/volunteer/detail/volunteerTaskDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/apply/applyVolunteerTask",
+					"pathName": "pages/volunteer/apply/applyVolunteerTask",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/applyList/volunteerTaskApplyList",
+					"pathName": "pages/volunteer/applyList/volunteerTaskApplyList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/applyDetail/applyDetail",
+					"pathName": "pages/volunteer/applyDetail/applyDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/applyList/volunteerTaskApplyList",
+					"pathName": "pages/volunteer/applyList/volunteerTaskApplyList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/public/volunteer/volunteerTaskList",
+					"pathName": "pages/jobs/public/volunteer/volunteerTaskList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/applyList/volunteerTaskApplyList",
+					"pathName": "pages/volunteer/applyList/volunteerTaskApplyList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/applyJoinList/applyJoinList",
+					"pathName": "pages/volunteer/applyJoinList/applyJoinList",
 					"scene": null
 				}
 			]

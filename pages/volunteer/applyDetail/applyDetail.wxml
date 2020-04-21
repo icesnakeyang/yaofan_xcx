@@ -1,0 +1,44 @@
+<!--pages/volunteer/applyDetail/applyDetail.wxml-->
+<view class="page_view">
+    <view wx:if="{{isLoading}}">
+        <tan-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box_view">
+            <van-panel title="{{apply.title}}">
+                <van-cell-group>
+                    <van-cell title="申请人" value="{{apply.applyUserName}}" />
+                    <van-cell title="申请时间" value="{{applyTime}}" />
+                </van-cell-group>
+                <view class="editor_view">
+                    <rich-text nodes="{{apply.remark}}"></rich-text>
+                </view>
+            </van-panel>
+        </view>
+
+        <view wx:if="{{canProcess}}" class="box_view">
+            <van-panel title="审核说明">
+                <view class="editor_view">
+                    <editor placeholder="请说明审核理由" bindinput="onEditorInput" />
+                </view>
+            </van-panel>
+            <view class="bt_view">
+                <van-button type="primary" bind:click="onAgree">通过</van-button>
+                <van-button type="danger" bind:click="onReject">拒绝</van-button>
+            </view>
+        </view>
+        <view wx:else="{{canProcess}}">
+            <van-cell-group>
+                <van-cell title="审核结果" value="{{processResult}}" />
+                <van-cell title="审核人" value="{{apply.processUserName}}" />
+                <van-cell title="审核时间" value="{{processTime}}" />
+            </van-cell-group>
+            <view class="editor_view">
+                <rich-text nodes="{{apply.processRemark}}"></rich-text>
+            </view>
+        </view>
+    </view>
+</view>
+
+<van-dialog id="van-dialog" />
+<van-notify id="van-notify" />

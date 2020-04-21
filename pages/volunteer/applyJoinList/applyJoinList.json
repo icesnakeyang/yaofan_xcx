@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "Row":"./row/row"
+  },
+  "navigationBarTitleText": "我的义工申请"
+}

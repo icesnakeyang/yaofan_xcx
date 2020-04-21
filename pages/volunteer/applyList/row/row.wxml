@@ -1,0 +1,22 @@
+<!--pages/volunteer/applyList/row/row.wxml-->
+<van-card title="{{theData.title}}">
+    <view slot="desc">
+        <view class="user_view">
+            <text>申请人：{{theData.applyUserName}}</text>
+        </view>
+        <view class="time_view">
+            <text class="time_text">申请日期：{{createTime}}</text>
+        </view>
+        <view class="editor_view">
+            <rich-text nodes="{{theData.remark}}"></rich-text>
+        </view>
+        <view class="status_view">
+            <view wx:if="{{isReject}}">
+                <van-tag type="danger">{{processResult}}</van-tag>
+            </view>
+            <view wx:if="{{isPending}}">
+                <van-tag type="primary">{{processResult}}</van-tag>
+            </view>
+        </view>
+    </view>
+</van-card>

@@ -573,6 +573,73 @@ function apiGetVolunteerTask(params) {
     })
 }
 
+function apiApplyVolunteerTask(params) {
+    const url = `${host}/yaofanapi/volunteer/applyVolunteerTask`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiListMyVolunteerTaskApply(params) {
+    const url = `${host}/yaofanapi/volunteer/listMyVolunteerTaskApply`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiGetVolunteerApply(params) {
+    const url = `${host}/yaofanapi/volunteer/getVolunteerApply`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiRejectVolunteerApply(params) {
+    const url = `${host}/yaofanapi/volunteer/rejectVolunteerApply`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiAgreeVolunteerApply(params) {
+    const url = `${host}/yaofanapi/volunteer/agreeVolunteerApply`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiListMyVolunteerTaskApplyJoin(params) {
+    const url = `${host}/yaofanapi/volunteer/listMyVolunteerTaskApplyJoin`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+
 
 
 module.exports = {
@@ -626,5 +693,11 @@ module.exports = {
     apiListWithdrawUnProcess,
     apiCreateVolunteerTask,
     apiListVolunteerTask,
-    apiGetVolunteerTask
+    apiGetVolunteerTask,
+    apiApplyVolunteerTask,
+    apiListMyVolunteerTaskApply,
+    apiGetVolunteerApply,
+    apiRejectVolunteerApply,
+    apiAgreeVolunteerApply,
+    apiListMyVolunteerTaskApplyJoin
 }

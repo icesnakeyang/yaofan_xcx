@@ -1,0 +1,23 @@
+<!--pages/volunteer/apply/applyVolunteerTask.wxml-->
+<view class="page_view">
+    <view wx:if="{{isLoading}}" class="loading_view">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box_view">
+            <van-panel title="{{volunteerTask.title}}">
+                <view class="editor_view">
+                    <editor placeholder="报名说明" bindinput="onEditorInput" />
+                </view>
+            </van-panel>
+        </view>
+
+        <view wx:if="{{isSaving}}">
+        </view>
+        <view class="bt_view" wx:else="{{isSaving}}">
+            <van-button type="primary" bind:click="onApply">提交</van-button>
+        </view>
+    </view>
+</view>
+
+<van-notify id="van-notify" />

@@ -1,0 +1,12 @@
+/* pages/volunteer/apply/applyVolunteerTask.wxss */
+@import '/css/global.wxss';
+
+.editor_view{
+    padding: 30rpx;
+}
+
+.bt_view{
+    margin-top: 30rpx;
+    display: flex;
+    justify-content: center;
+}

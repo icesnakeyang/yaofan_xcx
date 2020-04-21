@@ -53,6 +53,18 @@ Page({
         })
     },
 
+    onMyVolunteerApply(){
+        wx.navigateTo({
+            url: '../applyList/volunteerTaskApplyList'
+        })
+    },
+
+    onMyVolunteerApplyToJoin(){
+        wx.navigateTo({
+            url: '../applyJoinList/applyJoinList'
+        })
+    },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

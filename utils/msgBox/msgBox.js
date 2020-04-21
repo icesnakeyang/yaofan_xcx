@@ -29,6 +29,9 @@ function showMsg(msg) {
   if(msg===20005){
       return '您目前还没有团队，不能承接团队任务，你可以加入任何团队，或者自己创建一个团队。'
   }
+    if (msg === 20023){
+        return '您不能参加自己创建的义工任务'
+    }
 }
 
 module.exports = {

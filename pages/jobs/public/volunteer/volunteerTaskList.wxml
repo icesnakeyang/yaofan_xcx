@@ -1,0 +1,15 @@
+<!--pages/jobs/public/volunteer/volunteerTaskList.wxml-->
+<view class="page_view">
+    <view wx:if="{{isLoading}}" class="loading_view">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box_view">
+            <block wx:for="{{volunteerTaskList}}" wx:key="index">
+                <view class="card_view" data-volunteerTaskId="{{item.volunteerTaskId}}" bindtap="onTask">
+                    <Row theData="{{item}}" />
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

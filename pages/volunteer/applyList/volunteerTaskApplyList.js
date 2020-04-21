@@ -1,7 +1,6 @@
-// pages/volunteer/detail/volunteerTaskDetail.js
+// pages/volunteer/applyList/volunteerTaskApplyList.js
 
 import api from '../../../api/api.js'
-import tools from '../../../utils/dateTools.js'
 
 Page({
 
@@ -10,10 +9,7 @@ Page({
      */
     data: {
         isLoading:true,
-        volunteerTask:{},
-        createTime:'',
-        status:'',
-        canApply:false
+        applyList:[]
     },
 
     /**
@@ -24,43 +20,27 @@ Page({
     },
 
     loadAllData(){
-        let volunteerTaskId = wx.getStorageSync('volunteerTaskId')
-        console.log(volunteerTaskId)
         let params={
-            volunteerTaskId
-        }
-        api.apiGetVolunteerTask(params).then((res)=>{
-            let createTime=tools.momentTime(res.data.volunteerTask.createTime, 'L')
-            let status=''
-            let canApply = false
-            if(res.data.volunteerTask.status==='ACTIVE'){
-                status='招募中'
-                let currentUserId = wx.getStorageSync('current_user_id')
-                if (res.data.volunteerTask.createUserId !==currentUserId){
-                    canApply=true
-                }
-            }
-            this.setData({
-                volunteerTask:res.data.volunteerTask,
-                createTime,
-                isLoading:false,
-                status,
-                canApply
-            })
-            console.log(this.data)
 
+        }
+        api.apiListMyVolunteerTaskApply(params).then((res)=>{
+            console.log(res)
+            this.setData({
+                applyList:res.data.volunteerApplies,
+                isLoading:false
+            })
         }).catch((error)=>{
             wx.showToast({
-                title: '读取义工任务失败',
+                title: '读取义工申请失败',
                 icon:'none'
             })
         })
     },
 
-    onApply(){
-        wx.setStorageSync('volunteerTaskId', this.data.volunteerTask.volunteerTaskId)
+    onCardRow(e){
+        wx.setStorageSync('volunteerApplyId', e.currentTarget.dataset.volunteerapplyid)
         wx.navigateTo({
-            url: '../apply/applyVolunteerTask'
+            url: '../applyDetail/applyDetail'
         })
     },
 

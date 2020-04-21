@@ -1,7 +1,8 @@
-// pages/volunteer/detail/volunteerTaskDetail.js
+// pages/volunteer/apply/applyVolunteerTask.js
 
 import api from '../../../api/api.js'
-import tools from '../../../utils/dateTools.js'
+import Notify from '../../../vant-weapp/notify/notify.js'
+import ShowMsg from '../../../utils/msgBox/msgBox.js'
 
 Page({
 
@@ -11,9 +12,8 @@ Page({
     data: {
         isLoading:true,
         volunteerTask:{},
-        createTime:'',
-        status:'',
-        canApply:false
+        remark:'',
+        isSaving:false
     },
 
     /**
@@ -25,30 +25,15 @@ Page({
 
     loadAllData(){
         let volunteerTaskId = wx.getStorageSync('volunteerTaskId')
-        console.log(volunteerTaskId)
         let params={
             volunteerTaskId
         }
         api.apiGetVolunteerTask(params).then((res)=>{
-            let createTime=tools.momentTime(res.data.volunteerTask.createTime, 'L')
-            let status=''
-            let canApply = false
-            if(res.data.volunteerTask.status==='ACTIVE'){
-                status='招募中'
-                let currentUserId = wx.getStorageSync('current_user_id')
-                if (res.data.volunteerTask.createUserId !==currentUserId){
-                    canApply=true
-                }
-            }
+            console.log(res)
             this.setData({
                 volunteerTask:res.data.volunteerTask,
-                createTime,
-                isLoading:false,
-                status,
-                canApply
+                isLoading:false
             })
-            console.log(this.data)
-
         }).catch((error)=>{
             wx.showToast({
                 title: '读取义工任务失败',
@@ -57,10 +42,39 @@ Page({
         })
     },
 
+    onEditorInput(e){
+        this.setData({
+            remark:e.detail.html
+        })
+    },
+
     onApply(){
-        wx.setStorageSync('volunteerTaskId', this.data.volunteerTask.volunteerTaskId)
-        wx.navigateTo({
-            url: '../apply/applyVolunteerTask'
+        if(!this.data.remark){
+            Notify('请输入报名说明')
+            return
+        }
+
+        let params={
+            volunteerTaskId:this.data.volunteerTask.volunteerTaskId,
+            remark:this.data.remark
+        }
+
+        this.setData({
+            isSaving:true
+        })
+        api.apiApplyVolunteerTask(params).then((res)=>{
+            wx.showToast({
+                title: '报名成功'
+            })
+            wx.navigateTo({
+                url: '../applyJoinList/applyJoinList'
+            })
+        }).catch((error)=>{
+            console.log(error)
+            Notify(ShowMsg.showMsg(error))
+            this.setData({
+                isSaving:false
+            })
         })
     },
 

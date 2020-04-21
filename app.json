@@ -51,7 +51,12 @@
         "pages/account/withdrawList/withdrawList",
         "pages/volunteer/volunteerTaskList/volunteerTaskList",
         "pages/volunteer/create/createVolunteerTask",
-        "pages/volunteer/detail/volunteerTaskDetail"
+        "pages/volunteer/detail/volunteerTaskDetail",
+        "pages/volunteer/apply/applyVolunteerTask",
+        "pages/volunteer/applyList/volunteerTaskApplyList",
+        "pages/volunteer/applyDetail/applyDetail",
+        "pages/jobs/public/volunteer/volunteerTaskList",
+        "pages/volunteer/applyJoinList/applyJoinList"
     ],
     "window": {
         "backgroundTextStyle": "light",

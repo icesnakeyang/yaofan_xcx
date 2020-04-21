@@ -1,0 +1,15 @@
+<!--pages/volunteer/applyList/volunteerTaskApplyList.wxml-->
+<view class="page_view">
+    <view wx:if="{{isLoading}}">
+        <van-loading type="spinner" />
+    </view>
+    <view ex:else="{{isLoading}}">
+        <view class="box_view">
+            <block wx:for="{{applyList}}" wx:key="index">
+                <view class="card_view" data-volunteerApplyId="{{item.volunteerApplyId}}" bindtap="onCardRow">
+                    <Row theData="{{item}}" />
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

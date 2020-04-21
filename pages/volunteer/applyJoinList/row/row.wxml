@@ -1,0 +1,16 @@
+<!--pages/volunteer/applyJoinList/row/row.wxml-->
+<van-card title="{{theData.title}}">
+    <view slot="desc">
+        <view class="tiem_view">
+            <text>申请时间：{{createTime}}</text>
+        </view>
+        <view class="status_view">
+            <view wx:if="{{isPending}}">
+                <van-tag type="success">{{processStatus}}</van-tag>
+            </view>
+            <view wx:if="{{isReject}}">
+                <van-tag type="danger">{{processStatus}}</van-tag>
+            </view>
+        </view>
+    </view>
+</van-card>

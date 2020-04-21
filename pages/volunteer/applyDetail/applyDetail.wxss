@@ -1,4 +1,5 @@
-/* pages/volunteer/detail/volunteerTaskDetail.wxss */
+/* pages/volunteer/applyDetail/applyDetail.wxss */
+
 @import '/css/global.wxss';
 
 .editor_view{

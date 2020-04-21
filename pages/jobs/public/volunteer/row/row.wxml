@@ -1,0 +1,14 @@
+<!--pages/jobs/public/volunteer/row/row.wxml-->
+<van-card title="{{theData.title}}">
+    <view slot="desc">
+        <view class="editor">
+            <rich-text nodes="{{theData.content}}"></rich-text>
+        </view>
+        <view class="tiem_view">
+            <text>任务时间：{{startTime}}</text>
+        </view>
+        <view class="user_view">
+            <text>创建人：{{theData.createUserName}}</text>
+        </view>
+    </view>
+</van-card>

@@ -13,10 +13,14 @@
                         <van-cell title="当前状态" value="{{status}}" />
                     </van-cell-group>
                     <view class="editor_view">
-                    <rich-text nodes="{{volunteerTask.content}}"></rich-text>
+                        <rich-text nodes="{{volunteerTask.content}}"></rich-text>
                     </view>
                 </view>
             </van-panel>
+        </view>
+
+        <view class="bt_view" wx:if="canApply">
+            <van-button type="primary" bind:click="onApply">报名参加</van-button>
         </view>
     </view>
 </view>
