@@ -1,8 +1,8 @@
 import baseApi from './httpBase.js'
 
-// const host = 'http://localhost:8090'
-const host='https://gogorpg.com'
-// const host = 'http://192.168.1.247:8089'
+const host = 'http://localhost:8090'
+// const host='https://gogorpg.com'
+// const host = 'http://127.0.0.1:8089'
 
 function apiWxLogin(params) {
   const url = `${host}/yaofanapi/wx/wxLogin`
@@ -652,6 +652,32 @@ function apiListMyVolunteerAgree(params) {
 }
 
 
+function apiTotalMyVolunteer(params) {
+  const url = `${host}/yaofanapi/volunteer/totalMyVolunteer`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
+
+function apiListMyVolunteerTask(params) {
+  const url = `${host}/yaofanapi/volunteer/listMyVolunteerTask`
+  return new Promise((resolve, reject) => {
+    baseApi.postToken(url, params).then((res) => {
+      resolve(res)
+    }).catch((error) => {
+      reject(error)
+    })
+  })
+}
+
+
+
+
+
 module.exports = {
   apiLoginByToken,
   apiUpdateUsername,
@@ -710,5 +736,7 @@ module.exports = {
   apiRejectVolunteerApply,
   apiAgreeVolunteerApply,
   apiListMyVolunteerTaskApplyJoin,
-  apiListMyVolunteerAgree
+  apiListMyVolunteerAgree,
+  apiTotalMyVolunteer,
+  apiListMyVolunteerTask
 }

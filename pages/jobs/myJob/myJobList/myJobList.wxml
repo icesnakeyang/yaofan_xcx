@@ -6,7 +6,7 @@
       <van-grid-item icon="friends-o" text="当前任务({{totalTaskProgress}})" bind:click="onCurrentJob" />
       <van-grid-item icon="like-o" text="甲方({{totalTaskPartyA}})" bind:click="onPartyA" />
       <van-grid-item icon="star-o" text="乙方({{totalTaskPartyB}})" bind:click="onPartyB" />
-      <van-grid-item icon="star-o" text="义工任务({{totalTaskPartyB}})" bind:click="onVolunteer" />
+      <van-grid-item icon="star-o" text="义工任务({{totalVolunteerTasks}})" bind:click="onVolunteer" />
     </van-grid>
   </van-sticky>
 

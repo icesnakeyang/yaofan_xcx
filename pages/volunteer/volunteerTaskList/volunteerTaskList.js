@@ -26,7 +26,7 @@ Page({
           pageIndex:this.data.pageIndex,
           pageSize:this.data.pageSize
       }
-      api.apiListVolunteerTask(params).then((res)=>{
+    api.apiListMyVolunteerTask(params).then((res)=>{
           console.log(res)
           this.setData({
               volunteerTaskList:res.data.volunteerTasks,

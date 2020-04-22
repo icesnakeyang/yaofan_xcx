@@ -25,7 +25,8 @@ Page({
     partyBTotalPage: 0,
     totalTaskPartyA: 0,
     totalTaskPartyB: 0,
-    totalTaskProgress: 0
+    totalTaskProgress: 0,
+    totalVolunteerTasks:0
   },
 
   /**
@@ -37,6 +38,7 @@ Page({
     })
 
     this.totalTasks()
+    this.totalVolunteer()
   },
 
   /**
@@ -82,6 +84,17 @@ Page({
         totalTaskProgress: res.data.totalTaskProgress
       })
     }).catch((error) => {
+
+    })
+  },
+
+  totalVolunteer(){
+    api.apiTotalMyVolunteer({}).then((res)=>{
+      console.log(res)
+      this.setData({
+        totalVolunteerTasks: res.data.totalVolunteerTasks
+      })
+    }).catch((error)=>{
 
     })
   },
