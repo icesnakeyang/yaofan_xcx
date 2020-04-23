@@ -25,5 +25,9 @@
         <view class="bt_view" wx:if="{{canComment}}">
             <van-button type="info" bind:click="onComment">评价义工</van-button>
         </view>
+        <view class="bt_view" wx:if="{{canStop}}">
+            <van-button type="danger" bind:click="onStop">停止义工招募</van-button>
+        </view>
     </view>
 </view>
+<van-dialog id="van-dialog" />

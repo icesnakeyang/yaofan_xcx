@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+      "Row":"./row/row"
+  },
+  "navigationBarTitleText": "评价义工"
 }

@@ -58,8 +58,36 @@
 			"list": [
 				{
 					"id": -1,
+					"name": "pages/volunteer/detail/volunteerTaskDetail",
+					"pathName": "pages/volunteer/detail/volunteerTaskDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
 					"name": "pages/volunteer/volunteerTaskList/volunteerTaskList",
 					"pathName": "pages/volunteer/volunteerTaskList/volunteerTaskList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/detail/volunteerTaskDetail",
+					"pathName": "pages/volunteer/detail/volunteerTaskDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/comment/volunteerList/volunteerList",
+					"pathName": "pages/volunteer/comment/volunteerList/volunteerList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/volunteer/applyList/volunteerTaskApplyList",
+					"pathName": "pages/volunteer/applyList/volunteerTaskApplyList",
 					"query": "",
 					"scene": null
 				}

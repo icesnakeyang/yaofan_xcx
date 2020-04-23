@@ -29,7 +29,6 @@ Page({
             volunteerTaskId
         }
         api.apiGetVolunteerTask(params).then((res)=>{
-            console.log(res)
             this.setData({
                 volunteerTask:res.data.volunteerTask,
                 isLoading:false
@@ -70,7 +69,6 @@ Page({
                 url: '../applyJoinList/applyJoinList'
             })
         }).catch((error)=>{
-            console.log(error)
             Notify(ShowMsg.showMsg(error))
             this.setData({
                 isSaving:false

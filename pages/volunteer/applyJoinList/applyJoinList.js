@@ -24,7 +24,6 @@ Page({
 
         }
         api.apiListMyVolunteerTaskApplyJoin(params).then((res)=>{
-            console.log(res)
             this.setData({
                 joinApplyList:res.data.volunteerApplies,
                 isLoading:false
@@ -55,7 +54,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.loadAllData()
     },
 
     /**

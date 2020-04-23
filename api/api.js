@@ -674,7 +674,16 @@ function apiListMyVolunteerTask(params) {
   })
 }
 
-
+function apiStopVolunteerTask(params) {
+    const url = `${host}/yaofanapi/volunteer/stopVolunteerTask`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
 
 
 
@@ -738,5 +747,6 @@ module.exports = {
   apiListMyVolunteerTaskApplyJoin,
   apiListMyVolunteerAgree,
   apiTotalMyVolunteer,
-  apiListMyVolunteerTask
+  apiListMyVolunteerTask,
+    apiStopVolunteerTask
 }

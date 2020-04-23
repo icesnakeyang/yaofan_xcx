@@ -1,1 +1,3 @@
 /* pages/volunteer/comment/volunteerList/volunteerList.wxss */
+
+@import '/css/global.wxss';

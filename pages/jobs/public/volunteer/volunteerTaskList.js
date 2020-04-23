@@ -27,7 +27,6 @@ Page({
             pageSize:this.data.pageSize
         }
         api.apiListVolunteerTask(params).then((res) => {
-            console.log(res)
             this.setData({
                 volunteerTaskList:res.data.volunteerTasks,
                 isLoading:false

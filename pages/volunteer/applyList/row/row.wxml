@@ -1,5 +1,14 @@
 <!--pages/volunteer/applyList/row/row.wxml-->
-<van-card title="{{theData.title}}">
+<van-card>
+    <view slot="title">
+        <view wx:if="{{theData.unread}}">
+            <mp-badge />
+            <text class="title_text">{{theData.title}}</text>
+        </view>
+        <view wx:else="{{theData.unread}}">
+            <text class="title_text">{{theData.title}}</text>
+        </view>
+    </view>
     <view slot="desc">
         <view class="user_view">
             <text>申请人：{{theData.applyUserName}}</text>

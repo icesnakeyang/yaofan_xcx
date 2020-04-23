@@ -1,2 +1,15 @@
 <!--pages/volunteer/comment/volunteerList/volunteerList.wxml-->
-<text>pages/volunteer/comment/volunteerList/volunteerList.wxml</text>
+<view class="page_view">
+    <view wx:if="{{isLoading}}" class="loading_view">
+        <van-loading type="spinner" />
+    </view>
+    <view wx:else="{{isLoading}}">
+        <view class="box_view">
+            <block wx:for="{{volunteerList}}" wx:key="index">
+                <view data-volunteerApplyId="{{item.volunteerApplyId}}" bindtap="onRow">
+                    <Row theData="{{item}}" />
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

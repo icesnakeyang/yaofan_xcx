@@ -28,12 +28,10 @@ Page({
 
         }
         api.apiTotalUserPoint(params).then((res)=>{
-            console.log(res)
             this.setData({
                 withdrawAble: res.data.withdrawAble
             })
             api.apiTotalWithdraw(params).then((res)=>{
-                console.log(res)
                 this.setData({
                     totalWithdraw: res.data.totalWithdraw,
                     isLoading: false
@@ -48,14 +46,12 @@ Page({
     },
 
     onPointChange(e){
-        console.log(e.detail)
         this.setData({
             point:e.detail
         })
     },
-    
+
     onEditorInput(e){
-        console.log(e.detail.html)
         this.setData({
             remark:e.detail.html
         })

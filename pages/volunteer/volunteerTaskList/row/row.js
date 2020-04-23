@@ -15,7 +15,9 @@ Component({
      */
     data: {
         createTime:'',
-        status:''
+        status:'',
+        isActive:false,
+        isStop:false
     },
 
     /**
@@ -23,17 +25,26 @@ Component({
      */
     methods: {
         updateData(){
-            console.log(this.data.theData)
             let createTime=tools.momentTime(this.data.theData.createTime, 'S')
             let status=''
+            let isActive=false
+            let isStop=false
             if (this.data.theData.status ==='ACTIVE'){
                 status='招募中'
+                isActive=true
+            }else{
+                if(this.data.theData.status==='STOP'){
+                    status='已停止'
+                    isStop=true
+                }
             }
             this.setData({
                 createTime,
-                status
+                status,
+                isActive,
+                isStop
             })
-            
+
         }
     },
 

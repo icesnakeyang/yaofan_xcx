@@ -22,7 +22,6 @@ Component({
      */
     methods: {
         updateData(){
-            console.log(this.data.theData)
             let startTime=''
             if (this.data.theData.startTime){
                 startTime=tools.momentTime(this.data.theData.startTime, 'L')

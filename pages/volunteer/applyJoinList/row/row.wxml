@@ -1,5 +1,13 @@
 <!--pages/volunteer/applyJoinList/row/row.wxml-->
-<van-card title="{{theData.title}}">
+<van-card>
+    <view slot="title">
+        <view wx:if="{{theData.unread}}">
+            <mp-badge /> {{theData.title}}
+        </view>
+        <view wx:else="{{theData.unread}}">
+            {{theData.title}}
+        </view>
+    </view>
     <view slot="desc">
         <view class="tiem_view">
             <text>申请时间：{{createTime}}</text>
@@ -12,7 +20,7 @@
                 <van-tag type="danger">{{processStatus}}</van-tag>
             </view>
             <view wx:if="{{isAgree}}">
-              <van-tag type="primary">{{processStatus}}</van-tag>
+                <van-tag type="primary">{{processStatus}}</van-tag>
             </view>
         </view>
     </view>

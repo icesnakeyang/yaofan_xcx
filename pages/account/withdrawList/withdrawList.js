@@ -24,13 +24,11 @@ Page({
 
         }
         api.apiListWithdrawUnProcess(params).then((res)=>{
-            console.log(res)
             this.setData({
                 withdrawList:res.data.withdraws,
                 isLoading:false
             })
         }).catch((error)=>{
-            console.log(error)
             wx.showToast({
                 title: '读取取现申请失败',
                 icon:'none'

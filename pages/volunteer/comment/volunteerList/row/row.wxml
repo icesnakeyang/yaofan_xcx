@@ -1,0 +1,4 @@
+<!--pages/volunteer/comment/volunteerList/row/row.wxml-->
+<van-cell-group>
+  <van-cell title="{{theData.applyUserName}}" is-link bind:click="onVolunteer" />
+</van-cell-group>

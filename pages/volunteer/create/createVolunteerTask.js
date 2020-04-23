@@ -65,7 +65,6 @@ Page({
       Notify('请输入任务时间')
       return
     }
-    console.log(this.data)
     let params={
       content:this.data.content,
       title:this.data.title,
@@ -78,7 +77,6 @@ Page({
     })
 
     api.apiCreateVolunteerTask(params).then((res)=>{
-      console.log(res)
       wx.showToast({
         title: '创建成功'
       })

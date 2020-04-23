@@ -45,7 +45,6 @@ Component({
                 isReject,
                 isPending
             })
-            console.log(this.data)
         }
     },
 

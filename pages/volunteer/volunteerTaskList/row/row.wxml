@@ -8,7 +8,12 @@
             <text>创建时间：{{createTime}}</text>
         </view>
         <view class="status_view">
-            <text>状态：{{status}}</text>
+            <view wx:if="{{isActive}}">
+                <van-tag type="primary">{{status}}</van-tag>
+            </view>
+            <view wx:if="{{isStop}}">
+                <van-tag type="danger">{{status}}</van-tag>
+            </view>
         </view>
     </view>
 </van-card>

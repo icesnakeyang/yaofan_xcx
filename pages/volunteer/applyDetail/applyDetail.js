@@ -35,7 +35,6 @@ Page({
         }
 
         api.apiGetVolunteerApply(params).then((res)=>{
-            console.log(res)
             let applyTime = tools.momentTime(res.data.volunteerApply.createTime, 'L')
             let canProcess=false
             let current_user_id = wx.getStorageSync('current_user_id')
@@ -76,7 +75,6 @@ Page({
     },
 
     onEditorInput(e){
-        console.log(e.detail.html)
         this.setData({
             processRemark:e.detail.html
         })
@@ -92,7 +90,6 @@ Page({
         Dialog.confirm({
             message: '确认要拒绝该用户的义工申请'
         }).then(() => {
-            console.log(this.data)
             let params={
                 remark:this.data.processRemark,
                 volunteerApplyId: this.data.apply.volunteerApplyId
@@ -139,7 +136,7 @@ Page({
             // on cancel
         });
     },
-    
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成

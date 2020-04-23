@@ -41,7 +41,6 @@ Page({
         isEmpty
       })
       api.apiTotalUserPoint(params).then((res) => {
-        console.log(res)
         this.setData({
           totalPointIn: res.data.pointIn,
           totalPointOut: res.data.pointOut,

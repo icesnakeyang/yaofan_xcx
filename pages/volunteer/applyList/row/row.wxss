@@ -1,1 +1,5 @@
 /* pages/volunteer/applyList/row/row.wxss */
+
+.title_text{
+    font-size: 34rpx;
+}

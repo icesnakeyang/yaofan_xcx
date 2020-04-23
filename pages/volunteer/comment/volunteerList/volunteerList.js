@@ -10,7 +10,8 @@ Page({
     data: {
       isLoading:true,
       pageIndex:1,
-      pageSize:10
+      pageSize:10,
+      volunteerList:[]
     },
 
     /**
@@ -26,13 +27,21 @@ Page({
         pageSize:this.data.pageSize
       }
       api.apiListMyVolunteerAgree(params).then((res)=>{
-        console.log(res)
+          console.log(res)
+          this.setData({
+              volunteerList:res.data.volunteers,
+              isLoading:false
+          })
       }).catch((error)=>{
         wx.showToast({
           title: '读取义工失败',
           icon:'none'
         })
       })
+    },
+
+    onRow(e){
+        console.log(e)
     },
 
     /**

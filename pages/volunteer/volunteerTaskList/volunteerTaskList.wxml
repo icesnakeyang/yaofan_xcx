@@ -4,14 +4,22 @@
         <van-loading type="spinner" />
     </view>
     <view wx:else="{{isLoading}}">
-        <view class="box_view">
             <van-grid>
                 <van-grid-item icon="photo-o" text="创建任务" bind:click="onCreate" />
-                <van-grid-item icon="photo-o" text="我的申请" bind:click="onMyVolunteerApplyToJoin" />
-                <van-grid-item icon="photo-o" text="我的义工" bind:click="onMyVolunteerApply" />
+                <view wx:if="{{totalUnreadVolunteerProcess>0}}">
+                    <van-grid-item icon="photo-o" text="我的申请" bind:click="onMyVolunteerApplyToJoin" info="{{totalUnreadVolunteerProcess}}" />
+                </view>
+                <view wx:else="{{totalUnreadVolunteerProcess}}">
+                    <van-grid-item icon="photo-o" text="我的申请" bind:click="onMyVolunteerApplyToJoin" />
+                </view>
+                <view wx:if="{{totalUnreadVolunteerApply}}">
+                    <van-grid-item icon="photo-o" text="我的义工" bind:click="onMyVolunteerApply" info="{{totalUnreadVolunteerApply}}" />
+                </view>
+                <view wx:else="{{totalUnreadVolunteerApply}}">
+                    <van-grid-item icon="photo-o" text="我的义工" bind:click="onMyVolunteerApply" />
+                </view>
                 <van-grid-item icon="photo-o" text="义工评价" bind:click="onComment" />
             </van-grid>
-        </view>
 
         <view class="box_view">
             <block wx:for="{{volunteerTaskList}}" wx:key="index">

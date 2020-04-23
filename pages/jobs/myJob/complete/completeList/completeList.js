@@ -187,21 +187,16 @@ Page({
   },
 
   onAcceptComplete() {
-    console.log(this.data)
     let params = {
       taskId: this.data.task.taskId,
       content: this.data.remark
     }
-    console.log(params)
     api.apiAcceptComplete(params).then((res) => {
-      console.log('成功')
-      console.log(res)
       wx.showToast({
         title: '验收成功'
       })
       this.loadAllData()
     }).catch((error) => {
-      console.log(error)
       wx.showToast({
         title: '验收失败',
         icon: 'none'

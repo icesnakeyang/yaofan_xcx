@@ -50,7 +50,6 @@ Page({
   },
 
   onCreateLog() {
-    console.log(this.data)
     if (!this.data.logContent) {
       wx.showToast({
         title: '请输入日志内容',
