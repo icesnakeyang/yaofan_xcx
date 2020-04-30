@@ -13,9 +13,12 @@ function isLogin() {
  * 微信用户使用微信账号登录系统
  */
 function apiLogin(params) {
+    console.log('common api login')
     return new Promise((resolve, reject) => {
+        console.log('wx login')
         wx.login({
             success: res => {
+                console.log(res)
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
                 wx.getUserInfo({
                     success: infoRes => {
@@ -47,6 +50,12 @@ function apiLogin(params) {
                         })
                     }
                 })
+            },
+            fail:err=>{
+                console.log(err)
+            },
+            complete:data=>{
+                console.log(data)
             }
         })
     })

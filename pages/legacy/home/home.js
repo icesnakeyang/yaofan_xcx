@@ -40,12 +40,6 @@ Page({
                 icon: 'none'
             })
         })
-
-        if (token) {} else {
-            wx.navigateTo({
-                url: '/pages/legacy/login/login',
-            })
-        }
     },
 
     onName() {
