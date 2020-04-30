@@ -13,20 +13,39 @@ function isLogin() {
  * 微信用户使用微信账号登录系统
  */
 function apiLogin(params) {
-    console.log('common api login')
     return new Promise((resolve, reject) => {
-        console.log('wx login')
         wx.login({
             success: res => {
-                console.log(res)
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
                 wx.getUserInfo({
                     success: infoRes => {
+                        let phone=''
+                        let os=''
+                        try {
+                            const res = wx.getSystemInfoSync()
+                            console.log(res.model)
+                            phone=res.model
+                            console.log(res.pixelRatio)
+                            console.log(res.windowWidth)
+                            console.log(res.windowHeight)
+                            console.log(res.language)
+                            console.log(res.version)
+                            console.log(res.platform)
+                            os=res.platform
+                        } catch (e) {
+                            // Do something when catch error
+                        }
+
                         let params = {
                             encryptedData: infoRes.encryptedData,
                             iv: infoRes.iv,
-                            code: res.code
+                            code: res.code,
+                            phone,
+                            os
                         }
+
+                        console.log(params)
+
                         //从后台登录当前微信用户，如果没有注册，就直接注册一个用户
                         api.apiWxLogin(params).then((res) => {
                             if (res.data.userInfo.token) {
