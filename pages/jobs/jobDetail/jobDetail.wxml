@@ -66,6 +66,13 @@
             </view>
           </van-grid-item>
         </view>
+        <view wx:if="{{canTransfer}}">
+          <van-grid-item icon="exchange" bind:click="onTransfer">
+            <view slot="text">
+              <text>移交任务</text>
+            </view>
+          </van-grid-item>
+        </view>
       </van-grid>
     </view>
     <view class="box_view">

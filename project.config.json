@@ -90,6 +90,19 @@
 					"pathName": "pages/volunteer/applyList/volunteerTaskApplyList",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/transferJob/transferJob",
+					"pathName": "pages/jobs/transferJob/transferJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/team/teamDetail/teamDetail",
+					"pathName": "pages/team/teamDetail/teamDetail",
+					"scene": null
 				}
 			]
 		}

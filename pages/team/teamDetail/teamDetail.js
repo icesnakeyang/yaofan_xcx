@@ -13,7 +13,8 @@ Page({
     team: {},
     isManager: false,
     isLoading: true,
-    isMember: false
+    isMember: false,
+    teamUserList:[]
   },
 
   /**
@@ -45,8 +46,10 @@ Page({
         team: res.data.team,
         isManager,
         isLoading: false,
-        isMember
+        isMember,
+        teamUserList:res.data.teamUsers
       })
+      console.log(this.data)
     }).catch((error) => {
       wx.showToast({
         title: '读取团队数据失败',

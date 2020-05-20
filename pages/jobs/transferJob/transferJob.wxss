@@ -1,0 +1,13 @@
+/* pages/jobs/transferJob/transferJob.wxss */
+
+@import '/css/global.wxss';
+
+.editor_view{
+  padding: 30rpx;
+}
+
+.bt_view{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}

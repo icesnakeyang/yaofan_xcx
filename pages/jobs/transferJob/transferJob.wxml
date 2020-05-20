@@ -1,0 +1,23 @@
+<!--pages/jobs/transferJob/transferJob.wxml-->
+<view class="page_view">
+  <view wx:if="{{isLoading}}" class="loading_view">
+    <van-loading type="spinner" />
+  </view>
+  <view wx:else="{{isLoading}}">
+    <view class="box_view">
+      <van-cell-group>
+        <van-cell title="创建人" value="{{task.createUserName}}" />
+        <van-cell title="创建时间" value="{{createTime}}" />
+        <van-field label="积分" value="{{ task.point }}" placeholder="请输入任务积分" bind:change="onPointChange" />
+      </van-cell-group>
+      <view class="editor_view">
+        <editor id="editor" placeholder="请输入任务内容" bindinput="onEditorInput" bindready="onEditorReady" />
+      </view>
+    </view>
+    <view class="bt_view">
+      <van-button type="primary" bind:click="onTransfer">移交任务</van-button>
+    </view>
+  </view>
+</view>
+
+<van-dialog id="van-dialog" />

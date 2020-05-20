@@ -25,7 +25,8 @@ Page({
     isNewComplete: false,
     isStop: false,
     totalTaskStopUnread: 0,
-    isNewStop: false
+    isNewStop: false,
+    canTransfer:false
   },
 
   /**
@@ -55,6 +56,7 @@ Page({
       let isProgress = false
       let isComplete = false
       let isStop = false
+      let canTransfer=false
       if (res.data.task.status === 'GRABBING') {
         status = '等待匹配'
         if (currentUserId === createUserId) {
@@ -66,6 +68,9 @@ Page({
         if (res.data.task.status === 'PROGRESS') {
           status = '进行中'
           isProgress = true
+          if(currentUserId===createUserId){
+            canTransfer=true
+          }
         } else {
           if (res.data.task.status === 'COMPLETE') {
             status = '已完成'
@@ -117,7 +122,8 @@ Page({
         isStop,
         totalTaskStop: res.data.totalTaskStop,
         totalTaskStopUnread,
-        isNewStop
+        isNewStop,
+        canTransfer
       })
 
       //统计任务log，已读和未读
@@ -205,6 +211,13 @@ Page({
     wx.setStorageSync('taskId', this.data.task.taskId)
     wx.navigateTo({
       url: '/pages/jobs/myJob/stop/taskStop',
+    })
+  },
+
+  onTransfer(){
+    wx.setStorageSync('taskId', this.data.task.taskId)
+    wx.navigateTo({
+      url: '../transferJob/transferJob',
     })
   },
 

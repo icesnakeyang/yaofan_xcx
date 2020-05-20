@@ -16,6 +16,9 @@
       <view wx:if="{{isStop}}">
         <van-tag type="warning">{{status}}</van-tag>
       </view>
+      <view wx:if="{{isTransferred}}">
+        <van-tag type="warning">{{status}}</van-tag>
+      </view>
       <view>到期时间：{{endTime}}</view>
     </view>
   </van-card>

@@ -19,8 +19,10 @@ function apiLogin(params) {
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
                 wx.getUserInfo({
                     success: infoRes => {
+                      console.log(infoRes)
                         let phone=''
                         let os=''
+                        let avatarUrl=infoRes.userInfo.avatarUrl
                         try {
                             const res = wx.getSystemInfoSync()
                             console.log(res.model)
@@ -41,10 +43,12 @@ function apiLogin(params) {
                             iv: infoRes.iv,
                             code: res.code,
                             phone,
-                            os
+                            os,
+                          avatarUrl
                         }
 
-                        console.log(params)
+                        console.log(
+                          params)
 
                         //从后台登录当前微信用户，如果没有注册，就直接注册一个用户
                         api.apiWxLogin(params).then((res) => {
