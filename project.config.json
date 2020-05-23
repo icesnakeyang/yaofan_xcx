@@ -102,6 +102,27 @@
 					"id": -1,
 					"name": "pages/team/teamDetail/teamDetail",
 					"pathName": "pages/team/teamDetail/teamDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/jobDetail/jobDetail",
+					"pathName": "pages/jobs/jobDetail/jobDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/myJobList/myJobList",
+					"pathName": "pages/jobs/myJob/myJobList/myJobList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/createJob/createJob",
+					"pathName": "pages/jobs/createJob/createJob",
 					"scene": null
 				}
 			]

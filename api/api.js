@@ -1,7 +1,7 @@
 import baseApi from './httpBase.js'
 
-// const host = 'http://localhost:8090'
-const host='https://gogorpg.com'
+const host = 'http://localhost:8090'
+// const host='https://gogorpg.com'
 // const host = 'http://192.168.0.105:8090'
 
 function apiWxLogin(params) {
@@ -685,15 +685,37 @@ function apiStopVolunteerTask(params) {
     })
 }
 
-function apiTransferTask(params){
-  const url = `${host}/yaofanapi/task/transferTask`
-  return new Promise((resolve, reject)=>{
-    baseApi.postToken(url, params).then((res)=>{
-      resolve(res)
-    }).catch((error)=>{
-      reject(error)
+function apiTransferTask(params) {
+    const url = `${host}/yaofanapi/task/transferTask`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
     })
-  })
+}
+
+function apiListMyObserveTask(params) {
+    const url = `${host}/yaofanapi/task/listMyObserveTask`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiUploadFile(params) {
+    const url = `${host}/yaofanapi/common/uploadFile`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
 }
 
 
@@ -760,5 +782,7 @@ module.exports = {
     apiTotalMyVolunteer,
     apiListMyVolunteerTask,
     apiStopVolunteerTask,
-  apiTransferTask
+    apiTransferTask,
+    apiListMyObserveTask,
+    apiUploadFile
 }

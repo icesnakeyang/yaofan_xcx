@@ -12,7 +12,7 @@
             <view wx:else="{{unreadVolunteer}}">
                 <van-grid-item icon="star-o" text="义工任务({{totalVolunteerTasks}})" bind:click="onVolunteer" />
             </view>
-            <van-grid-item icon="star-o" text="乙方({{totalTaskPartyB}})" bind:click="onPartyB" />
+            <van-grid-item icon="star-o" text="团队任务" bind:click="onTeamJobs" />
             <van-grid-item icon="star-o" text="乙方({{totalTaskPartyB}})" bind:click="onPartyB" />
         <van-grid-item icon="star-o" text="乙方({{totalTaskPartyB}})" bind:click="onPartyB" />
         </van-grid>

@@ -11,6 +11,12 @@
           <editor placeholder="请描述任务详情要求" bindinput="onDetail" />
         </view>
       </van-panel>
+
+        <view class="bt_view">
+    <van-button plain type="primary" bind:click="btShowModal">添加图片</van-button>
+    <van-button plain type="info" bind:click="btShowTextModal">添加文字</van-button>
+  </view>
+
     </view>
   </view>
 
@@ -20,6 +26,8 @@
   <view wx:else="{{isSaving}}" class="row_content_view">
     <van-button type="info" bind:click="onSave">创建任务</van-button>
   </view>
+
+    <ModalText propContentText="{{content.detail}}" propCurrentStatus="{{content.currentStatus}}" propCurrentIndex="{{content.currentIndex}}" propImgId="{{content.imgId}}" propImgUrl="{{content.imgUrl}}" propIsImg="{{content.isImg}}" bindmyevent="onMyEvent"></ModalText>
 
 </view>
 

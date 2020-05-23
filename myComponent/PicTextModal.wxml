@@ -1,0 +1,18 @@
+<!--myComponent/PicTextModal.wxml-->
+<modal hidden="{{hideModal}}" bindcancel="onPressCancel" bindconfirm='onPressComfirm' title="">
+
+  <view wx:if="{{isImg}}">
+    <view class="pic_view" bindtap="btUploadImg">
+      <view wx:if="{{imgUrl}}">
+        <image mode='aspectFit' class="pic_view" src="{{imgUrl}}"></image>
+      </view>
+      <view class="img_desc_view" wx:else="{{imgUrl}}">
+        <text>上传Logo2</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="content_view" wx:else="{{isImg}}">
+    <editor id="editor" bindready="onEditorReady" bindinput="bindText"></editor>
+  </view>
+</modal>

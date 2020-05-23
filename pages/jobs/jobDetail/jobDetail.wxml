@@ -82,6 +82,9 @@
           <van-cell-group>
             <van-cell title="任务状态">
               <view slot="right-icon">
+                <view wx:if="{{isGrabbing}}">
+                  <van-tag type="primary">{{status}}</van-tag>
+                </view>
                 <view wx:if="{{isProgress}}">
                   <van-tag type="primary">{{status}}</van-tag>
                 </view>
@@ -97,6 +100,7 @@
             <van-cell title="完成时间" value="{{endTime}}" />
             <van-cell title="甲方" value="{{task.createUserName}}" />
             <van-cell title="乙方" value="{{task.partyBName}}" />
+            <van-cell title="任务创建时间" value="{{createTime}}" />
           </van-cell-group>
           <van-panel title="任务详情">
             <view class="detail_view">

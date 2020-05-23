@@ -15,6 +15,7 @@ Page({
     isGrab: false,
     isEdit: false,
     status: '',
+    isGrabbing:false,
     isProgress: false,
     isComplete: false,
     totalTaskLog: 0,
@@ -26,7 +27,8 @@ Page({
     isStop: false,
     totalTaskStopUnread: 0,
     isNewStop: false,
-    canTransfer:false
+    canTransfer:false,
+    createTime:''
   },
 
   /**
@@ -44,10 +46,13 @@ Page({
 
     //读取任务信息
     api.apiGetTaskByTaskId(params).then((res) => {
+      let createTime= tools.momentTime(res.data.task.createTime, 'L')
+
       let endTime = ''
       if (res.data.task.endTime) {
         endTime = tools.momentTime(res.data.task.endTime, 'L')
       }
+      let isGrabbing=false
       let isGrab = false
       let isEdit = false
       let createUserId = res.data.task.createUserId
@@ -57,8 +62,10 @@ Page({
       let isComplete = false
       let isStop = false
       let canTransfer=false
+      console.log(res.data.task.status)
       if (res.data.task.status === 'GRABBING') {
         status = '等待匹配'
+        isGrabbing=true
         if (currentUserId === createUserId) {
           isEdit = true
         } else {
@@ -111,6 +118,7 @@ Page({
         isGrab,
         isEdit,
         status,
+        isGrabbing,
         isProgress,
         totalTaskLog: res.data.totalTaskLog,
         totalUnreadTaskLog,
@@ -123,11 +131,13 @@ Page({
         totalTaskStop: res.data.totalTaskStop,
         totalTaskStopUnread,
         isNewStop,
-        canTransfer
+        canTransfer,
+        createTime
       })
 
       //统计任务log，已读和未读
     }).catch((error) => {
+      console.log(error)
       wx.showToast({
         title: '读取任务失败',
         icon: 'none'

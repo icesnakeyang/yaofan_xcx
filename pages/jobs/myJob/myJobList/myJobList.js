@@ -27,13 +27,16 @@ Page({
         totalTaskPartyB: 0,
         totalTaskProgress: 0,
         totalVolunteerTasks: 0,
-        unreadVolunteer: 0
+        unreadVolunteer: 0,
+        teamTaskPageIndex: 1,
+        teamTaskPageSize: 10,
+        currentList : ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         this.loadDataFromApi().then((res) => {
             this.loadAllData()
         })
@@ -241,38 +244,72 @@ Page({
         })
     },
 
+    //查询其她成员任务
+    onTeamJobs() {
+        this.setData({
+            isLoading: true,
+            currentList: 'TEAM_TASK'
+        })
+        this.listTeamJobs()
+    },
+
+    //读取全体团队成员的任务
+    listTeamJobs() {
+        console.log(this.data)
+        let params = {
+            pageIndex: this.data.teamTaskPageIndex,
+            pageSize: this.data.teamTaskPageSize
+        }
+        api.apiListMyObserveTask(params).then((res) => {
+            let isEmpty = false
+            if (res.data.tasks.length === 0) {
+                isEmpty = true
+            }
+            this.setData({
+                jobs: res.data.tasks,
+                isLoading: false,
+                isEmpty
+            })
+        }).catch((error) => {
+            wx.showToast({
+                title: '读取任务失败',
+                icon: 'none'
+            })
+        })
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
         this.onLoad()
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
         let page = this.data.pageIndex
         if (this.data.isPartyA) {
             page = this.data.partyAPageIndex
@@ -294,14 +331,25 @@ Page({
                     this.loadPartyBData()
                 }
             } else {
-                page = this.data.pageIndex
-                if (page > 1) {
-                    page--
-                    this.setData({
-                        pageIndex: page
-                    })
-                    this.loadAllData()
-                    this.loadDataFromApi()
+                if (this.data.currentList === 'TEAM_TASK') {
+                    page = this.data.teamTaskPageIndex
+                    if (page > 1) {
+                        page--
+                        this.setData({
+                            teamTaskPageIndex: page
+                        })
+                        this.listTeamJobs()
+                    }
+                } else {
+                    page = this.data.pageIndex
+                    if (page > 1) {
+                        page--
+                        this.setData({
+                            pageIndex: page
+                        })
+                        this.loadAllData()
+                        this.loadDataFromApi()
+                    }
                 }
             }
         }
@@ -310,7 +358,7 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
         let page = 1
         if (this.data.isPartyA) {
             //甲方任务
@@ -334,15 +382,28 @@ Page({
                     this.loadPartyBData()
                 }
             } else {
-                //甲乙方任务
-                page = this.data.pageIndex
-                if (page < this.data.totalPage) {
-                    page++
-                    this.setData({
-                        pageIndex: page
-                    })
-                    this.loadAllData()
-                    this.loadDataFromApi()
+                if (this.data.isPartyA) {
+                    //甲乙方任务
+                    page = this.data.pageIndex
+                    if (page < this.data.totalPage) {
+                        page++
+                        this.setData({
+                            pageIndex: page
+                        })
+                        this.loadAllData()
+                        this.loadDataFromApi()
+                    }
+                }else{
+                    if(this.data.teamTaskPageIndex==='TEAM_TASK'){
+                        page=this.data.teamTaskPageIndex
+                        if(page<this.data.totalTeamTaskPage){
+                            page++
+                            this.setData({
+                                teamTaskPageIndex:page
+                            })
+                            this.listTeamJobs()
+                        }
+                    }
                 }
             }
         }
@@ -351,7 +412,7 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

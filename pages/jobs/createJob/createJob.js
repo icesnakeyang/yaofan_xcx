@@ -23,7 +23,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         wx.removeStorageSync('endDateTime')
         let now = new Date()
         let endDate = tools.momentTime(now, 'S')
@@ -141,17 +141,103 @@ Page({
         })
     },
 
+    btShowModal() {
+        this.setData({
+            content: {
+                currentIndex: -1,
+                currentStatus: true,
+                isImg: true
+            }
+        })
+    },
+
+    btUploadImg() {
+        let _this = this
+        wx.chooseImage({
+            success: function (res) {
+                var tempFilePaths = res.tempFilePaths
+                wx.uploadFile({
+                    url: 'https://www.wegou1688.com/tools/guidePhotoUpload',
+                    filePath: tempFilePaths[0],
+                    name: 'file',
+                    header: {
+                        'content-type': 'multipart/form-data',
+                        'token': wx.getStorageSync('smartyou_token')
+                    },
+                    success: function (res) {
+                        var jsonObj = JSON.parse(res.data);
+                        _this.setData({
+                            logoImgId: jsonObj.data.fileLogId,
+                            logoImgUrl: jsonObj.data.filename
+                        })
+
+                        //do something
+                    },
+                    fail: function (err) {}
+                })
+            },
+        })
+    },
+
+    onMyEvent(e) {
+        let outData = e.detail
+        /**
+         * 修改或新增
+         */
+        let content = ''
+        if (outData.imgId) {
+          //有图片
+          content = {
+            imgId: outData.imgId,
+            imgUrl: outData.imgUrl
+          }
+        }
+        if (outData.detail) {
+          //有文字
+          content = {
+            detail: outData.detail
+          }
+        }
+        if (content) {
+          let list = this.data.contentList
+    
+          if (outData.currentIndex === -1) {
+            //新增
+            list.push(content)
+          } else {
+            //修改
+            /**
+             * 增加到要编辑的内容列表序号里去
+             * 删除当前内容
+             */
+            list.splice(outData.currentIndex, 1, content)
+          }
+          this.setData({
+            content: {
+              currentStatus: false
+            },
+            contentList: list
+          })
+        } else {
+          this.setData({
+            content: {
+              currentStatus: false
+            }
+          })
+        }
+      },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
         let teamId = wx.getStorageSync('selectedTeamId')
         let teamName = wx.getStorageSync('selectedTeamName')
         let endDateTime = wx.getStorageSync('endDateTime')
@@ -172,33 +258,33 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {},
+    onPullDownRefresh: function () {},
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })
