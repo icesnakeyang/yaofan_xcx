@@ -1,33 +1,27 @@
 <!--pages/jobs/createJob/createJob.wxml-->
 <view class="page_view">
-  <view class="box_view">
-    <view>
-      <van-cell title="选择任务团队" is-link value="{{teamName}}" bind:click="onSelectTeam" />
-      <van-field label="任务标题" placeholder="请输入任务标题" border="{{ true }}" bind:change="onTitle" />
-      <van-field label="任务积分" value="{{point}}" placeholder="请设置任务积分" border="{{ true }}" bind:change="onPoint" />
-      <van-cell title="任务截止时间" is-link value="{{endDate+' '+endTime}}" bind:click="onEndDate" />
-      <van-panel title="任务详情">
-        <view class="editor_view">
-          <editor placeholder="请描述任务详情要求" bindinput="onDetail" />
-        </view>
-      </van-panel>
+	<view class="box_view">
+		<view>
+			<van-cell title="选择任务团队" is-link value="{{teamName}}" bind:click="onSelectTeam" />
+			<van-field label="任务标题" placeholder="请输入任务标题" border="{{ true }}" bind:change="onTitle" />
+			<van-field label="任务积分" value="{{point}}" placeholder="请设置任务积分" border="{{ true }}" bind:change="onPoint" />
+			<van-cell title="任务截止时间" is-link value="{{endDate+' '+endTime}}" bind:click="onEndDate" />
+			<van-panel title="任务详情">
+				<view class="editor_view">
+					<editor placeholder="请描述任务详情要求" bindinput="onDetail" />
+				</view>
+			</van-panel>
+		</view>
+	</view>
 
-        <view class="bt_view">
-    <van-button plain type="primary" bind:click="btShowModal">添加图片</van-button>
-    <van-button plain type="info" bind:click="btShowTextModal">添加文字</van-button>
-  </view>
+	<view wx:if="{{isSaving}}">
+		<van-loading />
+	</view>
+	<view wx:else="{{isSaving}}" class="row_content_view">
+		<van-button type="info" bind:click="onSave">创建任务</van-button>
+	</view>
 
-    </view>
-  </view>
-
-  <view wx:if="{{isSaving}}">
-    <van-loading />
-  </view>
-  <view wx:else="{{isSaving}}" class="row_content_view">
-    <van-button type="info" bind:click="onSave">创建任务</van-button>
-  </view>
-
-    <ModalText propContentText="{{content.detail}}" propCurrentStatus="{{content.currentStatus}}" propCurrentIndex="{{content.currentIndex}}" propImgId="{{content.imgId}}" propImgUrl="{{content.imgUrl}}" propIsImg="{{content.isImg}}" bindmyevent="onMyEvent"></ModalText>
+	<ModalText propContentText="{{content.detail}}" propCurrentStatus="{{content.currentStatus}}" propCurrentIndex="{{content.currentIndex}}" propImgId="{{content.imgId}}" propImgUrl="{{content.imgUrl}}" propIsImg="{{content.isImg}}" bindmyevent="onMyEvent"></ModalText>
 
 </view>
 

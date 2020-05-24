@@ -28,3 +28,23 @@ rich-text .img_class {
     width: 100%;
     height: auto;
 }
+
+.content_toolbar_view {
+    background: rgb(211, 211, 211);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.toolbt_view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20rpx;
+}
+
+.bt_view{
+    display: flex;
+    justify-content: space-around;
+}

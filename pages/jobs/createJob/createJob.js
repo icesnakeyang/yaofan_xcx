@@ -17,7 +17,8 @@ Page({
         detail: '',
         teamId: '',
         teamName: '',
-        isSaving: false
+        isSaving: false,
+        contentList:[]
     },
 
     /**
@@ -230,6 +231,87 @@ Page({
             }
           })
         }
+      },
+
+      btShowTextModal() {
+        this.setData({
+          content: {
+            currentStatus: true,
+            currentIndex: -1,
+            isImg: false
+          }
+        })
+      },
+
+      btUp(e) {
+        let cIndex = e.currentTarget.dataset.index
+        let list = this.data.contentList
+        if (cIndex === 0) {
+          return
+        }
+        let c1 = list[cIndex]
+        let c2 = list[cIndex - 1]
+        list.splice(cIndex, 1, c2)
+        list.splice(cIndex - 1, 1, c1)
+        this.setData({
+          contentList: list
+        })
+      },
+    
+      /**
+       * 把当前内容下移一个顺序
+       */
+      btDown(e) {
+        let cIndex = e.currentTarget.dataset.index
+        let list = this.data.contentList
+        if ((cIndex + 1) === list.length) {
+          return
+        }
+        let c1 = list[cIndex]
+        let c2 = list[cIndex + 1]
+        list.splice(cIndex, 1, c2)
+        list.splice(cIndex + 1, 1, c1)
+        this.setData({
+          contentList: list
+        })
+      },
+    
+      /**
+       * 删除当前内容
+       */
+      btDelete(e) {
+        let that = this
+        wx.showModal({
+          title: '提示',
+          content: '确定要删除该内容吗？',
+          success(res) {
+            if (res.confirm) {
+              let cIndex = e.currentTarget.dataset.index
+              let list = that.data.contentList
+              list.splice(cIndex, 1)
+              that.setData({
+                contentList: list
+              })
+            } else if (res.cancel) {}
+          }
+        })
+      },
+    
+      /**
+       * 修改当前内容
+       */
+      btUpdate(e) {
+        let cIndex = e.currentTarget.dataset.index
+        let content = {
+          currentStatus: true,
+          currentIndex: e.currentTarget.dataset.index,
+          detail: this.data.contentList[cIndex].detail,
+          imgId: this.data.contentList[cIndex].imgId,
+          imgUrl: this.data.contentList[cIndex].imgUrl
+        }
+        this.setData({
+          content: content
+        })
       },
 
     /**
