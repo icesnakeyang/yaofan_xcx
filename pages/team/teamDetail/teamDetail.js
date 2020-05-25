@@ -49,7 +49,6 @@ Page({
         isMember,
         teamUserList:res.data.teamUsers
       })
-      console.log(this.data)
     }).catch((error) => {
       wx.showToast({
         title: '读取团队数据失败',
@@ -114,6 +113,12 @@ Page({
         title: '抱歉，不能退出该团队',
       })
     }
+  },
+
+  onTeamMember(){
+    wx.navigateTo({
+      url: '../teamMember/memberList/teamMemberList',
+    })
   },
 
   /**

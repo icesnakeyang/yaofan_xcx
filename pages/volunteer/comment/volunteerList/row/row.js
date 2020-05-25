@@ -19,10 +19,8 @@ Component({
      */
     methods: {
         updateData(){
-            console.log(this.data.theData)
         },
         onVolunteer(e){
-            console.log(e)
         }
     },
 

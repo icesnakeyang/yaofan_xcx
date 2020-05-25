@@ -26,12 +26,10 @@ Page({
 
   loadAllData(){
     let taskId=wx.getStorageSync('taskId')
-    console.log(taskId)
     let params={
       taskId
     }
     api.apiGetTaskByTaskId(params).then((res)=>{
-      console.log(res)
       let createTime=tools.momentTime(res.data.task.createTime, 'L')
       let newPoint=res.data.task.point
       let newTaskDetail=res.data.task.detail
@@ -43,12 +41,10 @@ Page({
         newTaskDetail
       })
     }).catch((error)=>{
-      console.log(error)
     })
   },
 
   onPointChange(e){
-    console.log(e.detail)
     this.setData({
       newPoint:e.detail
     })
@@ -65,7 +61,6 @@ Page({
   },
 
   onEditorInput(e){
-    console.log(e.detail.html)
     this.setData({
       newTaskDetail:e.detail.html
     })
@@ -77,13 +72,11 @@ Page({
       message: '任务转移后将移动到任务广场，其他团队成员可继续承接该任务'
     }).then(() => {
       // on confirm
-      console.log(this.data)
       let params={
         taskId:this.data.task.taskId,
         point:this.data.newPoint,
         detail:this.data.newTaskDetail
       }
-      console.log(params)
       api.apiTransferTask(params).then((res)=>{
         wx.showToast({
           title: '已移交到任务广场'

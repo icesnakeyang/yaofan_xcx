@@ -27,7 +27,6 @@ Page({
         pageSize:this.data.pageSize
       }
       api.apiListMyVolunteerAgree(params).then((res)=>{
-          console.log(res)
           this.setData({
               volunteerList:res.data.volunteers,
               isLoading:false
@@ -41,7 +40,6 @@ Page({
     },
 
     onRow(e){
-        console.log(e)
     },
 
     /**

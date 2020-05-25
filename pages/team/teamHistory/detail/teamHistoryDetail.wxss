@@ -1,0 +1,8 @@
+/* pages/team/teamHistory/detail/teamHistoryDetail.wxss */
+@import '/css/global.wxss';
+
+.bt_view{
+  display: flex;
+  justify-content: center;
+  margin-top: 30rpx;
+}

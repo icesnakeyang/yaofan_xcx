@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "MemberRow":"./row/memberRow"
+  },
+  "navigationBarTitleText": "团队成员"
+}

@@ -1,7 +1,7 @@
 import baseApi from './httpBase.js'
 
-const host = 'http://localhost:8090'
-// const host='https://gogorpg.com'
+// const host = 'http://localhost:8090'
+const host='https://gogorpg.com'
 // const host = 'http://192.168.0.105:8090'
 
 function apiWxLogin(params) {
@@ -718,6 +718,60 @@ function apiUploadFile(params) {
     })
 }
 
+function apiListMyHistoryTeam(params) {
+    const url = `${host}/yaofanapi/team/listMyHistoryTeam`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiRollbackTeam(params) {
+    const url = `${host}/yaofanapi/team/rollbackTeam`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiListMyTeamMember(params) {
+    const url = `${host}/yaofanapi/team/listMyTeamMember`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiGetMemberProfile(params) {
+    const url = `${host}/yaofanapi/team/getMemberProfile`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiResignMember(params) {
+    const url = `${host}/yaofanapi/team/resignMember`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
 
 
 module.exports = {
@@ -784,5 +838,10 @@ module.exports = {
     apiStopVolunteerTask,
     apiTransferTask,
     apiListMyObserveTask,
-    apiUploadFile
+    apiUploadFile,
+    apiListMyHistoryTeam,
+    apiRollbackTeam,
+    apiListMyTeamMember,
+    apiGetMemberProfile,
+    apiResignMember
 }

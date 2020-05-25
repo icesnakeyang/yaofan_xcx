@@ -1,0 +1,15 @@
+<!--pages/team/teamHistory/teamHistory.wxml-->
+<view class="page_view">
+	<view wx:if="{{isLoading}}" class="loading_view">
+		<van-loading type="spinner" />
+	</view>
+	<view wx:else="{{isLoading}}">
+		<view class="box_view">
+			<block wx:for="{{teamList}}" wx:key="index">
+				<view data-teamId="{{item.teamId}}" bindtap="onTeamRow" >
+					<TeamRow theData="{{item}}" />
+				</view>
+			</block>
+		</view>
+	</view>
+</view>

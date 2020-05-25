@@ -62,7 +62,6 @@ Page({
       let isComplete = false
       let isStop = false
       let canTransfer=false
-      console.log(res.data.task.status)
       if (res.data.task.status === 'GRABBING') {
         status = '等待匹配'
         isGrabbing=true
@@ -137,7 +136,6 @@ Page({
 
       //统计任务log，已读和未读
     }).catch((error) => {
-      console.log(error)
       wx.showToast({
         title: '读取任务失败',
         icon: 'none'

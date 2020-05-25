@@ -24,7 +24,6 @@ Page({
 
         }
         api.apiListMyVolunteerTaskApply(params).then((res)=>{
-            console.log(res)
             this.setData({
                 applyList:res.data.volunteerApplies,
                 isLoading:false

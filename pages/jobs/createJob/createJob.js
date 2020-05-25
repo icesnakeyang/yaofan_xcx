@@ -181,8 +181,6 @@ Page({
     },
 
     onMyEvent(e) {
-      console.log('onmyevent')
-      console.log(e)
         let outData = e.detail
         /**
          * 修改或新增
@@ -203,11 +201,9 @@ Page({
         }
         if (content) {
           let list = this.data.contentList
-          console.log(list)
-    
+
           if (outData.currentIndex === -1) {
             //新增
-            console.log('new push')
             list.push(content)
           } else {
             //修改
@@ -215,7 +211,6 @@ Page({
              * 增加到要编辑的内容列表序号里去
              * 删除当前内容
              */
-            console.log('list.splice')
             list.splice(outData.currentIndex, 1, content)
           }
           this.setData({

@@ -58,43 +58,8 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/volunteer/detail/volunteerTaskDetail",
-					"pathName": "pages/volunteer/detail/volunteerTaskDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/volunteerTaskList/volunteerTaskList",
-					"pathName": "pages/volunteer/volunteerTaskList/volunteerTaskList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/detail/volunteerTaskDetail",
-					"pathName": "pages/volunteer/detail/volunteerTaskDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/comment/volunteerList/volunteerList",
-					"pathName": "pages/volunteer/comment/volunteerList/volunteerList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/volunteer/applyList/volunteerTaskApplyList",
-					"pathName": "pages/volunteer/applyList/volunteerTaskApplyList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/transferJob/transferJob",
-					"pathName": "pages/jobs/transferJob/transferJob",
+					"name": "pages/team/teamHistory/detail/teamHistoryDetail",
+					"pathName": "pages/team/teamHistory/detail/teamHistoryDetail",
 					"query": "",
 					"scene": null
 				},
@@ -107,22 +72,15 @@
 				},
 				{
 					"id": -1,
-					"name": "pages/jobs/jobDetail/jobDetail",
-					"pathName": "pages/jobs/jobDetail/jobDetail",
+					"name": "pages/team/teamMember/memberList/teamMemberList",
+					"pathName": "pages/team/teamMember/memberList/teamMemberList",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/jobs/myJob/myJobList/myJobList",
-					"pathName": "pages/jobs/myJob/myJobList/myJobList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/jobs/createJob/createJob",
-					"pathName": "pages/jobs/createJob/createJob",
+					"name": "pages/team/teamMember/memeberDetail/memberDetail",
+					"pathName": "pages/team/teamMember/memeberDetail/memberDetail",
 					"scene": null
 				}
 			]

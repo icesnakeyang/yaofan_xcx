@@ -1,0 +1,4 @@
+<!--pages/team/teamHistory/row/teamHistoryRow.wxml-->
+<view class="row_view">
+	<van-card num="2" price="2.00" desc="{{theData.description}}" title="{{theData.teamName}}" thumb="{{ imageURL }}" />
+</view>

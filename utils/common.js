@@ -19,20 +19,12 @@ function apiLogin(params) {
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
                 wx.getUserInfo({
                     success: infoRes => {
-                      console.log(infoRes)
                         let phone=''
                         let os=''
                         let avatarUrl=infoRes.userInfo.avatarUrl
                         try {
                             const res = wx.getSystemInfoSync()
-                            console.log(res.model)
                             phone=res.model
-                            console.log(res.pixelRatio)
-                            console.log(res.windowWidth)
-                            console.log(res.windowHeight)
-                            console.log(res.language)
-                            console.log(res.version)
-                            console.log(res.platform)
                             os=res.platform
                         } catch (e) {
                             // Do something when catch error
@@ -46,9 +38,6 @@ function apiLogin(params) {
                             os,
                           avatarUrl
                         }
-
-                        console.log(
-                          params)
 
                         //从后台登录当前微信用户，如果没有注册，就直接注册一个用户
                         api.apiWxLogin(params).then((res) => {
@@ -75,10 +64,8 @@ function apiLogin(params) {
                 })
             },
             fail:err=>{
-                console.log(err)
             },
             complete:data=>{
-                console.log(data)
             }
         })
     })

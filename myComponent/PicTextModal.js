@@ -63,15 +63,11 @@ Component({
               'token': wx.getStorageSync('yaofan_token')
             },
             success: function (res) {
-              console.log(res)
               var jsonObj = JSON.parse(res.data);
-              console.log(jsonObj.data.fileLogId)
-              console.log(jsonObj.data.url)
               _this.setData({
                 imgId: jsonObj.data.fileLogId,
                 imgUrl: jsonObj.data.url
               })
-              console.log(_this.data)
 
               //do something
             },

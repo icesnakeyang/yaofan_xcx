@@ -1,0 +1,24 @@
+<!--pages/team/teamMember/memeberDetail/memberDetail.wxml-->
+<view class="page_view">
+	<view wx:if="{{isLoading}}" class="loading_view">
+		<van-loading type="spinner" />
+	</view>
+	<view wx:else="{{isLoading}}" class="box_view">
+		<van-panel title="团队成员基本信息">
+			<view>
+				<van-cell-group>
+					<van-cell title="姓名" value="{{userInfo.name}}" />
+					<van-cell title="性别" value="{{sex}}" />
+					<van-cell title="注册时间" value="{{registerTime}}" />
+					<van-cell title="城市" value="{{userInfo.city}}" />
+				</van-cell-group>
+			</view>
+		</van-panel>
+
+		<view class="bt_view">
+			<van-button type="danger" bind:click="onResign">解除该成员</van-button>
+		</view>
+	</view>
+</view>
+
+<van-dialog id="van-dialog" />

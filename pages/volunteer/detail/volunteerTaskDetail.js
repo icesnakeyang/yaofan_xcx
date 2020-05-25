@@ -33,7 +33,6 @@ Page({
             volunteerTaskId
         }
         api.apiGetVolunteerTask(params).then((res) => {
-            console.log(res)
             let createTime = tools.momentTime(res.data.volunteerTask.createTime, 'L')
             let status = ''
             let canApply = false

@@ -1,0 +1,3 @@
+/* pages/team/teamHistory/teamHistory.wxss */
+
+@import '/css/global.wxss';

@@ -1,0 +1,5 @@
+/* pages/team/teamHistory/row/teamHistoryRow.wxss */
+
+.row_view{
+    margin-top: 30rpx;
+}

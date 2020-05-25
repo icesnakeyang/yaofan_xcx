@@ -1,0 +1,5 @@
+/* pages/team/teamMember/memberList/row/memberRow.wxss */
+
+.row_view{
+  margin-top: 30rpx;
+}

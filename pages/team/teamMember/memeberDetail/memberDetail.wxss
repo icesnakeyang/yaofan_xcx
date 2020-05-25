@@ -1,0 +1,8 @@
+/* pages/team/teamMember/memeberDetail/memberDetail.wxss */
+@import '/css/global.wxss';
+
+.bt_view{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 30rpx;
+}

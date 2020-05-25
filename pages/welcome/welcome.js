@@ -16,7 +16,6 @@ Page({
      */
     onLoad: function (options) {
         //从api后台登录微信用户
-        console.log('load')
         let params = {}
         commonTools.apiLogin(params).then((res)=>{
             wx.showToast({

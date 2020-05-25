@@ -1,0 +1,13 @@
+<!--pages/team/teamMember/memberList/teamMemberList.wxml-->
+<view class="page_box">
+	<view wx:if="{{isLoading}}" class="loading_view">
+		<van-loading type="spinner" />
+	</view>
+	<view wx:else="{{isLoading}}" class="box_view">
+		<block wx:for="{{memberList}}" wx:key="index">
+			<view data-userId="{{item.userId}}" bindtap="onMemberRow">
+				<MemberRow theData="{{item}}" />
+			</view>
+		</block>
+	</view>
+</view>

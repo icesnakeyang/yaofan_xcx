@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "TeamRow":"./row/teamHistoryRow"
+  },
+  "navigationBarTitleText": "历史团队"
+}

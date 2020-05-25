@@ -1,0 +1,22 @@
+<!--pages/team/teamHistory/detail/teamHistoryDetail.wxml-->
+<view class="page_view">
+	<view wx:if="{{isLoading}}" class="loading_view">
+		<van-loading type="spinner" />
+	</view>
+	<view wx:else="{{isLoading}}">
+		<view class="box_view">
+			<van-cell-group>
+				<van-cell title="团队名称" value="{{team.teamName}}" />
+				<van-cell title="团队管理员" value="{{team.managerName}}" />
+				<van-cell title="创建时间" value="{{createTime}}" />
+				<van-cell title="当前状态" value="{{status}}" />
+				<van-cell title="修改时间" value="{{lastUpdateTime}}" />
+			</van-cell-group>
+			<view class="bt_view">
+				<van-button type="primary" bind:click="onRollbackTeam">恢复该团队</van-button>
+			</view>
+		</view>
+	</view>
+</view>
+
+<van-dialog id="van-dialog" />

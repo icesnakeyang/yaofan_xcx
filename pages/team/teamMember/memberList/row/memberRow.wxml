@@ -1,0 +1,6 @@
+<!--pages/team/teamMember/memberList/row/memberRow.wxml-->
+<view class="row_view">
+<van-card
+  title="{{theData.userName}}"
+/>
+</view>

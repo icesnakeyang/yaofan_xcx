@@ -255,7 +255,6 @@ Page({
 
     //读取全体团队成员的任务
     listTeamJobs() {
-        console.log(this.data)
         let params = {
             pageIndex: this.data.teamTaskPageIndex,
             pageSize: this.data.teamTaskPageSize
