@@ -2,10 +2,25 @@
 @import "/vant-weapp/common/index.wxss";
 
 .team_view{
-    margin: 20rpx 0rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .team_text{
     font-size: 24rpx;
     color: #fff;
+}
+
+.line2_view{
+    display: flex;
+    flex-direction: row;
+    margin: 20rpx;
+}
+
+.time_view{
+    margin-left: 50rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

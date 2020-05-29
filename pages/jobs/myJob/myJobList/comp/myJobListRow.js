@@ -27,6 +27,7 @@ Component({
    */
   methods: {
     updateData() {
+      console.log(this.data.task)
       let endTime = ''
       if (this.data.task.endTime) {
         endTime = tools.momentTime(this.data.task.endTime, 'L')

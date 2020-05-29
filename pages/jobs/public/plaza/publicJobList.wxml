@@ -12,7 +12,7 @@
     <view class="box_view">
       <block wx:for="{{taskList}}" wx:key="index">
         <view class="card_view" data-taskId="{{item.taskId}}" bindtap="onTaskRow">
-          <taskRow title="{{item.title}}" point="{{item.point}}" teamName="{{item.teamName}}" detail="{{item.detail}}" />
+          <taskRow theData="{{item}}" />
         </view>
       </block>
     </view>

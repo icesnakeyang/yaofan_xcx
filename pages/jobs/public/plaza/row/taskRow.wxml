@@ -1,19 +1,29 @@
 <!--pages/jobs/public/plaza/row/taskRow.wxml-->
-<van-card price="{{point}}" title="{{title}}">
-  <view slot="desc">
-    <rich-text class="van-multi-ellipsis--l3" nodes="{{detail}}"></rich-text>
-  </view>
-  <view slot="price-top">
-    <view class="team_view">
-      <view wx:if="{{isPending}}">
-        <van-tag color="#7232dd">{{teamName}}</van-tag>
-      </view>
-      <view wx:if="{{isReject}}">
-        <van-tag>{{teamName}}</van-tag>
-      </view>
-      <view wx:if="{{isAgree}}">
-        <van-tag>{{teamName}}</van-tag>
-      </view>
-    </view>
-  </view>
+<van-card price="{{theData.point}}" title="{{theData.title}}">
+	<view slot="desc">
+		<view class="line2_view">
+			<view class="team_view">
+				<van-icon name="shop" color="grey" size="16px" />
+				<van-tag plain type="primary">{{theData.teamName}}</van-tag>
+			</view>
+			<view class="time_view">
+				<van-icon name="clock" color="grey" size="16px" />
+				<text>{{createTime}}</text>
+			</view>
+		</view>
+		<rich-text class="van-multi-ellipsis--l3" nodes="{{theData.detail}}"></rich-text>
+	</view>
+	<view slot="price-top">
+		<view class="team_view">
+			<view wx:if="{{isPending}}">
+				<van-tag color="#7232dd">{{teamName}}</van-tag>
+			</view>
+			<view wx:if="{{isReject}}">
+				<van-tag>{{teamName}}</van-tag>
+			</view>
+			<view wx:if="{{isAgree}}">
+				<van-tag>{{teamName}}</van-tag>
+			</view>
+		</view>
+	</view>
 </van-card>

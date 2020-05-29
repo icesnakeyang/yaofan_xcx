@@ -1,7 +1,7 @@
 import baseApi from './httpBase.js'
 
-// const host = 'http://localhost:8090'
-const host='https://gogorpg.com'
+const host = 'http://localhost:8090'
+// const host='https://gogorpg.com'
 // const host = 'http://192.168.0.105:8090'
 
 function apiWxLogin(params) {

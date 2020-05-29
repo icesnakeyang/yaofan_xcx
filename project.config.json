@@ -55,35 +55,7 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/team/teamHistory/detail/teamHistoryDetail",
-					"pathName": "pages/team/teamHistory/detail/teamHistoryDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/team/teamDetail/teamDetail",
-					"pathName": "pages/team/teamDetail/teamDetail",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/team/teamMember/memberList/teamMemberList",
-					"pathName": "pages/team/teamMember/memberList/teamMemberList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/team/teamMember/memeberDetail/memberDetail",
-					"pathName": "pages/team/teamMember/memeberDetail/memberDetail",
-					"scene": null
-				}
-			]
+			"list": []
 		}
 	}
 }

@@ -30,7 +30,7 @@ Page({
         unreadVolunteer: 0,
         teamTaskPageIndex: 1,
         teamTaskPageSize: 10,
-        currentList : ''
+        currentList: ''
     },
 
     /**
@@ -267,8 +267,10 @@ Page({
             this.setData({
                 jobs: res.data.tasks,
                 isLoading: false,
-                isEmpty
+                isEmpty,
+                totalTeamTaskPage:res.data.totalTasks
             })
+            console.log(this.data)
         }).catch((error) => {
             wx.showToast({
                 title: '读取任务失败',
@@ -288,7 +290,12 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.onLoad()
+        console.log(this.data)
+        if (this.data.currentList === 'TEAM_TASK') {
+            this.listTeamJobs()
+        } else {
+            this.onLoad()
+        }
     },
 
     /**
@@ -309,6 +316,7 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
+        console.log('pull down')
         let page = this.data.pageIndex
         if (this.data.isPartyA) {
             page = this.data.partyAPageIndex
@@ -358,49 +366,53 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
+        console.log('reach bottom')
         let page = 1
-        if (this.data.isPartyA) {
-            //甲方任务
-            page = this.data.partyAPageIndex
-            if (page < this.data.partyATotalPage) {
+        console.log(this.data)
+        if (this.data.currentList === 'TEAM_TASK') {
+            console.log(1)
+            page = this.data.teamTaskPageIndex
+            if (page < this.data.totalTeamTaskPage) {
                 page++
                 this.setData({
-                    partyAPageIndex: page
+                    teamTaskPageIndex: page
                 })
-                this.loadPartyAData()
+                console.log('load team jobs')
+                this.listTeamJobs()
             }
         } else {
-            if (this.data.isPartyB) {
-                //乙方任务
-                page = this.data.partyBPageIndex
-                if (page < this.data.partyBTotalPage) {
+            if (this.data.isPartyA) {
+                //甲方任务
+                page = this.data.partyAPageIndex
+                if (page < this.data.partyATotalPage) {
                     page++
                     this.setData({
-                        partyBPageIndex: page
+                        partyAPageIndex: page
                     })
-                    this.loadPartyBData()
+                    this.loadPartyAData()
                 }
             } else {
-                if (this.data.isPartyA) {
-                    //甲乙方任务
-                    page = this.data.pageIndex
-                    if (page < this.data.totalPage) {
+                if (this.data.isPartyB) {
+                    //乙方任务
+                    page = this.data.partyBPageIndex
+                    if (page < this.data.partyBTotalPage) {
                         page++
                         this.setData({
-                            pageIndex: page
+                            partyBPageIndex: page
                         })
-                        this.loadAllData()
-                        this.loadDataFromApi()
+                        this.loadPartyBData()
                     }
-                }else{
-                    if(this.data.teamTaskPageIndex==='TEAM_TASK'){
-                        page=this.data.teamTaskPageIndex
-                        if(page<this.data.totalTeamTaskPage){
+                } else {
+                    if (this.data.isPartyA) {
+                        //甲乙方任务
+                        page = this.data.pageIndex
+                        if (page < this.data.totalPage) {
                             page++
                             this.setData({
-                                teamTaskPageIndex:page
+                                pageIndex: page
                             })
-                            this.listTeamJobs()
+                            this.loadAllData()
+                            this.loadDataFromApi()
                         }
                     }
                 }
