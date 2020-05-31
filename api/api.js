@@ -1,7 +1,7 @@
 import baseApi from './httpBase.js'
 
-const host = 'http://localhost:8090'
-// const host='https://gogorpg.com'
+// const host = 'http://localhost:8090'
+const host='https://gogorpg.com'
 // const host = 'http://192.168.0.105:8090'
 
 function apiWxLogin(params) {
@@ -773,6 +773,28 @@ function apiResignMember(params) {
     })
 }
 
+function apiSetObserver(params) {
+    const url = `${host}/yaofanapi/team/setObserver`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function apiRelieveObserver(params) {
+    const url = `${host}/yaofanapi/team/relieveObserver`
+    return new Promise((resolve, reject) => {
+        baseApi.postToken(url, params).then((res) => {
+            resolve(res)
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
 
 module.exports = {
     apiLoginByToken,
@@ -843,5 +865,7 @@ module.exports = {
     apiRollbackTeam,
     apiListMyTeamMember,
     apiGetMemberProfile,
-    apiResignMember
+    apiResignMember,
+    apiSetObserver,
+    apiRelieveObserver
 }

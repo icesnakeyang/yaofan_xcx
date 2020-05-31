@@ -55,7 +55,14 @@
 		},
 		"miniprogram": {
 			"current": -1,
-			"list": []
+			"list": [
+				{
+					"id": -1,
+					"name": "pages/team/teamMember/memeberDetail/memberDetail",
+					"pathName": "pages/team/teamMember/memeberDetail/memberDetail",
+					"scene": null
+				}
+			]
 		}
 	}
 }

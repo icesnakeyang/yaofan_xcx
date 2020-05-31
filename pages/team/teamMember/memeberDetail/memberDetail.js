@@ -15,7 +15,9 @@ Page({
 		sex: '',
 		status: '',
 		registerTime: '',
-		joinTime: ''
+		joinTime: '',
+		memberType:'',
+		isObserver:false
 	},
 
 	/**
@@ -27,9 +29,11 @@ Page({
 
 	loadAllData() {
 		const userId = wx.getStorageSync('userId')
+		const teamId=wx.getStorageSync('teamId')
 
 		const params = {
-			userId
+			userId,
+			teamId
 		}
 		api.apiGetMemberProfile(params).then((res) => {
 			console.log(res)
@@ -38,6 +42,8 @@ Page({
 			let status = ''
 			let registerTime = ''
 			let joinTime = ''
+			let memberType='普通成员'
+			let isObserver=false
 
 			if (userInfo.gender === '1') {
 				sex = '男'
@@ -50,12 +56,18 @@ Page({
 				status = '正常'
 			}
 			registerTime = tools.momentTime(userInfo.createTime, 'L')
+			if(res.data.memberType==='TEAM_OBSERVER'){
+				memberType='观察者'
+				isObserver=true
+			}
 			this.setData({
 				userInfo: res.data.userInfo,
 				isLoading: false,
 				sex,
 				status,
-				registerTime
+				registerTime,
+				memberType,
+				isObserver
 			})
 		}).catch((error) => {
 			wx.showToast({
@@ -95,6 +107,54 @@ Page({
 			.catch(() => {
 
 			});
+	},
+
+	/**
+	 * 设置为观察员
+	 */
+	onSetObserver(){
+		console.log(this.data)
+		const teamId=wx.getStorageSync('teamId');
+		const userId=this.data.userInfo.userId
+		const params={
+			teamId,
+			userId
+		}
+		api.apiSetObserver(params).then((res)=>{
+			wx.showToast({
+			  title: '设置观察员成功'
+			})
+			this.loadAllData()
+		}).catch((error)=>{
+			wx.showToast({
+			  title: '设置观察员失败',
+			  icon:'none'
+			})
+		})
+	},
+
+	/**
+	 * 解除观察员
+	 */
+	onRelieveObserver(){
+		console.log(this.data)
+		const teamId=wx.getStorageSync('teamId');
+		const userId=this.data.userInfo.userId
+		const params={
+			teamId,
+			userId
+		}
+		api.apiRelieveObserver(params).then((res)=>{
+			wx.showToast({
+			  title: '解除观察员成功'
+			})
+			this.loadAllData()
+		}).catch((error)=>{
+			wx.showToast({
+			  title: '解除观察员失败',
+			  icon:'none'
+			})
+		}) 
 	},
 
 	/**

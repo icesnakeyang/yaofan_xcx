@@ -11,12 +11,23 @@
 					<van-cell title="性别" value="{{sex}}" />
 					<van-cell title="注册时间" value="{{registerTime}}" />
 					<van-cell title="城市" value="{{userInfo.city}}" />
+					<van-cell title="团队角色" value="{{memberType}}" />
 				</van-cell-group>
 			</view>
 		</van-panel>
 
 		<view class="bt_view">
 			<van-button type="danger" bind:click="onResign">解除该成员</van-button>
+		</view>
+		<view wx:if="{{isObserver}}">
+			<view class="bt_view">
+				<van-button type="warning" bind:click="onRelieveObserver">解除该观察员</van-button>
+			</view>
+		</view>
+		<view wx:else="{{isObserver}}">
+			<view class="bt_view">
+				<van-button type="warning" bind:click="onSetObserver">设置为观察员</van-button>
+			</view>
 		</view>
 	</view>
 </view>
