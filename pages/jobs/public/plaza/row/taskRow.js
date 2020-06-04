@@ -26,7 +26,6 @@ Component({
             this.setData({
                 createTime
             })
-            console.log(this.data.theData)
         }
     },
 

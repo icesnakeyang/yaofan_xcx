@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "MyJobListRow":"../myPartyAJob/row/myPartyAJobRow"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "我是甲方"
+}

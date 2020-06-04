@@ -35,7 +35,6 @@ Page({
         })
 
         // api.apiGetRich().then((res) => {
-        //     console.log(res)
         //     let content = res.data.data.note.content
 
         //     content = content.replace(/&quot;/g, '"');

@@ -58,8 +58,30 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/team/teamMember/memeberDetail/memberDetail",
-					"pathName": "pages/team/teamMember/memeberDetail/memberDetail",
+					"name": "pages/jobs/myJob/myPartyAJob/myPartyAJob",
+					"pathName": "pages/jobs/myJob/myPartyAJob/myPartyAJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/myPartyBJob/myPartyBJob",
+					"pathName": "pages/jobs/myJob/myPartyBJob/myPartyBJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/myTeamJob/myTeamJob",
+					"pathName": "pages/jobs/myJob/myTeamJob/myTeamJob",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/jobs/myJob/myPartyBJob/myPartyBJob",
+					"pathName": "pages/jobs/myJob/myPartyBJob/myPartyBJob",
+					"query": "",
 					"scene": null
 				}
 			]

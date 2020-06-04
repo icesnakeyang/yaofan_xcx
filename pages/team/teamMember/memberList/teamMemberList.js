@@ -25,7 +25,6 @@ Page({
       teamId
     }
     api.apiListMyTeamMember(params).then((res) => {
-      console.log(res)
       this.setData({
         memberList:res.data.teamUsers,
         isLoading:false

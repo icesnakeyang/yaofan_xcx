@@ -1,0 +1,28 @@
+<!--pages/jobs/myJob/myPartyBJob/row/myPartyBJobRow.wxml-->
+<view class="card_view" bindtap="onRow">
+	<van-card price="{{task.point}}" title="{{task.title}}">
+		<view slot="desc">
+			<view>
+				<van-tag plain type="primary">{{task.teamName}}</van-tag>
+			</view>
+			<!-- 最多显示两行 -->
+			<rich-text class="van-multi-ellipsis--l3" nodes="{{task.detail}}"></rich-text>
+			<view wx:if="{{isGrabbing}}">
+				<van-tag type="success">{{status}}</van-tag>
+			</view>
+			<view wx:if="{{isProgress}}">
+				<van-tag type="primary">{{status}}</van-tag>
+			</view>
+			<view wx:if="{{isComplete}}">
+				<van-tag type="success">{{status}}</van-tag>
+			</view>
+			<view wx:if="{{isStop}}">
+				<van-tag type="warning">{{status}}</van-tag>
+			</view>
+			<view wx:if="{{isTransferred}}">
+				<van-tag type="warning">{{status}}</van-tag>
+			</view>
+			<view>到期时间：{{endTime}}</view>
+		</view>
+	</van-card>
+</view>

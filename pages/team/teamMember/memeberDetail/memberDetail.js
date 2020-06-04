@@ -36,7 +36,6 @@ Page({
 			teamId
 		}
 		api.apiGetMemberProfile(params).then((res) => {
-			console.log(res)
 			const userInfo = res.data.userInfo
 			let sex = ''
 			let status = ''
@@ -113,7 +112,6 @@ Page({
 	 * 设置为观察员
 	 */
 	onSetObserver(){
-		console.log(this.data)
 		const teamId=wx.getStorageSync('teamId');
 		const userId=this.data.userInfo.userId
 		const params={
@@ -137,7 +135,6 @@ Page({
 	 * 解除观察员
 	 */
 	onRelieveObserver(){
-		console.log(this.data)
 		const teamId=wx.getStorageSync('teamId');
 		const userId=this.data.userInfo.userId
 		const params={

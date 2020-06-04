@@ -19,7 +19,6 @@ Component({
    */
   methods: {
     updateData(){
-      console.log(this.data.theData)
     }
   },
 

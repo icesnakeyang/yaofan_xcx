@@ -63,10 +63,13 @@
 		"pages/team/teamHistory/list/teamHistory",
 		"pages/team/teamHistory/detail/teamHistoryDetail",
 		"pages/team/teamMember/memberList/teamMemberList",
-		"pages/team/teamMember/memeberDetail/memberDetail"
+		"pages/team/teamMember/memeberDetail/memberDetail",
+		"pages/jobs/myJob/myPartyAJob/myPartyAJob",
+		"pages/jobs/myJob/myPartyBJob/myPartyBJob",
+		"pages/jobs/myJob/myTeamJob/myTeamJob"
 	],
 	"window": {
-		"backgroundTextStyle": "light",
+		"backgroundTextStyle": "dark",
 		"navigationBarBackgroundColor": "#fff",
 		"navigationBarTitleText": "WeChat",
 		"navigationBarTextStyle": "black"

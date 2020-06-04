@@ -1,0 +1,8 @@
+/* pages/jobs/myJob/myPartyAJob/myPartyAJob.wxss */
+
+@import '/css/global.wxss';
+
+.list_view{
+  background:rgb(240, 240, 240);
+  padding: 20rpx;
+}

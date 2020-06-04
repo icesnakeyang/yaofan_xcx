@@ -173,34 +173,8 @@ Page({
      * 查询我是甲方的任务
      */
     onPartyA() {
-        this.setData({
-            isLoading: true,
-            isPartyA: true
-        })
-        this.loadPartyAData()
-    },
-
-    loadPartyAData() {
-        let params = {
-            pageIndex: this.data.partyAPageIndex,
-            pageSize: this.data.pageSize
-        }
-        api.apiListMyPartyATasksDetail(params).then((res) => {
-            let isEmpty = false
-            if (res.data.tasks.length === 0) {
-                isEmpty = true
-            }
-            this.setData({
-                jobs: res.data.tasks,
-                isLoading: false,
-                isEmpty,
-                partyATotalPage: res.data.totalPage
-            })
-        }).catch((error) => {
-            wx.showToast({
-                title: '读取任务失败',
-                icon: 'none'
-            })
+        wx.navigateTo({
+          url: '../myPartyAJob/myPartyAJob',
         })
     },
 
@@ -208,35 +182,12 @@ Page({
      * 查询我是乙方的任务
      */
     onPartyB() {
-        this.setData({
-            isLoading: true,
-            isPartyB: true
+        wx.navigateTo({
+          url: '../myPartyBJob/myPartyBJob',
         })
-        this.loadPartyBData()
     },
 
-    loadPartyBData() {
-        let params = {
-            pageIndex: this.data.pageIndex,
-            pageSize: this.data.pageSize
-        }
-        api.apiListMyPartyBTasksDetail(params).then((res) => {
-            let isEmpty = false
-            if (res.data.tasks.length === 0) {
-                isEmpty = true
-            }
-            this.setData({
-                jobs: res.data.tasks,
-                isLoading: false,
-                isEmpty
-            })
-        }).catch((error) => {
-            wx.showToast({
-                title: '读取任务失败',
-                icon: 'none'
-            })
-        })
-    },
+   
 
     onVolunteer() {
         wx.navigateTo({
@@ -246,36 +197,8 @@ Page({
 
     //查询其她成员任务
     onTeamJobs() {
-        this.setData({
-            isLoading: true,
-            currentList: 'TEAM_TASK'
-        })
-        this.listTeamJobs()
-    },
-
-    //读取全体团队成员的任务
-    listTeamJobs() {
-        let params = {
-            pageIndex: this.data.teamTaskPageIndex,
-            pageSize: this.data.teamTaskPageSize
-        }
-        api.apiListMyObserveTask(params).then((res) => {
-            let isEmpty = false
-            if (res.data.tasks.length === 0) {
-                isEmpty = true
-            }
-            this.setData({
-                jobs: res.data.tasks,
-                isLoading: false,
-                isEmpty,
-                totalTeamTaskPage:res.data.totalTasks
-            })
-            console.log(this.data)
-        }).catch((error) => {
-            wx.showToast({
-                title: '读取任务失败',
-                icon: 'none'
-            })
+        wx.navigateTo({
+          url: '../myTeamJob/myTeamJob',
         })
     },
 
@@ -290,7 +213,6 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        console.log(this.data)
         if (this.data.currentList === 'TEAM_TASK') {
             this.listTeamJobs()
         } else {
@@ -316,7 +238,6 @@ Page({
      * 页面相关事件处理函数--监听用户下拉动作
      */
     onPullDownRefresh: function () {
-        console.log('pull down')
         let page = this.data.pageIndex
         if (this.data.isPartyA) {
             page = this.data.partyAPageIndex
@@ -366,18 +287,14 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-        console.log('reach bottom')
         let page = 1
-        console.log(this.data)
         if (this.data.currentList === 'TEAM_TASK') {
-            console.log(1)
             page = this.data.teamTaskPageIndex
             if (page < this.data.totalTeamTaskPage) {
                 page++
                 this.setData({
                     teamTaskPageIndex: page
                 })
-                console.log('load team jobs')
                 this.listTeamJobs()
             }
         } else {

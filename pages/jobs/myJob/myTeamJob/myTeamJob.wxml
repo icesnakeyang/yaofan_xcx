@@ -1,0 +1,17 @@
+<!--pages/jobs/myJob/myTeamJob/myTeamJob.wxml-->
+<view class="page_view">
+	<view wx:if="{{!isLoading}}">
+		<view wx:if="{{isEmpty}}">
+			<view class="empty_view">
+				<text class="empty_text">您还没有正在进行的任务</text>
+			</view>
+		</view>
+		<view wx:else="{{isEmpty}}">
+			<view class="list_view">
+				<block wx:for="{{jobs}}" wx:key="index">
+					<MyJobListRow task="{{item.task}}"></MyJobListRow>
+				</block>
+			</view>
+		</view>
+	</view>
+</view>

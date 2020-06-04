@@ -37,7 +37,6 @@ Page({
       teamId
     }
     api.apiGetTeamByTeamId(params).then((res) => {
-      console.log(res)
       let createTime = tools.momentTime(res.data.team.createTime, 'L')
       let status = ''
       if (res.data.team.status === 'DELETE') {
@@ -74,13 +73,10 @@ Page({
       message: '恢复后该团队会出现在日常团队任务中，确定要恢复吗？',
     })
       .then(() => {
-        console.log('confirm')
         const params={
           teamId:this.data.team.teamId
         }
-        console.log(params)
         api.apiRollbackTeam(params).then((res)=>{
-          console.log(res)
           wx.showToast({
             title: '恢复成功'
           })
@@ -95,7 +91,6 @@ Page({
         })
       })
       .catch(() => {
-        console.log('cancel')
       });
   },
 

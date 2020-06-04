@@ -1,0 +1,17 @@
+/* pages/jobs/myJob/myPartyAJob/row/myPartyAJobRow.wxss */
+@import '/css/global.wxss';
+@import "/vant-weapp/common/index.wxss";
+
+.card_view {
+  margin-bottom: 30rpx;
+}
+
+.detail_view{
+    background: rgb(226, 164, 164);
+    padding: 30rpx;
+}
+
+.detail_text{
+    font-size: 24rpx;
+    color: rgb(82, 79, 79);
+}
