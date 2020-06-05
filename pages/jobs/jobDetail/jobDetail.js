@@ -28,7 +28,8 @@ Page({
     totalTaskStopUnread: 0,
     isNewStop: false,
     canTransfer:false,
-    createTime:''
+    createTime:'',
+    isAccept:false
   },
 
   /**
@@ -46,6 +47,7 @@ Page({
 
     //读取任务信息
     api.apiGetTaskByTaskId(params).then((res) => {
+      console.log(res.data)
       let createTime= tools.momentTime(res.data.task.createTime, 'L')
 
       let endTime = ''
@@ -62,6 +64,8 @@ Page({
       let isComplete = false
       let isStop = false
       let canTransfer=false
+      let isAccept=false
+      let isDelete=false
       if (res.data.task.status === 'GRABBING') {
         status = '等待匹配'
         isGrabbing=true
@@ -85,6 +89,11 @@ Page({
             if (res.data.task.status === 'STOP') {
               status = '已终止'
               isStop = true
+            }else{
+              if(res.data.task.status==='ACCEPT'){
+                status='已验收'
+                isAccept=true
+              }
             }
           }
         }
@@ -131,7 +140,8 @@ Page({
         totalTaskStopUnread,
         isNewStop,
         canTransfer,
-        createTime
+        createTime,
+        isAccept
       })
 
       //统计任务log，已读和未读

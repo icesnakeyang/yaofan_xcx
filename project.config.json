@@ -83,6 +83,13 @@
 					"pathName": "pages/jobs/myJob/myPartyBJob/myPartyBJob",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/account/ledgerList/ledgerList",
+					"pathName": "pages/account/ledgerList/ledgerList",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

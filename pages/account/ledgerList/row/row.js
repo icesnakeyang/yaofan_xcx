@@ -24,6 +24,7 @@ Component({
      */
     methods: {
         updateData() {
+            console.log(this.data.theData)
             let createTime=tools.momentTime(this.data.theData.createTime, 'L')
             let type=''
             let point=0

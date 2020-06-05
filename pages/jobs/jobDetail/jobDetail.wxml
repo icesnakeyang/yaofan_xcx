@@ -94,6 +94,9 @@
                 <view wx:if="{{isStop}}">
                   <van-tag type="warning">{{status}}</van-tag>
                 </view>
+                <view wx:if="{{isAccept}}">
+                  <van-tag type="primary">{{status}}</van-tag>
+                </view>
               </view>
             </van-cell>
             <van-cell title="积分" value="{{task.point}}" />

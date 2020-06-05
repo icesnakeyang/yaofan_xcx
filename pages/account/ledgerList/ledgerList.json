@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-      "Row":"./row/row"
+      "Row":"./row/row",
+      "van-calendar": "/vant-weapp/calendar/index"
   },
+  "enablePullDownRefresh": true,
   "navigationBarTitleText": "我的积分账户"
 }

@@ -19,3 +19,11 @@
 .type_text{
     
 }
+
+.team_view{
+    margin: 20rpx 0;
+}
+
+.box_view{
+    border-bottom:2rpx solid rgb(48, 153, 22);
+}

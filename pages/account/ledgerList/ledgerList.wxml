@@ -1,13 +1,22 @@
 <!--pages/account/ledgerList/ledgerList.wxml-->
 <view class="page_view">
-    <view wx:if="{{isLoading}}" class="loading_view">
-        <van-loading type="spinner" />
-    </view>
-    <view wx:else="{{isLoading}}">
-        <block wx:for="{{ledgerList}}" wx:key="index">
-            <view data-taskId="{{item.taskId}}" bindtap="onLedgerRow">
-                <Row theData="{{item}}" />
-            </view>
-        </block>
-    </view>
+	<view wx:if="{{!isLoading}}">
+		<van-panel title="查询筛选">
+			<view>
+				<van-cell title="选择开始日期" value="{{ startDateStr }}" bind:click="onSelectStartDate" />
+				<van-cell title="选择结束日期" value="{{endDateStr}}" bind:click="onSelectEndDate" />
+				<view class="search_button_view">
+				<van-button type="primary" size="small" bind:click="onSearch">查询</van-button>
+				</view>
+			</view>
+		</van-panel>
+		<van-divider />
+		<block wx:for="{{ledgerList}}" wx:key="index">
+			<view data-taskId="{{item.taskId}}" bindtap="onLedgerRow">
+				<Row theData="{{item}}" />
+			</view>
+		</block>
+	</view>
 </view>
+
+<van-calendar show="{{ showCalendar }}" min-date="{{minDate}}" max-date="{{maxDate}}" default-date="{{defaultDate}}" bind:close="onCloseCalendar" bind:confirm="onConfirmCalendar" />
