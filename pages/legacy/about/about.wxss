@@ -1,0 +1,27 @@
+/* pages/legacy/about/about.wxss */
+
+.page_view {
+	margin: 20rpx;
+}
+
+.title_view {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100rpx;
+}
+
+.title_text {
+	color: rgb(7, 68, 109);
+	font-size: 34rpx;
+}
+
+.box1_view {
+	display: flex;
+	margin: 40rpx 0;
+}
+
+.box1_text {
+	color: rgb(59, 88, 13);
+	font-size: 34rpx;
+}

@@ -1,0 +1,12 @@
+<!--pages/legacy/about/about.wxml-->
+<view class="page_view">
+	<view class="title_view">
+		<text class="title_text">ABOUT US</text>
+	</view>
+	<view class="box1_view">
+		<text class="box1_text">【次第乞食】：次第乞食是一款专为中小企业团队打造的任务管理小工具。特别适用于团队领导给团队成员派发任务，并进行绩效考核管理。团队成员完成任务后，可凭任务积分，兑换奖金或其它报酬。</text>
+	</view>
+	<view class="box1_view">
+		<text class="box1_text">【关于我们】：次第乞食小程序由成都次第时空科技有限公司开发运营。次第时空是一家拥有多年项目管理、培训、开发经验的创业项目孵化公司。基于自身以及众多客户的团队管理需求和经验，为了提高团队成员的工作效率和积极性，推行能者多劳，多劳多得的企业管理文化，于是便诞生了该小程序。希望它能帮助您提高团队效率，完成更优异的业绩。</text>
+	</view>
+</view>
