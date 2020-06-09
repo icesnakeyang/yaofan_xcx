@@ -1,10 +1,14 @@
 <!--pages/volunteer/applyJoinList/applyJoinList.wxml-->
 <view class="page_view">
-    <view wx:if="{{isLoading}}" class="loading_view">
-        <van-loading type="spinner" />
+    <view wx:if="{{isLoading}}">
     </view>
     <view wx:else="{{isLoading}}">
-        <view class="box_view">
+    <view wx:if="{{isEmpty}}" class="box_empty_view">
+    <text class="empty_text">
+    您还没有义工申请
+    </text>
+    </view>
+        <view wx:else="{{isEmpty}}" class="box_view">
             <block wx:for="{{joinApplyList}}" wx:key="index">
                 <view class="card_view" data-volunteerApplyId="{{item.volunteerApplyId}}" bindtap="onRow">
                     <Row theData="{{item}}" />

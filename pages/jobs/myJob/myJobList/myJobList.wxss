@@ -5,3 +5,7 @@
   background:rgb(240, 240, 240);
   padding: 20rpx;
 }
+
+.head_box_view{
+  
+}

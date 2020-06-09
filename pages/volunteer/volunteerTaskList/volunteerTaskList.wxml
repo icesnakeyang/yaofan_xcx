@@ -1,7 +1,6 @@
 <!--pages/volunteer/volunteerTaskList/volunteerTaskList.wxml-->
 <view class="page_view">
-    <view wx:if="{{isLoading}}" class="loading_view">
-        <van-loading type="spinner" />
+    <view wx:if="{{isLoading}}">
     </view>
     <view wx:else="{{isLoading}}">
             <van-grid>
@@ -21,7 +20,10 @@
                 <van-grid-item icon="photo-o" text="义工评价" bind:click="onComment" />
             </van-grid>
 
-        <view class="box_view">
+<view wx:if="{{isEmpty}}" class="box_empty_view">
+<text class="empty_text">您还没有义工任务</text>
+</view>
+        <view wx:else="{{isEmpty}}" class="box_view">
             <block wx:for="{{volunteerTaskList}}" wx:key="index">
                 <view class="card_view" data-volunteerTaskId="{{item.volunteerTaskId}}" bindtap="onRow">
                     <Row theData="{{item}}" />

@@ -11,7 +11,8 @@ Page({
         isLoading: true,
         taskList: [],
         pageIndex: 1,
-        pageSize: 5
+        pageSize: 5,
+        isNoneTeam:false
     },
 
     /**
@@ -22,6 +23,12 @@ Page({
     },
 
     loadAllData() {
+        this.setData({
+            isLoading:true
+        })
+        wx.showLoading({
+          title: '加载中...',
+        })
         let params = {
             pageIndex: this.data.pageIndex,
             pageSize: this.data.pageSize
@@ -31,10 +38,18 @@ Page({
                 taskList: res.data.tasks,
                 isLoading: false
             })
+            wx.hideLoading()
         }).catch((error) => {
+            console.log(error)
+            let isNoneTeam=false
+            if(error===20005){
+                isNoneTeam=true
+            }
             this.setData({
-                isLoading: false
+                isLoading: false,
+                isNoneTeam
             })
+            wx.hideLoading()
         })
     },
 

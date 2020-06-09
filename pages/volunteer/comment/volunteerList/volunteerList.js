@@ -11,7 +11,8 @@ Page({
       isLoading:true,
       pageIndex:1,
       pageSize:10,
-      volunteerList:[]
+      volunteerList:[],
+      isEmpty:true
     },
 
     /**
@@ -22,16 +23,34 @@ Page({
     },
 
     loadAllData(){
+      wx.showLoading({
+        title: '加载中...',
+      })
+      this.setData({
+        isLoading:true,
+        isEmpty:true
+      })
       let params={
         pageIndex:this.data.pageIndex,
         pageSize:this.data.pageSize
       }
       api.apiListMyVolunteerAgree(params).then((res)=>{
+        let isEmpty=true
+        if(res.data.volunteers.length>0){
+          isEmpty=false
+        }
           this.setData({
               volunteerList:res.data.volunteers,
-              isLoading:false
+              isLoading:false,
+              isEmpty
           })
+          wx.hideLoading()
       }).catch((error)=>{
+        this.setData({
+          isLoading:false,
+          isEmpty
+        })
+        wx.hideLoading()
         wx.showToast({
           title: '读取义工失败',
           icon:'none'

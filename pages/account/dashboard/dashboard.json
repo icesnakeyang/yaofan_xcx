@@ -2,7 +2,8 @@
   "usingComponents": {
     "PointLedgerRow":"./pointLedgerRow/pointLedgerRow",
     "van-grid": "/vant-weapp/grid/index",
-    "van-grid-item": "/vant-weapp/grid-item/index"
+    "van-grid-item": "/vant-weapp/grid-item/index",
+    "van-dialog": "/vant-weapp/dialog/index"
   },
   "navigationBarTitleText": "我的积分账户"
 }

@@ -19,6 +19,10 @@ Page({
      */
     onLoad: function(options) {
         let name = options.name
+        console.log(name)
+        if(!name || name==='null'){
+            name=''
+        }
         this.setData({
             name
         })

@@ -9,7 +9,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isLoading: true,
     pageIndex: 1,
     pageSize: 10,
     ledgerList: [],
@@ -52,7 +51,6 @@ Page({
       console.log(res)
       this.setData({
         ledgerList: res.data.pointLedgers,
-        isLoading: false,
         totalLedgerPage:res.data.pointLedgerTotalPage
       })
       wx.hideLoading()

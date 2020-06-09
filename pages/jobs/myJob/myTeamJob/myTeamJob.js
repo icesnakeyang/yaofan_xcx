@@ -34,7 +34,7 @@ Page({
         }
         api.apiListMyObserveTask(params).then((res) => {
 			console.log(res)
-            let isEmpty = false
+			let isEmpty = false
             if (res.data.tasks.length === 0) {
                 isEmpty = true
             }

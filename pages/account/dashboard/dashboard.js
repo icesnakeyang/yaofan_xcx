@@ -1,6 +1,7 @@
 // pages/account/dashboard/dashboard.js
 
 import api from '../../../api/api.js'
+import Dialog from '../../../vant-weapp/dialog/dialog';
 
 Page({
 
@@ -72,6 +73,23 @@ Page({
     wx.navigateTo({
       url: '/pages/account/withdraw/withdraw'
     })
+  },
+
+  onTopUp(){
+    Dialog.alert({
+      message: '我们正在努力开发充值功能，敬请期待...',
+    }).then(() => {
+      // on close
+    });
+  },
+
+  onservice(){
+    Dialog.alert({
+      title: '客服电话',
+      message: '13060006618',
+    }).then(() => {
+      // on close
+    });
   },
 
   /**

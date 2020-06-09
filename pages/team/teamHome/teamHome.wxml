@@ -1,32 +1,33 @@
 <!--pages/team/teamHome/teamHome.wxml-->
 <view class="page_view">
-  <view class="loading_view" wx:if="{{isLoading}}">
-    <van-loading type="spinner" />
-  </view>
-  <view wx:else="{{isLoading}}">
-    <van-grid>
-      <van-grid-item icon="friends-o" text="创建我的团队" bind:click="onCreateTeam" />
-      <van-grid-item icon="notes-o" text="团队日志" bind:click="onTeamLog" info="{{totalLogNew}}" />
-      <van-grid-item icon="notes-o" text="历史团队" bind:click="onTeamHistory" />
-    </van-grid>
+	<view wx:if="{{isLoading}}"></view>
+	<view wx:else="{{isLoading}}">
+		<van-grid>
+			<van-grid-item icon="friends-o" text="创建我的团队" bind:click="onCreateTeam" />
+			<van-grid-item icon="notes-o" text="团队日志" bind:click="onTeamLog" info="{{totalLogNew}}" />
+			<van-grid-item icon="notes-o" text="历史团队" bind:click="onTeamHistory" />
+		</van-grid>
 
-    <view class="box_view">
-      <van-search placeholder="搜索团队名称" bind:search="onSearch" bind:change="onSearchChange" />
-    </view>
+		<view class="box_view">
+			<van-search placeholder="搜索团队名称" bind:search="onSearch" bind:change="onSearchChange" />
+		</view>
 
-    <view class="box_view">
-      <block wx:for="{{teamList}}" wx:key="index">
-        <view class="card_view" data-teamId="{{item.teamId}}" bindtap="onTeamRow">
-          <van-card title="{{item.teamName}}">
-            <view slot="desc">
-              <rich-text class="van-multi-ellipsis--l3" nodes="{{item.description}}"></rich-text>
-            </view>
-            <view slot="price">
-              <text>团队负责人：{{item.managerName}}</text>
-            </view>
-          </van-card>
-        </view>
-      </block>
-    </view>
-  </view>
+		<view wx:if="{{isEmpty}}" class="box_empty_view">
+			<text class="empty_text">您还未加入任何团队</text>
+		</view>
+		<view wx:else="{{isEmpty}}" class="box_view">
+			<block wx:for="{{teamList}}" wx:key="index">
+				<view class="card_view" data-teamId="{{item.teamId}}" bindtap="onTeamRow">
+					<van-card title="{{item.teamName}}">
+						<view slot="desc">
+							<rich-text class="van-multi-ellipsis--l3" nodes="{{item.description}}"></rich-text>
+						</view>
+						<view slot="price">
+							<text>团队负责人：{{item.managerName}}</text>
+						</view>
+					</van-card>
+				</view>
+			</block>
+		</view>
+	</view>
 </view>

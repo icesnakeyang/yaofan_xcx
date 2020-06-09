@@ -23,7 +23,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         this.loadAllData()
     },
 
@@ -40,26 +40,26 @@ Page({
             let isAgree = false
             let canStop = false
             let currentUserId = wx.getStorageSync('current_user_id')
-           
-            if(res.data.volunteerTask.createUserId===currentUserId){
+
+            if (res.data.volunteerTask.createUserId === currentUserId) {
                 //甲方
-                canComment=true
-                if (res.data.volunteerTask.status ==='ACTIVE'){
+                canComment = true
+                if (res.data.volunteerTask.status === 'ACTIVE') {
                     canStop = true
                     status = '招募中'
-                }else{
+                } else {
                     if (res.data.volunteerTask.status === 'STOP') {
                         //已停止
-                        status='已停止'
+                        status = '已停止'
                     }
                 }
-            }else{
+            } else {
                 //乙方
                 if (res.data.volunteerTask.status === 'ACTIVE') {
                     //招募中
                     status = '招募中'
                     canApply = true
-                }else{
+                } else {
                     if (res.data.volunteerTask.status === 'STOP') {
                         //已停止
                         status = '已停止'
@@ -90,9 +90,16 @@ Page({
 
     onApply() {
         wx.setStorageSync('volunteerTaskId', this.data.volunteerTask.volunteerTaskId)
-        wx.navigateTo({
-            url: '../apply/applyVolunteerTask'
-        })
+        let isLogin = wx.getStorageSync('isLogin')
+        if (isLogin) {
+            wx.navigateTo({
+                url: '../apply/applyVolunteerTask'
+            })
+        }else{
+            wx.navigateTo({
+              url: '../../legacy/wxLogin/wxLogin',
+            })
+        }
     },
 
     onComment() {
@@ -131,49 +138,49 @@ Page({
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

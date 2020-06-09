@@ -7,6 +7,7 @@
 		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
@@ -20,7 +21,9 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.3",
@@ -58,37 +61,43 @@
 			"list": [
 				{
 					"id": -1,
-					"name": "pages/jobs/myJob/myPartyAJob/myPartyAJob",
-					"pathName": "pages/jobs/myJob/myPartyAJob/myPartyAJob",
+					"name": "pages/team/teamHome/teamHome",
+					"pathName": "pages/team/teamHome/teamHome",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/jobs/myJob/myPartyBJob/myPartyBJob",
-					"pathName": "pages/jobs/myJob/myPartyBJob/myPartyBJob",
+					"name": "pages/jobs/public/plaza/publicJobList",
+					"pathName": "pages/jobs/public/plaza/publicJobList",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/jobs/myJob/myTeamJob/myTeamJob",
-					"pathName": "pages/jobs/myJob/myTeamJob/myTeamJob",
+					"name": "pages/jobs/public/volunteer/volunteerTaskList",
+					"pathName": "pages/jobs/public/volunteer/volunteerTaskList",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/jobs/myJob/myPartyBJob/myPartyBJob",
-					"pathName": "pages/jobs/myJob/myPartyBJob/myPartyBJob",
+					"name": "pages/volunteer/volunteerTaskList/volunteerTaskList",
+					"pathName": "pages/volunteer/volunteerTaskList/volunteerTaskList",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
-					"name": "pages/account/ledgerList/ledgerList",
-					"pathName": "pages/account/ledgerList/ledgerList",
+					"name": "pages/account/dashboard/dashboard",
+					"pathName": "pages/account/dashboard/dashboard",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/legacy/about/about",
+					"pathName": "pages/legacy/about/about",
 					"scene": null
 				}
 			]

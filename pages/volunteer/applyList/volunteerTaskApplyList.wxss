@@ -6,3 +6,15 @@
     margin-top: 30rpx;
     width: 100%;
 }
+
+.box_empty_view{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50%;
+}
+
+.empty_text{
+    font-size:34rpx;
+    color:rgb(58,58,58)
+}

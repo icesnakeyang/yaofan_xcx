@@ -9,7 +9,8 @@ Page({
      */
     data: {
         isLoading:true,
-        joinApplyList:[]
+        joinApplyList:[],
+        isEmpty:true
     },
 
     /**
@@ -20,15 +21,33 @@ Page({
     },
 
     loadAllData(){
+        wx.showLoading({
+          title: '加载中...',
+        })
+        this.setData({
+            isLoading:true,
+            isEmpty:true
+        })
         let params={
 
         }
         api.apiListMyVolunteerTaskApplyJoin(params).then((res)=>{
+            let isEmpty=true
+            if(res.data.volunteerApplies.length>0){
+                isEmpty=false
+            }
             this.setData({
                 joinApplyList:res.data.volunteerApplies,
-                isLoading:false
+                isLoading:false,
+                isEmpty
             })
+            wx.hideLoading()
         }).catch((error)=>{
+            this.setData({
+                isLoading:false,
+                isEmpty
+            })
+            wx.hideLoading()
             wx.showToast({
                 title: '读取申请失败',
                 icon:'none'

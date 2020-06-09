@@ -25,7 +25,9 @@ Page({
   },
 
   loadAllData() {
+    console.log('load')
     let type = wx.getStorageSync('type')
+    console.log(type)
     let params = {
       pageIndex: this.data.pageIndex,
       pageSize: this.data.pageSize
@@ -34,6 +36,7 @@ Page({
       api.apiListTeamApplyLogMyApply(params).then((res) => {
         let isEmpty = false
         let isApply = true
+        console.log(res.data)
         if (res.data.applyTeams.length === 0) {
           isEmpty = true
         }
@@ -44,6 +47,7 @@ Page({
           isApply
         })
       }).catch((error) => {
+        console.log(error)
         wx.showToast({
           title: '读取日志失败',
           icon: 'none'
@@ -51,6 +55,7 @@ Page({
       })
     } else {
       api.apiListTeamApplyLogApplyUser(params).then((res) => {
+        console.log(res)
         let isEmpty = false
         let isProcess = true
         if (res.data.applyTeams.length === 0) {

@@ -1,15 +1,13 @@
 <!--pages/team/teamHistory/teamHistory.wxml-->
 <view class="page_view">
-	<view wx:if="{{isLoading}}" class="loading_view">
-		<van-loading type="spinner" />
+	<view wx:if="{{isEmpty}}" class="box_empty_view">
+		<text class="empty_text">您没有历史团队记录</text>
 	</view>
-	<view wx:else="{{isLoading}}">
-		<view class="box_view">
-			<block wx:for="{{teamList}}" wx:key="index">
-				<view data-teamId="{{item.teamId}}" bindtap="onTeamRow" >
-					<TeamRow theData="{{item}}" />
-				</view>
-			</block>
-		</view>
+	<view wx:else="{{isEmpty}}" class="box_view">
+		<block wx:for="{{teamList}}" wx:key="index">
+			<view data-teamId="{{item.teamId}}" bindtap="onTeamRow">
+				<TeamRow theData="{{item}}" />
+			</view>
+		</block>
 	</view>
 </view>

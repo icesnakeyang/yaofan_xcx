@@ -8,7 +8,6 @@ Page({
      * 页面的初始数据
      */
     data: {
-        isLoading: true,
         jobs: [],
         catchTasks: [],
         pageIndex: 1,
@@ -49,6 +48,9 @@ Page({
      * 从数据库读取数据
      */
     loadDataFromApi() {
+        wx.showLoading({
+            title: '加载中...',
+        })
         let params = {
             pageIndex: this.data.pageIndex,
             pageSize: this.data.pageSize,
@@ -63,11 +65,11 @@ Page({
                 }
                 this.setData({
                     catchTasks,
-                    isLoading: false,
                     isEmpty,
                     totalPage: res.data.totalPage,
                     totalTasks: res.data.totalTasks
                 })
+                wx.hideLoading()
                 resolve()
             }).catch((error) => {
                 reject(error)
@@ -142,15 +144,20 @@ Page({
     },
 
     onNewJob() {
-        wx.navigateTo({
-            url: '../../createJob/createJob',
-        })
+        let isLogin = wx.getStorageSync('isLogin')
+        if (isLogin) {
+            wx.navigateTo({
+                url: '../../createJob/createJob',
+            })
+        } else {
+            wx.navigateTo({
+                url: '../../../legacy/wxLogin/wxLogin'
+            })
+        }
     },
 
     onCurrentJob() {
-        this.setData({
-            isLoading: true
-        })
+
         let params = {
             pageIndex: 1,
             pageSize: 100,
@@ -174,7 +181,7 @@ Page({
      */
     onPartyA() {
         wx.navigateTo({
-          url: '../myPartyAJob/myPartyAJob',
+            url: '../myPartyAJob/myPartyAJob',
         })
     },
 
@@ -183,11 +190,11 @@ Page({
      */
     onPartyB() {
         wx.navigateTo({
-          url: '../myPartyBJob/myPartyBJob',
+            url: '../myPartyBJob/myPartyBJob',
         })
     },
 
-   
+
 
     onVolunteer() {
         wx.navigateTo({
@@ -198,7 +205,7 @@ Page({
     //查询其她成员任务
     onTeamJobs() {
         wx.navigateTo({
-          url: '../myTeamJob/myTeamJob',
+            url: '../myTeamJob/myTeamJob',
         })
     },
 

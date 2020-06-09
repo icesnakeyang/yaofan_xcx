@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "MyJobListRow":"../row/myTeamJobRow"
+    "MyJobListRow":"./row/myTeamJobRow"
   },
   "enablePullDownRefresh": true,
   "navigationBarTitleText": "团队任务"

@@ -9,7 +9,7 @@ Page({
      */
     data: {
         isLogin: false,
-        isLoading: true,
+        isLoading:true,
         pageIndex: 1,
         pageSize: 5,
         teamList: [],
@@ -19,13 +19,14 @@ Page({
         totalTeamApplyLogMyApply: 0,
         totalTeamApplyLogMyTeam: 0,
         isLogNew: false,
-        totalLogNew:''
+        totalLogNew: '',
+        isEmpty: true
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         if (common.isLogin()) {
             this.setData({
                 isLogin: true
@@ -39,15 +40,28 @@ Page({
     },
 
     loadAllData() {
+        this.setData({
+            isLoading:true
+        })
+        wx.showLoading({
+          title: '加载中...',
+        })
         let params = {
             pageIndex: this.data.pageIndex,
             pageSize: this.data.pageSize
         }
         api.apiListMyTeam(params).then((res) => {
+            console.log(res)
+            let isEmpty = true
+            if (res.data.teams.length > 0) {
+                isEmpty = false
+            }
             this.setData({
                 teamList: res.data.teams,
-                isLoading: false
+                isEmpty,
+                isLoading:false
             })
+            wx.hideLoading()
         }).catch((error) => {
             wx.showToast({
                 title: '读取数据失败',
@@ -134,9 +148,16 @@ Page({
 
 
     onCreateTeam() {
-        wx.navigateTo({
-            url: '../createTeam/createTeam',
-        })
+        let isLogin = wx.getStorageSync('isLogin')
+        if (isLogin) {
+            wx.navigateTo({
+                url: '../createTeam/createTeam',
+            })
+        } else {
+            wx.navigateTo({
+                url: '../../legacy/wxLogin/wxLogin',
+            })
+        }
     },
 
     onTeamRow(e) {
@@ -155,58 +176,58 @@ Page({
         })
     },
 
-    onTeamHistory(){
+    onTeamHistory() {
         wx.navigateTo({
-            url:'../teamHistory/list/teamHistory'
+            url: '../teamHistory/list/teamHistory'
         })
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {
+    onReady: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
         this.loadAllData()
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

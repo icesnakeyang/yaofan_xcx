@@ -14,18 +14,21 @@ function isLogin() {
  */
 function apiLogin(params) {
     return new Promise((resolve, reject) => {
+        console.log('login')
         wx.login({
             success: res => {
+                console.log('login success')
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
                 wx.getUserInfo({
                     success: infoRes => {
-                        let phone=''
-                        let os=''
-                        let avatarUrl=infoRes.userInfo.avatarUrl
+                        console.log('get user info success')
+                        let phone = ''
+                        let os = ''
+                        let avatarUrl = infoRes.userInfo.avatarUrl
                         try {
                             const res = wx.getSystemInfoSync()
-                            phone=res.model
-                            os=res.platform
+                            phone = res.model
+                            os = res.platform
                         } catch (e) {
                             // Do something when catch error
                         }
@@ -36,7 +39,7 @@ function apiLogin(params) {
                             code: res.code,
                             phone,
                             os,
-                          avatarUrl
+                            avatarUrl
                         }
 
                         //从后台登录当前微信用户，如果没有注册，就直接注册一个用户
@@ -44,10 +47,11 @@ function apiLogin(params) {
                             if (res.data.userInfo.token) {
 
                                 wx.setStorageSync('yaofan_token', res.data.userInfo.token)
-                            //   wx.setStorageSync('yaofan_token', 'd325143f-9b50-4b25-b52d-05392dcc704e')
+                                //   wx.setStorageSync('yaofan_token', 'd325143f-9b50-4b25-b52d-05392dcc704e')
 
                                 wx.setStorageSync('current_user_id', res.data.userInfo.userId)
                                 wx.setStorageSync('wxavatarurl', infoRes.userInfo.avatarUrl)
+                                wx.setStorageSync('isLogin', true)
                                 resolve(true)
                             } else {
                                 reject('没有获取到用户token')
@@ -57,16 +61,23 @@ function apiLogin(params) {
                         })
                     },
                     fail: err => {
-                        wx.navigateTo({
-                            url: '/pages/legacy/wxLogin/wxLogin'
-                        })
+                        console.log('get user info fail')
+                        // wx.navigateTo({
+                        //     url: '/pages/legacy/wxLogin/wxLogin'
+                        // })
+                        //使用游客账号登录
+                        wx.setStorageSync('yaofan_token', 'e9ecc769-ed28-4c9c-b2a6-2446c849db80')
+                        wx.setStorageSync('current_user_id', 'c11b70e3-a15a-4bea-b663-4389bf7187c5')
+                        wx.setStorageSync('isLogin', false)
+                        resolve(true)
                     }
                 })
             },
-            fail:err=>{
+            fail: err => {
+                console.log('login error')
+                throw new Error(err)
             },
-            complete:data=>{
-            }
+            complete: data => {}
         })
     })
 }

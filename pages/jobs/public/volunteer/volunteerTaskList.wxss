@@ -3,4 +3,7 @@
 
 .card_view{
     margin-top: 30rpx;
+    background: red;
+    margin: 20rpx;
+    border: 2rpx solid rgb(168, 26, 26);
 }

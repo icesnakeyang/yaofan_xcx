@@ -1,22 +1,28 @@
 <view class="page_view">
-  <view wx:if="{{isLoading}}" class="loading_view">
-    <van-loading type="spinner" />
-  </view>
-  <view wx:else="{{isLoading}}">
-    <view class="box_view">
-      <van-grid>
-        <van-grid-item icon="cashier-o" text="团队任务" />
-        <van-grid-item icon="friends-o" text="义工任务" bind:click="onVolunteerTask" />
-      </van-grid>
-    </view>
-    <view class="box_view">
-      <block wx:for="{{taskList}}" wx:key="index">
-        <view class="card_view" data-taskId="{{item.taskId}}" bindtap="onTaskRow">
-          <taskRow theData="{{item}}" />
-        </view>
-      </block>
-    </view>
-  </view>
+	<view wx:if="{{isLoading}}">
+	</view>
+	<view wx:else="{{isLoading}}">
+		<view class="box_view">
+			<van-grid>
+				<van-grid-item icon="cashier-o" text="团队任务" />
+				<van-grid-item icon="friends-o" text="义工任务" bind:click="onVolunteerTask" />
+			</van-grid>
+		</view>
+		<view wx:if="{{isNoneTeam}}" class="box_empty_view">
+			<text class="empty_text">您还没有加入团队，请在我的团队里搜索团队加入，或者创建一个自己的团队</text>
+		</view>
+		<view wx:else="{{isNoneTeam}}">
+			<view wx:if="{{isEmpty}}">
+			</view>
+			<view wx:else="{{isEmpty}}" class="box_view">
+				<block wx:for="{{taskList}}" wx:key="index">
+					<view class="card_view" data-taskId="{{item.taskId}}" bindtap="onTaskRow">
+						<taskRow theData="{{item}}" />
+					</view>
+				</block>
+			</view>
+		</view>
+	</view>
 </view>
 
 <van-notify id="van-notify" />

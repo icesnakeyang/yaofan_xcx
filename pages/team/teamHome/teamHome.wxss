@@ -1,6 +1,18 @@
 /* pages/team/teamHome/teamHome.wxss */
 @import '/css/global.wxss';
 
-.card_view{
+.card_view {
   margin-top: 30rpx;
+}
+
+.box_empty_view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50%;
+}
+
+.empty_text{
+  font-size: 34rpx;
+  color: rgb(58,58,58);
 }

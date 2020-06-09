@@ -9,6 +9,7 @@ Page({
      */
     data: {
         isLoading: true,
+        isEmpty:true,
         pageIndex: 1,
         pageSize: 10,
         volunteerTaskList: [],
@@ -26,16 +27,33 @@ Page({
     },
 
     loadAllData() {
+        wx.showLoading({
+          title: '加载中...',
+        })
+        this.setData({
+            isLoading:true,
+            isEmpty:true
+        })
         let params = {
             pageIndex: this.data.pageIndex,
             pageSize: this.data.pageSize
         }
         api.apiListMyVolunteerTask(params).then((res) => {
+            let isEmpty=true
+            if(res.data.volunteerTasks.length>0){
+                isEmpty=false
+            }
             this.setData({
                 volunteerTaskList: res.data.volunteerTasks,
-                isLoading: false
+                isLoading: false,
+                isEmpty
             })
+            wx.hideLoading()
         }).catch((error) => {
+            this.setData({
+                isLoading:false
+            })
+            wx.hideLoading()
             wx.showToast({
                 title: '读取义工任务失败',
                 icon: 'none'
@@ -57,9 +75,16 @@ Page({
     },
 
     onCreate() {
+        let isLogin=wx.getStorageSync('isLogin')
+        if(isLogin){
         wx.navigateTo({
             url: '/pages/volunteer/create/createVolunteerTask'
         })
+    }else{
+        wx.navigateTo({
+          url: '../../legacy/wxLogin/wxLogin'
+        })
+    }
     },
 
     onRow(e) {

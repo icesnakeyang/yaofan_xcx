@@ -9,13 +9,13 @@ Page({
     data: {
         userInfo: {},
         avatarUrl: '',
-        loginStatus:''
+        loginStatus: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
         this.loadAllData()
     },
 
@@ -23,11 +23,12 @@ Page({
         let token = wx.getStorageSync('yaofan_token')
         api.apiLoginByToken({}).then((res) => {
             let avatarUrl = wx.getStorageSync('wxavatarurl')
-            let yaofan_token=wx.getStorageSync('yaofan_token')
-            let current_user_id=wx.getStorageSync('current_user_id')
-            let loginStatus='未登录'
-            if(yaofan_token && current_user_id){
-                loginStatus='已登录'
+            let yaofan_token = wx.getStorageSync('yaofan_token')
+            let current_user_id = wx.getStorageSync('current_user_id')
+            let loginStatus = '未登录'
+            let isLogin = wx.getStorageSync('isLogin')
+            if (isLogin) {
+                loginStatus = '已登录'
             }
             this.setData({
                 userInfo: res.data.userInfo,
@@ -55,50 +56,57 @@ Page({
         })
     },
 
+    onAbout(){
+        console.log('go')
+        wx.navigateTo({
+          url: '../about/about',
+        })
+    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {},
+    onReady: function () {},
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function() {
+    onShow: function () {
         this.loadAllData()
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {
+    onHide: function () {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {
+    onUnload: function () {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function() {
+    onPullDownRefresh: function () {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {
+    onReachBottom: function () {
 
     },
 
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function () {
 
     }
 })

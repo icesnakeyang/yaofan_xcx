@@ -10,7 +10,8 @@ Page({
   data: {
     pageIndex:1,
     pageSize:10,
-    teamList:[]
+    teamList:[],
+    isEmpty:true
   },
 
   /**
@@ -21,15 +22,24 @@ Page({
   },
 
   loadAllData(){
+    wx.showLoading({
+      title: '加载中...',
+    })
     const params={
       pageIndex:this.data.pageIndex,
       pageSize:this.data.pageSize
     }
 
     api.apiListMyHistoryTeam(params).then((res)=>{
+      let isEmpty=true
+      if(res.data.historyTeams>0){
+        isEmpty=false
+      }
       this.setData({
-        teamList:res.data.historyTeams
+        teamList:res.data.historyTeams,
+        isEmpty
       })
+      wx.hideLoading()
     }).catch((error)=>{
       wx.showToast({
         title:'读取历史团队记录失败',

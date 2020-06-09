@@ -66,7 +66,8 @@
 		"pages/team/teamMember/memeberDetail/memberDetail",
 		"pages/jobs/myJob/myPartyAJob/myPartyAJob",
 		"pages/jobs/myJob/myPartyBJob/myPartyBJob",
-		"pages/jobs/myJob/myTeamJob/myTeamJob"
+		"pages/jobs/myJob/myTeamJob/myTeamJob",
+		"pages/legacy/about/about"
 	],
 	"window": {
 		"backgroundTextStyle": "dark",
