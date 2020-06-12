@@ -56,11 +56,21 @@ Page({
         })
     },
 
-    onAbout(){
+    onAbout() {
         console.log('go')
         wx.navigateTo({
-          url: '../about/about',
+            url: '../about/about',
         })
+    },
+
+    onLogin() {
+        console.log('login')
+        let isLogin = wx.getStorageSync('isLogin')
+        if (!isLogin) {
+            wx.navigateTo({
+                url: '../wxLogin/wxLogin'
+            })
+        }
     },
 
     /**

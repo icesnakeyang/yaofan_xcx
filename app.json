@@ -76,28 +76,38 @@
 		"navigationBarTextStyle": "black"
 	},
 	"tabBar": {
-		"list": [
-			{
+		"list": [{
 				"pagePath": "pages/jobs/public/plaza/publicJobList",
-				"text": "任务广场"
+				"text": "任务广场",
+				"iconPath": "image/tabbar/广场@2x.png",
+        "selectedIconPath": "image/tabbar/广场@2x_on.png"
 			},
 			{
 				"pagePath": "pages/team/teamHome/teamHome",
-				"text": "我的团队"
+				"text": "我的团队",
+				"iconPath":"image/tabbar/团队@2x.png",
+				"selectedIconPath":"image/tabbar/团队@2x_on.png"
 			},
 			{
 				"pagePath": "pages/jobs/myJob/myJobList/myJobList",
-				"text": "我的任务"
+				"text": "我的任务",
+				"iconPath":"image/tabbar/任务@2x.png",
+				"selectedIconPath":"image/tabbar/任务@2x_on.png"
 			},
 			{
 				"pagePath": "pages/account/dashboard/dashboard",
-				"text": "我的账户"
+				"text": "我的账户",
+				"iconPath":"image/tabbar/账户@2x.png",
+				"selectedIconPath":"image/tabbar/账户@2x_on.png"
 			},
 			{
 				"pagePath": "pages/legacy/home/home",
-				"text": "我的衣钵"
+				"text": "我的衣钵",
+				"iconPath":"image/tabbar/衣钵@2x.png",
+				"selectedIconPath":"image/tabbar/衣钵@2x_on.png"
 			}
 		]
 	},
+
 	"sitemapLocation": "sitemap.json"
 }

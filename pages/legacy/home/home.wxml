@@ -4,7 +4,7 @@
         <van-panel title="基本信息">
             <view>
                 <van-cell-group>
-                    <van-cell value="{{loginStatus}}" center>
+                    <van-cell value="{{loginStatus}}" center bind:click="onLogin">
                         <view slot="icon">
                             <image class="avatar_view" src="{{avatarUrl}}"></image>
                         </view>
