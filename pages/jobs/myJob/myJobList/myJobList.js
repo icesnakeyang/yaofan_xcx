@@ -58,6 +58,7 @@ Page({
         }
         return new Promise((resolve, reject) => {
             api.apiListMyTasksTiny(params).then((res) => {
+                console.log(res)
                 const catchTasks = res.data.tasks
                 let isEmpty = true
                 if (res.data.tasks.length > 0) {

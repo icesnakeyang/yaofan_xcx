@@ -121,13 +121,19 @@ Page({
     },
 
     onSearch() {
+        this.setData({
+            isEmpty:true,
+            teamList:[]
+        })
         if (this.data.searchKey) {} else {
             return
         }
         let params = {
             name: this.data.searchKey
         }
+        console.log(params)
         api.apiSearchTeam(params).then((res) => {
+            console.log(res)
             if (res.data.teams.length === 0) {
                 wx.showToast({
                     title: '没有搜索到团队',
@@ -135,10 +141,13 @@ Page({
                 })
             } else {
                 this.setData({
-                    teamList: res.data.teams
+                    teamList: res.data.teams,
+                    isEmpty:false
                 })
+                console.log(this.data)
             }
         }).catch((error) => {
+            console.log(error)
             wx.showToast({
                 title: '搜索团队失败',
                 icon: 'none'
